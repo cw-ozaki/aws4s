@@ -1,7 +1,7 @@
 package com.github.j5ik2o.aws.dynamodb.model
 
 import com.amazonaws.services.dynamodbv2.model._
-import com.github.j5ik2o.aws.dynamodb.PimpedType
+import com.github.j5ik2o.aws.PimpedType
 
 import scala.collection.JavaConverters._
 
@@ -19,21 +19,33 @@ object CreateTableRequestFactory {
 
 class RichCreateTableRequest(val underlying: CreateTableRequest) extends AnyVal with PimpedType[CreateTableRequest] {
 
+  def attributeDefinitions_=(value: Seq[AttributeDefinition]): Unit =
+    underlying.setAttributeDefinitions(value.asJava)
+
   def attributeDefinitions: Seq[AttributeDefinition] = underlying.getAttributeDefinitions.asScala
 
   def withAttributeDefinitions(attributeDefinitions: Iterable[AttributeDefinition]): CreateTableRequest =
     underlying.withAttributeDefinitions(attributeDefinitions.toSeq.asJava)
+
+  def keyScheme_=(value: Seq[KeySchemaElement]): Unit =
+    underlying.setKeySchema(value.asJava)
 
   def keySchema: Seq[KeySchemaElement] = underlying.getKeySchema.asScala
 
   def withKeySchema(keySchema: Iterable[KeySchemaElement]): CreateTableRequest =
     underlying.withKeySchema(keySchema.toSeq.asJava)
 
+  def localSecondaryIndexes_=(value: Seq[LocalSecondaryIndex]): Unit =
+    underlying.setLocalSecondaryIndexes(value.asJava)
+
   def localSecondaryIndexes: Seq[LocalSecondaryIndex] =
     underlying.getLocalSecondaryIndexes.asScala
 
   def withLocalSecondaryIndexes(localSecondaryIndexes: Iterable[LocalSecondaryIndex]): CreateTableRequest =
     underlying.withLocalSecondaryIndexes(localSecondaryIndexes.toSeq.asJava)
+
+  def globalSecondaryIndexes_=(value: Seq[GlobalSecondaryIndex]): Unit =
+    underlying.setGlobalSecondaryIndexes(value.asJava)
 
   def globalSecondaryIndexes: Seq[GlobalSecondaryIndex] = underlying.getGlobalSecondaryIndexes.asScala
 

@@ -3,7 +3,7 @@ package com.github.j5ik2o.aws.dynamodb.document
 import java.nio.ByteBuffer
 
 import com.amazonaws.services.dynamodbv2.document.Item
-import com.github.j5ik2o.aws.dynamodb.PimpedType
+import com.github.j5ik2o.aws.PimpedType
 
 import scala.collection.JavaConverters._
 

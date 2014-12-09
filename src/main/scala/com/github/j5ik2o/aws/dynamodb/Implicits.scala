@@ -2,6 +2,7 @@ package com.github.j5ik2o.aws.dynamodb
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.document._
+import com.amazonaws.services.dynamodbv2.document.internal.{Filter, PageBasedCollection}
 import com.amazonaws.services.dynamodbv2.model._
 import com.github.j5ik2o.aws.dynamodb.document._
 import com.github.j5ik2o.aws.dynamodb.model._
@@ -18,7 +19,23 @@ trait AmazonDynamoDBClientImplicits {
 
 trait DocumentImplicits {
 
-  implicit def richRichItemCollection(underlying: ItemCollection): RichItemCollection = new RichItemCollection(underlying)
+  implicit def richUpdateItemOutcome(underlying: UpdateItemOutcome): RichUpdateItemOutcome = new RichUpdateItemOutcome(underlying)
+
+  implicit def richTableWriteItems(underlying: TableWriteItems): RichTableWriteItems = new RichTableWriteItems(underlying)
+
+  implicit def richTableKeysAndAttributes(underlying: TableKeysAndAttributes): RichTableKeysAndAttributes = new RichTableKeysAndAttributes(underlying)
+
+  implicit def richPageBasedCollection[T, R](underlying: PageBasedCollection[T, R]): RichPageBasedCollection[T, R] = new RichPageBasedCollection[T, R](underlying)
+
+  implicit def richScanOutcome(underlying: ScanOutcome): RichScanOutcome = new RichScanOutcome(underlying)
+
+  implicit def richRangeKeyCondition(underlying: RangeKeyCondition): RichRangeKeyCondition = new RichRangeKeyCondition(underlying)
+
+  implicit def richQueryOutcome(underlying: QueryOutcome): RichQueryOutcome = new RichQueryOutcome(underlying)
+
+  implicit def richPrimaryKey(underlying: PrimaryKey): RichPrimaryKey = new RichPrimaryKey(underlying)
+
+  implicit def richRichItemCollection[R](underlying: ItemCollection[R]): RichItemCollection[R] = new RichItemCollection[R](underlying)
 
   implicit def richDynamoDB(underlying: DynamoDB): RichDynamoDB = new RichDynamoDB(underlying)
 
@@ -32,7 +49,7 @@ trait DocumentImplicits {
 
   implicit def richAttributeUpdate(underlying: AttributeUpdate): RichAttributeUpdate = new RichAttributeUpdate(underlying)
 
-  //  implicit def richFilter[T](filter: Filter[T]): RichFilter[T] = new RichFilter[T](filter)
+  implicit def richFilter[T <: Filter[T]](filter: Filter[T]): RichFilter[T] = new RichFilter[T](filter)
 
   implicit def richBatchWriteItemOutcome(underlying: BatchWriteItemOutcome): RichBatchWriteItemOutcome = new RichBatchWriteItemOutcome(underlying)
 
@@ -40,6 +57,10 @@ trait DocumentImplicits {
 }
 
 trait ModelImplicits {
+
+  implicit def richConsumedCapacity(underlying: ConsumedCapacity): RichConsumedCapacity = new RichConsumedCapacity(underlying)
+
+  implicit def richCondition(underlying: Condition): RichCondition = new RichCondition(underlying)
 
   implicit def richBatchGetItemRequest(underlying: BatchGetItemRequest): RichBatchGetItemRequest = new RichBatchGetItemRequest(underlying)
 
@@ -55,8 +76,21 @@ trait ModelImplicits {
 
   implicit def richCreateTableResult(underlying: CreateTableResult): RichCreateTableResult = new RichCreateTableResult(underlying)
 
+  implicit def richDeleteItemRequest(underlying: DeleteItemRequest): RichDeleteItemRequest = new RichDeleteItemRequest(underlying)
+
+  implicit def richDeleteItemResult(underlying: DeleteItemResult): RichDeleteItemResult = new RichDeleteItemResult(underlying)
+
+  implicit def richDeleteRequest(underlying: DeleteRequest): RichDeleteRequest = new RichDeleteRequest(underlying)
+
   implicit def richAttributeValue(underlying: AttributeValue): RichAttributeValue = new RichAttributeValue(underlying)
 
   implicit def richAttributeValueUpdate(underlying: AttributeValueUpdate): RichAttributeValueUpdate = new RichAttributeValueUpdate(underlying)
 
+  implicit def richDeleteTableRequest(underlying: DeleteTableRequest): RichDeleteTableRequest = new RichDeleteTableRequest(underlying)
+
+  implicit def richDeleteTableResult(underlying: DeleteTableResult): RichDeleteTableResult = new RichDeleteTableResult(underlying)
+
+  implicit def richDescribeTableRequest(underlying: DescribeTableRequest): RichDescribeTableRequest = new RichDescribeTableRequest(underlying)
+
+  implicit def richDescribeTableResult(underlying: DescribeTableResult): RichDescribeTableResult = new RichDescribeTableResult(underlying)
 }

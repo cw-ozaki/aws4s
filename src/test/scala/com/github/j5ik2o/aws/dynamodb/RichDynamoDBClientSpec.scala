@@ -1,5 +1,7 @@
 package com.github.j5ik2o.aws.dynamodb
 
+import com.amazonaws.auth.{BasicAWSCredentials, AnonymousAWSCredentials, AWSCredentials}
+import com.amazonaws.regions.Region
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.local.server.{DynamoDBProxyServer, LocalDynamoDBRequestHandler, LocalDynamoDBServerHandler}
 import com.amazonaws.services.dynamodbv2.model._
@@ -23,7 +25,7 @@ class RichDynamoDBClientSpec extends FunSpec {
       val server = createServer
       server.start()
 
-      val dynamo = AmazonDynamoDBClientFactory()
+      val dynamo = AmazonDynamoDBClientFactory(new BasicAWSCredentials("x", "x"))
       dynamo.setEndpoint("http://localhost:8000")
 
       val req = CreateTableRequestFactory().
@@ -38,6 +40,11 @@ class RichDynamoDBClientSpec extends FunSpec {
       println(td)
 
       val result = dynamo.listTables(10)
+
+      val d = dynamo.describeTable("test")
+
+      println(d.table)
+
       println(result.tableNames)
 
       server.stop()
