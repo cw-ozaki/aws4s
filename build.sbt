@@ -1,3 +1,5 @@
+import SonatypeKeys._
+
 name := "aws-dynamodb-scala"
 
 version := "1.0"
@@ -21,10 +23,24 @@ libraryDependencies ++= Seq(
   "org.eclipse.jetty" % "jetty-server" % "8.1.12.v20130726" % "test"
 )
 
-classpathTypes ++= Set("jnilib", "dll")
-
-javaOptions in test += "-Djava.library.path=./lib"
-
-initialCommands := """
-    |System.setProperty("java.library.path", "./lib");
-  """.stripMargin
+pomExtra := {
+  <url>https://github.com/j5ik2o/aws-dynamodb-scala</url>
+    <licenses>
+      <license>
+        <name>Apache 2</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+    </licenses>
+    <scm>
+      <url>git@github.com:j5ik2o/aws-dynamodb-scala.git</url>
+      <connection>scm:git:github.com/j5ik2o/aws-dynamodb-scala</connection>
+      <developerConnection>scm:git:git@github.com:j5ik2o/aws-dynamodb-scala.git</developerConnection>
+    </scm>
+    <developers>
+      <developer>
+        <id>j5ik2o</id>
+        <name>Junichi Kato</name>
+        <url>http://j5ik2o.me/</url>
+      </developer>
+    </developers>
+}

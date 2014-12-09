@@ -8,41 +8,55 @@ import com.github.j5ik2o.aws.dynamodb.model._
 
 object Implicits extends Implicits
 
-trait Implicits extends DynamoDBClientImplicits with DocumentImplicits with ModelImplicits
+trait Implicits extends AmazonDynamoDBClientImplicits with DocumentImplicits with ModelImplicits
 
-trait DynamoDBClientImplicits {
+trait AmazonDynamoDBClientImplicits {
 
-  implicit def richDynamoDBClient(client: AmazonDynamoDBClient): RichAmazonDynamoDBClient = new RichAmazonDynamoDBClient(client)
+  implicit def richAmazonDynamoDBClient(underlying: AmazonDynamoDBClient): RichAmazonDynamoDBClient = new RichAmazonDynamoDBClient(underlying)
 
 }
 
 trait DocumentImplicits {
 
-  implicit def richDynamoDB(db: DynamoDB): RichDynamoDB = new RichDynamoDB(db)
+  implicit def richRichItemCollection(underlying: ItemCollection): RichItemCollection = new RichItemCollection(underlying)
 
-  implicit def richItem(item: Item): RichItem = new RichItem(item)
+  implicit def richDynamoDB(underlying: DynamoDB): RichDynamoDB = new RichDynamoDB(underlying)
 
-  implicit def richTable(table: Table): RichTable = new RichTable(table)
+  implicit def richGetItemOutcome(underlying: GetItemOutcome): RichGetItemOutcome = new RichGetItemOutcome(underlying)
 
-  implicit def richAttributeUpdate(au: AttributeUpdate): RichAttributeUpdate = new RichAttributeUpdate(au)
+  implicit def richItem(underlying: Item): RichItem = new RichItem(underlying)
+
+  implicit def richIndex(underlying: Index): RichIndex = new RichIndex(underlying)
+
+  implicit def richTable(underlying: Table): RichTable = new RichTable(underlying)
+
+  implicit def richAttributeUpdate(underlying: AttributeUpdate): RichAttributeUpdate = new RichAttributeUpdate(underlying)
 
   //  implicit def richFilter[T](filter: Filter[T]): RichFilter[T] = new RichFilter[T](filter)
 
-  implicit def richBatchWriteItemOutcome(r: BatchWriteItemOutcome): RichBatchWriteItemOutcome = new RichBatchWriteItemOutcome(r)
+  implicit def richBatchWriteItemOutcome(underlying: BatchWriteItemOutcome): RichBatchWriteItemOutcome = new RichBatchWriteItemOutcome(underlying)
 
-  implicit def richBatchGetItemOutcome(r: BatchGetItemOutcome): RichBatchGetItemOutcome = new RichBatchGetItemOutcome(r)
+  implicit def richBatchGetItemOutcome(underlying: BatchGetItemOutcome): RichBatchGetItemOutcome = new RichBatchGetItemOutcome(underlying)
 }
 
 trait ModelImplicits {
 
-  implicit def richListTablesResult(ltr: ListTablesResult): RichListTablesResult = new RichListTablesResult(ltr)
+  implicit def richBatchGetItemRequest(underlying: BatchGetItemRequest): RichBatchGetItemRequest = new RichBatchGetItemRequest(underlying)
 
-  implicit def richCreateTableRequest(ctr: CreateTableRequest): RichCreateTableRequest = new RichCreateTableRequest(ctr)
+  implicit def richBatchGetItemResult(underlying: BatchGetItemResult): RichBatchGetItemResult = new RichBatchGetItemResult(underlying)
 
-  implicit def richCreateTableResult(ctr: CreateTableResult): RichCreateTableResult = new RichCreateTableResult(ctr)
+  implicit def richBatchWriteItemRequest(underlying: BatchWriteItemRequest): RichBatchWriteItemRequest = new RichBatchWriteItemRequest(underlying)
 
-  implicit def richAttributeValue(av: AttributeValue): RichAttributeValue = new RichAttributeValue(av)
+  implicit def richBatchWriteItemResult(underlying: BatchWriteItemResult): RichBatchWriteItemResult = new RichBatchWriteItemResult(underlying)
 
-  implicit def richAttributeValueUpdate(avu: AttributeValueUpdate): RichAttributeValueUpdate = new RichAttributeValueUpdate(avu)
+  implicit def richListTablesResult(underlying: ListTablesResult): RichListTablesResult = new RichListTablesResult(underlying)
+
+  implicit def richCreateTableRequest(underlying: CreateTableRequest): RichCreateTableRequest = new RichCreateTableRequest(underlying)
+
+  implicit def richCreateTableResult(underlying: CreateTableResult): RichCreateTableResult = new RichCreateTableResult(underlying)
+
+  implicit def richAttributeValue(underlying: AttributeValue): RichAttributeValue = new RichAttributeValue(underlying)
+
+  implicit def richAttributeValueUpdate(underlying: AttributeValueUpdate): RichAttributeValueUpdate = new RichAttributeValueUpdate(underlying)
 
 }

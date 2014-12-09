@@ -5,6 +5,7 @@ import com.amazonaws.auth.{AWSCredentialsProvider, AWSCredentials}
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.model._
+import com.github.j5ik2o.aws.PimpedType
 
 import scala.collection.JavaConverters._
 
