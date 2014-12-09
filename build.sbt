@@ -1,6 +1,6 @@
 import SonatypeKeys._
 
-name := "aws-scala"
+name := "aws4s"
 
 lazy val commonSettings = Seq(
 version := "1.0.0",
@@ -32,21 +32,21 @@ pomExtra := {
 )
 
 
-lazy val root = Project(id = "aws-scala",
+lazy val root = Project(id = "aws4s",
                          base = file(".")).aggregate(awsCore, awsDynamoDB)
 
-lazy val awsCore = Project(id = "aws-core-scala", base = file("aws-core-scala")).
+lazy val awsCore = Project(id = "aws4s-core", base = file("aws4s-core")).
   settings(commonSettings: _*)
 
-lazy val awsS3 = Project(id = "aws-s3-scala", base = file("aws-s3-scala")).
+lazy val awsS3 = Project(id = "aws4s-s3", base = file("aws4s-s3")).
   settings(commonSettings: _*).dependsOn(awsCore).settings(
     libraryDependencies ++= Seq(
       "com.amazonaws" % "aws-java-sdk-s3" % "1.9.8"
     )
   )
 
-lazy val awsDynamoDB = Project(id = "aws-dynamodb-scala",
-                               base = file("aws-dynamodb-scala")).
+lazy val awsDynamoDB = Project(id = "aws4s-dynamodb",
+                               base = file("aws4s-dynamodb")).
 settings(commonSettings: _*).settings(
   libraryDependencies ++= Seq(
     "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.8",
