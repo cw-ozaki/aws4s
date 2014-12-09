@@ -1,15 +1,15 @@
 import SonatypeKeys._
-
+  
 name := "aws4s"
 
 lazy val commonSettings = Seq(
-version := "1.0.0",
-scalaVersion := "2.11.4",
-libraryDependencies ++= Seq(
-  "com.amazonaws" % "aws-java-sdk-core" % "1.9.8"
-),
-pomExtra := {
-  <url>https://github.com/j5ik2o/aws-dynamodb-scala</url>
+  version := "1.0.0",
+  scalaVersion := "2.11.4",
+  libraryDependencies ++= Seq(
+    "com.amazonaws" % "aws-java-sdk-core" % "1.9.8"
+  ),
+  pomExtra := {
+  <url>https://github.com/j5ik2o/aws4s</url>
     <licenses>
       <license>
         <name>Apache 2</name>
@@ -17,9 +17,9 @@ pomExtra := {
       </license>
     </licenses>
     <scm>
-      <url>git@github.com:j5ik2o/aws-scala.git</url>
-      <connection>scm:git:github.com/j5ik2o/aws-scala</connection>
-      <developerConnection>scm:git:git@github.com:j5ik2o/aws-scala.git</developerConnection>
+      <url>git@github.com:j5ik2o/aws4s.git</url>
+      <connection>scm:git:github.com/j5ik2o/aws4s</connection>
+      <developerConnection>scm:git:git@github.com:j5ik2o/aws4s.git</developerConnection>
     </scm>
     <developers>
       <developer>
@@ -28,12 +28,11 @@ pomExtra := {
         <url>http://j5ik2o.me/</url>
       </developer>
     </developers>
-}
+  }
 )
 
-
 lazy val root = Project(id = "aws4s",
-                         base = file(".")).aggregate(awsCore, awsDynamoDB)
+                         base = file(".")).aggregate(awsCore, awsDynamoDB, awsS3)
 
 lazy val awsCore = Project(id = "aws4s-core", base = file("aws4s-core")).
   settings(commonSettings: _*)
@@ -47,7 +46,7 @@ lazy val awsS3 = Project(id = "aws4s-s3", base = file("aws4s-s3")).
 
 lazy val awsDynamoDB = Project(id = "aws4s-dynamodb",
                                base = file("aws4s-dynamodb")).
-settings(commonSettings: _*).settings(
+settings(commonSettings: _*).dependsOn(awsCore).settings(
   libraryDependencies ++= Seq(
     "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.8",
     "org.scalatest" %% "scalatest" % "2.2.1" % "test",
@@ -64,4 +63,4 @@ settings(commonSettings: _*).settings(
     "org.eclipse.jetty.spdy" % "spdy-jetty-http" % "8.1.12.v20130726" % "test",
     "org.eclipse.jetty" % "jetty-server" % "8.1.12.v20130726" % "test"
   )
-).dependsOn(awsCore)
+)
