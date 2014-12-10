@@ -1,13 +1,29 @@
 import SonatypeKeys._
   
-name := "aws4s"
-
 lazy val commonSettings = Seq(
-  version := "1.0.0",
+  organization := "org.sisioh",
+  version := "1.0.0-SNAPSHOT",
   scalaVersion := "2.11.4",
+  scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-language:implicitConversions"),
+  shellPrompt := {
+    "sbt (%s)> " format projectId(_)
+  },
   libraryDependencies ++= Seq(
     "com.amazonaws" % "aws-java-sdk-core" % "1.9.8"
   ),
+  publishMavenStyle := true,
+  publishArtifact in Test := false,
+  pomIncludeRepository := {
+    _ => false
+  },
+  publishTo <<= version {
+    (v: String) =>
+      val nexus = "https://oss.sonatype.org/"
+      if (v.trim.endsWith("SNAPSHOT"))
+        Some("snapshots" at nexus + "content/repositories/snapshots")
+      else
+        Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  },
   pomExtra := {
   <url>https://github.com/j5ik2o/aws4s</url>
     <licenses>
@@ -64,3 +80,8 @@ settings(commonSettings: _*).dependsOn(awsCore).settings(
     "org.eclipse.jetty" % "jetty-server" % "8.1.12.v20130726" % "test"
   )
 )
+
+
+def projectId(state: State) = extracted(state).currentProject.id
+
+def extracted(state: State) = Project extract state
