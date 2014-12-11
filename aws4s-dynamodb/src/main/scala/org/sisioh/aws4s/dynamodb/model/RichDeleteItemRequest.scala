@@ -1,12 +1,9 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import java.util.Map.Entry
-
 import com.amazonaws.services.dynamodbv2.model._
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
-
 
 object DeleteItemRequestFactory {
 
@@ -21,16 +18,6 @@ object DeleteItemRequestFactory {
 
 }
 
-private case class KeyEntry(key: String, var value: AttributeValue) extends Entry[String, AttributeValue] {
-  override def getKey: String = key
-
-  override def getValue: AttributeValue = value
-
-  override def setValue(value: AttributeValue): AttributeValue = {
-    this.value = value
-    this.value
-  }
-}
 
 class RichDeleteItemRequest(val underlying: DeleteItemRequest) extends AnyVal with PimpedType[DeleteItemRequest] {
 

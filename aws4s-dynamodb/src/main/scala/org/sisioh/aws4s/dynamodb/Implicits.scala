@@ -19,6 +19,10 @@ trait AmazonDynamoDBClientImplicits {
 
 trait DocumentImplicits {
 
+  implicit def richGetItemRequest(underlying : GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
+
+  implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
+
   implicit def richUpdateItemOutcome(underlying: UpdateItemOutcome): RichUpdateItemOutcome = new RichUpdateItemOutcome(underlying)
 
   implicit def richTableWriteItems(underlying: TableWriteItems): RichTableWriteItems = new RichTableWriteItems(underlying)
