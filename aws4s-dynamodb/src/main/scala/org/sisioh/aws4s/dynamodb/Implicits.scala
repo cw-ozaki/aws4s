@@ -72,6 +72,12 @@ trait DocumentImplicits {
 
 trait ModelImplicits {
 
+  // -- LocalSecondaryIndex
+
+  implicit def richLocalSecondaryIndex(underlying: LocalSecondaryIndex): RichLocalSecondaryIndex = new RichLocalSecondaryIndex(underlying)
+
+  implicit def richLocalSecondaryIndexDescription(underlying: LocalSecondaryIndexDescription): RichLocalSecondaryIndexDescription = new RichLocalSecondaryIndexDescription(underlying)
+
   // -- GlobalSecondaryIndex
 
   implicit def richGlobalSecondaryIndex(underlying: GlobalSecondaryIndex): RichGlobalSecondaryIndex = new RichGlobalSecondaryIndex(underlying)
