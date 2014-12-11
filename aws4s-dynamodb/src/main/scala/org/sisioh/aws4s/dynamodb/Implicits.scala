@@ -59,7 +59,13 @@ trait DocumentImplicits {
 
 trait ModelImplicits {
 
-  implicit def richGetItemRequest(underlying : GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
+  implicit def richProvisionedThroughputDescription(underlying: ProvisionedThroughputDescription): RichProvisionedThroughputDescription = new RichProvisionedThroughputDescription(underlying)
+
+  implicit def richProvisionedThroughput(underlying: ProvisionedThroughput): RichProvisionedThroughput = new RichProvisionedThroughput(underlying)
+
+  implicit def richProjection(underlying: Projection): RichProjection = new RichProjection(underlying)
+
+  implicit def richGetItemRequest(underlying: GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
 
   implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
 
