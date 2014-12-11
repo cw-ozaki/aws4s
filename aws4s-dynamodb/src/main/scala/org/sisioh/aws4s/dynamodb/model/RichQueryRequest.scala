@@ -29,9 +29,9 @@ class RichQueryRequest(val underlying: QueryRequest) extends AnyVal with PimpedT
 
   def attributesToGet: Seq[String] = underlying.getAttributesToGet.asScala
 
-  def attributesToGet_=(value: Seq[String]): Unit = underlying.setAttributesToGet(value.asJava)
+  def attributesToGet_=(value: Iterable[String]): Unit = underlying.setAttributesToGet(value.toSeq.asJava)
 
-  def withAttributesToGet(value: Seq[String]): QueryRequest = underlying.withAttributesToGet(value.asJava)
+  def withAttributesToGet(value: Iterable[String]): QueryRequest = underlying.withAttributesToGet(value.toSeq.asJava)
 
   def limit: Int = underlying.getLimit
 

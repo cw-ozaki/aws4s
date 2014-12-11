@@ -86,6 +86,8 @@ trait ModelImplicits {
 
   implicit def richGlobalSecondaryIndexUpdate(underlying: GlobalSecondaryIndexUpdate): RichGlobalSecondaryIndexUpdate = new RichGlobalSecondaryIndexUpdate(underlying)
 
+  implicit def richUpdateGlobalSecondaryIndexAction(underlying: UpdateGlobalSecondaryIndexAction): RichUpdateGlobalSecondaryIndexAction = new RichUpdateGlobalSecondaryIndexAction(underlying)
+
   // -- Query/Scan
 
   implicit def richQueryRequest(underlying: QueryRequest): RichQueryRequest = new RichQueryRequest(underlying)
@@ -107,6 +109,10 @@ trait ModelImplicits {
   implicit def richGetItemRequest(underlying: GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
 
   implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
+
+  implicit def richUpdateItemRequest(underlying: UpdateItemRequest): RichUpdateItemRequest = new RichUpdateItemRequest(underlying)
+
+  implicit def richUpdateItemResult(underlying: UpdateItemResult): RichUpdateItemResult = new RichUpdateItemResult(underlying)
 
   implicit def richDeleteItemRequest(underlying: DeleteItemRequest): RichDeleteItemRequest = new RichDeleteItemRequest(underlying)
 
@@ -140,9 +146,9 @@ trait ModelImplicits {
 
   // -- Other
 
-  implicit def richTableDescription(underlying: TableDescription): RichTableDescription = new RichTableDescription(underlying)
+  implicit def RichKeySchemaElement(underlying: KeySchemaElement): RichKeySchemaElement = new RichKeySchemaElement(underlying)
 
-  implicit def richDeleteRequest(underlying: DeleteRequest): RichDeleteRequest = new RichDeleteRequest(underlying)
+  implicit def richTableDescription(underlying: TableDescription): RichTableDescription = new RichTableDescription(underlying)
 
   implicit def richAttributeValue(underlying: AttributeValue): RichAttributeValue = new RichAttributeValue(underlying)
 
@@ -155,4 +161,14 @@ trait ModelImplicits {
   implicit def richProvisionedThroughput(underlying: ProvisionedThroughput): RichProvisionedThroughput = new RichProvisionedThroughput(underlying)
 
   implicit def richProjection(underlying: Projection): RichProjection = new RichProjection(underlying)
+
+  implicit def richPutRequest(underlying: PutRequest): RichPutRequest = new RichPutRequest(underlying)
+
+  implicit def richDeleteRequest(underlying: DeleteRequest): RichDeleteRequest = new RichDeleteRequest(underlying)
+
+  implicit def richItemCollectionMetrics(underlying: ItemCollectionMetrics): RichItemCollectionMetrics = new RichItemCollectionMetrics(underlying)
+
+  implicit def richCapacity(underlying: Capacity): RichCapacity = new RichCapacity(underlying)
+
+  implicit def richKeysAndAttributes(underlying: KeysAndAttributes): RichKeysAndAttributes = new RichKeysAndAttributes(underlying)
 }

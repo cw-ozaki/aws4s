@@ -23,7 +23,7 @@ class RichScanResult(val underlying: ScanResult) extends AnyVal with PimpedType[
 
   def scannedCount: Int = underlying.getScannedCount
 
-  def scannedCount(value: Int): Unit = underlying.setScannedCount(value)
+  def scannedCount_=(value: Int): Unit = underlying.setScannedCount(value)
 
   def lastEvaluatedKey: Map[String, AttributeValue] = underlying.getLastEvaluatedKey.asScala.toMap
 
