@@ -67,6 +67,12 @@ class RichQueryRequest(val underlying: QueryRequest) extends AnyVal with PimpedT
 
   def withExclusiveStartKey(value: Map[String, AttributeValue]): QueryRequest = underlying.withExclusiveStartKey(value.asJava)
 
+  def setExclusiveStartKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): Unit =
+    underlying.setExclusiveStartKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
+
+  def withExclusiveStartKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): QueryRequest =
+    underlying.withExclusiveStartKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
+
   def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
 
   def returnConsumedCapacity_=(value: String) = underlying.setReturnConsumedCapacity(value)

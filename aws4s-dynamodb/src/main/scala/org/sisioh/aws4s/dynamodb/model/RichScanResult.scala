@@ -1,23 +1,21 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{AttributeValue, ConsumedCapacity, QueryResult}
+import com.amazonaws.services.dynamodbv2.model.{AttributeValue, ConsumedCapacity, ScanResult}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
-object QueryResultFactory {
+object ScanResultFactory {
 
-  def apply(): QueryResult = new QueryResult()
+  def apply(): ScanResult = new ScanResult()
 
 }
 
-class RichQueryResult(val underlying: QueryResult) extends AnyVal with PimpedType[QueryResult] {
+class RichScanResult(val underlying: ScanResult) extends AnyVal with PimpedType[ScanResult] {
 
   def items: Seq[Map[String, AttributeValue]] = underlying.getItems.asScala.map(_.asScala.toMap)
 
-  def items_=(value: Seq[Map[String, AttributeValue]]): Unit = underlying.setItems(value.map(_.asJava).asJava)
-
-  def withItems(value: Seq[Map[String, AttributeValue]]): QueryResult = underlying.withItems(value.map(_.asJava).asJava)
+  def items(value: Seq[Map[String, AttributeValue]]): Unit = underlying.setItems(value.map(_.asJava).asJava)
 
   def count: Int = underlying.getCount
 
@@ -25,13 +23,11 @@ class RichQueryResult(val underlying: QueryResult) extends AnyVal with PimpedTyp
 
   def scannedCount: Int = underlying.getScannedCount
 
-  def scannedCount_=(value: Int): Unit = underlying.setScannedCount(value)
+  def scannedCount(value: Int): Unit = underlying.setScannedCount(value)
 
   def lastEvaluatedKey: Map[String, AttributeValue] = underlying.getLastEvaluatedKey.asScala.toMap
 
   def lastEvaluatedKey_=(value: Map[String, AttributeValue]): Unit = underlying.setLastEvaluatedKey(value.asJava)
-
-  def withLastEvaluatedKey(value: Map[String, AttributeValue]): QueryResult = underlying.withLastEvaluatedKey(value.asJava)
 
   def consumedCapacity: ConsumedCapacity = underlying.getConsumedCapacity
 

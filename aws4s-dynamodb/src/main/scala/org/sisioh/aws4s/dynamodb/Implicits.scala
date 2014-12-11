@@ -65,8 +65,11 @@ trait ModelImplicits {
 
   implicit def richQueryResult(underlying: QueryResult): RichQueryResult = new RichQueryResult(underlying)
 
-  implicit def richCondition(underlying: Condition): RichCondition = new RichCondition(underlying)
+  implicit def richScanRequest(underlying: ScanRequest): RichScanRequest = new RichScanRequest(underlying)
 
+  implicit def richScanResult(underlying: ScanResult): RichScanResult = new RichScanResult(underlying)
+
+  implicit def richCondition(underlying: Condition): RichCondition = new RichCondition(underlying)
 
   // -- Item
 
