@@ -19,10 +19,6 @@ trait AmazonDynamoDBClientImplicits {
 
 trait DocumentImplicits {
 
-  implicit def richGetItemRequest(underlying : GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
-
-  implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
-
   implicit def richUpdateItemOutcome(underlying: UpdateItemOutcome): RichUpdateItemOutcome = new RichUpdateItemOutcome(underlying)
 
   implicit def richTableWriteItems(underlying: TableWriteItems): RichTableWriteItems = new RichTableWriteItems(underlying)
@@ -58,9 +54,18 @@ trait DocumentImplicits {
   implicit def richBatchWriteItemOutcome(underlying: BatchWriteItemOutcome): RichBatchWriteItemOutcome = new RichBatchWriteItemOutcome(underlying)
 
   implicit def richBatchGetItemOutcome(underlying: BatchGetItemOutcome): RichBatchGetItemOutcome = new RichBatchGetItemOutcome(underlying)
+
 }
 
 trait ModelImplicits {
+
+  implicit def richGetItemRequest(underlying : GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
+
+  implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
+
+  implicit def richPutItemRequest(underlying: PutItemRequest): RichPutItemRequest = new RichPutItemRequest(underlying)
+
+  implicit def richPutItemResult(underlying: PutItemResult): RichPutItemResult = new RichPutItemResult(underlying)
 
   implicit def richConsumedCapacity(underlying: ConsumedCapacity): RichConsumedCapacity = new RichConsumedCapacity(underlying)
 
