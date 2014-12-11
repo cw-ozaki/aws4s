@@ -59,23 +59,28 @@ trait DocumentImplicits {
 
 trait ModelImplicits {
 
-  implicit def richProvisionedThroughputDescription(underlying: ProvisionedThroughputDescription): RichProvisionedThroughputDescription = new RichProvisionedThroughputDescription(underlying)
+  // -- Query/Scan
 
-  implicit def richProvisionedThroughput(underlying: ProvisionedThroughput): RichProvisionedThroughput = new RichProvisionedThroughput(underlying)
+  implicit def richQueryRequest(underlying: QueryRequest): RichQueryRequest = new RichQueryRequest(underlying)
 
-  implicit def richProjection(underlying: Projection): RichProjection = new RichProjection(underlying)
+  implicit def richQueryResult(underlying: QueryResult): RichQueryResult = new RichQueryResult(underlying)
 
-  implicit def richGetItemRequest(underlying: GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
+  implicit def richCondition(underlying: Condition): RichCondition = new RichCondition(underlying)
 
-  implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
+
+  // -- Item
 
   implicit def richPutItemRequest(underlying: PutItemRequest): RichPutItemRequest = new RichPutItemRequest(underlying)
 
   implicit def richPutItemResult(underlying: PutItemResult): RichPutItemResult = new RichPutItemResult(underlying)
 
-  implicit def richConsumedCapacity(underlying: ConsumedCapacity): RichConsumedCapacity = new RichConsumedCapacity(underlying)
+  implicit def richGetItemRequest(underlying: GetItemRequest): RichGetItemRequest = new RichGetItemRequest(underlying)
 
-  implicit def richCondition(underlying: Condition): RichCondition = new RichCondition(underlying)
+  implicit def richGetItemResult(underlying: GetItemResult): RichGetItemResult = new RichGetItemResult(underlying)
+
+  implicit def richDeleteItemRequest(underlying: DeleteItemRequest): RichDeleteItemRequest = new RichDeleteItemRequest(underlying)
+
+  implicit def richDeleteItemResult(underlying: DeleteItemResult): RichDeleteItemResult = new RichDeleteItemResult(underlying)
 
   implicit def richBatchGetItemRequest(underlying: BatchGetItemRequest): RichBatchGetItemRequest = new RichBatchGetItemRequest(underlying)
 
@@ -85,15 +90,25 @@ trait ModelImplicits {
 
   implicit def richBatchWriteItemResult(underlying: BatchWriteItemResult): RichBatchWriteItemResult = new RichBatchWriteItemResult(underlying)
 
-  implicit def richListTablesResult(underlying: ListTablesResult): RichListTablesResult = new RichListTablesResult(underlying)
+  // -- Table
 
   implicit def richCreateTableRequest(underlying: CreateTableRequest): RichCreateTableRequest = new RichCreateTableRequest(underlying)
 
   implicit def richCreateTableResult(underlying: CreateTableResult): RichCreateTableResult = new RichCreateTableResult(underlying)
 
-  implicit def richDeleteItemRequest(underlying: DeleteItemRequest): RichDeleteItemRequest = new RichDeleteItemRequest(underlying)
+  implicit def richListTablesResult(underlying: ListTablesResult): RichListTablesResult = new RichListTablesResult(underlying)
 
-  implicit def richDeleteItemResult(underlying: DeleteItemResult): RichDeleteItemResult = new RichDeleteItemResult(underlying)
+  implicit def richDescribeTableRequest(underlying: DescribeTableRequest): RichDescribeTableRequest = new RichDescribeTableRequest(underlying)
+
+  implicit def richDescribeTableResult(underlying: DescribeTableResult): RichDescribeTableResult = new RichDescribeTableResult(underlying)
+
+  implicit def richDeleteTableRequest(underlying: DeleteTableRequest): RichDeleteTableRequest = new RichDeleteTableRequest(underlying)
+
+  implicit def richDeleteTableResult(underlying: DeleteTableResult): RichDeleteTableResult = new RichDeleteTableResult(underlying)
+
+  // -- Other
+
+  implicit def richTableDescription(underlying: TableDescription): RichTableDescription = new RichTableDescription(underlying)
 
   implicit def richDeleteRequest(underlying: DeleteRequest): RichDeleteRequest = new RichDeleteRequest(underlying)
 
@@ -101,11 +116,11 @@ trait ModelImplicits {
 
   implicit def richAttributeValueUpdate(underlying: AttributeValueUpdate): RichAttributeValueUpdate = new RichAttributeValueUpdate(underlying)
 
-  implicit def richDeleteTableRequest(underlying: DeleteTableRequest): RichDeleteTableRequest = new RichDeleteTableRequest(underlying)
+  implicit def richConsumedCapacity(underlying: ConsumedCapacity): RichConsumedCapacity = new RichConsumedCapacity(underlying)
 
-  implicit def richDeleteTableResult(underlying: DeleteTableResult): RichDeleteTableResult = new RichDeleteTableResult(underlying)
+  implicit def richProvisionedThroughputDescription(underlying: ProvisionedThroughputDescription): RichProvisionedThroughputDescription = new RichProvisionedThroughputDescription(underlying)
 
-  implicit def richDescribeTableRequest(underlying: DescribeTableRequest): RichDescribeTableRequest = new RichDescribeTableRequest(underlying)
+  implicit def richProvisionedThroughput(underlying: ProvisionedThroughput): RichProvisionedThroughput = new RichProvisionedThroughput(underlying)
 
-  implicit def richDescribeTableResult(underlying: DescribeTableResult): RichDescribeTableResult = new RichDescribeTableResult(underlying)
+  implicit def richProjection(underlying: Projection): RichProjection = new RichProjection(underlying)
 }
