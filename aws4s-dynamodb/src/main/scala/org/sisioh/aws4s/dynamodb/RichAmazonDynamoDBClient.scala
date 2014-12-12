@@ -11,24 +11,24 @@ import scala.collection.JavaConverters._
 
 object AmazonDynamoDBClientFactory {
 
-  def apply(): AmazonDynamoDBClient = new AmazonDynamoDBClient()
+  def create(): AmazonDynamoDBClient = new AmazonDynamoDBClient()
 
-  def apply(clientConfiguration: ClientConfiguration): AmazonDynamoDBClient =
+  def create(clientConfiguration: ClientConfiguration): AmazonDynamoDBClient =
     new AmazonDynamoDBClient(clientConfiguration)
 
-  def apply(awsCredentials: AWSCredentials): AmazonDynamoDBClient =
+  def create(awsCredentials: AWSCredentials): AmazonDynamoDBClient =
     new AmazonDynamoDBClient(awsCredentials)
 
-  def apply(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration): AmazonDynamoDBClient =
+  def create(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration): AmazonDynamoDBClient =
     new AmazonDynamoDBClient(awsCredentials, clientConfiguration)
 
-  def apply(awsCredentialsProvider: AWSCredentialsProvider): AmazonDynamoDBClient =
+  def create(awsCredentialsProvider: AWSCredentialsProvider): AmazonDynamoDBClient =
     new AmazonDynamoDBClient(awsCredentialsProvider)
 
-  def apply(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration): AmazonDynamoDBClient =
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration): AmazonDynamoDBClient =
     new AmazonDynamoDBClient(awsCredentialsProvider, clientConfiguration)
 
-  def apply(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration, requestMetricCollector: RequestMetricCollector): AmazonDynamoDBClient =
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration, requestMetricCollector: RequestMetricCollector): AmazonDynamoDBClient =
     new AmazonDynamoDBClient(awsCredentialsProvider, clientConfiguration, requestMetricCollector)
 
 }

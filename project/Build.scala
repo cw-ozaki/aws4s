@@ -52,10 +52,17 @@ object ApplicationBuild extends Build {
   )
 
   lazy val root = Project(id = "aws4s",
-    base = file(".")).settings(commonSettings: _*).aggregate(awsCore, awsDynamoDB, awsS3)
+    base = file(".")).settings(commonSettings: _*).aggregate(awsCore, awsDynamoDB, awsS3, awsSQS)
 
   lazy val awsCore = Project(id = "aws4s-core", base = file("aws4s-core")).
     settings(commonSettings: _*)
+
+  lazy val awsSQS = Project(id = "aws4s-sqs", base = file("aws4s-sqs")).
+    settings(commonSettings: _*).dependsOn(awsCore).settings(
+      libraryDependencies ++= Seq(
+        "com.amazonaws" % "aws-java-sdk-sqs" % "1.9.8"
+      )
+    )
 
   lazy val awsS3 = Project(id = "aws4s-s3", base = file("aws4s-s3")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(

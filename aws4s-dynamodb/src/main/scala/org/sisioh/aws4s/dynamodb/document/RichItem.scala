@@ -55,6 +55,7 @@ class RichItem(val underlying: Item) extends AnyVal with PimpedType[Item] {
         case v: java.lang.Short => v.toShort
         case v: java.lang.Float => v.toFloat
         case v: java.lang.Double => v.toDouble
+        case v: java.lang.Boolean => v
         case v: java.math.BigDecimal => BigDecimal(v)
         case v: java.math.BigInteger => BigInt(v)
         case v: util.Collection[_] => v.asScala

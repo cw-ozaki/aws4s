@@ -17,7 +17,7 @@ object AttributeValueFactory {
 
   def fromByteBuffersOpt(value: Option[Seq[ByteBuffer]]): AttributeValue = create().withByteBuffersOpt(value)
 
-  def fromBoolean(value: Option[Boolean]): AttributeValue = create().withBooleanOpt(value)
+  def fromBooleanOpt(value: Option[Boolean]): AttributeValue = create().withBooleanOpt(value)
 
   def fromNumberOpt(value: Option[String]): AttributeValue = create().withNumberOpt(value)
 
@@ -32,6 +32,24 @@ object AttributeValueFactory {
   def fromListOpt(value: Option[Seq[AttributeValue]]): AttributeValue = create().withListOpt(value)
 
   def fromNullOpt(value: Option[Boolean]): AttributeValue = create().withNullOpt(value)
+
+  def toJavaValue(v: Any): AttributeValue = {
+    val value = new AttributeValue
+    v match {
+      case null => null
+      case s: String => value.withS(s)
+      case n: java.lang.Number => value.withN(n.toString)
+      case b: ByteBuffer => value.withB(b)
+      case xs: Seq[_] => xs.headOption match {
+        case Some(s: String) => value.withSS(xs.map(_.asInstanceOf[String]).asJava)
+        case Some(n: java.lang.Number) => value.withSS(xs.map(_.toString).asJava)
+        case Some(s: ByteBuffer) => value.withBS(xs.map(_.asInstanceOf[ByteBuffer]).asJava)
+        case Some(v) => value.withSS(xs.map(_.toString).asJava)
+        case _ => null
+      }
+      case _ => null
+    }
+  }
 
 }
 
