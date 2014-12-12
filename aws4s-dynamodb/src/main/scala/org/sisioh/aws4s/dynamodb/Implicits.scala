@@ -30,6 +30,8 @@ trait DocumentImplicits {
 
   // -- Item
 
+  implicit def richItem(underlying: Item): RichItem = new RichItem(underlying)
+
   implicit def richGetItemOutcome(underlying: GetItemOutcome): RichGetItemOutcome = new RichGetItemOutcome(underlying)
 
   implicit def richUpdateItemOutcome(underlying: UpdateItemOutcome): RichUpdateItemOutcome = new RichUpdateItemOutcome(underlying)
@@ -49,8 +51,6 @@ trait DocumentImplicits {
   implicit def richDynamoDB(underlying: DynamoDB): RichDynamoDB = new RichDynamoDB(underlying)
 
   implicit def richTable(underlying: Table): RichTable = new RichTable(underlying)
-
-  implicit def richItem(underlying: Item): RichItem = new RichItem(underlying)
 
   implicit def richTableKeysAndAttributes(underlying: TableKeysAndAttributes): RichTableKeysAndAttributes = new RichTableKeysAndAttributes(underlying)
 
