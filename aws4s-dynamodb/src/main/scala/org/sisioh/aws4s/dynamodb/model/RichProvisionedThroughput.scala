@@ -5,21 +5,21 @@ import org.sisioh.aws4s.PimpedType
 
 object ProvisionedThroughputFactory {
 
-  def apply(): ProvisionedThroughput = new ProvisionedThroughput()
+  def create(): ProvisionedThroughput = new ProvisionedThroughput()
 
-  def apply(readCapacityUnits: Long, writeCapacityUnits: Long): ProvisionedThroughput = new ProvisionedThroughput(readCapacityUnits, writeCapacityUnits)
+  def create(readCapacityUnits: Long, writeCapacityUnits: Long): ProvisionedThroughput = new ProvisionedThroughput(readCapacityUnits, writeCapacityUnits)
 
 }
 
 class RichProvisionedThroughput(val underlying: ProvisionedThroughput) extends AnyVal with PimpedType[ProvisionedThroughput] {
 
-  def readCapacityUnits: Long = underlying.getReadCapacityUnits
+  def readCapacityUnitsOpt: Option[Long] = Option(underlying.getReadCapacityUnits)
 
-  def readCapacityUnits_=(value: Long): Unit = underlying.getReadCapacityUnits
+  def readCapacityUnitsOpt_=(value: Option[Long]): Unit = Option(underlying.getReadCapacityUnits)
 
-  def writeCapacityUnits: Long = underlying.getWriteCapacityUnits
+  def writeCapacityUnitsOpt: Option[Long] = Option(underlying.getWriteCapacityUnits)
 
-  def writeCapacityUnits_=(value: Long): Unit = underlying.setWriteCapacityUnits(value)
+  def writeCapacityUnitsOpt_=(value: Option[Long]): Unit = underlying.setWriteCapacityUnits(value.map(_.asInstanceOf[java.lang.Long]).orNull)
 
 
 }

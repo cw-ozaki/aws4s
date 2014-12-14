@@ -7,65 +7,65 @@ import scala.collection.JavaConverters._
 
 object QueryRequestFactory {
 
-  def apply(): QueryRequest = new QueryRequest()
+  def create(): QueryRequest = new QueryRequest()
 
-  def apply(tableName: String): QueryRequest = new QueryRequest(tableName)
+  def create(tableName: Option[String]): QueryRequest = new QueryRequest(tableName.orNull)
 
 }
 
 class RichQueryRequest(val underlying: QueryRequest) extends AnyVal with PimpedType[QueryRequest] {
 
-  def tableName: String = underlying.getTableName
+  def tableNameOpt: Option[String] = Option(underlying.getTableName)
 
-  def tableName_=(value: String): Unit = underlying.setTableName(value)
+  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
-  def indexName: String = underlying.getIndexName
+  def indexNameOpt: Option[String] = Option(underlying.getIndexName)
 
-  def indexName_=(value: String) = underlying.setIndexName(value)
+  def indexNameOpt_=(value: Option[String]) = underlying.setIndexName(value.orNull)
 
-  def select: String = underlying.getSelect
+  def selectOpt: Option[String] = Option(underlying.getSelect)
 
-  def select_=(value: String): Unit = underlying.setSelect(value)
+  def selectOpt_=(value: Option[String]): Unit = underlying.setSelect(value.orNull)
 
-  def attributesToGet: Seq[String] = underlying.getAttributesToGet.asScala
+  def attributesToGetOpt: Option[Seq[String]] = Option(underlying.getAttributesToGet).map(_.asScala)
 
-  def attributesToGet_=(value: Iterable[String]): Unit = underlying.setAttributesToGet(value.toSeq.asJava)
+  def attributesToGetOpt_=(value: Option[Iterable[String]]): Unit = underlying.setAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
-  def withAttributesToGet(value: Iterable[String]): QueryRequest = underlying.withAttributesToGet(value.toSeq.asJava)
+  def withAttributesToGetOpt(value: Option[Iterable[String]]): QueryRequest = underlying.withAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
-  def limit: Int = underlying.getLimit
+  def limitOpt: Option[Int] = Option(underlying.getLimit)
 
-  def limit_=(value: Int): Unit = underlying.setLimit(value)
+  def limitOpt_=(value: Option[Int]): Unit = underlying.setLimit(value.map(_.asInstanceOf[java.lang.Integer]).orNull)
 
-  def consistentRead: Boolean = underlying.getConsistentRead
+  def consistentReadOpt: Option[Boolean] = Option(underlying.getConsistentRead)
 
-  def consistentRead_=(value: Boolean) = underlying.setConsistentRead(value)
+  def consistentReadOpt_=(value: Option[Boolean]) = underlying.setConsistentRead(value.map(_.asInstanceOf[java.lang.Boolean]).orNull)
 
-  def keyConditions: Map[String, Condition] = underlying.getKeyConditions.asScala.toMap
+  def keyConditionsOpt: Option[Map[String, Condition]] = Option(underlying.getKeyConditions).map(_.asScala.toMap)
 
-  def keyConditions_=(value: Map[String, Condition]): Unit = underlying.setKeyConditions(value.asJava)
+  def keyConditionsOpt_=(value: Option[Map[String, Condition]]): Unit = underlying.setKeyConditions(value.map(_.asJava).orNull)
 
-  def withKeyConditions(value: Map[String, Condition]): QueryRequest = underlying.withKeyConditions(value.asJava)
+  def withKeyConditionsOpt(value: Option[Map[String, Condition]]): QueryRequest = underlying.withKeyConditions(value.map(_.asJava).orNull)
 
-  def queryFilter: Map[String, Condition] = underlying.getQueryFilter.asScala.toMap
+  def queryFilterOpt: Option[Map[String, Condition]] = Option(underlying.getQueryFilter).map(_.asScala.toMap)
 
-  def queryFilter_=(value: Map[String, Condition]): Unit = underlying.setQueryFilter(value.asJava)
+  def queryFilterOpt_=(value: Option[Map[String, Condition]]): Unit = underlying.setQueryFilter(value.map(_.asJava).orNull)
 
-  def withQueryFilter(value: Map[String, Condition]): QueryRequest = underlying.withQueryFilter(value.asJava)
+  def withQueryFilterOpt(value: Option[Map[String, Condition]]): QueryRequest = underlying.withQueryFilter(value.map(_.asJava).orNull)
 
-  def conditionalOperator: String = underlying.getConditionalOperator
+  def conditionalOperatorOpt: Option[String] = Option(underlying.getConditionalOperator)
 
-  def conditionalOperator_=(value: String): Unit = underlying.setConditionalOperator(value)
+  def conditionalOperatorOpt_=(value: Option[String]): Unit = underlying.setConditionalOperator(value.orNull)
 
-  def scanIndexForward: Boolean = underlying.getScanIndexForward
+  def scanIndexForwardOpt: Option[Boolean] = Option(underlying.getScanIndexForward)
 
-  def scanIndexForward_=(value: Boolean): Unit = underlying.setScanIndexForward(value)
+  def scanIndexForwardOpt_=(value: Option[Boolean]): Unit = underlying.setScanIndexForward(value.map(_.asInstanceOf[java.lang.Boolean]).orNull)
 
-  def exclusiveStartKey: Map[String, AttributeValue] = underlying.getExclusiveStartKey.asScala.toMap
+  def exclusiveStartKeyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getExclusiveStartKey).map(_.asScala.toMap)
 
-  def exclusiveStartKey_=(value: Map[String, AttributeValue]): Unit = underlying.setExclusiveStartKey(value.asJava)
+  def exclusiveStartKeyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setExclusiveStartKey(value.map(_.asJava).orNull)
 
-  def withExclusiveStartKey(value: Map[String, AttributeValue]): QueryRequest = underlying.withExclusiveStartKey(value.asJava)
+  def withExclusiveStartKeyOpt(value: Option[Map[String, AttributeValue]]): QueryRequest = underlying.withExclusiveStartKey(value.map(_.asJava).orNull)
 
   def setExclusiveStartKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): Unit =
     underlying.setExclusiveStartKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
@@ -73,29 +73,28 @@ class RichQueryRequest(val underlying: QueryRequest) extends AnyVal with PimpedT
   def withExclusiveStartKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): QueryRequest =
     underlying.withExclusiveStartKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
 
-  def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
+  def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
-  def returnConsumedCapacity_=(value: String) = underlying.setReturnConsumedCapacity(value)
+  def returnConsumedCapacityOpt_=(value: Option[String]) = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def projectionExpression: String = underlying.getProjectionExpression
+  def projectionExpressionOpt: Option[String] = Option(underlying.getProjectionExpression)
 
-  def projectionExpression_=(value: String): Unit = underlying.setProjectionExpression(value)
+  def projectionExpressionOpt_=(value: Option[String]): Unit = underlying.setProjectionExpression(value.orNull)
 
-  def filterExpression: String = underlying.getFilterExpression
+  def filterExpressionOpt: Option[String] = Option(underlying.getFilterExpression)
 
-  def filterExpression_=(value: String): Unit = underlying.setFilterExpression(value)
+  def filterExpressionOpt_=(value: Option[String]): Unit = underlying.setFilterExpression(value.orNull)
 
-  def expressionAttributeNames: Map[String, String] = underlying.getExpressionAttributeNames.asScala.toMap
+  def expressionAttributeNamesOpt: Option[Map[String, String]] = Option(underlying.getExpressionAttributeNames).map(_.asScala.toMap)
 
-  def expressionAttributeNames_=(value: Map[String, String]): Unit = underlying.setExpressionAttributeNames(value.asJava)
+  def expressionAttributeNamesOpt_=(value: Option[Map[String, String]]): Unit = underlying.setExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def withExpressionAttributeNames_=(value: Map[String, String]): QueryRequest = underlying.withExpressionAttributeNames(value.asJava)
+  def withExpressionAttributeNamesOpt_=(value: Option[Map[String, String]]): QueryRequest = underlying.withExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def expressionAttributeValues: Map[String, AttributeValue] = underlying.getExpressionAttributeValues.asScala.toMap
+  def expressionAttributeValuesOpt: Option[Map[String, AttributeValue]] = Option(underlying.getExpressionAttributeValues).map(_.asScala.toMap)
 
-  def expressionAttributeValues_=(value: Map[String, AttributeValue]): Unit = underlying.setExpressionAttributeValues(value.asJava)
+  def expressionAttributeValuesOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setExpressionAttributeValues(value.map(_.asJava).orNull)
 
-  def withExpressionAttributeValues(value: Map[String, AttributeValue]): QueryRequest = underlying.withExpressionAttributeValues(value.asJava)
-
+  def withExpressionAttributeValuesOpt(value: Option[Map[String, AttributeValue]]): QueryRequest = underlying.withExpressionAttributeValues(value.map(_.asJava).orNull)
 
 }

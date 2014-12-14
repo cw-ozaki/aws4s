@@ -3,24 +3,26 @@ package org.sisioh.aws4s.dynamodb.model
 import com.amazonaws.services.dynamodbv2.model.{AttributeAction, AttributeValue, AttributeValueUpdate}
 import org.sisioh.aws4s.PimpedType
 
+import scala.reflect.ClassTag
+
 object AttributeValueUpdateFactory {
 
-  def apply: AttributeValueUpdate = new AttributeValueUpdate()
+  def create: AttributeValueUpdate = new AttributeValueUpdate()
 
-  def apply(value: AttributeValue, action: String): AttributeValueUpdate = new AttributeValueUpdate()
+  def create(value: AttributeValue, action: String): AttributeValueUpdate = new AttributeValueUpdate()
 
 }
 
 class RichAttributeValueUpdate(val underlying: AttributeValueUpdate) extends AnyVal with PimpedType[AttributeValueUpdate] {
 
-  def action_=(value: AttributeAction): Unit = underlying.setAction(value)
+  def setAttributeAction(value: Option[AttributeAction]): Unit = underlying.setAction(value.orNull)
 
-  def action_=(value: String): Unit = underlying.setAction(value)
+  def actionOpt_=(value: Option[String]): Unit = underlying.setAction(value.orNull)
 
-  def action: String = underlying.getAction
+  def actionOpt: Option[String] = Option(underlying.getAction)
 
-  def value_=(value: AttributeValue): Unit = underlying.setValue(value)
+  def valueOpt_=(value: Option[AttributeValue]): Unit = underlying.setValue(value.orNull)
 
-  def value: AttributeValue = underlying.getValue
+  def valueOpt: Option[AttributeValue] = Option(underlying.getValue)
 
 }

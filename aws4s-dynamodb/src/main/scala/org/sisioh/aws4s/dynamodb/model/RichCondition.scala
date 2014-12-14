@@ -13,35 +13,35 @@ object ConditionFactory {
 
   def eq(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.EQ)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def ne(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.NE)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def gt(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.GT)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def ge(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.GE)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def lt(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.LT)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def le(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.LE)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def in(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.IN)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def between(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.BETWEEN)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def isNotNull = create()
     .withComparisonOperator(ComparisonOperator.NOT_NULL)
@@ -51,35 +51,35 @@ object ConditionFactory {
 
   def contains(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.CONTAINS)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def notContains(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.NOT_CONTAINS)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
   def beginsWith(values: Any*) = create()
     .withComparisonOperator(ComparisonOperator.BEGINS_WITH)
-    .withAttributeValueList(values.map(e => AttributeValueFactory.toJavaValue(e)))
+    .withAttributeValueListOpt(Some(values.map(e => AttributeValueFactory.toJavaValue(e))))
 
 }
 
 class RichCondition(val underlying: Condition) extends AnyVal with PimpedType[Condition] {
 
-  def attributeValueList_=(value: Seq[AttributeValue]): Unit =
-    underlying.setAttributeValueList(value.asJava)
+  def attributeValueListOpt_=(value: Option[Seq[AttributeValue]]): Unit =
+    underlying.setAttributeValueList(value.map(_.asJava).orNull)
 
-  def attributeValueList: Seq[AttributeValue] =
-    underlying.getAttributeValueList.asScala
+  def attributeValueListOpt: Option[Seq[AttributeValue]] =
+    Option(underlying.getAttributeValueList).map(_.asScala)
 
-  def withAttributeValueList(attributeValueList: Iterable[AttributeValue]): Condition =
-    underlying.withAttributeValueList(attributeValueList.toSeq.asJava)
+  def withAttributeValueListOpt(attributeValueList: Option[Iterable[AttributeValue]]): Condition =
+    underlying.withAttributeValueList(attributeValueList.map(_.toSeq.asJava).orNull)
 
-  def comparisonOperator_=(value: String): Unit =
-    underlying.setComparisonOperator(value)
+  def comparisonOperatorOpt_=(value: Option[String]): Unit =
+    underlying.setComparisonOperator(value.orNull)
 
-  def comparisonOperator_=(value: ComparisonOperator): Unit =
-    underlying.setComparisonOperator(value)
+  def setComparisonOperatorOpt(value: Option[ComparisonOperator]): Unit =
+    underlying.setComparisonOperator(value.orNull)
 
-  def comparisonOperator: String = underlying.getComparisonOperator
+  def comparisonOperatorOpt: Option[String] = Option(underlying.getComparisonOperator)
 
 }

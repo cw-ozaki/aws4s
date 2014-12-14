@@ -7,22 +7,22 @@ import scala.collection.JavaConverters._
 
 object DeleteItemResultFactory {
 
-  def apply(): DeleteItemResult = new DeleteItemResult()
+  def create(): DeleteItemResult = new DeleteItemResult()
 
 }
 
 class RichDeleteItemResult(val underlying: DeleteItemResult) extends AnyVal with PimpedType[DeleteItemResult] {
 
-  def attributes_=(value: Map[String, AttributeValue]): Unit = underlying.setAttributes(value.asJava)
+  def attributesOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setAttributes(value.map(_.asJava).orNull)
 
-  def attributes: Map[String, AttributeValue] = underlying.getAttributes.asScala.toMap
+  def attributesOpt: Option[Map[String, AttributeValue]] = Option(underlying.getAttributes).map(_.asScala.toMap)
 
-  def consumedCapacity_=(value: ConsumedCapacity): Unit = underlying.setConsumedCapacity(value)
+  def consumedCapacityOpt_=(value: Option[ConsumedCapacity]): Unit = underlying.setConsumedCapacity(value.orNull)
 
-  def consumedCapacity: ConsumedCapacity = underlying.getConsumedCapacity
+  def consumedCapacityOpt: Option[ConsumedCapacity] = Option(underlying.getConsumedCapacity)
 
-  def itemCollectionMetrics_=(value: ItemCollectionMetrics): Unit = underlying.setItemCollectionMetrics(value)
+  def itemCollectionMetricsOpt_=(value: Option[ItemCollectionMetrics]): Unit = underlying.setItemCollectionMetrics(value.orNull)
 
-  def itemCollectionMetrics: ItemCollectionMetrics = underlying.getItemCollectionMetrics
+  def itemCollectionMetricsOpt: Option[ItemCollectionMetrics] = Option(underlying.getItemCollectionMetrics)
 
 }

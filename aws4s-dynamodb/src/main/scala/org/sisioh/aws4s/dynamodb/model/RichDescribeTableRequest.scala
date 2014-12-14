@@ -5,16 +5,16 @@ import org.sisioh.aws4s.PimpedType
 
 object DescribeTableRequestFactory {
 
-  def apply(): DescribeTableRequest = new DescribeTableRequest()
+  def create(): DescribeTableRequest = new DescribeTableRequest()
 
-  def apply(tableName: String): DescribeTableRequest = new DescribeTableRequest(tableName)
+  def create(tableName: String): DescribeTableRequest = new DescribeTableRequest(tableName)
 
 }
 
 class RichDescribeTableRequest(val underlying: DescribeTableRequest) extends AnyVal with PimpedType[DescribeTableRequest] {
 
-  def tableName_=(value: String): Unit = underlying.setTableName(value)
+  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
-  def tableName: String = underlying.getTableName
+  def tableNameOpt: Option[String] = Option(underlying.getTableName)
 
 }

@@ -7,70 +7,70 @@ import scala.collection.JavaConverters._
 
 object PutItemRequestFactory {
 
-  def apply(): PutItemRequest = new PutItemRequest()
+  def create(): PutItemRequest = new PutItemRequest()
 
-  def apply(tableName: String, item: Map[String, AttributeValue]): PutItemRequest = new PutItemRequest(tableName, item.asJava)
+  def create(tableName: String, item: Map[String, AttributeValue]): PutItemRequest = new PutItemRequest(tableName, item.asJava)
 
-  def apply(tableName: String, item: Map[String, AttributeValue], returnValues: ReturnValue): PutItemRequest = new PutItemRequest(tableName, item.asJava, returnValues)
+  def create(tableName: String, item: Map[String, AttributeValue], returnValues: ReturnValue): PutItemRequest = new PutItemRequest(tableName, item.asJava, returnValues)
 
 }
 
 class RichPutItemRequest(val underlying: PutItemRequest) extends AnyVal with PimpedType[PutItemRequest] {
 
-  def tableName: String = underlying.getTableName
+  def tableNameOpt: Option[String] = Option(underlying.getTableName)
 
-  def tableName_=(value: String): Unit = underlying.setTableName(value)
+  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
-  def item: Map[String, AttributeValue] = underlying.getItem.asScala.toMap
+  def itemOpt: Option[Map[String, AttributeValue]] = Option(underlying.getItem).map(_.asScala.toMap)
 
-  def item_=(value: Map[String, AttributeValue]): Unit = underlying.setItem(item.asJava)
+  def itemOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setItem(value.map(_.asJava).orNull)
 
-  def withItem(item: Map[String, AttributeValue]): PutItemRequest = underlying.withItem(item.asJava)
+  def withItemOpt(value: Option[Map[String, AttributeValue]]): PutItemRequest = underlying.withItem(value.map(_.asJava).orNull)
 
-  def expected: Map[String, ExpectedAttributeValue] = underlying.getExpected.asScala.toMap
+  def expectedOpt: Option[Map[String, ExpectedAttributeValue]] = Option(underlying.getExpected).map(_.asScala.toMap)
 
-  def expected_=(value: Map[String, ExpectedAttributeValue]): Unit = underlying.setExpected(value.asJava)
+  def expectedOpt_=(value: Option[Map[String, ExpectedAttributeValue]]): Unit = underlying.setExpected(value.map(_.asJava).orNull)
 
-  def withExpected(value: Map[String, ExpectedAttributeValue]): PutItemRequest = underlying.withExpected(value.asJava)
+  def withExpectedOpt(value: Option[Map[String, ExpectedAttributeValue]]): PutItemRequest = underlying.withExpected(value.map(_.asJava).orNull)
 
-  def returnValues: String = underlying.getReturnValues
+  def returnValuesOpt: Option[String] = Option(underlying.getReturnValues)
 
-  def returnValues_=(value: String): Unit = underlying.setReturnValues(value)
+  def returnValuesOpt_=(value: Option[String]): Unit = underlying.setReturnValues(value.orNull)
 
-  def returnValues_=(value: ReturnValue): Unit = underlying.setReturnValues(value)
+  def setReturnValuesOpt(value: Option[ReturnValue]): Unit = underlying.setReturnValues(value.orNull)
 
-  def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
+  def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
-  def returnConsumedCapacity_=(value: String): Unit = underlying.setReturnConsumedCapacity(value)
+  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity_=(value: ReturnConsumedCapacity): Unit = underlying.setReturnConsumedCapacity(value)
+  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnItemCollectionMetrics: String = underlying.getReturnItemCollectionMetrics
+  def returnItemCollectionMetricsOpt: Option[String] = Option(underlying.getReturnItemCollectionMetrics)
 
-  def returnItemCollectionMetrics_=(value: String): Unit = underlying.setReturnItemCollectionMetrics(value)
+  def returnItemCollectionMetricsOpt_=(value: Option[String]): Unit = underlying.setReturnItemCollectionMetrics(value.orNull)
 
-  def returnItemCollectionMetrics_=(value: ReturnItemCollectionMetrics): Unit = underlying.setReturnItemCollectionMetrics(value)
+  def setReturnItemCollectionMetricsOpt(value: Option[ReturnItemCollectionMetrics]): Unit = underlying.setReturnItemCollectionMetrics(value.orNull)
 
-  def conditionalOperator: String = underlying.getConditionalOperator
+  def conditionalOperatorOpt: Option[String] = Option(underlying.getConditionalOperator)
 
-  def conditionalOperator_=(value: String): Unit = underlying.setConditionalOperator(value)
+  def conditionalOperatorOpt_=(value: Option[String]): Unit = underlying.setConditionalOperator(value.orNull)
 
-  def conditionalOperator_=(value: ConditionalOperator): Unit = underlying.setConditionalOperator(value)
+  def setConditionalOperatorOpt(value: Option[ConditionalOperator]): Unit = underlying.setConditionalOperator(value.orNull)
 
-  def conditionExpression: String = underlying.getConditionExpression
+  def conditionExpressionOpt: Option[String] = Option(underlying.getConditionExpression)
 
-  def conditionExpression_=(value: String): Unit = underlying.setConditionExpression(value)
+  def conditionExpressionOpt_=(value: String): Unit = underlying.setConditionExpression(value)
 
-  def expressionAttributeNames: Map[String, String]= underlying.getExpressionAttributeNames.asScala.toMap
+  def expressionAttributeNamesOpt: Option[Map[String, String]] = Option(underlying.getExpressionAttributeNames).map(_.asScala.toMap)
 
-  def expressionAttributeNames_=(value: Map[String, String]): Unit = underlying.setExpressionAttributeNames(value.asJava)
+  def expressionAttributeNamesOpt_=(value: Option[Map[String, String]]): Unit = underlying.setExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def withExpressionAttributeNames(value: Map[String, String]): PutItemRequest = underlying.withExpressionAttributeNames(value.asJava)
+  def withExpressionAttributeNamesOpt(value: Option[Map[String, String]]): PutItemRequest = underlying.withExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def expressionAttributeValues: Map[String, AttributeValue]= underlying.getExpressionAttributeValues.asScala.toMap
+  def expressionAttributeValuesOpt: Option[Map[String, AttributeValue]]= Option(underlying.getExpressionAttributeValues).map(_.asScala.toMap)
 
-  def expressionAttributeValues_=(value: Map[String, AttributeValue]): Unit = underlying.setExpressionAttributeValues(value.asJava)
+  def expressionAttributeValuesOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setExpressionAttributeValues(value.map(_.asJava).orNull)
 
-  def withExpressionAttributeValues(value: Map[String, AttributeValue]): PutItemRequest = underlying.withExpressionAttributeValues(value.asJava)
+  def withExpressionAttributeValuesOpt(value: Option[Map[String, AttributeValue]]): PutItemRequest = underlying.withExpressionAttributeValues(value.map(_.asJava).orNull)
 
 }

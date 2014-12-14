@@ -7,22 +7,22 @@ import scala.collection.JavaConverters._
 
 object ItemCollectionMetricsFactory {
 
-  def apply(): ItemCollectionMetrics = new ItemCollectionMetrics()
+  def create(): ItemCollectionMetrics = new ItemCollectionMetrics()
 
 }
 
 class RichItemCollectionMetrics(val underlying: ItemCollectionMetrics) extends AnyVal with PimpedType[ItemCollectionMetrics] {
 
-  def itemCollectionKey: Map[String, AttributeValue] = underlying.getItemCollectionKey.asScala.toMap
+  def itemCollectionKeyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getItemCollectionKey).map(_.asScala.toMap)
 
-  def itemCollectionKey_=(value: Map[String, AttributeValue]): Unit = underlying.setItemCollectionKey(value.asJava)
+  def itemCollectionKeyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setItemCollectionKey(value.map(_.asJava).orNull)
 
-  def withItemCollectionKey(value: Map[String, AttributeValue]): ItemCollectionMetrics = underlying.withItemCollectionKey(value.asJava)
+  def withItemCollectionKeyOpt(value: Option[Map[String, AttributeValue]]): ItemCollectionMetrics = underlying.withItemCollectionKey(value.map(_.asJava).orNull)
 
-  def sizeEstimateRangeGB: Seq[Double] = underlying.getSizeEstimateRangeGB.asScala.map(_.asInstanceOf[Double])
+  def sizeEstimateRangeGBOpt: Option[Seq[Double]] = Option(underlying.getSizeEstimateRangeGB).map(_.asScala.map(_.asInstanceOf[Double]))
 
-  def sizeEstimateRangeGB_=(value: Seq[Double]): Unit = underlying.setSizeEstimateRangeGB(value.map(_.asInstanceOf[java.lang.Double]).asJava)
+  def sizeEstimateRangeGBOpt_=(value: Option[Seq[Double]]): Unit = underlying.setSizeEstimateRangeGB(value.map(_.map(_.asInstanceOf[java.lang.Double]).asJava).orNull)
 
-  def withSizeEstimateRangeGB(value: Seq[Double]): ItemCollectionMetrics = underlying.withSizeEstimateRangeGB(value.map(_.asInstanceOf[java.lang.Double]).asJava)
+  def withSizeEstimateRangeGBOpt(value: Option[Seq[Double]]): ItemCollectionMetrics = underlying.withSizeEstimateRangeGB(value.map(_.map(_.asInstanceOf[java.lang.Double]).asJava).orNull)
 
 }

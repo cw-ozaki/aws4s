@@ -55,6 +55,32 @@ object AttributeValueFactory {
 
 class RichAttributeValue(val underlying: AttributeValue) extends AnyVal with PimpedType[AttributeValue] {
 
+  def isEmpty = {
+    underlying.getB == null &&
+      underlying.getBOOL == null &&
+      underlying.getBS == null &&
+      underlying.getL == null &&
+      underlying.getM == null &&
+      underlying.getN == null &&
+      underlying.getNS == null &&
+      underlying.getNULL == null &&
+      underlying.getS == null &&
+      underlying.getSS == null
+  }
+
+  def isDefined = {
+    underlying.getB != null ||
+      underlying.getBOOL != null ||
+      underlying.getBS != null ||
+      underlying.getL != null ||
+      underlying.getM != null ||
+      underlying.getN != null ||
+      underlying.getNS != null ||
+      underlying.getNULL != null ||
+      underlying.getS != null ||
+      underlying.getSS != null
+  }
+
   // -- for ByteBuffer
 
   def bOpt_=(value: Option[ByteBuffer]): Unit = underlying.setB(value.orNull)

@@ -5,17 +5,17 @@ import org.sisioh.aws4s.PimpedType
 
 object UpdateGlobalSecondaryIndexActionFactory {
 
-  def apply(): UpdateGlobalSecondaryIndexAction = new UpdateGlobalSecondaryIndexAction()
+  def create(): UpdateGlobalSecondaryIndexAction = new UpdateGlobalSecondaryIndexAction()
 }
 
 class RichUpdateGlobalSecondaryIndexAction(val underlying: UpdateGlobalSecondaryIndexAction) extends AnyVal with PimpedType[UpdateGlobalSecondaryIndexAction] {
 
-  def indexName: String = underlying.getIndexName
+  def indexNameOpt: Option[String] = Option(underlying.getIndexName)
 
-  def indexName_=(value: String): Unit = underlying.setIndexName(value)
+  def indexNameOpt_=(value: Option[String]): Unit = underlying.setIndexName(value.orNull)
 
-  def provisionedThroughput: ProvisionedThroughput = underlying.getProvisionedThroughput
+  def provisionedThroughputOpt: Option[ProvisionedThroughput] = Option(underlying.getProvisionedThroughput)
 
-  def provisionedThroughput_=(value: ProvisionedThroughput): Unit = underlying.setProvisionedThroughput(value)
+  def provisionedThroughputOpt_=(value: Option[ProvisionedThroughput]): Unit = underlying.setProvisionedThroughput(value.orNull)
 
 }

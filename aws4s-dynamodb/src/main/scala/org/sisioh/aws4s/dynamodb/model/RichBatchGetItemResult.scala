@@ -7,44 +7,44 @@ import scala.collection.JavaConverters._
 
 object BatchGetItemResultFactory {
 
-  def apply(): BatchGetItemResult = new BatchGetItemResult()
+  def create(): BatchGetItemResult = new BatchGetItemResult()
 
 }
 
 class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal with PimpedType[BatchGetItemResult] {
 
-  def responses_=(values: Map[String, Seq[Map[String, AttributeValue]]]): Unit =
-    underlying.setResponses(values.map { case (k, v) => (k, v.map(_.asJava).asJava)}.asJava)
+  def responsesOpt_=(values: Option[Map[String, Seq[Map[String, AttributeValue]]]]): Unit =
+    underlying.setResponses(values.map(_.map { case (k, v) => (k, v.map(_.asJava).asJava)}.asJava).orNull)
 
-  def responses: Map[String, Seq[Map[String, AttributeValue]]] = underlying.getResponses.asScala.map { case (k, v) =>
+  def responsesOpt: Option[Map[String, Seq[Map[String, AttributeValue]]]] = Option(underlying.getResponses).map(_.asScala.map { case (k, v) =>
     (k, v.asScala.toSeq.map(_.asScala.toMap))
-  }.toMap
+  }.toMap)
 
-  def withResponses(responses: Map[String, Seq[Map[String, AttributeValue]]]): BatchGetItemResult = {
-    underlying.withResponses(responses.map { case (k, v) =>
+  def withResponsesOpt(responses: Option[Map[String, Seq[Map[String, AttributeValue]]]]): BatchGetItemResult = {
+    underlying.withResponses(responses.map(_.map { case (k, v) =>
       (k, v.map(_.asJava).asJava)
-    }.asJava)
+    }.asJava).orNull)
   }
 
   def addResponsesEntry(key: String, value: Seq[Map[String, AttributeValue]]): BatchGetItemResult =
     underlying.addResponsesEntry(key, value.map(_.asJava).asJava)
 
-  def unprocessedKeys_=(values: Map[String, KeysAndAttributes]): Unit =
-    underlying.setUnprocessedKeys(values.asJava)
+  def unprocessedKeysOpt_=(values: Option[Map[String, KeysAndAttributes]]): Unit =
+    underlying.setUnprocessedKeys(values.map(_.asJava).orNull)
 
-  def unprocessedKeys: Map[String, KeysAndAttributes] =
-    underlying.getUnprocessedKeys.asScala.toMap
+  def unprocessedKeysOpt: Option[Map[String, KeysAndAttributes]] =
+    Option(underlying.getUnprocessedKeys).map(_.asScala.toMap)
 
-  def withUnprocessedKeys(unprocessedKeys: Map[String, KeysAndAttributes]): BatchGetItemResult =
-    underlying.withUnprocessedKeys(unprocessedKeys.asJava)
+  def withUnprocessedKeysOpt(unprocessedKeys: Option[Map[String, KeysAndAttributes]]): BatchGetItemResult =
+    underlying.withUnprocessedKeys(unprocessedKeys.map(_.asJava).orNull)
 
-  def consumedCapacity_=(values: Seq[ConsumedCapacity]): Unit =
-    underlying.setConsumedCapacity(values.asJava)
+  def consumedCapacityOpt_=(values: Option[Seq[ConsumedCapacity]]): Unit =
+    underlying.setConsumedCapacity(values.map(_.asJava).orNull)
 
-  def consumedCapacity: Seq[ConsumedCapacity] =
-    underlying.getConsumedCapacity.asScala
+  def consumedCapacityOpt: Option[Seq[ConsumedCapacity]] =
+    Option(underlying.getConsumedCapacity).map(_.asScala)
 
-  def withConsumedCapacity(consumedCapacity: Iterable[ConsumedCapacity]): BatchGetItemResult =
-    underlying.withConsumedCapacity(consumedCapacity.toSeq.asJava)
+  def withConsumedCapacityOpt(consumedCapacity: Option[Iterable[ConsumedCapacity]]): BatchGetItemResult =
+    underlying.withConsumedCapacity(consumedCapacity.map(_.toSeq.asJava).orNull)
 
 }

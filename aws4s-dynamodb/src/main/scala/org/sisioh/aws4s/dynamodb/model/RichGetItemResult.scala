@@ -7,20 +7,20 @@ import scala.collection.JavaConverters._
 
 object GetItemResultFactory {
 
-  def apply(): GetItemResult = new GetItemResult()
+  def create(): GetItemResult = new GetItemResult()
 
 }
 
 class RichGetItemResult(val underlying: GetItemResult) extends AnyVal with PimpedType[GetItemResult] {
 
-  def item: Map[String, AttributeValue] = underlying.getItem.asScala.toMap
+  def itemOpt: Option[Map[String, AttributeValue]] = Option(underlying.getItem).map(_.asScala.toMap)
 
-  def item_=(value: Map[String, AttributeValue]): Unit = underlying.setItem(item.asJava)
+  def itemOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setItem(value.map(_.asJava).orNull)
 
-  def withItem(value: Map[String, AttributeValue]): GetItemResult = underlying.withItem(value.asJava)
+  def withItemOpt(value: Option[Map[String, AttributeValue]]): GetItemResult = underlying.withItem(value.map(_.asJava).orNull)
 
-  def consumedCapacity: ConsumedCapacity = underlying.getConsumedCapacity
+  def consumedCapacityOpt: Option[ConsumedCapacity] = Option(underlying.getConsumedCapacity)
 
-  def consumedCapacity_=(value: ConsumedCapacity): Unit = underlying.setConsumedCapacity(value)
+  def consumedCapacityOpt_=(value: Option[ConsumedCapacity]): Unit = underlying.setConsumedCapacity(value.orNull)
 
 }

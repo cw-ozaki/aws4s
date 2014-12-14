@@ -7,36 +7,36 @@ import scala.collection.JavaConverters._
 
 object KeysAndAttributesFactory {
 
-  def apply(): KeysAndAttributes = new KeysAndAttributes()
+  def create(): KeysAndAttributes = new KeysAndAttributes()
 
 }
 
 class RichKeysAndAttributes(val underlying: KeysAndAttributes) extends AnyVal with PimpedType[KeysAndAttributes] {
 
-  def keys: Seq[Map[String, AttributeValue]] = underlying.getKeys.asScala.map(_.asScala.toMap)
+  def keysOpt: Option[Seq[Map[String, AttributeValue]]] = Option(underlying.getKeys).map(_.asScala.map(_.asScala.toMap))
 
-  def keys_=(value: Seq[Map[String, AttributeValue]]): Unit = underlying.setKeys(value.map(_.asJava).asJava)
+  def keysOpt_=(value: Option[Seq[Map[String, AttributeValue]]]): Unit = underlying.setKeys(value.map(_.map(_.asJava).asJava).orNull)
 
-  def withKeys(value: Seq[Map[String, AttributeValue]]): KeysAndAttributes = underlying.withKeys(value.map(_.asJava).asJava)
+  def withKeysOpt(value: Option[Seq[Map[String, AttributeValue]]]): KeysAndAttributes = underlying.withKeys(value.map(_.map(_.asJava).asJava).orNull)
 
-  def attributesToGet: Seq[String] = underlying.getAttributesToGet.asScala
+  def attributesToGetOpt: Option[Seq[String]] = Option(underlying.getAttributesToGet).map(_.asScala)
 
-  def attributesToGet(value: Iterable[String]): Unit = underlying.setAttributesToGet(value.toSeq.asJava)
+  def attributesToGetOpt_=(value: Option[Iterable[String]]): Unit = underlying.setAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
-  def withAttributesToGet(value: Iterable[String]): KeysAndAttributes = underlying.withAttributesToGet(value.toSeq.asJava)
+  def withAttributesToGetOpt(value: Option[Iterable[String]]): KeysAndAttributes = underlying.withAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
-  def consistentRead: Boolean = underlying.getConsistentRead
+  def consistentReadOpt: Option[Boolean] = Option(underlying.getConsistentRead)
 
-  def consistentRead_=(value: Boolean): Unit = underlying.setConsistentRead(value)
+  def consistentReadOpt_=(value: Option[Boolean]): Unit = underlying.setConsistentRead(value.map(_.asInstanceOf[java.lang.Boolean]).orNull)
 
-  def projectionExpression: String = underlying.getProjectionExpression
+  def projectionExpressionOpt: Option[String] = Option(underlying.getProjectionExpression)
 
-  def projectionExpression_=(value: String): Unit = underlying.setProjectionExpression(value)
+  def projectionExpressionOpt_=(value: Option[String]): Unit = underlying.setProjectionExpression(value.orNull)
 
-  def expressionAttributeNames: Map[String, String] = underlying.getExpressionAttributeNames.asScala.toMap
+  def expressionAttributeNamesOpt: Option[Map[String, String]] = Option(underlying.getExpressionAttributeNames).map(_.asScala.toMap)
 
-  def expressionAttributeNames(value: Map[String, String]): Unit = underlying.setExpressionAttributeNames(value.asJava)
+  def expressionAttributeNamesOpt_=(value: Option[Map[String, String]]): Unit = underlying.setExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def withExpressionAttributeNames(value: Map[String, String]): KeysAndAttributes = underlying.withExpressionAttributeNames(value.asJava)
+  def withExpressionAttributeNamesOpt(value: Option[Map[String, String]]): KeysAndAttributes = underlying.withExpressionAttributeNames(value.map(_.asJava).orNull)
 
 }

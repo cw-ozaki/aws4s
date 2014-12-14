@@ -7,51 +7,51 @@ import scala.collection.JavaConverters._
 
 object BatchWriteItemRequestFactory {
 
-  def apply(): BatchWriteItemRequest = new BatchWriteItemRequest()
+  def create(): BatchWriteItemRequest = new BatchWriteItemRequest()
 
-  def apply(requestItems: Map[String, Seq[WriteRequest]]): BatchWriteItemRequest = new BatchWriteItemRequest(requestItems.map { case (k, v) => (k, v.asJava)}.asJava)
+  def create(requestItems: Map[String, Seq[WriteRequest]]): BatchWriteItemRequest = new BatchWriteItemRequest(requestItems.map { case (k, v) => (k, v.asJava)}.asJava)
 
 }
 
 class RichBatchWriteItemRequest(val underlying: BatchWriteItemRequest) extends AnyVal with PimpedType[BatchWriteItemRequest] {
 
-  def requestItems_=(values: Map[String, Seq[WriteRequest]]): Unit =
-    underlying.setRequestItems(values.map { case (k, v) => (k, v.asJava)}.asJava)
+  def requestItemsOpt_=(values: Option[Map[String, Seq[WriteRequest]]]): Unit =
+    underlying.setRequestItems(values.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
 
-  def requestItems: Map[String, Seq[WriteRequest]] =
-    underlying.getRequestItems.asScala.map { case (k, v) => (k, v.asScala)}.toMap
+  def requestItemsOpt: Option[Map[String, Seq[WriteRequest]]] =
+    Option(underlying.getRequestItems).map(_.asScala.map { case (k, v) => (k, v.asScala)}.toMap)
 
-  def withRequestItems(requestItems: Map[String, Seq[WriteRequest]]): BatchWriteItemRequest =
-    underlying.withRequestItems(requestItems.map { case (k, v) => (k, v.asJava)}.asJava)
+  def withRequestItems(requestItems: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemRequest =
+    underlying.withRequestItems(requestItems.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
 
   def addRequestItemsEntry(key: String, value: Seq[WriteRequest]): BatchWriteItemRequest =
     underlying.addRequestItemsEntry(key, value.asJava)
 
-  def returnItemCollectionMetrics_=(value: String): Unit =
-    underlying.setReturnItemCollectionMetrics(value)
+  def setReturnItemCollectionMetricsOpt(value: Option[ReturnItemCollectionMetrics]): Unit =
+    underlying.setReturnItemCollectionMetrics(value.orNull)
 
-  def returnItemCollectionMetrics_=(value: ReturnItemCollectionMetrics): Unit =
-    underlying.setReturnItemCollectionMetrics(value)
+  def returnItemCollectionMetricsOpt_=(value: Option[String]): Unit =
+    underlying.setReturnItemCollectionMetrics(value.orNull)
 
-  def returnItemCollectionMetrics: String =
-    underlying.getReturnItemCollectionMetrics
+  def returnItemCollectionMetricsOpt: Option[String] =
+    Option(underlying.getReturnItemCollectionMetrics)
 
-  def withReturnItemCollectionMetrics(returnItemCollectionMetrics: String): BatchWriteItemRequest =
-    underlying.withReturnItemCollectionMetrics(returnItemCollectionMetrics)
+  def withReturnItemCollectionMetricsInStringOpt(returnItemCollectionMetrics: Option[String]): BatchWriteItemRequest =
+    underlying.withReturnItemCollectionMetrics(returnItemCollectionMetrics.orNull)
 
-  def withReturnItemCollectionMetrics(returnItemCollectionMetrics: ReturnItemCollectionMetrics): BatchWriteItemRequest =
-    underlying.withReturnItemCollectionMetrics(returnItemCollectionMetrics)
+  def withReturnItemCollectionMetricsOpt(returnItemCollectionMetrics: Option[ReturnItemCollectionMetrics]): BatchWriteItemRequest =
+    underlying.withReturnItemCollectionMetrics(returnItemCollectionMetrics.orNull)
 
-  def returnConsumedCapacity_=(value: String): Unit = underlying.setReturnConsumedCapacity(value)
+  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity_=(value: ReturnConsumedCapacity): Unit = underlying.setReturnConsumedCapacity(value)
+  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
+  def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
-  def withReturnConsumedCapacity(returnConsumedCapacity: String): BatchWriteItemRequest =
-    underlying.withReturnConsumedCapacity(returnConsumedCapacity)
+  def withReturnConsumedCapacityInStringOpt(returnConsumedCapacity: Option[String]): BatchWriteItemRequest =
+    underlying.withReturnConsumedCapacity(returnConsumedCapacity.orNull)
 
-  def withReturnConsumedCapacity(returnConsumedCapacity: ReturnConsumedCapacity): BatchWriteItemRequest =
-    underlying.withReturnConsumedCapacity(returnConsumedCapacity)
+  def withReturnConsumedCapacityOpt(returnConsumedCapacity: Option[ReturnConsumedCapacity]): BatchWriteItemRequest =
+    underlying.withReturnConsumedCapacity(returnConsumedCapacity.orNull)
 
 }

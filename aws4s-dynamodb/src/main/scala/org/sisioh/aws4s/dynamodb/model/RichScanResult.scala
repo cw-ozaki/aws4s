@@ -7,30 +7,30 @@ import scala.collection.JavaConverters._
 
 object ScanResultFactory {
 
-  def apply(): ScanResult = new ScanResult()
+  def create(): ScanResult = new ScanResult()
 
 }
 
 class RichScanResult(val underlying: ScanResult) extends AnyVal with PimpedType[ScanResult] {
 
-  def items: Seq[Map[String, AttributeValue]] = underlying.getItems.asScala.map(_.asScala.toMap)
+  def itemsOpt: Option[Seq[Map[String, AttributeValue]]] = Option(underlying.getItems).map(_.asScala.map(_.asScala.toMap))
 
-  def items(value: Seq[Map[String, AttributeValue]]): Unit = underlying.setItems(value.map(_.asJava).asJava)
+  def itemsOpt_=(value: Option[Seq[Map[String, AttributeValue]]]): Unit = underlying.setItems(value.map(_.map(_.asJava).asJava).orNull)
 
-  def count: Int = underlying.getCount
+  def countOpt: Option[Int] = Option(underlying.getCount)
 
-  def count_=(value: Int): Unit = underlying.setCount(value)
+  def countOpt_=(value: Option[Int]): Unit = underlying.setCount(value.map(_.asInstanceOf[java.lang.Integer]).orNull)
 
-  def scannedCount: Int = underlying.getScannedCount
+  def scannedCountOpt: Option[Int] = Option(underlying.getScannedCount)
 
-  def scannedCount_=(value: Int): Unit = underlying.setScannedCount(value)
+  def scannedCountOpt_=(value: Option[Int]): Unit = underlying.setScannedCount(value.map(_.asInstanceOf[java.lang.Integer]).orNull)
 
-  def lastEvaluatedKey: Map[String, AttributeValue] = underlying.getLastEvaluatedKey.asScala.toMap
+  def lastEvaluatedKeyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getLastEvaluatedKey).map(_.asScala.toMap)
 
-  def lastEvaluatedKey_=(value: Map[String, AttributeValue]): Unit = underlying.setLastEvaluatedKey(value.asJava)
+  def lastEvaluatedKeyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setLastEvaluatedKey(value.map(_.asJava).orNull)
 
-  def consumedCapacity: ConsumedCapacity = underlying.getConsumedCapacity
+  def consumedCapacityOpt: Option[ConsumedCapacity] = Option(underlying.getConsumedCapacity)
 
-  def consumedCapacity_=(value: ConsumedCapacity): Unit = underlying.setConsumedCapacity(value)
+  def consumedCapacityOpt_=(value: Option[ConsumedCapacity]): Unit = underlying.setConsumedCapacity(value.orNull)
 
 }

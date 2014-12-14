@@ -5,13 +5,13 @@ import org.sisioh.aws4s.PimpedType
 
 object GlobalSecondaryIndexUpdateFactory {
 
-  def apply(): GlobalSecondaryIndexUpdate = new GlobalSecondaryIndexUpdate()
+  def create(): GlobalSecondaryIndexUpdate = new GlobalSecondaryIndexUpdate()
 
 }
 
 class RichGlobalSecondaryIndexUpdate(val underlying: GlobalSecondaryIndexUpdate) extends AnyVal with PimpedType[GlobalSecondaryIndexUpdate]{
 
-  def update: UpdateGlobalSecondaryIndexAction = underlying.getUpdate
+  def updateOpt: Option[UpdateGlobalSecondaryIndexAction] = Option(underlying.getUpdate)
 
-  def update_=(value: UpdateGlobalSecondaryIndexAction): Unit = underlying.setUpdate(value)
+  def updateOpt_=(value: Option[UpdateGlobalSecondaryIndexAction]): Unit = underlying.setUpdate(value.orNull)
 }

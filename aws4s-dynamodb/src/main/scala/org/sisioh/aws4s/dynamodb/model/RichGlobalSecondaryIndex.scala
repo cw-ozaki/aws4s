@@ -7,28 +7,29 @@ import scala.collection.JavaConverters._
 
 object GlobalSecondaryIndexFactory {
 
-  def apply(): GlobalSecondaryIndex = new GlobalSecondaryIndex()
+  def create(): GlobalSecondaryIndex = new GlobalSecondaryIndex()
 
 }
 
 class RichGlobalSecondaryIndex(val underlying: GlobalSecondaryIndex) extends AnyVal with PimpedType[GlobalSecondaryIndex] {
 
-  def indexName: String = underlying.getIndexName
+  def indexNameOpt: Option[String] = Option(underlying.getIndexName)
 
-  def indexName_=(value: String): Unit = underlying.setIndexName(value)
+  def indexNameOpt_=(value: Option[String]): Unit = underlying.setIndexName(value.orNull)
 
-  def keySchema: Seq[KeySchemaElement] = underlying.getKeySchema.asScala
+  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
 
-  def keySchema_=(value: Seq[KeySchemaElement]): Unit = underlying.setKeySchema(value.asJava)
+  def keySchemaOpt_=(value: Option[Seq[KeySchemaElement]]): Unit = underlying.setKeySchema(value.map(_.asJava).orNull)
 
-  def withKeySchema(value: Seq[KeySchemaElement]): GlobalSecondaryIndex = underlying.withKeySchema(value.asJava)
+  def withKeySchemaOpt(value: Option[Seq[KeySchemaElement]]): GlobalSecondaryIndex =
+    underlying.withKeySchema(value.map(_.asJava).orNull)
 
-  def projection: Projection = underlying.getProjection
+  def projectionOpt: Option[Projection] = Option(underlying.getProjection)
 
-  def projection(value: Projection): Unit = underlying.setProjection(value)
+  def projectionOpt(value: Option[Projection]): Unit = underlying.setProjection(value.orNull)
 
-  def provisionedThroughput: ProvisionedThroughput = underlying.getProvisionedThroughput
+  def provisionedThroughputOpt: Option[ProvisionedThroughput] = Option(underlying.getProvisionedThroughput)
 
-  def provisionedThroughput(value: ProvisionedThroughput): Unit = underlying.setProvisionedThroughput(value)
+  def provisionedThroughputOpt(value: Option[ProvisionedThroughput]): Unit = underlying.setProvisionedThroughput(value.orNull)
 
 }

@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 
 object PutRequestFactory {
 
-  def apply(): PutRequest = new PutRequest()
+  def create(): PutRequest = new PutRequest()
 
-  def apply(item: Map[String, AttributeValue]) = new PutRequest(item.asJava)
+  def create(item: Map[String, AttributeValue]) = new PutRequest(item.asJava)
 
 }
 
 class RichPutRequest(val underlying: PutRequest) extends AnyVal with PimpedType[PutRequest] {
 
-  def item: Map[String, AttributeValue] = underlying.getItem.asScala.toMap
+  def itemOpt: Option[Map[String, AttributeValue]] = Option(underlying.getItem).map(_.asScala.toMap)
 
-  def item_=(value: Map[String, AttributeValue]): Unit  = underlying.setItem(value.asJava)
+  def itemOpt_=(value: Option[Map[String, AttributeValue]]): Unit  = underlying.setItem(value.map(_.asJava).orNull)
 
 }

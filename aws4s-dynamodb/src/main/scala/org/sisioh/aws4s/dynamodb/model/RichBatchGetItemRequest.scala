@@ -7,35 +7,35 @@ import scala.collection.JavaConverters._
 
 object BatchGetItemRequestFactory {
 
-  def apply(): BatchGetItemRequest = new BatchGetItemRequest()
+  def create(): BatchGetItemRequest = new BatchGetItemRequest()
 
-  def apply(requestItems: Map[String, KeysAndAttributes]): BatchGetItemRequest =
+  def create(requestItems: Map[String, KeysAndAttributes]): BatchGetItemRequest =
     new BatchGetItemRequest(requestItems.asJava)
 
-  def apply(requestItems: Map[String, KeysAndAttributes], returnConsumedCapacity: String): BatchGetItemRequest =
+  def create(requestItems: Map[String, KeysAndAttributes], returnConsumedCapacity: String): BatchGetItemRequest =
     new BatchGetItemRequest(requestItems.asJava, returnConsumedCapacity)
 
-  def apply(requestItems: Map[String, KeysAndAttributes], returnConsumedCapacity: ReturnConsumedCapacity): BatchGetItemRequest =
+  def create(requestItems: Map[String, KeysAndAttributes], returnConsumedCapacity: ReturnConsumedCapacity): BatchGetItemRequest =
     new BatchGetItemRequest(requestItems.asJava, returnConsumedCapacity)
 
 }
 
 class RichBatchGetItemRequest(val underlying: BatchGetItemRequest) extends AnyVal with PimpedType[BatchGetItemRequest] {
 
-  def requestItems_=(values: Map[String, KeysAndAttributes]): Unit =
-    underlying.setRequestItems(values.asJava)
+  def requestItemsOpt_=(values: Option[Map[String, KeysAndAttributes]]): Unit =
+    underlying.setRequestItems(values.map(_.asJava).orNull)
 
-  def requestItems: Map[String, KeysAndAttributes] =
-    underlying.getRequestItems.asScala.toMap
+  def requestItemsOpt: Option[Map[String, KeysAndAttributes]] =
+    Option(underlying.getRequestItems).map(_.asScala.toMap)
 
-  def withRequestItems(requestItems: Map[String, KeysAndAttributes]): BatchGetItemRequest =
-    underlying.withRequestItems(requestItems.asJava)
+  def withRequestItemsOpt(values: Option[Map[String, KeysAndAttributes]]): BatchGetItemRequest =
+    underlying.withRequestItems(values.map(_.asJava).orNull)
 
-  def returnConsumedCapacity_=(value: String): Unit = underlying.setReturnConsumedCapacity(value)
+  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity_=(value: ReturnConsumedCapacity): Unit = underlying.setReturnConsumedCapacity(value)
+  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
+  def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
 
 }

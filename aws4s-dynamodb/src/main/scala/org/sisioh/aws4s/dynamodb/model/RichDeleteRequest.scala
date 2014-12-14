@@ -7,16 +7,16 @@ import scala.collection.JavaConverters._
 
 object DeleteRequestFactory {
 
-  def apply(): DeleteRequest = new DeleteRequest()
+  def create(): DeleteRequest = new DeleteRequest()
 
-  def apply(key: Map[String, AttributeValue]) = new DeleteRequest(key.asJava)
+  def create(key: Map[String, AttributeValue]) = new DeleteRequest(key.asJava)
 
 }
 
 class RichDeleteRequest(val underlying: DeleteRequest) extends AnyVal with PimpedType[DeleteRequest] {
 
-  def key_=(value: Map[String, AttributeValue]): Unit = underlying.setKey(value.asJava)
+  def keyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setKey(value.map(_.asJava).orNull)
 
-  def key: Map[String, AttributeValue] = underlying.getKey.asScala.toMap
+  def keyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getKey).map(_.asScala.toMap)
 
 }

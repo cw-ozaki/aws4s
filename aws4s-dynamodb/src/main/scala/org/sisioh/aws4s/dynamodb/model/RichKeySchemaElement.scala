@@ -5,22 +5,22 @@ import org.sisioh.aws4s.PimpedType
 
 object KeySchemaElementFactory {
 
-  def apply(): KeySchemaElement = new KeySchemaElement()
+  def create(): KeySchemaElement = new KeySchemaElement()
 
-  def apply(attributeName: String, keyType: String): KeySchemaElement = new KeySchemaElement(attributeName, keyType)
+  def create(attributeName: String, keyType: String): KeySchemaElement = new KeySchemaElement(attributeName, keyType)
 
-  def apply(attributeName: String, keyType: KeyType): KeySchemaElement = new KeySchemaElement(attributeName, keyType)
+  def create(attributeName: String, keyType: KeyType): KeySchemaElement = new KeySchemaElement(attributeName, keyType)
 
 }
 
 class RichKeySchemaElement(val underlying: KeySchemaElement) extends AnyVal with PimpedType[KeySchemaElement] {
 
-  def attributeName: String = underlying.getAttributeName
+  def attributeNameOpt: Option[String] = Option(underlying.getAttributeName)
 
-  def attributeName(value: String): Unit = underlying.setAttributeName(value)
+  def attributeNameOpt_=(value: Option[String]): Unit = underlying.setAttributeName(value.orNull)
 
-  def keyType: String = underlying.getKeyType
+  def keyTypeOpt: Option[String] = Option(underlying.getKeyType)
 
-  def keyType(value: String): Unit = underlying.setKeyType(value)
+  def keyTypeOpt_=(value: Option[String]): Unit = underlying.setKeyType(value.orNull)
 
 }

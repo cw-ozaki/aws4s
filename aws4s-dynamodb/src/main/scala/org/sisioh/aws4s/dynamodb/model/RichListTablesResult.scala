@@ -7,22 +7,22 @@ import scala.collection.JavaConverters._
 
 object ListTablesResultFactory {
 
-  def apply(): ListTablesResult = new ListTablesResult()
+  def create(): ListTablesResult = new ListTablesResult()
 
 }
 
 
 class RichListTablesResult(val underlying: ListTablesResult) extends AnyVal with PimpedType[ListTablesResult] {
 
-  def tableNames_=(value: Seq[String]): Unit = underlying.setTableNames(value.asJava)
+  def tableNamesOpt_=(value: Option[Seq[String]]): Unit = underlying.setTableNames(value.map(_.asJava).orNull)
 
-  def tableNames: Seq[String] = underlying.getTableNames.asScala
+  def tableNamesOpt: Option[Seq[String]] = Option(underlying.getTableNames).map(_.asScala)
 
-  def withTableNames(tableNames: Iterable[String]): ListTablesResult =
-    underlying.withTableNames(tableNames.toSeq.asJava)
+  def withTableNamesOpt(tableNames: Option[Iterable[String]]): ListTablesResult =
+    underlying.withTableNames(tableNames.map(_.toSeq.asJava).orNull)
 
-  def lastEvaluatedTableName_=(value: String): Unit = underlying.setLastEvaluatedTableName(value)
+  def lastEvaluatedTableNameOpt_=(value: Option[String]): Unit = underlying.setLastEvaluatedTableName(value.orNull)
 
-  def lastEvaluatedTableName: String = underlying.getLastEvaluatedTableName
+  def lastEvaluatedTableNameOpt: Option[String] = Option(underlying.getLastEvaluatedTableName)
 
 }

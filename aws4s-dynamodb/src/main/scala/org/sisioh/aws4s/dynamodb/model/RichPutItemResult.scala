@@ -7,24 +7,24 @@ import scala.collection.JavaConverters._
 
 object PutItemResultFactory {
 
-  def apply(): PutItemResult = new PutItemResult()
+  def create(): PutItemResult = new PutItemResult()
 
 }
 
 class RichPutItemResult(val underlying: PutItemResult) extends AnyVal with PimpedType[PutItemResult] {
 
-  def attributes: Map[String, AttributeValue] = underlying.getAttributes.asScala.toMap
+  def attributesOpt: Map[String, AttributeValue] = underlying.getAttributes.asScala.toMap
 
-  def attributes_=(value: Map[String, AttributeValue]): Unit = underlying.setAttributes(value.asJava)
+  def attributesOpt_=(value: Map[String, AttributeValue]): Unit = underlying.setAttributes(value.asJava)
 
-  def withAttributes(value: Map[String, AttributeValue]): PutItemResult = underlying.withAttributes(value.asJava)
+  def withAttributesOpt(value: Map[String, AttributeValue]): PutItemResult = underlying.withAttributes(value.asJava)
 
-  def consumedCapacity: ConsumedCapacity = underlying.getConsumedCapacity
+  def consumedCapacityOpt: ConsumedCapacity = underlying.getConsumedCapacity
 
-  def consumedCapacity_=(value: ConsumedCapacity): Unit = underlying.setConsumedCapacity(value)
+  def consumedCapacityOpt_=(value: ConsumedCapacity): Unit = underlying.setConsumedCapacity(value)
 
-  def itemCollectionMetrics: ItemCollectionMetrics = underlying.getItemCollectionMetrics
+  def itemCollectionMetricsOpt: ItemCollectionMetrics = underlying.getItemCollectionMetrics
 
-  def itemCollectionMetrics_=(value: ItemCollectionMetrics): Unit = underlying.setItemCollectionMetrics(value)
+  def itemCollectionMetricsOpt_=(value: ItemCollectionMetrics): Unit = underlying.setItemCollectionMetrics(value)
 
 }

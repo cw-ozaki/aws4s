@@ -7,20 +7,20 @@ import scala.collection.JavaConverters._
 
 object ProjectionFactory {
 
-  def apply(): Projection = new Projection()
+  def create(): Projection = new Projection()
 
 }
 
 class RichProjection(val underlying: Projection) extends AnyVal with PimpedType[Projection] {
 
-  def projectionType: String = underlying.getProjectionType
+  def projectionTypeOpt: Option[String] = Option(underlying.getProjectionType)
 
-  def projectionType_=(value: String): Unit = underlying.setProjectionType(value)
+  def projectionTypeOpt_=(value: Option[String]): Unit = underlying.setProjectionType(value.orNull)
 
-  def nonKeyAttributes: Seq[String] = underlying.getNonKeyAttributes.asScala
+  def nonKeyAttributesOpt: Option[Seq[String]] = Option(underlying.getNonKeyAttributes).map(_.asScala)
 
-  def nonKeyAttributes_=(value: Seq[String]): Unit = underlying.setNonKeyAttributes(value.asJava)
+  def nonKeyAttributesOpt_=(value: Option[Seq[String]]): Unit = underlying.setNonKeyAttributes(value.map(_.asJava).orNull)
 
-  def withNonKeyAttributes(nonKeyAttributes: Iterable[String]) = underlying.withNonKeyAttributes(nonKeyAttributes.toSeq.asJava)
+  def withNonKeyAttributesOpt(value: Option[Iterable[String]]) = underlying.withNonKeyAttributes(value.map(_.toSeq.asJava).orNull)
 
 }

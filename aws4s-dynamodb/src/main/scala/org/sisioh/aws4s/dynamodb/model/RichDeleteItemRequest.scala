@@ -7,13 +7,13 @@ import scala.collection.JavaConverters._
 
 object DeleteItemRequestFactory {
 
-  def apply(): DeleteItemRequest = new DeleteItemRequest()
+  def create(): DeleteItemRequest = new DeleteItemRequest()
 
-  def apply(tableName: String, key: Map[String, AttributeValue]): DeleteItemRequest = new DeleteItemRequest(tableName, key.asJava)
+  def create(tableName: String, key: Map[String, AttributeValue]): DeleteItemRequest = new DeleteItemRequest(tableName, key.asJava)
 
-  def apply(tableName: String, key: Map[String, AttributeValue], returnValues: String): DeleteItemRequest = new DeleteItemRequest(tableName, key.asJava, returnValues)
+  def create(tableName: String, key: Map[String, AttributeValue], returnValues: String): DeleteItemRequest = new DeleteItemRequest(tableName, key.asJava, returnValues)
 
-  def apply(tableName: String, key: Map[String, AttributeValue], returnValues: ReturnValue): DeleteItemRequest =
+  def create(tableName: String, key: Map[String, AttributeValue], returnValues: ReturnValue): DeleteItemRequest =
     new DeleteItemRequest(tableName, key.asJava, returnValues)
 
 }
@@ -21,73 +21,73 @@ object DeleteItemRequestFactory {
 
 class RichDeleteItemRequest(val underlying: DeleteItemRequest) extends AnyVal with PimpedType[DeleteItemRequest] {
 
-  def tableName_=(value: String): Unit = underlying.setTableName(value)
+  def tableNamOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
-  def tableName: String = underlying.getTableName
+  def tableNameOpt: Option[String] = Option(underlying.getTableName)
 
-  def key_=(value: Map[String, AttributeValue]): Unit = underlying.setKey(value.asJava)
+  def keyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setKey(value.map(_.asJava).orNull)
 
-  def key: Map[String, AttributeValue] = underlying.getKey.asScala.toMap
+  def keyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getKey).map(_.asScala.toMap)
 
-  def withKey(key: Map[String, AttributeValue]): DeleteItemRequest =
-    underlying.withKey(key.asJava)
+  def withKeyOpt(value: Option[Map[String, AttributeValue]]): DeleteItemRequest =
+    underlying.withKey(value.map(_.asJava).orNull)
 
-  def withKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): DeleteItemRequest =
+  def withKeyOpt(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): DeleteItemRequest =
     underlying.withKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
 
-  def expected_=(value: Map[String, ExpectedAttributeValue]): Unit =
-    underlying.setExpected(value.asJava)
+  def expectedOpt_=(value: Option[Map[String, ExpectedAttributeValue]]): Unit =
+    underlying.setExpected(value.map(_.asJava).orNull)
 
-  def expected: Map[String, ExpectedAttributeValue] =
-    underlying.getExpected.asScala.toMap
+  def expectedOpt: Option[Map[String, ExpectedAttributeValue]] =
+    Option(underlying.getExpected).map(_.asScala.toMap)
 
-  def withExpected(expected: Map[String, ExpectedAttributeValue]): DeleteItemRequest =
-    underlying.withExpected(expected.asJava)
+  def withExpectedOpt(value: Option[Map[String, ExpectedAttributeValue]]): DeleteItemRequest =
+    underlying.withExpected(value.map(_.asJava).orNull)
 
-  def conditionalOperator_=(value: String): Unit =
-    underlying.setConditionalOperator(value)
+  def conditionalOperatorOpt_=(value: Option[String]): Unit =
+    underlying.setConditionalOperator(value.orNull)
 
-  def conditionalOperator_=(value: ConditionalOperator): Unit =
-    underlying.setConditionalOperator(value)
+  def setConditionalOperatorOpt(value: Option[ConditionalOperator]): Unit =
+    underlying.setConditionalOperator(value.orNull)
 
-  def conditionalOperator: String = underlying.getConditionalOperator
+  def conditionalOperatorOpt: Option[String] = Option(underlying.getConditionalOperator)
 
-  def returnValues_=(value: String): Unit = underlying.setReturnValues(value)
+  def returnValuesOpt_=(value: Option[String]): Unit = underlying.setReturnValues(value.orNull)
 
-  def returnValues_=(value: ReturnValue): Unit = underlying.setReturnValues(value)
+  def setReturnValuesOpt(value: Option[ReturnValue]): Unit = underlying.setReturnValues(value.orNull)
 
-  def returnValues: String = underlying.getReturnValues
+  def returnValuesOpt: Option[String] = Option(underlying.getReturnValues)
 
-  def returnConsumedCapacity_=(value: String): Unit = underlying.setReturnConsumedCapacity(value)
+  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity_=(value: ReturnConsumedCapacity): Unit = underlying.setReturnConsumedCapacity(value)
+  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
+  def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
-  def returnItemCollectionMetrics_=(value: String): Unit = underlying.setReturnItemCollectionMetrics(value)
+  def returnItemCollectionMetricsOpt_=(value: Option[String]): Unit = underlying.setReturnItemCollectionMetrics(value.orNull)
 
-  def returnItemCollectionMetrics_=(value: ReturnItemCollectionMetrics): Unit = underlying.setReturnItemCollectionMetrics(value)
+  def setReturnItemCollectionMetricsOpt(value: Option[ReturnItemCollectionMetrics]): Unit = underlying.setReturnItemCollectionMetrics(value.orNull)
 
-  def returnItemCollectionMetrics: String = underlying.getReturnItemCollectionMetrics
+  def returnItemCollectionMetrics: Option[String] = Option(underlying.getReturnItemCollectionMetrics)
 
-  def conditionExpression_=(value: String): Unit = underlying.setConditionExpression(value)
+  def conditionExpressionOpt_=(value: Option[String]): Unit = underlying.setConditionExpression(value.orNull)
 
-  def conditionExpression: String = underlying.getConditionExpression
+  def conditionExpressionOpt: Option[String] = Option(underlying.getConditionExpression)
 
-  def expressionAttributeNames_=(value: Map[String, String]): Unit = underlying.setExpressionAttributeNames(value.asJava)
+  def expressionAttributeNamesOpt_=(value: Map[String, String]): Unit = underlying.setExpressionAttributeNames(value.asJava)
 
-  def expressionAttributeNames: Map[String, String] = underlying.getExpressionAttributeNames.asScala.toMap
+  def expressionAttributeNamesOpt: Option[Map[String, String]] = Option(underlying.getExpressionAttributeNames).map(_.asScala.toMap)
 
-  def withExpressionAttributeNames(expressionAttributeNames: Map[String, String]): DeleteItemRequest =
-    underlying.withExpressionAttributeNames(expressionAttributeNames.asJava)
+  def withExpressionAttributeNamesOpt(value: Option[Map[String, String]]): DeleteItemRequest =
+    underlying.withExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def expressionAttributeValues_=(value: Map[String, AttributeValue]): Unit =
-    underlying.setExpressionAttributeValues(value.asJava)
+  def expressionAttributeValuesOpt_=(value: Option[Map[String, AttributeValue]]): Unit =
+    underlying.setExpressionAttributeValues(value.map(_.asJava).orNull)
 
-  def expressionAttributeValues: Map[String, AttributeValue] =
-    underlying.getExpressionAttributeValues.asScala.toMap
+  def expressionAttributeValuesOpt: Option[Map[String, AttributeValue]] =
+    Option(underlying.getExpressionAttributeValues).map(_.asScala.toMap)
 
-  def withExpressionAttributeValues(expressionAttributeValues: Map[String, AttributeValue]): DeleteItemRequest =
-    underlying.withExpressionAttributeValues(expressionAttributeValues.asJava)
+  def withExpressionAttributeValuesOpt(value: Option[Map[String, AttributeValue]]): DeleteItemRequest =
+    underlying.withExpressionAttributeValues(value.map(_.asJava).orNull)
 
 }

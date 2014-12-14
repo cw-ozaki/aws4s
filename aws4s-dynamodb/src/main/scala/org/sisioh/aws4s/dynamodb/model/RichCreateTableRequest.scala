@@ -7,50 +7,66 @@ import scala.collection.JavaConverters._
 
 object CreateTableRequestFactory {
 
-  def apply(): CreateTableRequest = new CreateTableRequest()
+  def create(): CreateTableRequest = new CreateTableRequest()
 
-  def apply(tableName: String, keySchema: Seq[KeySchemaElement]): CreateTableRequest =
+  def create(tableName: String, keySchema: Seq[KeySchemaElement]): CreateTableRequest =
     new CreateTableRequest(tableName, keySchema.asJava)
 
-  def apply(attributeDefinitions: Seq[AttributeDefinition], tableName: String, keySchema: Seq[KeySchemaElement], provisionedThroughput: ProvisionedThroughput): CreateTableRequest =
+  def create(attributeDefinitions: Seq[AttributeDefinition], tableName: String, keySchema: Seq[KeySchemaElement], provisionedThroughput: ProvisionedThroughput): CreateTableRequest =
     new CreateTableRequest(attributeDefinitions.asJava, tableName, keySchema.asJava, provisionedThroughput)
 
 }
 
 class RichCreateTableRequest(val underlying: CreateTableRequest) extends AnyVal with PimpedType[CreateTableRequest] {
 
-  def attributeDefinitions_=(value: Seq[AttributeDefinition]): Unit =
-    underlying.setAttributeDefinitions(value.asJava)
+  def tableNameOpt: Option[String] = Option(underlying.getTableName)
 
-  def attributeDefinitions: Seq[AttributeDefinition] = underlying.getAttributeDefinitions.asScala
+  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
-  def withAttributeDefinitions(attributeDefinitions: Iterable[AttributeDefinition]): CreateTableRequest =
-    underlying.withAttributeDefinitions(attributeDefinitions.toSeq.asJava)
+  def withTableNameOpt(value: Option[String]): CreateTableRequest = underlying.withTableName(value.orNull)
 
-  def keyScheme_=(value: Seq[KeySchemaElement]): Unit =
-    underlying.setKeySchema(value.asJava)
+  def attributeDefinitionOpt_=(value: Option[Seq[AttributeDefinition]]): Unit =
+    underlying.setAttributeDefinitions(value.map(_.asJava).orNull)
 
-  def keySchema: Seq[KeySchemaElement] = underlying.getKeySchema.asScala
+  def attributeDefinitionsOpt: Option[Seq[AttributeDefinition]] = Option(underlying.getAttributeDefinitions).map(_.asScala)
 
-  def withKeySchema(keySchema: Iterable[KeySchemaElement]): CreateTableRequest =
-    underlying.withKeySchema(keySchema.toSeq.asJava)
+  def withAttributeDefinitionsOpt(values: Option[Iterable[AttributeDefinition]]): CreateTableRequest =
+    underlying.withAttributeDefinitions(values.map(_.toSeq.asJava).orNull)
 
-  def localSecondaryIndexes_=(value: Seq[LocalSecondaryIndex]): Unit =
-    underlying.setLocalSecondaryIndexes(value.asJava)
+  def keySchemeOpt_=(value: Option[Seq[KeySchemaElement]]): Unit =
+    underlying.setKeySchema(value.map(_.asJava).orNull)
 
-  def localSecondaryIndexes: Seq[LocalSecondaryIndex] =
-    underlying.getLocalSecondaryIndexes.asScala
+  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
 
-  def withLocalSecondaryIndexes(localSecondaryIndexes: Iterable[LocalSecondaryIndex]): CreateTableRequest =
-    underlying.withLocalSecondaryIndexes(localSecondaryIndexes.toSeq.asJava)
+  def withKeySchemaOpt(value: Option[Iterable[KeySchemaElement]]): CreateTableRequest =
+    underlying.withKeySchema(value.map(_.toSeq.asJava).orNull)
 
-  def globalSecondaryIndexes_=(value: Seq[GlobalSecondaryIndex]): Unit =
-    underlying.setGlobalSecondaryIndexes(value.asJava)
+  def localSecondaryIndexesOpt_=(value: Option[Seq[LocalSecondaryIndex]]): Unit =
+    underlying.setLocalSecondaryIndexes(value.map(_.asJava).orNull)
 
-  def globalSecondaryIndexes: Seq[GlobalSecondaryIndex] = underlying.getGlobalSecondaryIndexes.asScala
+  def localSecondaryIndexesOpt: Option[Seq[LocalSecondaryIndex]] =
+    Option(underlying.getLocalSecondaryIndexes).map(_.asScala)
 
-  def withGlobalSecondaryIndexes(globalSecondaryIndexes: Iterable[GlobalSecondaryIndex]): CreateTableRequest =
-    underlying.withGlobalSecondaryIndexes(globalSecondaryIndexes.toSeq.asJava)
+  def withLocalSecondaryIndexesOpt(value: Option[Iterable[LocalSecondaryIndex]]): CreateTableRequest =
+    underlying.withLocalSecondaryIndexes(value.map(_.toSeq.asJava).orNull)
+
+  def globalSecondaryIndexesOpt_=(value: Option[Seq[GlobalSecondaryIndex]]): Unit =
+    underlying.setGlobalSecondaryIndexes(value.map(_.asJava).orNull)
+
+  def globalSecondaryIndexesOpt: Option[Seq[GlobalSecondaryIndex]] =
+    Option(underlying.getGlobalSecondaryIndexes).map(_.asScala)
+
+  def withGlobalSecondaryIndexesOpt(value: Option[Iterable[GlobalSecondaryIndex]]): CreateTableRequest =
+    underlying.withGlobalSecondaryIndexes(value.map(_.toSeq.asJava).orNull)
+
+  def provisionedThroughputOpt: Option[ProvisionedThroughput] =
+    Option(underlying.getProvisionedThroughput)
+
+  def provisionedThroughputOpt_=(value: Option[ProvisionedThroughput]): Unit =
+    underlying.setProvisionedThroughput(value.orNull)
+
+  def withProvisionedThroughputOpt(value: Option[ProvisionedThroughput]): CreateTableRequest =
+    underlying.withProvisionedThroughput(value.orNull)
 
 }
 

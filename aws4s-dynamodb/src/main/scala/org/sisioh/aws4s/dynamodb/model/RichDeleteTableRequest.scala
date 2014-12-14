@@ -5,16 +5,14 @@ import org.sisioh.aws4s.PimpedType
 
 object DeleteTableRequestFactory {
 
- def apply(): DeleteTableRequest = new DeleteTableRequest()
+ def create(): DeleteTableRequest = new DeleteTableRequest()
 
 }
 
 class RichDeleteTableRequest(val underlying: DeleteTableRequest) extends AnyVal with PimpedType[DeleteTableRequest] {
 
- def tableName_=(value: String): Unit = underlying.setTableName(value)
+ def tableNameOpt_=(value: String): Unit = underlying.setTableName(value)
 
- def tableName: String = underlying.getTableName
-
-
+ def tableNameOpt: Option[String] = Option(underlying.getTableName)
 
 }

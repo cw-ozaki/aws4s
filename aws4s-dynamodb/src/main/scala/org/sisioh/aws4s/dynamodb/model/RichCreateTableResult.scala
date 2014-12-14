@@ -5,15 +5,18 @@ import org.sisioh.aws4s.PimpedType
 
 object CreateTableResultFactory {
 
-  def apply(): CreateTableResult = new CreateTableResult()
+  def create(): CreateTableResult = new CreateTableResult()
 
 }
 
 class RichCreateTableResult(val underlying: CreateTableResult) extends AnyVal with PimpedType[CreateTableResult] {
 
-  def tableDescription_=(value: TableDescription): Unit =
-    underlying.setTableDescription(value)
+  def tableDescriptionOpt_=(value: Option[TableDescription]): Unit =
+    underlying.setTableDescription(value.orNull)
 
-  def tableDescription: TableDescription = underlying.getTableDescription
+  def tableDescriptionOpt: Option[TableDescription] = Option(underlying.getTableDescription)
+
+  def withTableDescriptionOpt(value: Option[TableDescription]): CreateTableResult =
+    underlying.withTableDescription(value.orNull)
 
 }

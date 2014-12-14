@@ -7,32 +7,32 @@ import scala.collection.JavaConverters._
 
 object ConsumedCapacityFactory {
 
-  def apply(): ConsumedCapacity = new ConsumedCapacity()
+  def create(): ConsumedCapacity = new ConsumedCapacity()
 
 }
 
 class RichConsumedCapacity(val underlying: ConsumedCapacity) extends AnyVal with PimpedType[ConsumedCapacity] {
 
-  def tableName_=(value: Capacity): Unit = underlying.setTable(value)
+  def tableNameOpt_=(value: Option[Capacity]): Unit = underlying.setTable(value.orNull)
 
-  def tableName: Capacity = underlying.getTable
+  def tableNameOpt: Option[Capacity] = Option(underlying.getTable)
 
-  def localSecondaryIndexes_=(value: Map[String, Capacity]): Unit =
-    underlying.setLocalSecondaryIndexes(value.asJava)
+  def localSecondaryIndexesOpt_=(value: Option[Map[String, Capacity]]): Unit =
+    underlying.setLocalSecondaryIndexes(value.map(_.asJava).orNull)
 
-  def localSecondaryIndexes: Map[String, Capacity] =
-    underlying.getLocalSecondaryIndexes.asScala.toMap
+  def localSecondaryIndexesOpt: Option[Map[String, Capacity]] =
+    Option(underlying.getLocalSecondaryIndexes).map(_.asScala.toMap)
 
-  def withLocalSecondaryIndexes(localSecondaryIndexes: Map[String, Capacity]): ConsumedCapacity =
-    underlying.withLocalSecondaryIndexes(localSecondaryIndexes.asJava)
+  def withLocalSecondaryIndexesOpt(value: Option[Map[String, Capacity]]): ConsumedCapacity =
+    underlying.withLocalSecondaryIndexes(value.map(_.asJava).orNull)
 
-  def globalSecondaryIndexes_=(value: Map[String, Capacity]): Unit =
-    underlying.setGlobalSecondaryIndexes(value.asJava)
+  def globalSecondaryIndexesOpt_=(value: Option[Map[String, Capacity]]): Unit =
+    underlying.setGlobalSecondaryIndexes(value.map(_.asJava).orNull)
 
-  def globalSecondaryIndexes: Map[String, Capacity] =
-    underlying.getGlobalSecondaryIndexes.asScala.toMap
+  def globalSecondaryIndexesOpt: Option[Map[String, Capacity]] =
+    Option(underlying.getGlobalSecondaryIndexes).map(_.asScala.toMap)
 
-  def withGlobalSecondaryIndexes(globalSecondaryIndexes: Map[String, Capacity]): ConsumedCapacity =
-    underlying.withGlobalSecondaryIndexes(globalSecondaryIndexes.asJava)
+  def withGlobalSecondaryIndexesOpt(value: Option[Map[String, Capacity]]): ConsumedCapacity =
+    underlying.withGlobalSecondaryIndexes(value.map(_.asJava).orNull)
 
 }

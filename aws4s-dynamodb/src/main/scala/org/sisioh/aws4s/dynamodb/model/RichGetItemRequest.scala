@@ -7,45 +7,44 @@ import scala.collection.JavaConverters._
 
 object GetItemRequestFactory {
 
-  def apply(): GetItemRequest = new GetItemRequest()
+  def create(): GetItemRequest = new GetItemRequest()
 
-  def apply(tableName: String, key: Map[String, AttributeValue]): GetItemRequest = new GetItemRequest(tableName, key.asJava)
+  def create(tableName: String, key: Map[String, AttributeValue]): GetItemRequest = new GetItemRequest(tableName, key.asJava)
 
 }
 
 class RichGetItemRequest(val underlying: GetItemRequest) extends AnyVal with PimpedType[GetItemRequest] {
 
-  def key: Map[String, AttributeValue] = underlying.getKey.asScala.toMap
+  def keyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getKey).map(_.asScala.toMap)
 
-  def key_=(value: Map[String, AttributeValue]): Unit = underlying.setKey(value.asJava)
+  def keyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setKey(value.map(_.asJava).orNull)
 
-  def withKey(key: Map[String, AttributeValue]): GetItemRequest = underlying.withKey(key.asJava)
+  def withKeyOpt(key: Option[Map[String, AttributeValue]]): GetItemRequest = underlying.withKey(key.map(_.asJava).orNull)
 
   def withKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): GetItemRequest =
     underlying.withKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
 
-  def attributesToGet(): Seq[String] = underlying.getAttributesToGet.asScala
+  def attributesToGetOpt(): Option[Seq[String]] = Option(underlying.getAttributesToGet).map(_.asScala)
 
-  def attributesToGet_=(value: Iterable[String]): Unit = underlying.setAttributesToGet(value.toSeq.asJava)
+  def attributesToGetOpt_=(value: Option[Iterable[String]]): Unit = underlying.setAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
-  def withAttributesToGet(value: Iterable[String]): GetItemRequest = underlying.withAttributesToGet(value.toSeq.asJava)
+  def withAttributesToGetOpt(value: Option[Iterable[String]]): GetItemRequest = underlying.withAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
-  def returnConsumedCapacity: String = underlying.getReturnConsumedCapacity
+  def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
-  def returnConsumedCapacity_=(value: String): Unit = underlying.setReturnConsumedCapacity(value)
+  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def returnConsumedCapacity_=(value: ReturnConsumedCapacity): Unit = underlying.setReturnConsumedCapacity(value)
+  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
-  def projectionExpression: String = underlying.getProjectionExpression
+  def projectionExpressionOpt: Option[String] = Option(underlying.getProjectionExpression)
 
-  def projectionExpression_=(value: String): Unit = underlying.setProjectionExpression(value)
+  def projectionExpressionOpt_=(value: Option[String]): Unit = underlying.setProjectionExpression(value.orNull)
 
+  def expressionAttributeNamesOpt: Option[Map[String, String]] = Option(underlying.getExpressionAttributeNames).map(_.asScala.toMap)
 
-  def expressionAttributeNames: Map[String, String] = underlying.getExpressionAttributeNames.asScala.toMap
+  def expressionAttributeNamesOpt_=(value: Option[Map[String, String]]): Unit = underlying.setExpressionAttributeNames(value.map(_.asJava).orNull)
 
-  def expressionAttributeNames_=(value: Map[String, String]): Unit = underlying.setExpressionAttributeNames(value.asJava)
-
-  def withExpressionAttributeNames(value: Map[String, String]): GetItemRequest = underlying.withExpressionAttributeNames(value.asJava)
+  def withExpressionAttributeNamesOpt(value: Option[Map[String, String]]): GetItemRequest = underlying.withExpressionAttributeNames(value.map(_.asJava).orNull)
 
 
 }

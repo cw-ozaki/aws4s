@@ -10,22 +10,22 @@ import scala.collection.JavaConverters._
 
 class RichAmazonWebServiceRequest(val underlying: AmazonWebServiceRequest) extends AnyVal with PimpedType[AmazonWebServiceRequest] {
 
-  def requestCredentials_=(value: AWSCredentials): Unit = underlying.setRequestCredentials(value)
+  def requestCredentialsOpt_=(value: Option[AWSCredentials]): Unit = underlying.setRequestCredentials(value.orNull)
 
-  def requestCredentials: AWSCredentials = underlying.getRequestCredentials
+  def requestCredentialsOpt: Option[AWSCredentials] = Option(underlying.getRequestCredentials)
 
   def requestClientOptions: RequestClientOptions = underlying.getRequestClientOptions
 
   def readLimit: Int = underlying.getReadLimit
 
-  def customRequestHeaders: Map[String, String] = underlying.getCustomRequestHeaders.asScala.toMap
+  def customRequestHeadersOpt: Option[Map[String, String]] = Option(underlying.getCustomRequestHeaders).map(_.asScala.toMap)
 
-  def requestMetricCollector_=(value: RequestMetricCollector): Unit = underlying.setRequestMetricCollector(value)
+  def requestMetricCollectorOpt_=(value: Option[RequestMetricCollector]): Unit = underlying.setRequestMetricCollector(value.orNull)
 
-  def requestMetricCollector: RequestMetricCollector = underlying.getRequestMetricCollector
+  def requestMetricCollectorOpt: Option[RequestMetricCollector] = Option(underlying.getRequestMetricCollector)
 
-  def generalProgressListener_=(value: ProgressListener): Unit = underlying.setGeneralProgressListener(value)
+  def generalProgressListenerOpt_=(value: Option[ProgressListener]): Unit = underlying.setGeneralProgressListener(value.orNull)
 
-  def generalProgressListener: ProgressListener = underlying.getGeneralProgressListener
+  def generalProgressListenerOpt: Option[ProgressListener] = Option(underlying.getGeneralProgressListener)
 
 }
