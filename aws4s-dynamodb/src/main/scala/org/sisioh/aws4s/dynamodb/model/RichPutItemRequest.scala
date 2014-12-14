@@ -21,6 +21,8 @@ class RichPutItemRequest(val underlying: PutItemRequest) extends AnyVal with Pim
 
   def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
+  def withTableNameOpt(value: Option[String]): PutItemRequest = underlying.withTableName(value.orNull)
+
   def itemOpt: Option[Map[String, AttributeValue]] = Option(underlying.getItem).map(_.asScala.toMap)
 
   def itemOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setItem(value.map(_.asJava).orNull)

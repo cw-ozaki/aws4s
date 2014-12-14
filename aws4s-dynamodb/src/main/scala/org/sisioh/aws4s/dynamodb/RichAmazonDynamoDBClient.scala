@@ -69,6 +69,9 @@ class RichAmazonDynamoDBClient(val underlying: AmazonDynamoDBClient) extends Any
   def getItem(tableName: String, key: Map[String, AttributeValue], consistentRead: Boolean): Try[GetItemResult] =
     Try(underlying.getItem(tableName, key.asJava, consistentRead))
 
+  def putItem(putItemRequest: PutItemRequest): Try[PutItemResult] =
+    Try(underlying.putItem(putItemRequest))
+
   def putItem(tableName: String, item: Map[String, AttributeValue]): Try[PutItemResult] =
     Try(underlying.putItem(tableName, item.asJava))
 
