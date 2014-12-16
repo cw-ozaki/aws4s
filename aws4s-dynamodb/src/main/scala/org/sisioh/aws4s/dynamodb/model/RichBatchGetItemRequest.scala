@@ -22,6 +22,8 @@ object BatchGetItemRequestFactory {
 
 class RichBatchGetItemRequest(val underlying: BatchGetItemRequest) extends AnyVal with PimpedType[BatchGetItemRequest] {
 
+  // ---
+
   def requestItemsOpt_=(values: Option[Map[String, KeysAndAttributes]]): Unit =
     underlying.setRequestItems(values.map(_.asJava).orNull)
 
@@ -31,11 +33,16 @@ class RichBatchGetItemRequest(val underlying: BatchGetItemRequest) extends AnyVa
   def withRequestItemsOpt(values: Option[Map[String, KeysAndAttributes]]): BatchGetItemRequest =
     underlying.withRequestItems(values.map(_.asJava).orNull)
 
-  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
-
-  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
+  // ---
 
   def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
+  def returnConsumedCapacityOpt_=(value: Option[String]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
+
+  def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
+
+  def withReturnConsumedCapacityOpt(value: Option[String]): BatchGetItemRequest = underlying.withReturnConsumedCapacity(value.orNull)
+
+  // ---
 
 }

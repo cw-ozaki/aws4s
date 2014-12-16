@@ -11,8 +11,14 @@ object DeleteTableResultFactory {
 
 class RichDeleteTableResult(val underlying: DeleteTableResult) extends AnyVal with PimpedType[DeleteTableResult] {
 
-  def tableDescriptionOpt_=(value: Option[TableDescription]): Unit = underlying.setTableDescription(value.orNull)
+  // ---
 
   def tableDescriptionOpt: Option[TableDescription] = Option(underlying.getTableDescription)
+
+  def tableDescriptionOpt_=(value: Option[TableDescription]): Unit = underlying.setTableDescription(value.orNull)
+
+  def withTableDescriptionOpt(value: Option[TableDescription]): DeleteTableResult = underlying.withTableDescription(value.orNull)
+
+  // ---
 
 }

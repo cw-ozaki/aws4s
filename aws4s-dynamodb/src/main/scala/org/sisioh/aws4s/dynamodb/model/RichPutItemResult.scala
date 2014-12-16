@@ -13,18 +13,30 @@ object PutItemResultFactory {
 
 class RichPutItemResult(val underlying: PutItemResult) extends AnyVal with PimpedType[PutItemResult] {
 
-  def attributesOpt: Map[String, AttributeValue] = underlying.getAttributes.asScala.toMap
+  // ---
 
-  def attributesOpt_=(value: Map[String, AttributeValue]): Unit = underlying.setAttributes(value.asJava)
+  def attributesOpt: Option[Map[String, AttributeValue]] = Option(underlying.getAttributes).map(_.asScala.toMap)
 
-  def withAttributesOpt(value: Map[String, AttributeValue]): PutItemResult = underlying.withAttributes(value.asJava)
+  def attributesOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setAttributes(value.map(_.asJava).orNull)
 
-  def consumedCapacityOpt: ConsumedCapacity = underlying.getConsumedCapacity
+  def withAttributesOpt(value: Option[Map[String, AttributeValue]]): PutItemResult = underlying.withAttributes(value.map(_.asJava).orNull)
 
-  def consumedCapacityOpt_=(value: ConsumedCapacity): Unit = underlying.setConsumedCapacity(value)
+  // ---
 
-  def itemCollectionMetricsOpt: ItemCollectionMetrics = underlying.getItemCollectionMetrics
+  def consumedCapacityOpt: Option[ConsumedCapacity] = Option(underlying.getConsumedCapacity)
 
-  def itemCollectionMetricsOpt_=(value: ItemCollectionMetrics): Unit = underlying.setItemCollectionMetrics(value)
+  def consumedCapacityOpt_=(value: Option[ConsumedCapacity]): Unit = underlying.setConsumedCapacity(value.orNull)
+
+  def withConsumedCapacityOpt(value: Option[ConsumedCapacity]): PutItemResult = underlying.withConsumedCapacity(value.orNull)
+
+  // ---
+
+  def itemCollectionMetricsOpt: Option[ItemCollectionMetrics] = Option(underlying.getItemCollectionMetrics)
+
+  def itemCollectionMetricsOpt_=(value: Option[ItemCollectionMetrics]): Unit = underlying.setItemCollectionMetrics(value.orNull)
+
+  def withItemCollectionMetricsOpt(value: Option[ItemCollectionMetrics]): PutItemResult = underlying.withItemCollectionMetrics(value.orNull)
+
+  // ---
 
 }

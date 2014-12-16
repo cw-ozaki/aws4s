@@ -150,6 +150,8 @@ trait ModelImplicits {
 
   implicit def richTableDescription(underlying: TableDescription): RichTableDescription = new RichTableDescription(underlying)
 
+  implicit def richAttributeDefinition(underlying: AttributeDefinition): RichAttributeDefinition = new RichAttributeDefinition(underlying)
+
   implicit def richAttributeValue(underlying: AttributeValue): RichAttributeValue = new RichAttributeValue(underlying)
 
   implicit def richAttributeValueUpdate(underlying: AttributeValueUpdate): RichAttributeValueUpdate = new RichAttributeValueUpdate(underlying)

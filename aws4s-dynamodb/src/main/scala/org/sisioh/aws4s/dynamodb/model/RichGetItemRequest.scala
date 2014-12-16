@@ -15,6 +15,8 @@ object GetItemRequestFactory {
 
 class RichGetItemRequest(val underlying: GetItemRequest) extends AnyVal with PimpedType[GetItemRequest] {
 
+  // ---
+
   def keyOpt: Option[Map[String, AttributeValue]] = Option(underlying.getKey).map(_.asScala.toMap)
 
   def keyOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setKey(value.map(_.asJava).orNull)
@@ -24,11 +26,15 @@ class RichGetItemRequest(val underlying: GetItemRequest) extends AnyVal with Pim
   def withKey(hashKey: (String, AttributeValue), rangeKey: (String, AttributeValue)): GetItemRequest =
     underlying.withKey(KeyEntry(hashKey._1, hashKey._2), KeyEntry(rangeKey._1, rangeKey._2))
 
+  // ---
+
   def attributesToGetOpt(): Option[Seq[String]] = Option(underlying.getAttributesToGet).map(_.asScala)
 
   def attributesToGetOpt_=(value: Option[Iterable[String]]): Unit = underlying.setAttributesToGet(value.map(_.toSeq.asJava).orNull)
 
   def withAttributesToGetOpt(value: Option[Iterable[String]]): GetItemRequest = underlying.withAttributesToGet(value.map(_.toSeq.asJava).orNull)
+
+  // ---
 
   def returnConsumedCapacityOpt: Option[String] = Option(underlying.getReturnConsumedCapacity)
 
@@ -36,9 +42,17 @@ class RichGetItemRequest(val underlying: GetItemRequest) extends AnyVal with Pim
 
   def setReturnConsumedCapacityOpt(value: Option[ReturnConsumedCapacity]): Unit = underlying.setReturnConsumedCapacity(value.orNull)
 
+  def withReturnConsumedCapacityOpt(value: Option[String]): GetItemRequest = underlying.withReturnConsumedCapacity(value.orNull)
+
+  // ---
+
   def projectionExpressionOpt: Option[String] = Option(underlying.getProjectionExpression)
 
   def projectionExpressionOpt_=(value: Option[String]): Unit = underlying.setProjectionExpression(value.orNull)
+
+  def withProjectionExpressionOpt(value: Option[String]): GetItemRequest = underlying.withProjectionExpression(value.orNull)
+
+  // ---
 
   def expressionAttributeNamesOpt: Option[Map[String, String]] = Option(underlying.getExpressionAttributeNames).map(_.asScala.toMap)
 
@@ -46,5 +60,6 @@ class RichGetItemRequest(val underlying: GetItemRequest) extends AnyVal with Pim
 
   def withExpressionAttributeNamesOpt(value: Option[Map[String, String]]): GetItemRequest = underlying.withExpressionAttributeNames(value.map(_.asJava).orNull)
 
+  // ---
 
 }

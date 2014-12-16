@@ -12,9 +12,15 @@ object LocalSecondaryIndexFactory {
 
 class RichLocalSecondaryIndex(val underlying: LocalSecondaryIndex) extends AnyVal with PimpedType[LocalSecondaryIndex] {
 
+  // ---
+
   def indexNameOpt: Option[String] = Option(underlying.getIndexName)
 
   def indexNameOpt_=(value: Option[String]): Unit = underlying.setIndexName(value.orNull)
+
+  def withIndexNameOpt(value: Option[String]): LocalSecondaryIndex = underlying.withIndexName(value.orNull)
+
+  // ---
 
   def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
 
@@ -22,8 +28,14 @@ class RichLocalSecondaryIndex(val underlying: LocalSecondaryIndex) extends AnyVa
 
   def withKeySchemaOpt(value: Option[Seq[KeySchemaElement]]): LocalSecondaryIndex = underlying.withKeySchema(value.map(_.asJava).orNull)
 
+  // ---
+
   def projectionOpt: Option[Projection] = Option(underlying.getProjection)
 
   def projectionOpt_=(value: Option[Projection]): Unit = underlying.setProjection(value.orNull)
+
+  def withProjectionOpt(value: Option[Projection]): LocalSecondaryIndex = underlying.withProjection(value.orNull)
+
+  // ---
 
 }

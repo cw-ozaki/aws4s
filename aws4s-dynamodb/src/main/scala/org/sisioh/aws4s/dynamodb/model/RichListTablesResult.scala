@@ -14,15 +14,23 @@ object ListTablesResultFactory {
 
 class RichListTablesResult(val underlying: ListTablesResult) extends AnyVal with PimpedType[ListTablesResult] {
 
-  def tableNamesOpt_=(value: Option[Seq[String]]): Unit = underlying.setTableNames(value.map(_.asJava).orNull)
+  // ---
 
   def tableNamesOpt: Option[Seq[String]] = Option(underlying.getTableNames).map(_.asScala)
+
+  def tableNamesOpt_=(value: Option[Seq[String]]): Unit = underlying.setTableNames(value.map(_.asJava).orNull)
 
   def withTableNamesOpt(tableNames: Option[Iterable[String]]): ListTablesResult =
     underlying.withTableNames(tableNames.map(_.toSeq.asJava).orNull)
 
-  def lastEvaluatedTableNameOpt_=(value: Option[String]): Unit = underlying.setLastEvaluatedTableName(value.orNull)
+  // ---
 
   def lastEvaluatedTableNameOpt: Option[String] = Option(underlying.getLastEvaluatedTableName)
+
+  def lastEvaluatedTableNameOpt_=(value: Option[String]): Unit = underlying.setLastEvaluatedTableName(value.orNull)
+
+  def withLastEvaluatedTableNameOpt(value: Option[String]): ListTablesResult = underlying.withLastEvaluatedTableName(value.orNull)
+
+  // ---
 
 }

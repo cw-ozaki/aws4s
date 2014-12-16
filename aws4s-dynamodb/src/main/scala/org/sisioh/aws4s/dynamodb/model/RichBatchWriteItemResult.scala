@@ -13,6 +13,8 @@ object BatchWriteItemResultFactory {
 
 class RichBatchWriteItemResult(val underlying: BatchWriteItemResult) extends AnyVal with PimpedType[BatchWriteItemResult] {
 
+  // ---
+
   def unprocessedItemsOpt_=(value: Option[Map[String, Seq[WriteRequest]]]): Unit =
     underlying.setUnprocessedItems(value.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
 
@@ -21,6 +23,8 @@ class RichBatchWriteItemResult(val underlying: BatchWriteItemResult) extends Any
 
   def withUnprocessedItemsOpt(value: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemResult =
     underlying.withUnprocessedItems(value.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
+
+  // ---
 
   def itemCollectionMetricsOpt: Option[Map[String, Seq[ItemCollectionMetrics]]] =
     Option(underlying.getItemCollectionMetrics).map(_.asScala.map { case (k, v) => (k, v.asScala)}.toMap)
@@ -31,6 +35,8 @@ class RichBatchWriteItemResult(val underlying: BatchWriteItemResult) extends Any
   def withItemCollectionMetricsOpt(value: Option[Map[String, Seq[ItemCollectionMetrics]]]): BatchWriteItemResult =
     underlying.withItemCollectionMetrics(value.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
 
+  // ---
+
   def consumedCapacityOpt: Option[Seq[ConsumedCapacity]] =
     Option(underlying.getConsumedCapacity).map(_.asScala)
 
@@ -39,5 +45,7 @@ class RichBatchWriteItemResult(val underlying: BatchWriteItemResult) extends Any
 
   def withConsumedCapacityOpt(value: Option[Iterable[ConsumedCapacity]]): BatchWriteItemResult =
     underlying.withConsumedCapacity(value.map(_.toSeq.asJava).orNull)
+
+  // ---
 
 }

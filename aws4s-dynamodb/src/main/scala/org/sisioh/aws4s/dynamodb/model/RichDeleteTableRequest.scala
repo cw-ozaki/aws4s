@@ -11,8 +11,14 @@ object DeleteTableRequestFactory {
 
 class RichDeleteTableRequest(val underlying: DeleteTableRequest) extends AnyVal with PimpedType[DeleteTableRequest] {
 
- def tableNameOpt_=(value: String): Unit = underlying.setTableName(value)
+ // ---
 
  def tableNameOpt: Option[String] = Option(underlying.getTableName)
+
+ def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
+
+ def withTableNameOpt(value: Option[String]): DeleteTableRequest = underlying.withTableName(value.orNull)
+
+ // ---
 
 }

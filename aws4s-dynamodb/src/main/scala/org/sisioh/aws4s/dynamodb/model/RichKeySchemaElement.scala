@@ -19,8 +19,12 @@ class RichKeySchemaElement(val underlying: KeySchemaElement) extends AnyVal with
 
   def attributeNameOpt_=(value: Option[String]): Unit = underlying.setAttributeName(value.orNull)
 
+  def withAttributeNameOpt(value: Option[String]): KeySchemaElement = underlying.withAttributeName(value.orNull)
+
   def keyTypeOpt: Option[String] = Option(underlying.getKeyType)
 
   def keyTypeOpt_=(value: Option[String]): Unit = underlying.setKeyType(value.orNull)
+
+  def withKeyTypeOpt(value: Option[String]): KeySchemaElement = underlying.withKeyType(value.orNull)
 
 }

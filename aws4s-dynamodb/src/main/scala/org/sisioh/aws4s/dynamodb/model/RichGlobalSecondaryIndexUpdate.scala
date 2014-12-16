@@ -11,7 +11,13 @@ object GlobalSecondaryIndexUpdateFactory {
 
 class RichGlobalSecondaryIndexUpdate(val underlying: GlobalSecondaryIndexUpdate) extends AnyVal with PimpedType[GlobalSecondaryIndexUpdate]{
 
+  // ---
+
   def updateOpt: Option[UpdateGlobalSecondaryIndexAction] = Option(underlying.getUpdate)
 
   def updateOpt_=(value: Option[UpdateGlobalSecondaryIndexAction]): Unit = underlying.setUpdate(value.orNull)
+
+  def withUpdateOpt(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate = underlying.withUpdate(value.orNull)
+
+  // ---
 }

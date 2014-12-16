@@ -13,14 +13,22 @@ object GetItemResultFactory {
 
 class RichGetItemResult(val underlying: GetItemResult) extends AnyVal with PimpedType[GetItemResult] {
 
+  // ---
+
   def itemOpt: Option[Map[String, AttributeValue]] = Option(underlying.getItem).map(_.asScala.toMap)
 
   def itemOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setItem(value.map(_.asJava).orNull)
 
   def withItemOpt(value: Option[Map[String, AttributeValue]]): GetItemResult = underlying.withItem(value.map(_.asJava).orNull)
 
+  // ---
+
   def consumedCapacityOpt: Option[ConsumedCapacity] = Option(underlying.getConsumedCapacity)
 
   def consumedCapacityOpt_=(value: Option[ConsumedCapacity]): Unit = underlying.setConsumedCapacity(value.orNull)
+
+  def withConsumedCapacityOpt(value: Option[ConsumedCapacity]): GetItemResult = underlying.withConsumedCapacity(value.orNull)
+
+  // ---
 
 }

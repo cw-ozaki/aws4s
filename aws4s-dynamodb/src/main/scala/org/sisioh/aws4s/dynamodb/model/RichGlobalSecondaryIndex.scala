@@ -17,6 +17,8 @@ class RichGlobalSecondaryIndex(val underlying: GlobalSecondaryIndex) extends Any
 
   def indexNameOpt_=(value: Option[String]): Unit = underlying.setIndexName(value.orNull)
 
+  def withIndexNameOpt(value: Option[String]): GlobalSecondaryIndex = underlying.withIndexName(value.orNull)
+
   def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
 
   def keySchemaOpt_=(value: Option[Seq[KeySchemaElement]]): Unit = underlying.setKeySchema(value.map(_.asJava).orNull)
@@ -28,8 +30,12 @@ class RichGlobalSecondaryIndex(val underlying: GlobalSecondaryIndex) extends Any
 
   def projectionOpt(value: Option[Projection]): Unit = underlying.setProjection(value.orNull)
 
+  def withProjectionOpt(value: Option[Projection]): GlobalSecondaryIndex = underlying.withProjection(value.orNull)
+
   def provisionedThroughputOpt: Option[ProvisionedThroughput] = Option(underlying.getProvisionedThroughput)
 
   def provisionedThroughputOpt(value: Option[ProvisionedThroughput]): Unit = underlying.setProvisionedThroughput(value.orNull)
+
+  def withProvisionedThroughputOpt(value: Option[ProvisionedThroughput]): GlobalSecondaryIndex = underlying.withProvisionedThroughput(value.orNull)
 
 }

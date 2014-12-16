@@ -13,8 +13,14 @@ object DescribeTableRequestFactory {
 
 class RichDescribeTableRequest(val underlying: DescribeTableRequest) extends AnyVal with PimpedType[DescribeTableRequest] {
 
-  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
+  // ---
 
   def tableNameOpt: Option[String] = Option(underlying.getTableName)
+
+  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
+
+  def withTableNameOpt(value: Option[String]): DescribeTableRequest = underlying.withTableName(value.orNull)
+
+  // ---
 
 }

@@ -13,6 +13,8 @@ object BatchGetItemResultFactory {
 
 class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal with PimpedType[BatchGetItemResult] {
 
+  // ---
+
   def responsesOpt_=(values: Option[Map[String, Seq[Map[String, AttributeValue]]]]): Unit =
     underlying.setResponses(values.map(_.map { case (k, v) => (k, v.map(_.asJava).asJava)}.asJava).orNull)
 
@@ -26,8 +28,12 @@ class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal 
     }.asJava).orNull)
   }
 
+  // ---
+
   def addResponsesEntry(key: String, value: Seq[Map[String, AttributeValue]]): BatchGetItemResult =
     underlying.addResponsesEntry(key, value.map(_.asJava).asJava)
+
+  // ---
 
   def unprocessedKeysOpt_=(values: Option[Map[String, KeysAndAttributes]]): Unit =
     underlying.setUnprocessedKeys(values.map(_.asJava).orNull)
@@ -38,6 +44,8 @@ class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal 
   def withUnprocessedKeysOpt(unprocessedKeys: Option[Map[String, KeysAndAttributes]]): BatchGetItemResult =
     underlying.withUnprocessedKeys(unprocessedKeys.map(_.asJava).orNull)
 
+  // ---
+
   def consumedCapacityOpt_=(values: Option[Seq[ConsumedCapacity]]): Unit =
     underlying.setConsumedCapacity(values.map(_.asJava).orNull)
 
@@ -46,5 +54,7 @@ class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal 
 
   def withConsumedCapacityOpt(consumedCapacity: Option[Iterable[ConsumedCapacity]]): BatchGetItemResult =
     underlying.withConsumedCapacity(consumedCapacity.map(_.toSeq.asJava).orNull)
+
+  // ---
 
 }

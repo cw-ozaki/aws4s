@@ -11,8 +11,14 @@ object DescribeTableResultFactory {
 
 class RichDescribeTableResult(val underlying: DescribeTableResult) extends AnyVal with PimpedType[DescribeTableResult] {
 
-  def tableOpt_=(value: Option[TableDescription]): Unit = underlying.setTable(value.orNull)
+  // ---
 
   def tableOpt: Option[TableDescription] = Option(underlying.getTable)
+
+  def tableOpt_=(value: Option[TableDescription]): Unit = underlying.setTable(value.orNull)
+
+  def withTableOpt(value: Option[TableDescription]): DescribeTableResult = underlying.withTable(value.orNull)
+
+ // ---
 
 }

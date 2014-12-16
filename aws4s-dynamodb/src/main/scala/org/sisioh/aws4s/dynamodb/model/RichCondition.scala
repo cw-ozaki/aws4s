@@ -65,14 +65,20 @@ object ConditionFactory {
 
 class RichCondition(val underlying: Condition) extends AnyVal with PimpedType[Condition] {
 
-  def attributeValueListOpt_=(value: Option[Seq[AttributeValue]]): Unit =
-    underlying.setAttributeValueList(value.map(_.asJava).orNull)
+  // ---
 
   def attributeValueListOpt: Option[Seq[AttributeValue]] =
     Option(underlying.getAttributeValueList).map(_.asScala)
 
+  def attributeValueListOpt_=(value: Option[Seq[AttributeValue]]): Unit =
+    underlying.setAttributeValueList(value.map(_.asJava).orNull)
+
   def withAttributeValueListOpt(attributeValueList: Option[Iterable[AttributeValue]]): Condition =
     underlying.withAttributeValueList(attributeValueList.map(_.toSeq.asJava).orNull)
+
+  // ---
+
+  def comparisonOperatorOpt: Option[String] = Option(underlying.getComparisonOperator)
 
   def comparisonOperatorOpt_=(value: Option[String]): Unit =
     underlying.setComparisonOperator(value.orNull)
@@ -80,6 +86,9 @@ class RichCondition(val underlying: Condition) extends AnyVal with PimpedType[Co
   def setComparisonOperatorOpt(value: Option[ComparisonOperator]): Unit =
     underlying.setComparisonOperator(value.orNull)
 
-  def comparisonOperatorOpt: Option[String] = Option(underlying.getComparisonOperator)
+  def withComparisonOperatorOpt(value: Option[String]): Condition =
+    underlying.withComparisonOperator(value.orNull)
+
+  // ---
 
 }

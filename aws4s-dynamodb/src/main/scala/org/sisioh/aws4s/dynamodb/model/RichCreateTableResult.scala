@@ -11,6 +11,8 @@ object CreateTableResultFactory {
 
 class RichCreateTableResult(val underlying: CreateTableResult) extends AnyVal with PimpedType[CreateTableResult] {
 
+  // ---
+
   def tableDescriptionOpt_=(value: Option[TableDescription]): Unit =
     underlying.setTableDescription(value.orNull)
 
@@ -18,5 +20,7 @@ class RichCreateTableResult(val underlying: CreateTableResult) extends AnyVal wi
 
   def withTableDescriptionOpt(value: Option[TableDescription]): CreateTableResult =
     underlying.withTableDescription(value.orNull)
+
+  // ---
 
 }
