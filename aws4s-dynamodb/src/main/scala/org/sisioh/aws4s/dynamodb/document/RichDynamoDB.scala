@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.dynamodb.document
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
-import com.amazonaws.services.dynamodbv2.document.{BatchWriteItemOutcome, BatchGetItemOutcome, DynamoDB, Table}
+import com.amazonaws.services.dynamodbv2.document.{BatchGetItemOutcome, BatchWriteItemOutcome, DynamoDB, Table}
 import com.amazonaws.services.dynamodbv2.model._
 import org.sisioh.aws4s.PimpedType
 
@@ -26,7 +26,7 @@ class RichDynamoDB(val underlying: DynamoDB) extends AnyVal with PimpedType[Dyna
   def batchGetItemUnprocessed(unprocessedKeys: Map[String, KeysAndAttributes]): BatchGetItemOutcome =
     underlying.batchGetItemUnprocessed(unprocessedKeys.asJava)
 
-  def  batchWriteItemUnprocessed(unprocessedItems: Map[String, Seq[WriteRequest]]): BatchWriteItemOutcome =
+  def batchWriteItemUnprocessed(unprocessedItems: Map[String, Seq[WriteRequest]]): BatchWriteItemOutcome =
     underlying.batchWriteItemUnprocessed(unprocessedItems.map(e => (e._1, e._2.asJava)).asJava)
 
 }

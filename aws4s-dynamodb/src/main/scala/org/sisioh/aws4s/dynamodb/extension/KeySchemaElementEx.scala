@@ -12,6 +12,7 @@ object KeySchemaElementEx {
         withAttributeNameOpt(Some(attributeName)).
         withKeyTypeOpt(Some(keyType.toString))
     )
+
 }
 
 case class KeySchemaElementEx(underlying: KeySchemaElement) {

@@ -140,13 +140,17 @@ trait ModelImplicits {
 
   implicit def richDescribeTableResult(underlying: DescribeTableResult): RichDescribeTableResult = new RichDescribeTableResult(underlying)
 
+  implicit def richUpdateTableRequest(underlying: UpdateTableRequest): RichUpdateTableRequest = new RichUpdateTableRequest(underlying)
+
+  implicit def richUpdateTableResult(underlying: UpdateTableResult): RichUpdateTableResult = new RichUpdateTableResult(underlying)
+
   implicit def richDeleteTableRequest(underlying: DeleteTableRequest): RichDeleteTableRequest = new RichDeleteTableRequest(underlying)
 
   implicit def richDeleteTableResult(underlying: DeleteTableResult): RichDeleteTableResult = new RichDeleteTableResult(underlying)
 
   // -- Other
 
-  implicit def RichKeySchemaElement(underlying: KeySchemaElement): RichKeySchemaElement = new RichKeySchemaElement(underlying)
+  implicit def richKeySchemaElement(underlying: KeySchemaElement): RichKeySchemaElement = new RichKeySchemaElement(underlying)
 
   implicit def richTableDescription(underlying: TableDescription): RichTableDescription = new RichTableDescription(underlying)
 
@@ -164,6 +168,8 @@ trait ModelImplicits {
 
   implicit def richProjection(underlying: Projection): RichProjection = new RichProjection(underlying)
 
+  implicit def richWriteRequest(underlying: WriteRequest): RichWriteRequest = new RichWriteRequest(underlying)
+
   implicit def richPutRequest(underlying: PutRequest): RichPutRequest = new RichPutRequest(underlying)
 
   implicit def richDeleteRequest(underlying: DeleteRequest): RichDeleteRequest = new RichDeleteRequest(underlying)
@@ -173,4 +179,5 @@ trait ModelImplicits {
   implicit def richCapacity(underlying: Capacity): RichCapacity = new RichCapacity(underlying)
 
   implicit def richKeysAndAttributes(underlying: KeysAndAttributes): RichKeysAndAttributes = new RichKeysAndAttributes(underlying)
+
 }

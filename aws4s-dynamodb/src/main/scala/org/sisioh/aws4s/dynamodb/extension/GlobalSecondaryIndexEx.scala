@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.extension
 
-import com.amazonaws.services.dynamodbv2.model.GlobalSecondaryIndexDescription
+import com.amazonaws.services.dynamodbv2.model.{ProvisionedThroughput, GlobalSecondaryIndex, GlobalSecondaryIndexDescription}
 import org.sisioh.aws4s.dynamodb.Implicits._
 
 case class GlobalSecondaryIndexEx(underlying: GlobalSecondaryIndexDescription) {
@@ -20,5 +20,19 @@ case class GlobalSecondaryIndexEx(underlying: GlobalSecondaryIndexDescription) {
   val indexStatusOpt: Option[String] = underlying.indexStatusOpt
 
   val itemCountOpt: Option[Long] = underlying.itemCountOpt
+
+  def toGlobalSecondaryIndex = {
+    new GlobalSecondaryIndex().
+      withIndexName(underlying.getIndexName).
+      withKeySchema(underlying.getKeySchema).
+      withProjection(underlying.getProjection).
+      withProvisionedThroughput(
+        new ProvisionedThroughput(
+          underlying.getProvisionedThroughput.getReadCapacityUnits,
+          underlying.getProvisionedThroughput.getWriteCapacityUnits
+        )
+      )
+  }
+
 
 }

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.extension
 
-import com.amazonaws.services.dynamodbv2.model.LocalSecondaryIndexDescription
+import com.amazonaws.services.dynamodbv2.model.{LocalSecondaryIndex, LocalSecondaryIndexDescription}
 import org.sisioh.aws4s.dynamodb.Implicits._
 
 case class LocalSecondaryIndexEx(underlying: LocalSecondaryIndexDescription) {
@@ -14,5 +14,11 @@ case class LocalSecondaryIndexEx(underlying: LocalSecondaryIndexDescription) {
   val indexSizeBytesOpt: Option[Long] = underlying.indexSizeBytesOpt
 
   val itemCountOpt: Option[Long] = underlying.itemCountOpt
+
+  def toLocalSecondaryIndex =
+    new LocalSecondaryIndex().
+      withIndexName(underlying.getIndexName).
+      withKeySchema(underlying.getKeySchema).
+      withProjection(underlying.getProjection)
 
 }

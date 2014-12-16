@@ -20,4 +20,5 @@ class RichGlobalSecondaryIndexUpdate(val underlying: GlobalSecondaryIndexUpdate)
   def withUpdateOpt(value: Option[UpdateGlobalSecondaryIndexAction]): GlobalSecondaryIndexUpdate = underlying.withUpdate(value.orNull)
 
   // ---
+
 }
