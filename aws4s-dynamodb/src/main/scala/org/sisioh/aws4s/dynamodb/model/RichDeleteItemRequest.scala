@@ -27,7 +27,7 @@ class RichDeleteItemRequest(val underlying: DeleteItemRequest) extends AnyVal wi
 
   def tableNamOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
 
-  def withTableNamOpt(value: Option[String]): DeleteItemRequest = underlying.withTableName(value.orNull)
+  def withTableNameOpt(value: Option[String]): DeleteItemRequest = underlying.withTableName(value.orNull)
 
   // ---
 
