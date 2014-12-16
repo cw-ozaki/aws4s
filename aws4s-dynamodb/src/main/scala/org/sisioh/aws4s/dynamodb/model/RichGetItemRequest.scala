@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{AttributeValue, GetItemRequest, ReturnConsumedCapacity}
+import com.amazonaws.services.dynamodbv2.model.{DeleteTableRequest, AttributeValue, GetItemRequest, ReturnConsumedCapacity}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -14,6 +14,14 @@ object GetItemRequestFactory {
 }
 
 class RichGetItemRequest(val underlying: GetItemRequest) extends AnyVal with PimpedType[GetItemRequest] {
+
+  // ---
+
+  def tableNameOpt: Option[String] = Option(underlying.getTableName)
+
+  def tableNameOpt_=(value: Option[String]): Unit = underlying.setTableName(value.orNull)
+
+  def withTableNameOpt(value: Option[String]): GetItemRequest = underlying.withTableName(value.orNull)
 
   // ---
 
