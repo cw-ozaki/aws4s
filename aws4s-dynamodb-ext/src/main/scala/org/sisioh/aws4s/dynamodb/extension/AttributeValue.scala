@@ -2,11 +2,11 @@ package org.sisioh.aws4s.dynamodb.extension
 
 import java.nio.ByteBuffer
 
-import com.amazonaws.services.dynamodbv2.model.AttributeValue
+import com.amazonaws.services.{dynamodbv2 => aws}
 import org.sisioh.aws4s.dynamodb.Implicits._
 import org.sisioh.aws4s.dynamodb.model.AttributeValueFactory
 
-object AttributeValueEx {
+object AttributeValue {
 
   def apply(booleanValue: Option[Boolean],
             numberValue: Option[String],
@@ -15,8 +15,8 @@ object AttributeValueEx {
             stringsValue: Option[Seq[String]],
             byteBufferValue: Option[ByteBuffer],
             byteBuffersValue: Option[Seq[ByteBuffer]],
-            nullValue: Option[Boolean]): AttributeValueEx = {
-    AttributeValueEx(
+            nullValue: Option[Boolean]): AttributeValue = {
+    AttributeValue(
       AttributeValueFactory.create().
         withBooleanOpt(booleanValue).
         withNumberOpt(numberValue).
@@ -31,7 +31,7 @@ object AttributeValueEx {
 
 }
 
-case class AttributeValueEx(underlying: AttributeValue) {
+case class AttributeValue(underlying: aws.model.AttributeValue) {
 
   val booleanValue: Option[Boolean] = underlying.booleanOpt
 

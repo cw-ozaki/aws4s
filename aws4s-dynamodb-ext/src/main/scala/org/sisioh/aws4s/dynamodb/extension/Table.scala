@@ -2,14 +2,14 @@ package org.sisioh.aws4s.dynamodb.extension
 
 import java.util.Date
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
-import com.amazonaws.services.dynamodbv2.model.{GlobalSecondaryIndexUpdate, TableDescription}
+import com.amazonaws.services.{dynamodbv2 => aws}
 import org.sisioh.aws4s.dynamodb.Implicits._
 import org.sisioh.aws4s.dynamodb.model._
+
 import scala.collection.JavaConverters._
 import scala.util.Try
 
-case class TableEx(underlying: TableDescription) {
+case class Table(underlying: aws.model.TableDescription) {
 
   private[dynamodb] def toCreateTableRequest = {
     CreateTableRequestFactory.create().
@@ -21,7 +21,7 @@ case class TableEx(underlying: TableDescription) {
       withProvisionedThroughputOpt(provisionedThroughputOpt.map(_.toProvisionedThroughput))
   }
 
-  def toUpdateRequest(globalSecondaryIndexUpdates: Seq[GlobalSecondaryIndexUpdateEx]) = {
+  private[dynamodb] def toUpdateRequest(globalSecondaryIndexUpdates: Seq[GlobalSecondaryIndexUpdate]) = {
     UpdateTableRequestFactory.create().
       withTableName(underlying.getTableName).
       withGlobalSecondaryIndexUpdatesOpt(Some(globalSecondaryIndexUpdates.map(_.underlying))).
@@ -33,29 +33,27 @@ case class TableEx(underlying: TableDescription) {
       withTableName(underlying.getTableName)
   }
 
-
-
-  val attributeDefinitionsOpt: Option[Seq[AttributeDefinitionEx]] = underlying.attributeDefinitionsOpt.map(_.map(AttributeDefinitionEx))
+  val attributeDefinitionsOpt: Option[Seq[AttributeDefinition]] = underlying.attributeDefinitionsOpt.map(_.map(AttributeDefinition))
 
   val nameOpt: Option[String] = underlying.tableNameOpt
 
-  val keySchemaElementsOpt: Option[Seq[KeySchemaElementEx]] = underlying.keySchemaOpt.map(_.map(KeySchemaElementEx(_)))
+  val keySchemaElementsOpt: Option[Seq[KeySchemaElement]] = underlying.keySchemaOpt.map(_.map(KeySchemaElement(_)))
 
   val tableStatusOpt: Option[String] = underlying.tableStatusOpt
 
   val creationDateTimeOpt: Option[Date] = underlying.creationDateTimeOpt
 
-  val provisionedThroughputOpt: Option[ProvisionedThroughputEx] = underlying.provisionedThroughputOpt.map(ProvisionedThroughputEx)
+  val provisionedThroughputOpt: Option[ProvisionedThroughput] = underlying.provisionedThroughputOpt.map(ProvisionedThroughput)
 
   val tableSizeBytesOpt: Option[Long] = underlying.tableSizeBytesOpt
 
   val itemCountOpt: Option[Long] = underlying.itemCountOpt
 
-  val localSecondaryIndexesOpt: Option[Seq[LocalSecondaryIndexEx]] = underlying.localSecondaryIndexesOpt.map(_.map(LocalSecondaryIndexEx))
+  val localSecondaryIndexesOpt: Option[Seq[LocalSecondaryIndex]] = underlying.localSecondaryIndexesOpt.map(_.map(LocalSecondaryIndex))
 
-  val globalSecondaryIndexesOpt: Option[Seq[GlobalSecondaryIndexEx]] = underlying.globalSecondaryIndexesOpt.map(_.map(GlobalSecondaryIndexEx))
+  val globalSecondaryIndexesOpt: Option[Seq[GlobalSecondaryIndex]] = underlying.globalSecondaryIndexesOpt.map(_.map(GlobalSecondaryIndex))
 
-  def deleteItem(keys: Map[String, AttributeValueEx])(implicit client: AmazonDynamoDBClient): Try[Unit] = {
+  def deleteItem(keys: Map[String, AttributeValue])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val deleteItemRequest = DeleteItemRequestFactory.
       create().
       withTableNameOpt(nameOpt).
@@ -63,7 +61,7 @@ case class TableEx(underlying: TableDescription) {
     client.requestDeleteItem(deleteItemRequest).map(_ => ())
   }
 
-  def updateItem(keys: Map[String, AttributeValueEx], attributes: Map[String, AttributeValueUpdateEx])(implicit client: AmazonDynamoDBClient): Try[Unit] = {
+  def updateItem(keys: Map[String, AttributeValue], attributes: Map[String, AttributeValueUpdate])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val updateItemRequest = UpdateItemRequestFactory.
       create().
       withTableNameOpt(nameOpt).
@@ -72,7 +70,7 @@ case class TableEx(underlying: TableDescription) {
     client.requestUpdateItem(updateItemRequest).map(_ => ())
   }
 
-  def putItem(item: Map[String, AttributeValueEx])(implicit client: AmazonDynamoDBClient): Try[Unit] = {
+  def putItem(item: Map[String, AttributeValue])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val putItemRequest = PutItemRequestFactory.
       create().
       withTableNameOpt(nameOpt).
@@ -80,7 +78,7 @@ case class TableEx(underlying: TableDescription) {
     client.requestPutItem(putItemRequest).map(_ => ())
   }
 
-  def getItem(keys: Map[String, AttributeValueEx])(implicit client: AmazonDynamoDBClient): Try[Map[String, AttributeValueEx]] =
+  def getItem(keys: Map[String, AttributeValue])(implicit client: aws.AmazonDynamoDBClient): Try[Map[String, AttributeValue]] =
     client.requestGetItem(
       nameOpt.get, keys.map { case (k, v) =>
         (k, v.underlying)
@@ -88,23 +86,23 @@ case class TableEx(underlying: TableDescription) {
     ).map { result =>
       result.itemOpt.map { item =>
         item.map { case (k, v) =>
-          (k, AttributeValueEx(v))
+          (k, AttributeValue(v))
         }
       }.get
     }
 
-  def batchGetItem(requestItems: Map[String, KeysAndAttributesEx])(implicit client: AmazonDynamoDBClient): Try[Unit] = {
+  def batchGetItem(requestItems: Map[String, KeysAndAttributes])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val batchGetItemRequest = BatchGetItemRequestFactory.
       create().
       withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.underlying)}))
     client.requestBatchGetItem(batchGetItemRequest).
-      map(_.getResponses.asScala.toMap.map{ case (k,v) => (k, v.asScala.toSeq.map(_.asScala))})
+      map(_.getResponses.asScala.toMap.map { case (k, v) => (k, v.asScala.toSeq.map(_.asScala))})
   }
 
-  def batchWriteItem(requestItems: Map[String, Seq[WriteRequestEx]])(implicit client: AmazonDynamoDBClient): Try[Unit] = {
+  def batchWriteItem(requestItems: Map[String, Seq[WriteRequest]])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val batchWriteItemRequest = BatchWriteItemRequestFactory.
       create().
-      withRequestItemsOpt(Some(requestItems.map{ case (k, v) => (k, v.map(_.underlying))}))
+      withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.map(_.underlying))}))
     client.requestBatchWriteItem(batchWriteItemRequest).map(_ => ())
   }
 

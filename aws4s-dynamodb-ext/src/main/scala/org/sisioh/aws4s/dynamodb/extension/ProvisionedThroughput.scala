@@ -1,9 +1,10 @@
 package org.sisioh.aws4s.dynamodb.extension
 
-import com.amazonaws.services.dynamodbv2.model.{ProvisionedThroughput, ProvisionedThroughputDescription}
+import com.amazonaws.services.{dynamodbv2 => aws}
 import org.sisioh.aws4s.dynamodb.Implicits._
+import org.sisioh.aws4s.dynamodb.model.ProvisionedThroughputFactory
 
-case class ProvisionedThroughputEx(underlying: ProvisionedThroughputDescription) {
+case class ProvisionedThroughput(underlying: aws.model.ProvisionedThroughputDescription) {
 
   val lastDecreaseDateTimeOpt = underlying.lastDecreaseDateTimeOpt
 
@@ -15,8 +16,8 @@ case class ProvisionedThroughputEx(underlying: ProvisionedThroughputDescription)
 
   val writeCapacityUnitsOpt: Option[Long] = underlying.writeCapacityUnitsOpt
 
-  def toProvisionedThroughput = {
-    new ProvisionedThroughput().
+  def toProvisionedThroughput: aws.model.ProvisionedThroughput = {
+    ProvisionedThroughputFactory.create().
       withReadCapacityUnits(underlying.getReadCapacityUnits).
       withWriteCapacityUnits(underlying.getWriteCapacityUnits)
   }

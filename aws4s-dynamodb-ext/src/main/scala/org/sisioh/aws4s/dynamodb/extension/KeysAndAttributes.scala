@@ -1,9 +1,9 @@
 package org.sisioh.aws4s.dynamodb.extension
 
-import com.amazonaws.services.dynamodbv2.model.KeysAndAttributes
+import com.amazonaws.services.{dynamodbv2 => aws}
 import org.sisioh.aws4s.dynamodb.Implicits._
 
-case class KeysAndAttributesEx(underlying: KeysAndAttributes) {
+case class KeysAndAttributes(underlying: aws.model.KeysAndAttributes) {
 
   val attributesToGetOpt = underlying.attributesToGetOpt
 
@@ -11,8 +11,8 @@ case class KeysAndAttributesEx(underlying: KeysAndAttributes) {
 
   val expressionAttributeNamesOpt = underlying.expressionAttributeNamesOpt
 
-  val keysOpt: Option[Seq[Map[String, AttributeValueEx]]] = underlying.keysOpt.map(_.map(
+  val keysOpt: Option[Seq[Map[String, AttributeValue]]] = underlying.keysOpt.map(_.map(
     _.map { case (k, v) =>
-      (k, AttributeValueEx(v))
+      (k, AttributeValue(v))
     }))
 }
