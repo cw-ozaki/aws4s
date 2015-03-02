@@ -14,7 +14,7 @@ object ApplicationBuild extends Build {
       "sbt (%s)> " format projectId(_)
     },
     libraryDependencies ++= Seq(
-      "com.amazonaws" % "aws-java-sdk-core" % "1.9.8"
+      "com.amazonaws" % "aws-java-sdk-core" % "1.9.16"
     ),
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -47,6 +47,11 @@ object ApplicationBuild extends Build {
             <name>Junichi Kato</name>
             <url>http://j5ik2o.me/</url>
           </developer>
+          <developer>
+            <id>ada-u</id>
+            <name>Yuta Adachi</name>
+            <url>http://ada-u.com/</url>
+          </developer>
         </developers>
     }
   )
@@ -60,14 +65,14 @@ object ApplicationBuild extends Build {
   lazy val awsSQS = Project(id = "aws4s-sqs", base = file("aws4s-sqs")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-sqs" % "1.9.8"
+        "com.amazonaws" % "aws-java-sdk-sqs" % "1.9.16"
       )
     )
 
   lazy val awsS3 = Project(id = "aws4s-s3", base = file("aws4s-s3")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-s3" % "1.9.8"
+        "com.amazonaws" % "aws-java-sdk-s3" % "1.9.16"
       )
     )
 
@@ -80,7 +85,7 @@ object ApplicationBuild extends Build {
     base = file("aws4s-dynamodb")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.8",
+        "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.16",
         "org.scalatest" %% "scalatest" % "2.2.1" % "test",
         "org.antlr" % "antlr4-runtime" % "4.1" % "test",
         "commons-cli" % "commons-cli" % "1.2" % "test",
