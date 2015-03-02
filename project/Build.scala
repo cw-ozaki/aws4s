@@ -1,5 +1,3 @@
-import xerial.sbt.Sonatype.SonatypeKeys
-import SonatypeKeys._
 import sbt.Keys._
 import sbt._
 
@@ -14,7 +12,7 @@ object ApplicationBuild extends Build {
       "sbt (%s)> " format projectId(_)
     },
     libraryDependencies ++= Seq(
-      "com.amazonaws" % "aws-java-sdk-core" % "1.9.16"
+      "com.amazonaws" % "aws-java-sdk-core" % "1.9.22"
     ),
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -65,14 +63,14 @@ object ApplicationBuild extends Build {
   lazy val awsSQS = Project(id = "aws4s-sqs", base = file("aws4s-sqs")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-sqs" % "1.9.16"
+        "com.amazonaws" % "aws-java-sdk-sqs" % "1.9.22"
       )
     )
 
   lazy val awsS3 = Project(id = "aws4s-s3", base = file("aws4s-s3")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-s3" % "1.9.16"
+        "com.amazonaws" % "aws-java-sdk-s3" % "1.9.22"
       )
     )
 
@@ -85,7 +83,7 @@ object ApplicationBuild extends Build {
     base = file("aws4s-dynamodb")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.16",
+        "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.22",
         "org.scalatest" %% "scalatest" % "2.2.1" % "test",
         "org.antlr" % "antlr4-runtime" % "4.1" % "test",
         "commons-cli" % "commons-cli" % "1.2" % "test",
