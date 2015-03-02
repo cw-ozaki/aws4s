@@ -5,8 +5,8 @@ object ApplicationBuild extends Build {
 
   lazy val commonSettings = Seq(
     organization := "org.sisioh",
-    version := "1.0.1-SNAPSHOT",
-    scalaVersion := "2.11.4",
+    version := "1.0.2-SNAPSHOT",
+    scalaVersion := "2.11.5",
     scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-language:implicitConversions"),
     shellPrompt := {
       "sbt (%s)> " format projectId(_)
