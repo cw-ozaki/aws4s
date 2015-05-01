@@ -74,10 +74,10 @@ class RichItem(val underlying: Item) extends AnyVal with PimpedType[Item] {
   def withByteBufferSet(attrName: String, values: Set[ByteBuffer]): Item =
     underlying.withByteBufferSet(attrName, values.asJava)
 
-  def withSeq(attrName: String, values: Seq[_]): Item =
+  def withSeq(attrName: String, values: Seq[Any]): Item =
     underlying.withList(attrName, values.asJava)
 
-  def withMap(attrName: String, values: Map[String, _]): Item =
+  def withMap(attrName: String, values: Map[String, Any]): Item =
     underlying.withMap(attrName, values.asJava)
 
   def withNumberSet(attrName: String, values: Set[Number]): Item =
