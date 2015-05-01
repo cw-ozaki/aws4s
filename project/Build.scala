@@ -3,16 +3,19 @@ import sbt._
 
 object ApplicationBuild extends Build {
 
+  val awsSdkVersion = "1.9.22"
+
   lazy val commonSettings = Seq(
     organization := "org.sisioh",
     version := "1.0.2-SNAPSHOT",
-    scalaVersion := "2.11.5",
+    scalaVersion := "2.10.4",
+    crossScalaVersions := Seq("2.10.4", "2.11.6"),
     scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-language:implicitConversions"),
     shellPrompt := {
       "sbt (%s)> " format projectId(_)
     },
     libraryDependencies ++= Seq(
-      "com.amazonaws" % "aws-java-sdk-core" % "1.9.22"
+      "com.amazonaws" % "aws-java-sdk-core" % awsSdkVersion
     ),
     publishMavenStyle := true,
     publishArtifact in Test := false,
@@ -63,14 +66,14 @@ object ApplicationBuild extends Build {
   lazy val awsSQS = Project(id = "aws4s-sqs", base = file("aws4s-sqs")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-sqs" % "1.9.22"
+        "com.amazonaws" % "aws-java-sdk-sqs" % awsSdkVersion
       )
     )
 
   lazy val awsS3 = Project(id = "aws4s-s3", base = file("aws4s-s3")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-s3" % "1.9.22"
+        "com.amazonaws" % "aws-java-sdk-s3" % awsSdkVersion
       )
     )
 
@@ -83,7 +86,7 @@ object ApplicationBuild extends Build {
     base = file("aws4s-dynamodb")).
     settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
-        "com.amazonaws" % "aws-java-sdk-dynamodb" % "1.9.22",
+        "com.amazonaws" % "aws-java-sdk-dynamodb" % awsSdkVersion,
         "org.scalatest" %% "scalatest" % "2.2.1" % "test",
         "org.antlr" % "antlr4-runtime" % "4.1" % "test",
         "commons-cli" % "commons-cli" % "1.2" % "test",
