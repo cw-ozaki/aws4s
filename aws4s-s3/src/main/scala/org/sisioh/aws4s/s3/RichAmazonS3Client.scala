@@ -99,7 +99,7 @@ class RichAmazonS3Client(val underlying: AmazonS3Client) extends AnyVal with Pim
     underlying.copyPart(copyPartRequest)
   }
 
-  def deleteObject(bucketName: String, key: String) = Try {
+  def deleteObject(bucketName: String, key: String): Try[Unit] = Try {
     underlying.deleteObject(bucketName, key)
   }
 
