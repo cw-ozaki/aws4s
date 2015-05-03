@@ -19,91 +19,95 @@ class RichAmazonS3Client(val underlying: AmazonS3Client) extends AnyVal with Pim
 
   def s3AccountOwner: Owner = underlying.getS3AccountOwner
 
-  def listBuckets(listBucketsRequest: ListBucketsRequest): Try[Seq[Bucket]] = Try {
+  def listBucketsAsTry(listBucketsRequest: ListBucketsRequest): Try[Seq[Bucket]] = Try {
     underlying.listBuckets(listBucketsRequest).asScala
   }
 
-  def listBuckets: Try[Seq[Bucket]] = Try {
+  def listBucketsAsTry: Try[Seq[Bucket]] = Try {
     underlying.listBuckets().asScala
   }
 
-  def getObjectAcl(bucketName: String, key: String, versionId: Option[String]): Try[AccessControlList] = Try {
+  def getObjectAclAsTry(bucketName: String, key: String, versionId: Option[String]): Try[AccessControlList] = Try {
     underlying.getObjectAcl(bucketName, key, versionId.orNull)
   }
 
-  def setObjectAcl(bucketName: String, key: String, versionId: Option[String], acl: AccessControlList, requestMetricCollector: Option[RequestMetricCollector]): Unit = {
+  def setObjectAclAsTry(bucketName: String, key: String, versionId: Option[String], acl: AccessControlList, requestMetricCollector: Option[RequestMetricCollector]): Unit = {
     underlying.setObjectAcl(bucketName, key, versionId.orNull, acl, requestMetricCollector.orNull)
   }
 
-  def getObjectMetadata(bucketName: String, key: String): Try[ObjectMetadata] = Try {
+  def getObjectMetadataAsTry(bucketName: String, key: String): Try[ObjectMetadata] = Try {
     underlying.getObjectMetadata(bucketName, key)
   }
 
-  def getObjectMetadata(getObjectMetadataRequest: GetObjectMetadataRequest): Try[ObjectMetadata] = Try {
+  def getObjectMetadataAsTry(getObjectMetadataRequest: GetObjectMetadataRequest): Try[ObjectMetadata] = Try {
     underlying.getObjectMetadata(getObjectMetadataRequest)
   }
 
-  def getObject(bucketName: String, key: String): Try[S3Object] = Try {
+  def getObjectAsTry(bucketName: String, key: String): Try[S3Object] = Try {
     underlying.getObject(bucketName, key)
   }
 
-  def doesBucketExist(bucketName: String): Try[Boolean] = Try {
+  def doesBucketExistAsTry(bucketName: String): Try[Boolean] = Try {
     underlying.doesBucketExist(bucketName)
   }
 
-  def changeObjectStorageClass(bucketName: String, key: String, newStorageClass: StorageClass): Unit = Try {
+  def changeObjectStorageClassAsTry(bucketName: String, key: String, newStorageClass: StorageClass): Unit = Try {
     underlying.changeObjectStorageClass(bucketName, key, newStorageClass)
   }
 
-  def setObjectRedirectLocation(bucketName: String, key: String, newRedirectLocation: String): Try[Unit] = Try {
+  def setObjectRedirectLocationAsTry(bucketName: String, key: String, newRedirectLocation: String): Try[Unit] = Try {
     underlying.setObjectRedirectLocation(bucketName, key, newRedirectLocation)
   }
 
-  def getObject(getObjectRequest: GetObjectRequest): Try[S3Object] = Try {
+  def getObjectAsTry(getObjectRequest: GetObjectRequest): Try[S3Object] = Try {
     underlying.getObject(getObjectRequest)
   }
 
-  def getObject(getObjectRequest: GetObjectRequest, destinationFile: File): Try[ObjectMetadata] = Try {
+  def getObjectAsTry(getObjectRequest: GetObjectRequest, destinationFile: File): Try[ObjectMetadata] = Try {
     underlying.getObject(getObjectRequest, destinationFile)
   }
 
-  def deleteBucket(bucketName: String): Try[Unit] = Try {
+  def getResourceUrlAsTry(bucketName: String, key: String): Try[String] = Try {
+    underlying.getResourceUrl(bucketName, key)
+  }
+
+  def deleteBucketAsTry(bucketName: String): Try[Unit] = Try {
     underlying.deleteBucket(bucketName)
   }
 
-  def deleteBucket(deleteBucketRequest: DeleteBucketRequest): Try[Unit] = Try {
+  def deleteBucketAsTry(deleteBucketRequest: DeleteBucketRequest): Try[Unit] = Try {
     underlying.deleteBucket(deleteBucketRequest)
   }
 
-  def putObject(bucketName: String, key: String, file: File): Try[PutObjectResult] = Try {
+  def putObjectAsTry(bucketName: String, key: String, file: File): Try[PutObjectResult] = Try {
     underlying.putObject(bucketName, key, file)
   }
 
-  def putObject(bucketName: String, key: String, input: InputStream, metadata: ObjectMetadata) = Try {
+  def putObjectAsTry(bucketName: String, key: String, input: InputStream, metadata: ObjectMetadata) = Try {
     underlying.putObject(bucketName, key, input, metadata)
   }
 
-  def putObject(putObjectRequest: PutObjectRequest): Try[PutObjectResult] = Try {
+  def putObjectAsTry(putObjectRequest: PutObjectRequest): Try[PutObjectResult] = Try {
     underlying.putObject(putObjectRequest)
   }
 
-  def copyObject(sourceBucketName: String, sourceKey: String, destinationBucketName: String, destinationKey: String): Try[CopyObjectResult] = Try {
+  def copyObjectAsTry(sourceBucketName: String, sourceKey: String, destinationBucketName: String, destinationKey: String): Try[CopyObjectResult] = Try {
     underlying.copyObject(sourceBucketName, sourceKey, destinationBucketName, destinationKey)
   }
 
-  def copyObject(copyObjectRequest: CopyObjectRequest): Try[CopyObjectResult] = Try {
+  def copyObjectAsTry(copyObjectRequest: CopyObjectRequest): Try[CopyObjectResult] = Try {
     underlying.copyObject(copyObjectRequest)
   }
 
-  def copyPart(copyPartRequest: CopyPartRequest): Try[CopyPartResult] = Try {
+  def cpyPartAsTry(copyPartRequest: CopyPartRequest): Try[CopyPartResult] = Try {
     underlying.copyPart(copyPartRequest)
   }
 
-  def deleteObject(bucketName: String, key: String): Try[Unit] = Try {
+  def deleteObjectAsTry(bucketName: String, key: String): Try[Unit] = Try {
     underlying.deleteObject(bucketName, key)
   }
 
-  def deleteObject(deleteObjectRequest: DeleteObjectRequest): Try[Unit] = Try {
+  def deleteObjectAsTry(deleteObjectRequest: DeleteObjectRequest): Try[Unit] = Try {
     underlying.deleteObject(deleteObjectRequest)
   }
 
