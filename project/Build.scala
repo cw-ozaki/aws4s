@@ -58,7 +58,8 @@ object ApplicationBuild extends Build {
   )
 
   lazy val root = Project(id = "aws4s",
-    base = file(".")).settings(commonSettings: _*).aggregate(awsCore, awsDynamoDB, awsDynamoDBExt, awsS3, awsSQS)
+    base = file(".")).settings(commonSettings: _*)
+    .aggregate(awsCore, awsDynamoDB, awsDynamoDBExt, awsS3, awsSQS, awsElasticBeanstalk)
 
   lazy val awsCore = Project(id = "aws4s-core", base = file("aws4s-core")).
     settings(commonSettings: _*)
@@ -103,6 +104,12 @@ object ApplicationBuild extends Build {
       )
     )
 
+  lazy val awsElasticBeanstalk = Project(id = "aws4s-eb", base = file("aws4s-eb")).
+    settings(commonSettings: _*).dependsOn(awsCore).settings(
+      libraryDependencies ++= Seq(
+        "com.amazonaws" % "aws-java-sdk-elasticbeanstalk" % awsSdkVersion
+      )
+    )
 
   def projectId(state: State) = extracted(state).currentProject.id
 
