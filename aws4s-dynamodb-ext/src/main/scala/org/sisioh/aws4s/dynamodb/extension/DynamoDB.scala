@@ -10,21 +10,21 @@ case object DynamoDB {
 
   def describeTable(tableName: String)(implicit client: aws.AmazonDynamoDBClient): Try[Table] = {
     val describeTableRequest = DescribeTableRequestFactory.create().withTableNameOpt(Some(tableName))
-    client.requestDescribeTable(describeTableRequest).map { result =>
+    client.describeTableAsTry(describeTableRequest).map { result =>
       Table(result.getTable)
     }
   }
 
   def createTable(tableEx: Table)(implicit client: aws.AmazonDynamoDBClient): Try[Table] = {
-    client.requestCreateTable(tableEx.toCreateTableRequest).map(e => Table(e.getTableDescription))
+    client.createTableAsTry(tableEx.toCreateTableRequest).map(e => Table(e.getTableDescription))
   }
 
   def updateTable(tableName: String, provisionedThroughputEx: ProvisionedThroughput)(implicit client: aws.AmazonDynamoDBClient): Try[Table] = {
-    client.requestUpdateTable(tableName, provisionedThroughputEx.toProvisionedThroughput).map(e => Table(e.getTableDescription))
+    client.updateTableAsTry(tableName, provisionedThroughputEx.toProvisionedThroughput).map(e => Table(e.getTableDescription))
   }
 
   def deleteTable(tableName: String)(implicit client: aws.AmazonDynamoDBClient): Try[Table] = {
-    client.requestDeleteTable(tableName).map(e => Table(e.getTableDescription))
+    client.deleteTableAsTry(tableName).map(e => Table(e.getTableDescription))
   }
 
 

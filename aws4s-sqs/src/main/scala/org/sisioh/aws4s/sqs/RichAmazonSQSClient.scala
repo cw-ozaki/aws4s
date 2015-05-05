@@ -39,87 +39,90 @@ class RichAmazonSQSClient(val underlying: AmazonSQSClient) extends AnyVal with P
 
   def setQueueAttributes(value: Option[SetQueueAttributesRequest]): Unit = underlying.setQueueAttributes(value.orNull)
 
-  def changeMessageVisibilityBatch(value: ChangeMessageVisibilityBatchRequest): Try[ChangeMessageVisibilityBatchResult] =
+  def changeMessageVisibilityBatchAsTry(value: ChangeMessageVisibilityBatchRequest): Try[ChangeMessageVisibilityBatchResult] =
     Try(underlying.changeMessageVisibilityBatch(value))
 
-  def changeMessageVisibility(value: ChangeMessageVisibilityRequest): Try[Unit] =
+  def changeMessageVisibilityAsTry(value: ChangeMessageVisibilityRequest): Try[Unit] =
     Try(underlying.changeMessageVisibility(value))
 
-  def getQueueUrl(value: GetQueueUrlRequest): Try[GetQueueUrlResult] =
+  def getQueueUrlAsTry(value: GetQueueUrlRequest): Try[GetQueueUrlResult] =
     Try(underlying.getQueueUrl(value))
 
-  def removePermission(value: RemovePermissionRequest): Try[Unit] =
+  def removePermissionAsTry(value: RemovePermissionRequest): Try[Unit] =
     Try(underlying.removePermission(value))
 
-  def getQueueAttributes(value: GetQueueAttributesRequest): Try[GetQueueAttributesResult] =
+  def getQueueAttributesAsTry(value: GetQueueAttributesRequest): Try[GetQueueAttributesResult] =
     Try(underlying.getQueueAttributes(value))
 
-  def sendMessageBatch(value: SendMessageBatchRequest): Try[SendMessageBatchResult] =
+  def sendMessageBatchAsTry(value: SendMessageBatchRequest): Try[SendMessageBatchResult] =
     Try(underlying.sendMessageBatch(value))
 
-  def listDeadLetterSourceQueues(value: ListDeadLetterSourceQueuesRequest): Try[ListDeadLetterSourceQueuesResult] =
+  def listDeadLetterSourceQueuesAsTry(value: ListDeadLetterSourceQueuesRequest): Try[ListDeadLetterSourceQueuesResult] =
     Try(underlying.listDeadLetterSourceQueues(value))
 
-  def deleteQueue(value: DeleteQueueRequest): Try[Unit] =
+  def deleteQueueAsTry(value: DeleteQueueRequest): Try[Unit] =
     Try(underlying.deleteQueue(value))
 
-  def sendMessage(value: SendMessageRequest): Try[SendMessageResult] =
+  def sendMessageAsTry(value: SendMessageRequest): Try[SendMessageResult] =
     Try(underlying.sendMessage(value))
 
-  def receiveMessage(value: ReceiveMessageRequest): Try[ReceiveMessageResult] =
+  def receiveMessageAsTry(value: ReceiveMessageRequest): Try[ReceiveMessageResult] =
     Try(underlying.receiveMessage(value))
 
-  def listQueues(value: ListQueuesRequest): Try[ListQueuesResult] =
+  def listQueuesAsTry(value: ListQueuesRequest): Try[ListQueuesResult] =
     Try(underlying.listQueues(value))
 
-  def deleteMessageBatch(queueUrl: String, entries: Seq[DeleteMessageBatchRequestEntry]): Try[DeleteMessageBatchResult] =
+  def deleteMessageBatchAsTry(queueUrl: String, entries: Seq[DeleteMessageBatchRequestEntry]): Try[DeleteMessageBatchResult] =
     Try(underlying.deleteMessageBatch(queueUrl, entries.asJava))
 
-  def createQueue(createQueueRequest: CreateQueueRequest): Try[CreateQueueResult] = Try(underlying.createQueue(createQueueRequest))
+  def createQueueAsTry(createQueueRequest: CreateQueueRequest): Try[CreateQueueResult] = Try(underlying.createQueue(createQueueRequest))
 
-  def addPermission(queueUrl: String, label: String, aWSAccountIds: Seq[String], actions: Seq[String]): Try[Unit] =
+  def addPermissionAsTry(queueUrl: String, label: String, aWSAccountIds: Seq[String], actions: Seq[String]): Try[Unit] =
     Try(underlying.addPermission(queueUrl, label, aWSAccountIds.asJava, actions.asJava))
 
-  def deleteMessage(deleteMessageRequest: DeleteMessageRequest): Try[Unit] = Try(underlying.deleteMessage(deleteMessageRequest))
+  def deleteMessageAsTry(deleteMessageRequest: DeleteMessageRequest): Try[Unit] = Try(underlying.deleteMessage(deleteMessageRequest))
 
-  def listQueues: Try[ListQueuesResult] = Try(underlying.listQueues())
+  def listQueuesAsTry: Try[ListQueuesResult] = Try(underlying.listQueues())
 
   def setQueueAttributes(queueUrl: String, attributes: Map[String, String]): Unit =
     underlying.setQueueAttributes(queueUrl, attributes.asJava)
 
-  def changeMessageVisibilityBatch(queueUrl: String, entries: Seq[ChangeMessageVisibilityBatchRequestEntry]): Try[ChangeMessageVisibilityBatchResult] =
+  def changeMessageVisibilityBatchAsTry(queueUrl: String, entries: Seq[ChangeMessageVisibilityBatchRequestEntry]): Try[ChangeMessageVisibilityBatchResult] =
     Try(underlying.changeMessageVisibilityBatch(queueUrl, entries.asJava))
 
-  def changeMessageVisibility(queueUrl: String, receiptHandle: String, visibilityTimeout: Int) = Try(underlying.changeMessageVisibility(queueUrl, receiptHandle, visibilityTimeout))
+  def changeMessageVisibilityAsTry(queueUrl: String, receiptHandle: String, visibilityTimeout: Int): Try[Unit] =
+    Try(underlying.changeMessageVisibility(queueUrl, receiptHandle, visibilityTimeout))
 
-  def getQueueUrl(queueName: String): Try[GetQueueUrlResult] = Try(underlying.getQueueUrl(queueName))
+  def getQueueUrlAsTry(queueName: String): Try[GetQueueUrlResult] = Try(underlying.getQueueUrl(queueName))
 
-  def removePermission(queueUrl: String, label: String) = Try(underlying.removePermission(queueUrl, label))
+  def removePermissionAsTry(queueUrl: String, label: String): Try[Unit] =
+    Try(underlying.removePermission(queueUrl, label))
 
-  def getQueueAttributes(queueUrl: String, attributeNames: Seq[String]): Try[GetQueueAttributesResult] =
+  def getQueueAttributesAsTry(queueUrl: String, attributeNames: Seq[String]): Try[GetQueueAttributesResult] =
     Try(underlying.getQueueAttributes(queueUrl, attributeNames.asJava))
 
-  def sendMessageBatch(queueUrl: String, entries: Seq[SendMessageBatchRequestEntry]): Try[SendMessageBatchResult] =
+  def sendMessageBatchAsTry(queueUrl: String, entries: Seq[SendMessageBatchRequestEntry]): Try[SendMessageBatchResult] =
     Try(underlying.sendMessageBatch(queueUrl, entries.asJava))
 
-  def deleteQueue(value: String): Try[Unit] = Try(underlying.deleteQueue(value))
+  def deleteQueueAsTry(value: String): Try[Unit] = Try(underlying.deleteQueue(value))
 
-  def sendMessage(queueUrl: String, messageBody: String): Try[SendMessageResult] = Try(underlying.sendMessage(queueUrl, messageBody))
+  def sendMessageAsTry(queueUrl: String, messageBody: String): Try[SendMessageResult] = Try(underlying.sendMessage(queueUrl, messageBody))
 
-  def receiveMessage(queueUrl: String): Try[ReceiveMessageResult] = Try(underlying.receiveMessage(queueUrl))
+  def receiveMessageAsTry(queueUrl: String): Try[ReceiveMessageResult] = Try(underlying.receiveMessage(queueUrl))
 
-  def listQueues(queueNamePrefix: String): Try[ListQueuesResult] = Try(underlying.listQueues(queueNamePrefix))
+  def listQueuesAsTry(queueNamePrefix: String): Try[ListQueuesResult] = Try(underlying.listQueues(queueNamePrefix))
 
-  def createQueue(queueName: String): Try[CreateQueueResult] = Try(underlying.createQueue(queueName))
+  def createQueueAsTry(queueName: String): Try[CreateQueueResult] = Try(underlying.createQueue(queueName))
 
-  def addPermission(queueUrl: String, label: String, aWSAccountIds: Seq[String], actions: List[String]) =
+  def addPermissionAsTry(queueUrl: String, label: String, aWSAccountIds: Seq[String], actions: List[String]): Try[Unit] =
     Try(underlying.addPermission(queueUrl, label, aWSAccountIds.asJava, actions.asJava))
 
-  def deleteMessage(queueUrl: String, receiptHandle: String) = Try(underlying.deleteMessage(queueUrl, receiptHandle))
+  def deleteMessageAsTry(queueUrl: String, receiptHandle: String): Try[Unit] =
+    Try(underlying.deleteMessage(queueUrl, receiptHandle))
 
   def shutdown = underlying.shutdown()
 
-  def getCachedResponseMetadata(amazonWebServiceRequest: AmazonWebServiceRequest): Try[ResponseMetadata] =
+  def getCachedResponseMetadataAsTry(amazonWebServiceRequest: AmazonWebServiceRequest): Try[ResponseMetadata] =
     Try(underlying.getCachedResponseMetadata(amazonWebServiceRequest))
 
 

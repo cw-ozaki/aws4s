@@ -58,7 +58,7 @@ case class Table(underlying: aws.model.TableDescription) {
       create().
       withTableNameOpt(nameOpt).
       withKeyOpt(Some(keys.map { case (k, v) => (k, v.underlying)}))
-    client.requestDeleteItem(deleteItemRequest).map(_ => ())
+    client.deleteItemAsTry(deleteItemRequest).map(_ => ())
   }
 
   def updateItem(keys: Map[String, AttributeValue], attributes: Map[String, AttributeValueUpdate])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
@@ -67,7 +67,7 @@ case class Table(underlying: aws.model.TableDescription) {
       withTableNameOpt(nameOpt).
       withKeyOpt(Some(keys.map { case (k, v) => (k, v.underlying)})).
       withAttributeUpdatesOpt(Some(attributes.map { case (k, v) => (k, v.underlying)}))
-    client.requestUpdateItem(updateItemRequest).map(_ => ())
+    client.updateItemAsTry(updateItemRequest).map(_ => ())
   }
 
   def putItem(item: Map[String, AttributeValue])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
@@ -75,11 +75,11 @@ case class Table(underlying: aws.model.TableDescription) {
       create().
       withTableNameOpt(nameOpt).
       withItemOpt(Some(item.map { case (k, v) => (k, v.underlying)}))
-    client.requestPutItem(putItemRequest).map(_ => ())
+    client.putItemAsTry(putItemRequest).map(_ => ())
   }
 
   def getItem(keys: Map[String, AttributeValue])(implicit client: aws.AmazonDynamoDBClient): Try[Map[String, AttributeValue]] =
-    client.requestGetItem(
+    client.getItemAsTry(
       nameOpt.get, keys.map { case (k, v) =>
         (k, v.underlying)
       }
@@ -95,7 +95,7 @@ case class Table(underlying: aws.model.TableDescription) {
     val batchGetItemRequest = BatchGetItemRequestFactory.
       create().
       withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.underlying)}))
-    client.requestBatchGetItem(batchGetItemRequest).
+    client.batchGetItemAsTry(batchGetItemRequest).
       map(_.getResponses.asScala.toMap.map { case (k, v) => (k, v.asScala.toSeq.map(_.asScala))})
   }
 
@@ -103,7 +103,7 @@ case class Table(underlying: aws.model.TableDescription) {
     val batchWriteItemRequest = BatchWriteItemRequestFactory.
       create().
       withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.map(_.underlying))}))
-    client.requestBatchWriteItem(batchWriteItemRequest).map(_ => ())
+    client.batchWriteItemAsTry(batchWriteItemRequest).map(_ => ())
   }
 
 }

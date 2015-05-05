@@ -38,130 +38,130 @@ class RichAmazonDynamoDBClient(val underlying: AmazonDynamoDBClient) extends Any
 
   // ---
 
-  def requestScan(scanRequest: ScanRequest): Try[ScanResult] =
+  def scanAsTry(scanRequest: ScanRequest): Try[ScanResult] =
     Try(underlying.scan(scanRequest))
 
-  def requestScan(tableName: String, attributesToGet: Seq[String]): Try[ScanResult] =
+  def scanAsTry(tableName: String, attributesToGet: Seq[String]): Try[ScanResult] =
     Try(underlying.scan(tableName, attributesToGet.asJava))
 
-  def requestScan(tableName: String, attributesToGet: Seq[String], scanFilter: Map[String, Condition]): Try[ScanResult] =
+  def scanAsTry(tableName: String, attributesToGet: Seq[String], scanFilter: Map[String, Condition]): Try[ScanResult] =
     Try(underlying.scan(tableName, attributesToGet.asJava, scanFilter.asJava))
 
-  def requestScan(tableName: String, scanFilter: Map[String, Condition]): Try[ScanResult] =
+  def scanAsTry(tableName: String, scanFilter: Map[String, Condition]): Try[ScanResult] =
     Try(underlying.scan(tableName, scanFilter.asJava))
 
   // ---
 
-  def requestUpdateTable(updateTableRequest: UpdateTableRequest): Try[UpdateTableResult] =
+  def updateTableAsTry(updateTableRequest: UpdateTableRequest): Try[UpdateTableResult] =
     Try(underlying.updateTable(updateTableRequest))
 
-  def requestUpdateTable(tableName:String, provisionedThroughput: ProvisionedThroughput): Try[UpdateTableResult] =
+  def updateTableAsTry(tableName:String, provisionedThroughput: ProvisionedThroughput): Try[UpdateTableResult] =
     Try(underlying.updateTable(tableName, provisionedThroughput))
 
   // ---
 
-  def requestDeleteTable(deleteTableRequest: DeleteTableRequest): Try[DeleteTableResult] =
+  def deleteTableAsTry(deleteTableRequest: DeleteTableRequest): Try[DeleteTableResult] =
     Try(underlying.deleteTable(deleteTableRequest))
 
-  def requestDeleteTable(tableName: String): Try[DeleteTableResult] =
+  def deleteTableAsTry(tableName: String): Try[DeleteTableResult] =
     Try(underlying.deleteTable(tableName))
 
   // ---
 
-  def requestBatchWriteItem(batchWriteItemRequest: BatchWriteItemRequest): Try[BatchWriteItemResult] =
+  def batchWriteItemAsTry(batchWriteItemRequest: BatchWriteItemRequest): Try[BatchWriteItemResult] =
     Try(underlying.batchWriteItem(batchWriteItemRequest))
 
-  def requestBatchWriteItem(requestItems: Map[String, Seq[WriteRequest]]): Try[BatchWriteItemResult] =
+  def batchWriteItemAsTry(requestItems: Map[String, Seq[WriteRequest]]): Try[BatchWriteItemResult] =
     Try(underlying.batchWriteItem(requestItems.map(e => (e._1, e._2.asJava)).asJava))
 
   // ---
 
-  def requestBatchGetItem(requestItems: Map[String, KeysAndAttributes], returnConsumedCapacity: String): Try[BatchGetItemResult] =
+  def batchGetItemAsTry(requestItems: Map[String, KeysAndAttributes], returnConsumedCapacity: String): Try[BatchGetItemResult] =
     Try(underlying.batchGetItem(requestItems.asJava, returnConsumedCapacity))
 
-  def requestBatchGetItem(batchGetItemRequest: BatchGetItemRequest): Try[BatchGetItemResult] =
+  def batchGetItemAsTry(batchGetItemRequest: BatchGetItemRequest): Try[BatchGetItemResult] =
     Try(underlying.batchGetItem(batchGetItemRequest))
 
-  def requestBatchGetItem(requestItems: Map[String, KeysAndAttributes]): Try[BatchGetItemResult] =
+  def batchGetItemAsTry(requestItems: Map[String, KeysAndAttributes]): Try[BatchGetItemResult] =
     Try(underlying.batchGetItem(requestItems.asJava))
 
   // ---
 
-  def requestDescribeTable(describeTableRequest: DescribeTableRequest): Try[DescribeTableResult] =
+  def describeTableAsTry(describeTableRequest: DescribeTableRequest): Try[DescribeTableResult] =
     Try(underlying.describeTable(describeTableRequest))
 
-  def requestDescribeTable(tableName: String): Try[DescribeTableResult] =
+  def describeTableAsTry(tableName: String): Try[DescribeTableResult] =
     Try(underlying.describeTable(tableName))
 
   // ---
 
-  def requestGetItem(getItemRequest: GetItemRequest): Try[GetItemResult] =
+  def getItemAsTry(getItemRequest: GetItemRequest): Try[GetItemResult] =
     Try(underlying.getItem(getItemRequest))
 
-  def requestGetItem(tableName: String, key: Map[String, AttributeValue]): Try[GetItemResult] =
+  def getItemAsTry(tableName: String, key: Map[String, AttributeValue]): Try[GetItemResult] =
     Try(underlying.getItem(tableName, key.asJava))
 
-  def requestGetItem(tableName: String, key: Map[String, AttributeValue], consistentRead: Boolean): Try[GetItemResult] =
+  def getItemAsTry(tableName: String, key: Map[String, AttributeValue], consistentRead: Boolean): Try[GetItemResult] =
     Try(underlying.getItem(tableName, key.asJava, consistentRead))
 
   // ---
 
-  def requestDeleteItem(deleteItemRequest: DeleteItemRequest): Try[DeleteItemResult] =
+  def deleteItemAsTry(deleteItemRequest: DeleteItemRequest): Try[DeleteItemResult] =
     Try(underlying.deleteItem(deleteItemRequest))
 
-  def requestDeleteItem(tableName: String, key: Map[String, AttributeValue]): Try[DeleteItemResult] =
+  def deleteItemAsTry(tableName: String, key: Map[String, AttributeValue]): Try[DeleteItemResult] =
     Try(underlying.deleteItem(tableName, key.asJava))
 
-  def requestDeleteItem(tableName: String, key: Map[String, AttributeValue], returnValues: String): Try[DeleteItemResult] =
+  def deleteItemAsTry(tableName: String, key: Map[String, AttributeValue], returnValues: String): Try[DeleteItemResult] =
     Try(underlying.deleteItem(tableName, key.asJava))
 
   // ---
 
-  def requestCreateTable(createTableRequest: CreateTableRequest): Try[CreateTableResult] =
+  def createTableAsTry(createTableRequest: CreateTableRequest): Try[CreateTableResult] =
     Try(underlying.createTable(createTableRequest))
 
-  def requestCreateTable(attributeDefinitions: Seq[AttributeDefinition], tableName: String, keySchema: Seq[KeySchemaElement], provisionedThroughput: ProvisionedThroughput): Try[CreateTableResult] =
+  def createTableAsTry(attributeDefinitions: Seq[AttributeDefinition], tableName: String, keySchema: Seq[KeySchemaElement], provisionedThroughput: ProvisionedThroughput): Try[CreateTableResult] =
     Try(underlying.createTable(attributeDefinitions.asJava, tableName, keySchema.asJava, provisionedThroughput))
 
   // ---
 
-  def requestQuery(queryRequest: QueryRequest): Try[QueryResult] =
+  def queryAsTry(queryRequest: QueryRequest): Try[QueryResult] =
     Try(underlying.query(queryRequest))
 
   // ---
 
-  def requestPutItem(putItemRequest: PutItemRequest): Try[PutItemResult] =
+  def putItemAsTry(putItemRequest: PutItemRequest): Try[PutItemResult] =
     Try(underlying.putItem(putItemRequest))
 
-  def requestPutItem(tableName: String, item: Map[String, AttributeValue]): Try[PutItemResult] =
+  def putItemAsTry(tableName: String, item: Map[String, AttributeValue]): Try[PutItemResult] =
     Try(underlying.putItem(tableName, item.asJava))
 
-  def requestPutItem(tableName: String, item: Map[String, AttributeValue], returnValues: String): Try[PutItemResult] =
+  def putItemAsTry(tableName: String, item: Map[String, AttributeValue], returnValues: String): Try[PutItemResult] =
     Try(underlying.putItem(tableName, item.asJava, returnValues))
 
   // ---
 
-  def requestListTables(listTablesRequest: ListTablesRequest): Try[ListTablesResult] =
+  def listTablesAsTry(listTablesRequest: ListTablesRequest): Try[ListTablesResult] =
     Try(underlying.listTables(listTablesRequest))
 
-  def requestListTables(exclusiveStartTableName: String): Try[ListTablesResult] =
+  def listTablesAsTry(exclusiveStartTableName: String): Try[ListTablesResult] =
     Try(underlying.listTables(exclusiveStartTableName))
 
-  def requestListTables(exclusiveStartTableName: String, limit: Int): Try[ListTablesResult] =
+  def listTablesAsTry(exclusiveStartTableName: String, limit: Int): Try[ListTablesResult] =
     Try(underlying.listTables(exclusiveStartTableName, limit))
 
-  def requestListTables(): Try[ListTablesResult] =
+  def listTablesAsTry(): Try[ListTablesResult] =
     Try(underlying.listTables())
 
   // ---
 
-  def requestUpdateItem(updateItemRequest: UpdateItemRequest): Try[UpdateItemResult] =
+  def updateItemAsTry(updateItemRequest: UpdateItemRequest): Try[UpdateItemResult] =
     Try(underlying.updateItem(updateItemRequest))
 
-  def requestUpdateItem(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate]): Try[UpdateItemResult] =
+  def updateItemAsTry(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate]): Try[UpdateItemResult] =
     Try(underlying.updateItem(tableName, key.asJava, attributeUpdates.asJava))
 
-  def requestUpdateItem(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate], returnValues: String): Try[UpdateItemResult] =
+  def updateItemAsTry(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate], returnValues: String): Try[UpdateItemResult] =
     Try(underlying.updateItem(tableName, key.asJava, attributeUpdates.asJava))
 
   // ---
