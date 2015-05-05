@@ -3,7 +3,8 @@ package org.sisioh.aws4s.dynamodb.model
 import com.amazonaws.services.dynamodbv2.model.AttributeDefinition
 import org.sisioh.aws4s.PimpedType
 
-class RichAttributeDefinition(val underlying: AttributeDefinition) extends AnyVal with PimpedType[AttributeDefinition] {
+class RichAttributeDefinition(val underlying: AttributeDefinition)
+  extends AnyVal with PimpedType[AttributeDefinition] {
 
   // ---
 
