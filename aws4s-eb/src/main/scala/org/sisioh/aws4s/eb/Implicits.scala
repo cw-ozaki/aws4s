@@ -64,11 +64,39 @@ trait ModelImplicits {
 
   // ---
 
+  implicit def richCreateConfigurationTemplateRequest(underlying: CreateConfigurationTemplateRequest): RichCreateConfigurationTemplateRequest =
+    new RichCreateConfigurationTemplateRequest(underlying)
+
+  implicit def richCreateConfigurationTemplateResult(underlying: CreateConfigurationTemplateResult): RichCreateConfigurationTemplateResult =
+    new RichCreateConfigurationTemplateResult(underlying)
+
+  // ---
+
   implicit def richCreateEnvironmentRequest(underlying: CreateEnvironmentRequest): RichCreateEnvironmentRequest =
     new RichCreateEnvironmentRequest(underlying)
 
   implicit def richCreateEnvironmentResult(underlying: CreateEnvironmentResult): RichCreateEnvironmentResult =
     new RichCreateEnvironmentResult(underlying)
+
+  // ---
+
+  implicit def richDeleteApplicationRequest(underlying: DeleteApplicationRequest): RichDeleteApplicationRequest =
+    new RichDeleteApplicationRequest(underlying)
+
+  // ---
+
+  implicit def richDeleteApplicationVersionRequest(underlying: DeleteApplicationVersionRequest): RichDeleteApplicationVersionRequest =
+    new RichDeleteApplicationVersionRequest(underlying)
+
+  // ---
+
+  implicit def richDeleteConfigurationTemplateRequest(underlying: DeleteConfigurationTemplateRequest): RichDeleteConfigurationTemplateRequest =
+    new RichDeleteConfigurationTemplateRequest(underlying)
+
+  // ---
+
+  implicit def richDeleteEnvironmentConfigurationRequest(underlying: DeleteEnvironmentConfigurationRequest): RichDeleteEnvironmentConfigurationRequest =
+    new RichDeleteEnvironmentConfigurationRequest(underlying)
 
   // ---
 
@@ -80,11 +108,51 @@ trait ModelImplicits {
 
   // ---
 
-  implicit def richCreateConfigurationTemplateRequest(underlying: CreateConfigurationTemplateRequest): RichCreateConfigurationTemplateRequest =
-    new RichCreateConfigurationTemplateRequest(underlying)
+  implicit def richDescribeApplicationVersionsRequest(underlying: DescribeApplicationVersionsRequest): RichDescribeApplicationVersionsRequest =
+    new RichDescribeApplicationVersionsRequest(underlying)
 
-  implicit def richCreateConfigurationTemplateResult(underlying: CreateConfigurationTemplateResult): RichCreateConfigurationTemplateResult =
-    new RichCreateConfigurationTemplateResult(underlying)
+  implicit def richDescribeApplicationVersionsResult(underlying: DescribeApplicationVersionsResult): RichDescribeApplicationVersionsResult =
+    new RichDescribeApplicationVersionsResult(underlying)
+
+  // ---
+
+  implicit def richDescribeEnvironmentResourcesRequest(underlying: DescribeEnvironmentResourcesRequest): RichDescribeEnvironmentResourcesRequest =
+    new RichDescribeEnvironmentResourcesRequest(underlying)
+
+  implicit def richDescribeEnvironmentResourcesResult(underlying: DescribeEnvironmentResourcesResult): RichDescribeEnvironmentResourcesResult =
+    new RichDescribeEnvironmentResourcesResult(underlying)
+
+  // ---
+
+  implicit def richDescribeEnvironmentsRequest(underlying: DescribeEnvironmentsRequest): RichDescribeEnvironmentsRequest =
+    new RichDescribeEnvironmentsRequest(underlying)
+
+  implicit def richDescribeEnvironmentsResult(underlying: DescribeEnvironmentsResult): RichDescribeEnvironmentsResult =
+    new RichDescribeEnvironmentsResult(underlying)
+
+  // ---
+
+  implicit def richDescribeEventsRequest(underlying: DescribeEventsRequest): RichDescribeEventsRequest =
+    new RichDescribeEventsRequest(underlying)
+
+  implicit def richDescribeEventsResult(underlying: DescribeEventsResult): RichDescribeEventsResult =
+    new RichDescribeEventsResult(underlying)
+
+  // ---
+
+  implicit def richUpdateApplicationRequest(underlying: UpdateApplicationRequest): RichUpdateApplicationRequest =
+    new RichUpdateApplicationRequest(underlying)
+
+  implicit def richUpdateApplicationResult(underlying: UpdateApplicationResult): RichUpdateApplicationResult =
+    new RichUpdateApplicationResult(underlying)
+
+  // ---
+
+  implicit def richUpdateApplicationVersionRequest(underlying: UpdateApplicationVersionRequest): RichUpdateApplicationVersionRequest =
+    new RichUpdateApplicationVersionRequest(underlying)
+
+  implicit def richUpdateApplicationVersionResult(underlying: UpdateApplicationVersionResult): RichUpdateApplicationVersionResult =
+    new RichUpdateApplicationVersionResult(underlying)
 
   // ---
 
