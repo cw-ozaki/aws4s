@@ -73,7 +73,7 @@ class RichCreateStackRequest(val underlying: CreateStackRequest)
   def notificationARNs_=(value: Seq[String]): Unit =
     underlying.setNotificationARNs(value.asJava)
 
-  def withNotificationARNs(value: Seq[String]): Unit =
+  def withNotificationARNs(value: Seq[String]): CreateStackRequest =
     underlying.withNotificationARNs(value.asJava)
 
   // ---
@@ -83,7 +83,7 @@ class RichCreateStackRequest(val underlying: CreateStackRequest)
   def capabilities_=(value: Seq[String]): Unit =
     underlying.setCapabilities(value.asJava)
 
-  def capabilities(value: Seq[String]): CreateStackRequest =
+  def withCapabilities(value: Seq[String]): CreateStackRequest =
     underlying.withCapabilities(value.asJava)
 
   // ---

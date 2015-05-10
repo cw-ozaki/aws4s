@@ -54,6 +54,75 @@ trait ModelImplicits {
 
   implicit def richGetStackPolicyResult(underlying: GetStackPolicyResult): RichGetStackPolicyResult =
     new RichGetStackPolicyResult(underlying)
+
+  implicit def richGetTemplateRequest(underlying: GetTemplateRequest): RichGetTemplateRequest =
+    new RichGetTemplateRequest(underlying)
+
+  implicit def richGetTemplateResult(underlying: GetTemplateResult): RichGetTemplateResult =
+    new RichGetTemplateResult(underlying)
+
+  implicit def richGetTemplateSummaryRequest(underlying: GetTemplateSummaryRequest): RichGetTemplateSummaryRequest =
+    new RichGetTemplateSummaryRequest(underlying)
+
+  implicit def richGetTemplateSummaryResult(underlying: GetTemplateSummaryResult): RichGetTemplateSummaryResult =
+    new RichGetTemplateSummaryResult(underlying)
+
+  implicit def richListStackResourcesRequest(underlying: ListStackResourcesRequest): RichListStackResourcesRequest =
+    new RichListStackResourcesRequest(underlying)
+
+  implicit def richListStackResourcesResult(underlying: ListStackResourcesResult): RichListStackResourcesResult =
+    new RichListStackResourcesResult(underlying)
+
+  implicit def richListStacksRequest(underlying: ListStacksRequest): RichListStacksRequest =
+    new RichListStacksRequest(underlying)
+
+  implicit def richListStacksResult(underlying: ListStacksResult): RichListStacksResult =
+    new RichListStacksResult(underlying)
+
+  implicit def richOutput(underlying: Output): RichOutput =
+    new RichOutput(underlying)
+
+  implicit def richParameter(underlying: Parameter): RichParameter =
+    new RichParameter(underlying)
+
+  implicit def richSetStackPolicyRequest(underlying: SetStackPolicyRequest): RichSetStackPolicyRequest =
+    new RichSetStackPolicyRequest(underlying)
+
+  implicit def richSignalResourceRequest(underlying: SignalResourceRequest): RichSignalResourceRequest =
+    new RichSignalResourceRequest(underlying)
+
+  implicit def richStack(underlying: Stack): RichStack =
+    new RichStack(underlying)
+
+  implicit def richStackEvent(underlying: StackEvent): RichStackEvent =
+    new RichStackEvent(underlying)
+
+  implicit def richStackResource(underlying: StackResource): RichStackResource =
+    new RichStackResource(underlying)
+
+  implicit def richStackResourceDetail(underlying: StackResourceDetail): RichStackResourceDetail =
+    new RichStackResourceDetail(underlying)
+
+  implicit def richStackResourceSummary(underlying: StackResourceSummary): RichStackResourceSummary =
+    new RichStackResourceSummary(underlying)
+
+  implicit def richStackSummary(underlying: StackSummary): RichStackSummary =
+    new RichStackSummary(underlying)
+
+  implicit def richTag(underlying: Tag): RichTag =
+    new RichTag(underlying)
+
+  implicit def richTemplateParameter(underlying: TemplateParameter): RichTemplateParameter =
+    new RichTemplateParameter(underlying)
+
+  implicit def richUpdateStackRequest(underlying: UpdateStackRequest): RichUpdateStackRequest =
+    new RichUpdateStackRequest(underlying)
+
+  implicit def richUpdateStackResult(underlying: UpdateStackResult): RichUpdateStackResult =
+    new RichUpdateStackResult(underlying)
+
+  implicit def richValidateTemplateResult(underlying: ValidateTemplateResult): RichValidateTemplateResult =
+    new RichValidateTemplateResult(underlying)
 }
 
 
