@@ -8,28 +8,16 @@ import org.sisioh.aws4s.s3.model._
 object Implicits extends Implicits
 
 trait Implicits
-  extends AmazonS3ClientImplicits
-  with AmazonS3EncryptionClientImplicits
-  with RichUploadObjectObserverImplicits
-  with ModelImplicits
-
-trait AmazonS3ClientImplicits {
+  extends ModelImplicits {
 
   implicit def richAmazonS3Client(underlying: AmazonS3Client): RichAmazonS3Client = new RichAmazonS3Client(underlying)
 
-}
-
-trait AmazonS3EncryptionClientImplicits {
-
   implicit def richAmazonS3EncryptionClient(underlying: AmazonS3EncryptionClient): RichAmazonS3EncryptionClient = new RichAmazonS3EncryptionClient(underlying)
-
-}
-
-trait RichUploadObjectObserverImplicits {
 
   implicit def richUploadObjectObserver(underlying: UploadObjectObserver): RichUploadObjectObserver = new RichUploadObjectObserver(underlying)
 
 }
+
 
 trait ModelImplicits {
 
