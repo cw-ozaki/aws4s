@@ -12,8 +12,6 @@ import scala.util.Try
 
 class RichAmazonS3EncryptionClient(val underlying: AmazonS3EncryptionClient) extends AnyVal with PimpedType[AmazonS3EncryptionClient] {
 
-  def region_=(value: Region): Unit = underlying.setRegion(value)
-
   def region: com.amazonaws.services.s3.model.Region = underlying.getRegion
 
   def s3AccountOwner: Owner = underlying.getS3AccountOwner

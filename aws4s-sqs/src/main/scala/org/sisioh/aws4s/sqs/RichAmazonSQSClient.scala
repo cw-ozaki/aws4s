@@ -15,27 +15,23 @@ object AmazonSQSClientFactory {
 
   def create(): AmazonSQSClient = new AmazonSQSClient()
 
-  def create(clientConfiguration: ClientConfiguration) = new AmazonSQSClient(clientConfiguration)
+  def create(clientConfiguration: ClientConfiguration): AmazonSQSClient = new AmazonSQSClient(clientConfiguration)
 
-  def create(awsCredentials: AWSCredentials) = new AmazonSQSClient(awsCredentials)
+  def create(awsCredentials: AWSCredentials): AmazonSQSClient = new AmazonSQSClient(awsCredentials)
 
-  def create(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration) = new AmazonSQSClient(awsCredentials, clientConfiguration)
+  def create(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration): AmazonSQSClient = new AmazonSQSClient(awsCredentials, clientConfiguration)
 
-  def create(awsCredentialsProvider: AWSCredentialsProvider) = new AmazonSQSClient(awsCredentialsProvider)
+  def create(awsCredentialsProvider: AWSCredentialsProvider): AmazonSQSClient = new AmazonSQSClient(awsCredentialsProvider)
 
-  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration) =
-   new AmazonSQSClient(awsCredentialsProvider, clientConfiguration)
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration): AmazonSQSClient =
+    new AmazonSQSClient(awsCredentialsProvider, clientConfiguration)
 
-  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration, requestMetricCollector: RequestMetricCollector) =
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration, requestMetricCollector: RequestMetricCollector): AmazonSQSClient =
     new AmazonSQSClient(awsCredentialsProvider, clientConfiguration, requestMetricCollector)
 
 }
 
 class RichAmazonSQSClient(val underlying: AmazonSQSClient) extends AnyVal with PimpedType[AmazonSQSClient] {
-
-  def setEndpoint(value: Option[String]): Unit = underlying.setEndpoint(value.orNull)
-
-  def setRegion(value: Option[Region]): Unit = underlying.setRegion(value.orNull)
 
   def setQueueAttributes(value: Option[SetQueueAttributesRequest]): Unit = underlying.setQueueAttributes(value.orNull)
 
@@ -120,7 +116,7 @@ class RichAmazonSQSClient(val underlying: AmazonSQSClient) extends AnyVal with P
   def deleteMessageAsTry(queueUrl: String, receiptHandle: String): Try[Unit] =
     Try(underlying.deleteMessage(queueUrl, receiptHandle))
 
-  def shutdown = underlying.shutdown()
+  def shutdown(): Unit = underlying.shutdown()
 
   def getCachedResponseMetadataAsTry(amazonWebServiceRequest: AmazonWebServiceRequest): Try[ResponseMetadata] =
     Try(underlying.getCachedResponseMetadata(amazonWebServiceRequest))
