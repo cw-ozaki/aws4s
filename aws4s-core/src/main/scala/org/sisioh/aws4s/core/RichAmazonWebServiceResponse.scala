@@ -16,6 +16,6 @@ class RichAmazonWebServiceResponse[A](val underlying: AmazonWebServiceResponse[A
   def responseMetadataOpt_=(value: Option[ResponseMetadata]): Unit =
     underlying.setResponseMetadata(value.orNull)
 
-  def getRequestIdOpt: Option[String] = Option(underlying.getRequestId)
+  def requestIdOpt: Option[String] = Option(underlying.getRequestId)
 
 }

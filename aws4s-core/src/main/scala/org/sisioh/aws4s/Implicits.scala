@@ -1,9 +1,9 @@
 package org.sisioh.aws4s
 
+import com.amazonaws._
 import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
-import com.amazonaws.{AmazonWebServiceRequest, AmazonWebServiceResponse, DefaultRequest, ResponseMetadata}
+import org.sisioh.aws4s.core._
 import org.sisioh.aws4s.core.auth.{RichAWSCredentials, RichAWSCredentialsProvider}
-import org.sisioh.aws4s.core.{RichAmazonWebServiceRequest, RichAmazonWebServiceResponse, RichDefaultRequest, RichResponseMetadata}
 
 object Implicits extends Implicits
 
@@ -18,6 +18,9 @@ trait AuthImplicits {
 }
 
 trait CoreImplicits {
+
+  implicit def richAmazonWebServiceClient(underlying: AmazonWebServiceClient): RichAmazonWebServiceClient =
+    new RichAmazonWebServiceClient(underlying)
 
   implicit def richAmazonWebServiceRequest(underlying: AmazonWebServiceRequest): RichAmazonWebServiceRequest =
     new RichAmazonWebServiceRequest(underlying)
