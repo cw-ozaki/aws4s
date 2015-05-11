@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.UpdateApplicationRequest
 import org.sisioh.aws4s.PimpedType
 
+object UpdateApplicationRequestFactory {
+
+  def create(): UpdateApplicationRequest = new UpdateApplicationRequest()
+
+}
+
 class RichUpdateApplicationRequest(val underlying: UpdateApplicationRequest)
   extends AnyVal with PimpedType[UpdateApplicationRequest] {
 

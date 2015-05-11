@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ConfigurationOptionDescriptionFactory {
+
+  def create(): ConfigurationOptionDescription = new ConfigurationOptionDescription
+
+}
+
 class RichConfigurationOptionDescription(val underlying: ConfigurationOptionDescription)
   extends AnyVal with PimpedType[ConfigurationOptionDescription] {
 

@@ -7,6 +7,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object DescribeEnvironmentsRequestFactory {
+
+  def create(): DescribeEnvironmentsRequest = new DescribeEnvironmentsRequest()
+
+}
+
 class RichDescribeEnvironmentsRequest(val underlying: DescribeEnvironmentsRequest)
   extends AnyVal with PimpedType[DescribeEnvironmentsRequest] {
 

@@ -1,11 +1,33 @@
 package org.sisioh.aws4s.eb
 
+import com.amazonaws.auth.{AWSCredentialsProvider, AWSCredentials}
+import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.elasticbeanstalk.AWSElasticBeanstalkClient
 import com.amazonaws.services.elasticbeanstalk.model._
-import com.amazonaws.{AmazonWebServiceRequest, ResponseMetadata}
+import com.amazonaws.{ClientConfiguration, AmazonWebServiceRequest, ResponseMetadata}
 import org.sisioh.aws4s.PimpedType
 
 import scala.util.Try
+
+object AWSElasticBeanstalkClientFactory {
+
+  def create(): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient()
+
+  def create(clientConfiguration: ClientConfiguration): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(clientConfiguration)
+
+  def create(awsCredentials: AWSCredentials) : AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(awsCredentials)
+
+  def create(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(awsCredentials, clientConfiguration)
+
+  def create(awsCredentialsProvider: AWSCredentialsProvider): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(awsCredentialsProvider)
+
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration): AWSElasticBeanstalkClient =
+    new AWSElasticBeanstalkClient(awsCredentialsProvider, clientConfiguration)
+
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration, requestMetricCollector: RequestMetricCollector): AWSElasticBeanstalkClient =
+    new AWSElasticBeanstalkClient(awsCredentialsProvider, clientConfiguration, requestMetricCollector)
+
+}
 
 class RichAWSElasticBeanstalkClient(val underlying: AWSElasticBeanstalkClient)
   extends AnyVal with PimpedType[AWSElasticBeanstalkClient] {

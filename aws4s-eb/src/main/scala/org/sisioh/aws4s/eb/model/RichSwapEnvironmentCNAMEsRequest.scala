@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.SwapEnvironmentCNAMEsRequest
 import org.sisioh.aws4s.PimpedType
 
+object SwapEnvironmentCNAMEsRequestFactory {
+
+  def create(): SwapEnvironmentCNAMEsRequest = new SwapEnvironmentCNAMEsRequest()
+
+}
+
 class RichSwapEnvironmentCNAMEsRequest(val underlying: SwapEnvironmentCNAMEsRequest)
   extends AnyVal with PimpedType[SwapEnvironmentCNAMEsRequest] {
 

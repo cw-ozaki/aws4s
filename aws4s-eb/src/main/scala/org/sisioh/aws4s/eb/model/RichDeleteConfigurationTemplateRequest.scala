@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.DeleteConfigurationTemplateRequest
 import org.sisioh.aws4s.PimpedType
 
+object DeleteConfigurationTemplateRequestFactory {
+
+  def create(): DeleteConfigurationTemplateRequest = new DeleteConfigurationTemplateRequest()
+
+}
+
 class RichDeleteConfigurationTemplateRequest(val underlying: DeleteConfigurationTemplateRequest)
   extends AnyVal with PimpedType[DeleteConfigurationTemplateRequest] {
 

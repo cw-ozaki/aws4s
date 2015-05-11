@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.RestartAppServerRequest
 import org.sisioh.aws4s.PimpedType
 
+object RestartAppServerRequestFactory {
+
+  def create(): RestartAppServerRequest = new RestartAppServerRequest()
+
+}
+
 class RichRestartAppServerRequest(val underlying: RestartAppServerRequest)
   extends AnyVal with PimpedType[RestartAppServerRequest] {
 

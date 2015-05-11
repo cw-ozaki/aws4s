@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model.DescribeEventsRequest
 import org.sisioh.aws4s.PimpedType
 
+object DescribeEventsRequestFactory {
+
+  def create(): DescribeEventsRequest = new DescribeEventsRequest()
+
+}
+
 class RichDescribeEventsRequest(val underlying: DescribeEventsRequest)
   extends AnyVal with PimpedType[DescribeEventsRequest] {
 

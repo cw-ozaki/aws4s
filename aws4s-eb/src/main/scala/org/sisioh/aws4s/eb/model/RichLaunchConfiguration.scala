@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.{LoadBalancer, LaunchConfiguration}
 import org.sisioh.aws4s.PimpedType
 
+object LaunchConfigurationFactory {
+
+  def create(): LaunchConfiguration = new LaunchConfiguration()
+
+}
+
 class RichLaunchConfiguration(val underlying: LaunchConfiguration)
   extends AnyVal with PimpedType[LaunchConfiguration] {
 

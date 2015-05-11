@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.DeleteEnvironmentConfigurationRequest
 import org.sisioh.aws4s.PimpedType
 
+object DeleteEnvironmentConfigurationRequestFactory {
+
+  def create(): DeleteEnvironmentConfigurationRequest = new DeleteEnvironmentConfigurationRequest()
+
+}
+
 class RichDeleteEnvironmentConfigurationRequest(val underlying: DeleteEnvironmentConfigurationRequest)
   extends AnyVal with PimpedType[DeleteEnvironmentConfigurationRequest] {
 

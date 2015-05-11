@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.S3Location
 import org.sisioh.aws4s.PimpedType
 
+object S3LocationFactory {
+
+  def create(): S3Location = new S3Location()
+
+}
+
 class RichS3Location(val underlying: S3Location)
   extends AnyVal with PimpedType[S3Location] {
 

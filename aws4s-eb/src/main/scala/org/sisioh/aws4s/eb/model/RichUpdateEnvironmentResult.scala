@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model._
 import org.sisioh.aws4s.PimpedType
 
+object UpdateEnvironmentResultFactory {
+
+  def create(): UpdateEnvironmentResult = new UpdateEnvironmentResult()
+
+}
+
 class RichUpdateEnvironmentResult(val underlying: UpdateEnvironmentResult)
   extends AnyVal with PimpedType[UpdateEnvironmentResult] {
 

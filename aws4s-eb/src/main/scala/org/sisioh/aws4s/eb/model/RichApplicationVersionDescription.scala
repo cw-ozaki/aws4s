@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model.{S3Location, ApplicationVersionDescription}
 import org.sisioh.aws4s.PimpedType
 
+object ApplicationVersionDescriptionFactory {
+
+  def create() = new ApplicationVersionDescription()
+
+}
+
 class RichApplicationVersionDescription(val underlying: ApplicationVersionDescription)
   extends AnyVal with PimpedType[ApplicationVersionDescription] {
 

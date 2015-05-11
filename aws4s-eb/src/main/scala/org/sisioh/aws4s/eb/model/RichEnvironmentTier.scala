@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.EnvironmentTier
 import org.sisioh.aws4s.PimpedType
 
+object EnvironmentTierFactory {
+
+  def create(): EnvironmentTier = new EnvironmentTier()
+
+}
+
 class RichEnvironmentTier(val underlying: EnvironmentTier)
   extends AnyVal with PimpedType[EnvironmentTier] {
 

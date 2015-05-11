@@ -7,6 +7,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ConfigurationSettingsDescriptionFactory {
+
+  def create(): ConfigurationSettingsDescription = new ConfigurationSettingsDescription()
+
+}
+
 class RichConfigurationSettingsDescription(val underlying: ConfigurationSettingsDescription)
   extends AnyVal with PimpedType[ConfigurationSettingsDescription] {
 

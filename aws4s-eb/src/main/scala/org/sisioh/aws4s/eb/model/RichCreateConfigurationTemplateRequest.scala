@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object CreateConfigurationTemplateRequestFactory {
+
+  def create(): CreateConfigurationTemplateRequest = new CreateConfigurationTemplateRequest()
+
+}
+
 class RichCreateConfigurationTemplateRequest(val underlying: CreateConfigurationTemplateRequest)
   extends AnyVal with PimpedType[CreateConfigurationTemplateRequest] {
 

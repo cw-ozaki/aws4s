@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object EnvironmentResourceDescriptionFactory {
+
+  def create(): EnvironmentResourceDescription = new EnvironmentResourceDescription()
+
+}
+
 class RichEnvironmentResourceDescription(val underlying: EnvironmentResourceDescription)
   extends AnyVal with PimpedType[EnvironmentResourceDescription] {
 

@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.RebuildEnvironmentRequest
 import org.sisioh.aws4s.PimpedType
 
+object RebuildEnvironmentRequestFactory {
+
+  def create(): RebuildEnvironmentRequest = new RebuildEnvironmentRequest()
+
+}
+
 class RichRebuildEnvironmentRequest(val underlying: RebuildEnvironmentRequest)
   extends AnyVal with PimpedType[RebuildEnvironmentRequest] {
 

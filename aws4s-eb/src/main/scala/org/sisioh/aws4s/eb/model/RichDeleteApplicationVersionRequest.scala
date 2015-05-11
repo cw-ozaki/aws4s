@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.DeleteApplicationVersionRequest
 import org.sisioh.aws4s.PimpedType
 
+object DeleteApplicationVersionRequestFactory {
+
+  def create(): DeleteApplicationVersionRequest = new DeleteApplicationVersionRequest()
+
+}
+
 class RichDeleteApplicationVersionRequest(val underlying: DeleteApplicationVersionRequest)
   extends AnyVal with PimpedType[DeleteApplicationVersionRequest] {
 

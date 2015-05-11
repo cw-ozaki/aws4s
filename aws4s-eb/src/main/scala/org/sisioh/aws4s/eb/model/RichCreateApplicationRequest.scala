@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.CreateApplicationRequest
 import org.sisioh.aws4s.PimpedType
 
+object CreateApplicationRequestFactory {
+
+  def create(): CreateApplicationRequest = new CreateApplicationRequest()
+
+}
+
 class RichCreateApplicationRequest(val underlying: CreateApplicationRequest)
   extends AnyVal with PimpedType[CreateApplicationRequest] {
 

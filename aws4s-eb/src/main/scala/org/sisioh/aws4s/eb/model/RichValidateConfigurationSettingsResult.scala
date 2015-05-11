@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ValidateConfigurationSettingsResultFactory {
+
+  def create(): ValidateConfigurationSettingsResult = new ValidateConfigurationSettingsResult()
+
+}
+
 class RichValidateConfigurationSettingsResult(val underlying: ValidateConfigurationSettingsResult)
   extends AnyVal with PimpedType[ValidateConfigurationSettingsResult] {
 

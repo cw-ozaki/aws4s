@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.SourceConfiguration
 import org.sisioh.aws4s.PimpedType
 
+object RichSourceConfigurationFactory {
+
+  def create(): SourceConfiguration = new SourceConfiguration()
+
+}
+
 class RichSourceConfiguration(val underlying: SourceConfiguration)
   extends AnyVal with PimpedType[SourceConfiguration] {
 

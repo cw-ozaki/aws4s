@@ -5,6 +5,13 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model._
 import org.sisioh.aws4s.PimpedType
 
+object TerminateEnvironmentResultFactory {
+
+  def create(): TerminateEnvironmentResult = new TerminateEnvironmentResult()
+
+}
+
+
 class RichTerminateEnvironmentResult(val underlying: TerminateEnvironmentResult)
   extends AnyVal with PimpedType[TerminateEnvironmentResult] {
 

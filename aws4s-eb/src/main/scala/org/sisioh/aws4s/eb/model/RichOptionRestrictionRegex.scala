@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.OptionRestrictionRegex
 import org.sisioh.aws4s.PimpedType
 
+object OptionRestrictionRegexFactory {
+
+  def create(): OptionRestrictionRegex = new OptionRestrictionRegex()
+
+}
+
 class RichOptionRestrictionRegex(val underlying: OptionRestrictionRegex)
   extends AnyVal with PimpedType[OptionRestrictionRegex] {
 

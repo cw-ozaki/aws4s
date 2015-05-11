@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.CheckDNSAvailabilityResult
 import org.sisioh.aws4s.PimpedType
 
+object CheckDNSAvailabilityResultFactory {
+
+  def create(): CheckDNSAvailabilityResult = new CheckDNSAvailabilityResult()
+
+}
+
 class RichCheckDNSAvailabilityResult(val underlying: CheckDNSAvailabilityResult)
   extends AnyVal with PimpedType[CheckDNSAvailabilityResult] {
 

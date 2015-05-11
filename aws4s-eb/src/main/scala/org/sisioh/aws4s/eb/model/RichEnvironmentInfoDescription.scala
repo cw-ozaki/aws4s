@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model.EnvironmentInfoDescription
 import org.sisioh.aws4s.PimpedType
 
+object EnvironmentInfoDescriptionFactory {
+
+  def create(): EnvironmentInfoDescription = new EnvironmentInfoDescription()
+
+}
+
 class RichEnvironmentInfoDescription(val underlying: EnvironmentInfoDescription)
   extends AnyVal with PimpedType[EnvironmentInfoDescription] {
 

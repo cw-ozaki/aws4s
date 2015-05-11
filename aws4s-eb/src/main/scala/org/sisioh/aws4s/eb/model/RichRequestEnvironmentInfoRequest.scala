@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoRequest
 import org.sisioh.aws4s.PimpedType
 
+object RequestEnvironmentInfoRequestFactory {
+
+  def create(): RequestEnvironmentInfoRequest = new RequestEnvironmentInfoRequest()
+
+}
+
 class RichRequestEnvironmentInfoRequest(val underlying: RequestEnvironmentInfoRequest)
   extends AnyVal with PimpedType[RequestEnvironmentInfoRequest] {
 

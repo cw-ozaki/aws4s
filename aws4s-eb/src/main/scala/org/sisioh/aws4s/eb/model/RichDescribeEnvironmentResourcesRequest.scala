@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.DescribeEnvironmentResourcesRequest
 import org.sisioh.aws4s.PimpedType
 
+object DescribeEnvironmentResourcesRequestFactory {
+
+  def create(): DescribeEnvironmentResourcesRequest = new DescribeEnvironmentResourcesRequest()
+
+}
+
 class RichDescribeEnvironmentResourcesRequest(val underlying: DescribeEnvironmentResourcesRequest)
   extends AnyVal with PimpedType[DescribeEnvironmentResourcesRequest] {
 

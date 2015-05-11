@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.Trigger
 import org.sisioh.aws4s.PimpedType
 
+object TriggerFactory {
+
+  def create(): Trigger = new Trigger()
+
+}
+
 class RichTrigger(val underlying: Trigger)
   extends AnyVal with PimpedType[Trigger] {
 

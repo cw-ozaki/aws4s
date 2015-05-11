@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.ConfigurationOptionSetting
 import org.sisioh.aws4s.PimpedType
 
+object ConfigurationOptionSettingFactory {
+
+  def create: ConfigurationOptionSetting = new ConfigurationOptionSetting()
+
+}
+
 class RichConfigurationOptionSetting(val underlying: ConfigurationOptionSetting)
   extends AnyVal with PimpedType[ConfigurationOptionSetting] {
 

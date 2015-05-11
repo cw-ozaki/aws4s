@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object UpdateEnvironmentRequestFactory {
+
+  def create(): UpdateEnvironmentRequest = new UpdateEnvironmentRequest()
+
+}
+
 class RichUpdateEnvironmentRequest(val underlying: UpdateEnvironmentRequest)
   extends AnyVal with PimpedType[UpdateEnvironmentRequest] {
 

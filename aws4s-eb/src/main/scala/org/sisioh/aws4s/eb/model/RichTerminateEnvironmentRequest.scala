@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.TerminateEnvironmentRequest
 import org.sisioh.aws4s.PimpedType
 
+object TerminateEnvironmentRequestFactory {
+
+  def create(): TerminateEnvironmentRequest = new TerminateEnvironmentRequest()
+
+}
+
 class RichTerminateEnvironmentRequest(val underlying: TerminateEnvironmentRequest)
   extends AnyVal with PimpedType[TerminateEnvironmentRequest] {
 

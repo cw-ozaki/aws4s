@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.OptionSpecification
 import org.sisioh.aws4s.PimpedType
 
+object OptionSpecificationFactory {
+
+  def create(): OptionSpecification = new OptionSpecification()
+
+}
+
 class RichOptionSpecification(val underlying: OptionSpecification)
   extends AnyVal with PimpedType[OptionSpecification] {
 

@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object DescribeApplicationsRequestFactory {
+
+  def create(): DescribeApplicationsRequest = new DescribeApplicationsRequest()
+
+}
+
 class RichDescribeApplicationsRequest(val underlying: DescribeApplicationsRequest)
   extends AnyVal with PimpedType[DescribeApplicationsRequest] {
 

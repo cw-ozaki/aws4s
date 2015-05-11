@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.EventDescription
 import org.sisioh.aws4s.PimpedType
 
+object EventDescriptionFactory {
+
+  def create(): EventDescription = new EventDescription()
+
+}
+
 class RichEventDescription(val underlying: EventDescription)
   extends AnyVal with PimpedType[EventDescription] {
 

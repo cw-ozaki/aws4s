@@ -7,6 +7,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object UpdateConfigurationTemplateResultFactory {
+
+  def create(): UpdateConfigurationTemplateResult = new UpdateConfigurationTemplateResult()
+
+}
+
 class RichUpdateConfigurationTemplateResult(val underlying: UpdateConfigurationTemplateResult)
   extends AnyVal with PimpedType[UpdateConfigurationTemplateResult] {
 

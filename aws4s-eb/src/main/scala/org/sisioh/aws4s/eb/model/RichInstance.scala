@@ -3,6 +3,12 @@ package org.sisioh.aws4s.eb.model
 import com.amazonaws.services.elasticbeanstalk.model.Instance
 import org.sisioh.aws4s.PimpedType
 
+object InstanceFactory {
+
+  def create(): Instance = new Instance()
+
+}
+
 class RichInstance(val underlying: Instance)
   extends AnyVal with PimpedType[Instance] {
 

@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object LoadBalancerDescriptionFactory {
+
+  def create(): LoadBalancerDescription = new LoadBalancerDescription()
+
+}
+
 class RichLoadBalancerDescription(val underlying: LoadBalancerDescription)
   extends AnyVal with PimpedType[LoadBalancerDescription] {
 
