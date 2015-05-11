@@ -6,9 +6,7 @@ import org.sisioh.aws4s.eb.model._
 
 object Implicits extends Implicits
 
-trait Implicits extends AWSElasticBeanstalkImplicits with ModelImplicits
-
-trait AWSElasticBeanstalkImplicits {
+trait Implicits extends ModelImplicits {
 
   implicit def richAWSElasticBeanstalkClient(underlying: AWSElasticBeanstalkClient): RichAWSElasticBeanstalkClient =
     new RichAWSElasticBeanstalkClient(underlying)
@@ -140,6 +138,123 @@ trait ModelImplicits {
 
   // ---
 
+  implicit def richEnvironmentDescription(underlying: EnvironmentDescription): RichEnvironmentDescription =
+    new RichEnvironmentDescription(underlying)
+
+  // ---
+
+  implicit def richEnvironmentInfoDescription(underlying: EnvironmentInfoDescription): RichEnvironmentInfoDescription =
+    new RichEnvironmentInfoDescription(underlying)
+
+  // ---
+
+  implicit def richEnvironmentResourceDescription(underlying: EnvironmentResourceDescription): RichEnvironmentResourceDescription =
+    new RichEnvironmentResourceDescription(underlying)
+
+  // ---
+
+  implicit def richEnvironmentResourcesDescription(underlying: EnvironmentResourcesDescription): RichEnvironmentResourcesDescription =
+    new RichEnvironmentResourcesDescription(underlying)
+
+  // ---
+
+  implicit def RichEnvironmentTier(underlying: EnvironmentTier): RichEnvironmentTier =
+    new RichEnvironmentTier(underlying)
+
+  // ---
+
+  implicit def richEventDescription(underlying: EventDescription): RichEventDescription =
+    new RichEventDescription(underlying)
+
+  // ---
+
+  implicit def richInstance(underlying: Instance): RichInstance =
+    new RichInstance(underlying)
+
+  // ---
+
+  implicit def richLaunchConfiguration(underlying: LaunchConfiguration): RichLaunchConfiguration =
+    new RichLaunchConfiguration(underlying)
+
+  // ---
+
+  implicit def richLoadBalancer(underlying: LoadBalancer): RichLoadBalancer =
+    new RichLoadBalancer(underlying)
+
+  // ---
+
+  implicit def richLoadBalancerDescription(underlying: LoadBalancerDescription): RichLoadBalancerDescription =
+    new RichLoadBalancerDescription(underlying)
+
+  // ---
+
+  implicit def richOptionRestrictionRegex(underlying: OptionRestrictionRegex): RichOptionRestrictionRegex =
+    new RichOptionRestrictionRegex(underlying)
+
+  // ---
+
+  implicit def richOptionSpecification(underlying: OptionSpecification): RichOptionSpecification =
+    new RichOptionSpecification(underlying)
+
+  // ---
+
+  implicit def richQueue(underlying: Queue): RichQueue =
+    new RichQueue(underlying)
+
+
+  // ---
+
+  implicit def richRebuildEnvironmentRequest(underlying: RebuildEnvironmentRequest): RichRebuildEnvironmentRequest =
+    new RichRebuildEnvironmentRequest(underlying)
+
+  // ---
+
+  implicit def richRequestEnvironmentInfoRequest(underlying: RequestEnvironmentInfoRequest): RichRequestEnvironmentInfoRequest =
+    new RichRequestEnvironmentInfoRequest(underlying)
+
+  // ---
+
+  implicit def richRestartAppServerRequest(underlying: RestartAppServerRequest): RichRestartAppServerRequest =
+    new RichRestartAppServerRequest(underlying)
+
+  // ---
+
+  implicit def richRetrieveEnvironmentInfoRequest(underlying: RetrieveEnvironmentInfoRequest): RichRetrieveEnvironmentInfoRequest =
+    new RichRetrieveEnvironmentInfoRequest(underlying)
+
+  implicit def richRetrieveEnvironmentInfoResult(underlying: RetrieveEnvironmentInfoRequest): RichRetrieveEnvironmentInfoRequest =
+    new RichRetrieveEnvironmentInfoRequest(underlying)
+
+  // ---
+
+  implicit def richS3Location(underlying: S3Location): RichS3Location =
+    new RichS3Location(underlying)
+
+  // ---
+
+  implicit def richSolutionStackDescription(underlying: SolutionStackDescription): RichSolutionStackDescription =
+    new RichSolutionStackDescription(underlying)
+
+  // ---
+
+  implicit def richSourceConfiguration(underlying: SourceConfiguration): RichSourceConfiguration =
+    new RichSourceConfiguration(underlying)
+
+  // ---
+
+  implicit def richTerminateEnvironmentRequest(underlying: TerminateEnvironmentRequest): RichTerminateEnvironmentRequest =
+    new RichTerminateEnvironmentRequest(underlying)
+
+  implicit def richTerminateEnvironmentResult(underlying: TerminateEnvironmentResult): RichTerminateEnvironmentResult =
+    new RichTerminateEnvironmentResult(underlying)
+
+  // ---
+
+  implicit def richTrigger(underlying: Trigger): RichTrigger =
+    new RichTrigger(underlying)
+
+  // ---
+
   implicit def richUpdateApplicationRequest(underlying: UpdateApplicationRequest): RichUpdateApplicationRequest =
     new RichUpdateApplicationRequest(underlying)
 
@@ -162,6 +277,26 @@ trait ModelImplicits {
   implicit def richUpdateConfigurationTemplateResult(underlying: UpdateConfigurationTemplateResult): RichUpdateConfigurationTemplateResult =
     new RichUpdateConfigurationTemplateResult(underlying)
 
+  // ---
+
+  implicit def richUpdateEnvironmentRequest(underlying: UpdateEnvironmentRequest): RichUpdateEnvironmentRequest =
+    new RichUpdateEnvironmentRequest(underlying)
+
+  implicit def richUpdateEnvironmentResult(underlying: UpdateEnvironmentResult): RichUpdateEnvironmentResult =
+    new RichUpdateEnvironmentResult(underlying)
+
+  // ---
+
+  implicit def richValidateConfigurationSettingsRequest(underlying: ValidateConfigurationSettingsRequest): RichValidateConfigurationSettingsRequest =
+    new RichValidateConfigurationSettingsRequest(underlying)
+
+  implicit def richValidateConfigurationSettingsResult(underlying: ValidateConfigurationSettingsResult): RichValidateConfigurationSettingsResult =
+    new RichValidateConfigurationSettingsResult(underlying)
+
+  // ---
+
+  implicit def richValidationMessage(underlying: ValidationMessage): RichValidationMessage =
+    new RichValidationMessage(underlying)
 }
 
 

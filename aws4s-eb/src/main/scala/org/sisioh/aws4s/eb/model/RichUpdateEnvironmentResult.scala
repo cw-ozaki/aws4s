@@ -5,15 +5,15 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model._
 import org.sisioh.aws4s.PimpedType
 
-class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
-  extends AnyVal with PimpedType[CreateEnvironmentResult] {
+class RichUpdateEnvironmentResult(val underlying: UpdateEnvironmentResult)
+  extends AnyVal with PimpedType[UpdateEnvironmentResult] {
 
   def environmentNameOpt: Option[String] = Option(underlying.getEnvironmentName)
 
   def environmentNameOpt_=(value: Option[String]): Unit =
     underlying.setEnvironmentName(value.orNull)
 
-  def withEnvironmentNameOpt(value: Option[String]): CreateEnvironmentResult =
+  def withEnvironmentNameOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withEnvironmentName(value.orNull)
 
   // ---
@@ -22,17 +22,19 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
 
   def environmentIdOpt_=(value: Option[String]): Unit = underlying.setEnvironmentId(value.orNull)
 
-  def withEnvironmentIdOpt(value: Option[String]): CreateEnvironmentResult =
+  def withEnvironmentIdOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withEnvironmentId(value.orNull)
 
   // ---
+
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 
   def applicationNameOpt_=(value: Option[String]): Unit =
     underlying.setApplicationName(value.orNull)
 
-  def withApplicationNameOpt(value: Option[String]): CreateEnvironmentResult =
+  def withApplicationNameOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withApplicationName(value.orNull)
+
   // ---
 
   def versionLabelOpt: Option[String] = Option(underlying.getVersionLabel)
@@ -40,7 +42,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def versionLabelOpt_=(value: Option[String]): Unit =
     underlying.setVersionLabel(value.orNull)
 
-  def withVersionLabelOpt(value: Option[String]): CreateEnvironmentResult =
+  def withVersionLabelOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withVersionLabel(value.orNull)
 
   // ---
@@ -50,7 +52,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def solutionStackNameOpt_=(value: Option[String]): Unit =
     underlying.setSolutionStackName(value.orNull)
 
-  def withSolutionStackNameOpt(value: Option[String]): CreateEnvironmentResult =
+  def withSolutionStackNameOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withSolutionStackName(value.orNull)
 
   // ---
@@ -60,7 +62,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def templateNameOpt_=(value: Option[String]): Unit =
     underlying.setTemplateName(value.orNull)
 
-  def withTemplateNameOpt(value: Option[String]): CreateEnvironmentResult =
+  def withTemplateNameOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withTemplateName(value.orNull)
 
   // ---
@@ -70,9 +72,8 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def descriptionOpt_=(value: Option[String]): Unit =
     underlying.setDescription(value.orNull)
 
-  def withDescriptionOpt(value: Option[String]): CreateEnvironmentResult =
+  def withDescriptionOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withDescription(value.orNull)
-
   // ---
 
   def endpointURLOpt: Option[String] = Option(underlying.getEndpointURL)
@@ -80,7 +81,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def endpointURLOpt_=(value: Option[String]): Unit =
     underlying.setEndpointURL(value.orNull)
 
-  def withEndpointURLOpt(value: Option[String]): CreateEnvironmentResult =
+  def withEndpointURLOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withEndpointURL(value.orNull)
 
   // ---
@@ -90,7 +91,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def cNAMEOpt_=(value: Option[String]): Unit =
     underlying.setCNAME(value.orNull)
 
-  def withCNAMEOpt(value: Option[String]): CreateEnvironmentResult =
+  def withCNAMEOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withCNAME(value.orNull)
 
   // ---
@@ -100,7 +101,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def dateCreatedOpt_=(value: Option[Date]): Unit =
     underlying.setDateCreated(value.orNull)
 
-  def withDateCreatedOpt(value: Option[Date]): CreateEnvironmentResult =
+  def withDateCreateOpt(value: Option[Date]): UpdateEnvironmentResult =
     underlying.withDateCreated(value.orNull)
 
   // ---
@@ -110,17 +111,15 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def dateUpdatedOpt_=(value: Option[Date]): Unit =
     underlying.setDateUpdated(value.orNull)
 
-  def withDateUpdatedOpt(value: Option[Date]): CreateEnvironmentResult =
+  def withDateUpdatedOpt(value: Option[Date]): UpdateEnvironmentResult =
     underlying.withDateUpdated(value.orNull)
-
-  // ---
 
   def statusOpt: Option[String] = Option(underlying.getStatus)
 
   def statusOpt_=(value: Option[String]): Unit =
     underlying.setStatus(value.orNull)
 
-  def withStatusOpt(value: Option[String]): CreateEnvironmentResult =
+  def withStatusOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withStatus(value.orNull)
 
   // ---
@@ -130,9 +129,8 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def healthOpt_=(value: Option[String]): Unit =
     underlying.setHealth(value.orNull)
 
-  def withHealthOpt(value: Option[String]): CreateEnvironmentResult =
+  def withHealthOpt(value: Option[String]): UpdateEnvironmentResult =
     underlying.withHealth(value.orNull)
-
   // ---
 
   def resourcesOpt: Option[EnvironmentResourcesDescription] = Option(underlying.getResources)
@@ -140,7 +138,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def resourcesOpt_=(value: Option[EnvironmentResourcesDescription]): Unit =
     underlying.setResources(value.orNull)
 
-  def withResourcesOpt(value: Option[EnvironmentResourcesDescription]): CreateEnvironmentResult =
+  def withResourcesOpt(value: Option[EnvironmentResourcesDescription]): UpdateEnvironmentResult =
     underlying.withResources(value.orNull)
 
   // ---
@@ -150,6 +148,7 @@ class RichCreateEnvironmentResult(val underlying: CreateEnvironmentResult)
   def tierOpt_=(value: Option[EnvironmentTier]): Unit =
     underlying.setTier(value.orNull)
 
-  def withTierOpt(value: Option[EnvironmentTier]): CreateEnvironmentResult =
+  def withTierOpt(value: Option[EnvironmentTier]): UpdateEnvironmentResult =
     underlying.withTier(value.orNull)
+
 }
