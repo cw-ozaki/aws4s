@@ -12,7 +12,7 @@ object ValidateConfigurationSettingsRequestFactory {
 }
 
 class RichValidateConfigurationSettingsRequest(val underlying: ValidateConfigurationSettingsRequest)
-  extends AnyVal with PimpedType[RichValidateConfigurationSettingsRequest] {
+  extends AnyVal with PimpedType[ValidateConfigurationSettingsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

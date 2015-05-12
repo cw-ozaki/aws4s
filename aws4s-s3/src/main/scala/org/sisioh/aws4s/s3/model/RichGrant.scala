@@ -14,8 +14,8 @@ object GrantFactory {
 class RichGrant(val underlying: Grant)
   extends AnyVal with PimpedType[Grant] {
 
-  val grantee = underlying.getGrantee
+  def grantee = underlying.getGrantee
 
-  val permission = underlying.getPermission
+  def permission = underlying.getPermission
 
 }

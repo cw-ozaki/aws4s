@@ -18,8 +18,8 @@ object CloudFunctionConfigurationFactory {
 class RichCloudFunctionConfiguration(val underlying: CloudFunctionConfiguration)
   extends AnyVal with PimpedType[CloudFunctionConfiguration] {
 
-  lazy val invocationRoleARN: String = underlying.getInvocationRoleARN
+  def invocationRoleARN: String = underlying.getInvocationRoleARN
 
-  lazy val cloudFunctionARN: String = underlying.getCloudFunctionARN
+  def cloudFunctionARN: String = underlying.getCloudFunctionARN
 
 }

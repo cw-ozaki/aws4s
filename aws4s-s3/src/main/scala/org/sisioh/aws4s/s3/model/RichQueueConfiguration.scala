@@ -6,6 +6,6 @@ import org.sisioh.aws4s.PimpedType
 class RichQueueConfiguration(val underlying: QueueConfiguration)
   extends AnyVal with PimpedType[QueueConfiguration] {
 
-  val queueARN: String = underlying.getQueueARN
+  def queueARN: String = underlying.getQueueARN
 
 }

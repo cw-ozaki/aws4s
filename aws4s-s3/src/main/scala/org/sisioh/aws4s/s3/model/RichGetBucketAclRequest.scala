@@ -13,6 +13,6 @@ object GetBucketAclRequestFactory {
 class RichGetBucketAclRequest(val underlying: GetBucketAclRequest)
   extends AnyVal with PimpedType[GetBucketAclRequest] {
 
-  val bucketName: String = underlying.getBucketName
+  def bucketName: String = underlying.getBucketName
 
 }

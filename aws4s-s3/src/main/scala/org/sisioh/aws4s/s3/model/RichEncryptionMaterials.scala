@@ -34,7 +34,7 @@ class RichEncryptionMaterials(val underlying: EncryptionMaterials)
 
   // ---
 
-  lazy val kmsEnabled = underlying.isKMSEnabled
+  def kmsEnabled = underlying.isKMSEnabled
 
 }
 
