@@ -36,7 +36,7 @@ class RichDescribeEnvironmentsRequest(val underlying: DescribeEnvironmentsReques
 
   // ---
 
-  def environmentIds: Seq[String] = underlying.getEnvironmentIds.asScala
+  def environmentIds: Seq[String] = underlying.getEnvironmentIds.asScala.toVector
 
   def environmentIds_=(value: Seq[String]): Unit =
     underlying.setEnvironmentIds(value.asJava)
@@ -46,7 +46,7 @@ class RichDescribeEnvironmentsRequest(val underlying: DescribeEnvironmentsReques
 
   // ---
 
-  def environmentNames: Seq[String] = underlying.getEnvironmentNames.asScala
+  def environmentNames: Seq[String] = underlying.getEnvironmentNames.asScala.toVector
 
   def environmentNames_=(value: Seq[String]): Unit =
     underlying.setEnvironmentNames(value.asJava)

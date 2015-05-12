@@ -14,7 +14,7 @@ object DescribeApplicationsRequestFactory {
 class RichDescribeApplicationsRequest(val underlying: DescribeApplicationsRequest)
   extends AnyVal with PimpedType[DescribeApplicationsRequest] {
 
-  def applicationNames: Seq[String] = underlying.getApplicationNames.asScala
+  def applicationNames: Seq[String] = underlying.getApplicationNames.asScala.toVector
 
   def applicationNames_=(value: Seq[String]): Unit =
     underlying.setApplicationNames(value.asJava)

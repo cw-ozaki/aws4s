@@ -74,7 +74,7 @@ class RichCreateEnvironmentRequest(val underlying: CreateEnvironmentRequest)
 
   // ---
 
-  def tags: Seq[Tag] = underlying.getTags.asScala
+  def tags: Seq[Tag] = underlying.getTags.asScala.toVector
 
   def tags_=(value: Seq[Tag]): Unit =
     underlying.setTags(value.asJava)
@@ -104,7 +104,7 @@ class RichCreateEnvironmentRequest(val underlying: CreateEnvironmentRequest)
 
   // ---
 
-  def optionSettings: Seq[ConfigurationOptionSetting] = underlying.getOptionSettings.asScala
+  def optionSettings: Seq[ConfigurationOptionSetting] = underlying.getOptionSettings.asScala.toVector
 
   def optionSettings_=(value: Seq[ConfigurationOptionSetting]): Unit =
     underlying.setOptionSettings(value.asJava)
@@ -114,7 +114,7 @@ class RichCreateEnvironmentRequest(val underlying: CreateEnvironmentRequest)
 
   // ---
 
-  def optionsToRemove: Seq[OptionSpecification] = underlying.getOptionsToRemove.asScala
+  def optionsToRemove: Seq[OptionSpecification] = underlying.getOptionsToRemove.asScala.toVector
 
   def optionsToRemove_=(value: Seq[OptionSpecification]): Unit =
     underlying.setOptionsToRemove(value.asJava)

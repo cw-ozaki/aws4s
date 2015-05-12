@@ -15,11 +15,10 @@ object DescribeApplicationsResultFactory {
 class RichDescribeApplicationsResult(val underlying: DescribeApplicationsResult)
   extends AnyVal with PimpedType[DescribeApplicationsResult] {
 
-  def applications: Seq[ApplicationDescription] = underlying.getApplications.asScala
+  def applications: Seq[ApplicationDescription] = underlying.getApplications.asScala.toVector
 
-  def applications_=(value: Seq[ApplicationDescription]): Unit = {
+  def applications_=(value: Seq[ApplicationDescription]): Unit =
     underlying.setApplications(value.asJava)
-  }
 
   def withApplications(value: Seq[ApplicationDescription]): DescribeApplicationsResult =
     underlying.withApplications(value.asJava)

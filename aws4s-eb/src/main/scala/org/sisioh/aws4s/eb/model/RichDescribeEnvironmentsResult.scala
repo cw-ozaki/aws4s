@@ -14,7 +14,7 @@ object DescribeEnvironmentsResultFactory {
 class RichDescribeEnvironmentsResult(val underlying: DescribeEnvironmentsResult)
   extends AnyVal with PimpedType[DescribeEnvironmentsResult] {
 
-  def environments: Seq[EnvironmentDescription] = underlying.getEnvironments.asScala
+  def environments: Seq[EnvironmentDescription] = underlying.getEnvironments.asScala.toVector
 
   def environments_=(value: Seq[EnvironmentDescription]): Unit =
     underlying.setEnvironments(value.asJava)

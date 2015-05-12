@@ -96,7 +96,7 @@ class RichConfigurationSettingsDescription(val underlying: ConfigurationSettings
 
   // ---
 
-  def optionSettings: Seq[ConfigurationOptionSetting] = underlying.getOptionSettings.asScala
+  def optionSettings: Seq[ConfigurationOptionSetting] = underlying.getOptionSettings.asScala.toVector
 
   def optionSettings_=(value: Seq[ConfigurationOptionSetting]): Unit =
     underlying.setOptionSettings(value.asJava)

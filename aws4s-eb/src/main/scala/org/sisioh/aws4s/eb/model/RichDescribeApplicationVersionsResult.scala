@@ -14,7 +14,7 @@ object DescribeApplicationVersionsResultFactory {
 class RichDescribeApplicationVersionsResult(val underlying: DescribeApplicationVersionsResult)
   extends AnyVal with PimpedType[DescribeApplicationVersionsResult] {
 
-  def applicationVersions: Seq[ApplicationVersionDescription] = underlying.getApplicationVersions.asScala
+  def applicationVersions: Seq[ApplicationVersionDescription] = underlying.getApplicationVersions.asScala.toVector
 
   def applicationVersions_=(value: Seq[ApplicationVersionDescription]): Unit =
     underlying.setApplicationVersions(value.asJava)

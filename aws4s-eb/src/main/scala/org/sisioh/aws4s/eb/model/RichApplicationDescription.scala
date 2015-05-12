@@ -56,7 +56,7 @@ class RichApplicationDescription(val underlying: ApplicationDescription)
 
   // ---
 
-  def versions: Seq[String] = underlying.getVersions.asScala
+  def versions: Seq[String] = underlying.getVersions.asScala.toVector
 
   def versions_=(value: Seq[String]): Unit =
     underlying.setVersions(value.asJava)
@@ -67,7 +67,7 @@ class RichApplicationDescription(val underlying: ApplicationDescription)
   // ---
 
   def configurationTemplates: Seq[String] =
-    underlying.getConfigurationTemplates.asScala
+    underlying.getConfigurationTemplates.asScala.toVector
 
   def configurationTemplates_=(value: Seq[String]): Unit =
     underlying.setConfigurationTemplates(value.asJava)

@@ -24,7 +24,7 @@ class RichDescribeApplicationVersionsRequest(val underlying: DescribeApplication
 
   // ---
 
-  def versionLabels: Seq[String] = underlying.getVersionLabels.asScala
+  def versionLabels: Seq[String] = underlying.getVersionLabels.asScala.toVector
 
   def versionLabels_=(value: Seq[String]): Unit =
     underlying.setVersionLabels(value.asJava)

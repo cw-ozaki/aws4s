@@ -14,7 +14,7 @@ object DescribeEventsResultFactory {
 class RichDescribeEventsResult(val underlying: DescribeEventsResult)
   extends AnyVal with PimpedType[DescribeEventsResult] {
 
-  def events: Seq[EventDescription] = underlying.getEvents.asScala
+  def events: Seq[EventDescription] = underlying.getEvents.asScala.toVector
 
   def events_=(value: Seq[EventDescription]): Unit =
     underlying.setEvents(value.asJava)
