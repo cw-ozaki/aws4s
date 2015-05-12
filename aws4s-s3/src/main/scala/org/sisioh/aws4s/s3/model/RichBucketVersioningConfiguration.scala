@@ -3,6 +3,14 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.BucketVersioningConfiguration
 import org.sisioh.aws4s.PimpedType
 
+object BucketVersioningConfigurationFactory {
+
+  def create(): BucketVersioningConfiguration = new BucketVersioningConfiguration()
+
+  def creates(status: String): BucketVersioningConfiguration = new BucketVersioningConfiguration(status)
+
+}
+
 class RichBucketVersioningConfiguration(val underlying: BucketVersioningConfiguration)
   extends AnyVal with PimpedType[BucketVersioningConfiguration] {
 

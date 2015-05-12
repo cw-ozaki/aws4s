@@ -3,7 +3,6 @@ package org.sisioh.aws4s.s3
 import java.io.{File, InputStream}
 
 import com.amazonaws.metrics.RequestMetricCollector
-import com.amazonaws.regions.Region
 import com.amazonaws.services.s3.AmazonS3Client
 import com.amazonaws.services.s3.model._
 import org.sisioh.aws4s.PimpedType

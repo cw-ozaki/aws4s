@@ -5,10 +5,16 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object BucketCrossOriginConfigurationFactory {
+
+  def create() = new BucketCrossOriginConfiguration()
+
+}
+
 class RichBucketCrossOriginConfiguration(val underlying: BucketCrossOriginConfiguration)
   extends AnyVal with PimpedType[BucketCrossOriginConfiguration] {
 
-  def rulesOpt: Option[Seq[CORSRule]] = Option(underlying.getRules).map(_.asScala)
+  def rulesOpt: Option[Seq[CORSRule]] = Option(underlying.getRules).map(_.asScala.toVector)
 
   def rulesOpt_=(value: Option[Seq[CORSRule]]): Unit = {
     underlying.setRules(value.map(_.asJava).orNull)
