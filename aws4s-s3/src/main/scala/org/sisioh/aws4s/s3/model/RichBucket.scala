@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util.Date
 
-import com.amazonaws.services.s3.model.{Bucket, Owner}
+import com.amazonaws.services.s3.model.{ Bucket, Owner }
 import org.sisioh.aws4s.PimpedType
 
 object RichBucketFactory {

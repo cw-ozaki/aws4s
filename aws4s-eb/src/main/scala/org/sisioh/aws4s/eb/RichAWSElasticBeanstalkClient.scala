@@ -1,10 +1,10 @@
 package org.sisioh.aws4s.eb
 
-import com.amazonaws.auth.{AWSCredentialsProvider, AWSCredentials}
+import com.amazonaws.auth.{ AWSCredentialsProvider, AWSCredentials }
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.elasticbeanstalk.AWSElasticBeanstalkClient
 import com.amazonaws.services.elasticbeanstalk.model._
-import com.amazonaws.{ClientConfiguration, AmazonWebServiceRequest, ResponseMetadata}
+import com.amazonaws.{ ClientConfiguration, AmazonWebServiceRequest, ResponseMetadata }
 import org.sisioh.aws4s.PimpedType
 
 import scala.util.Try
@@ -15,7 +15,7 @@ object AWSElasticBeanstalkClientFactory {
 
   def create(clientConfiguration: ClientConfiguration): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(clientConfiguration)
 
-  def create(awsCredentials: AWSCredentials) : AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(awsCredentials)
+  def create(awsCredentials: AWSCredentials): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(awsCredentials)
 
   def create(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration): AWSElasticBeanstalkClient = new AWSElasticBeanstalkClient(awsCredentials, clientConfiguration)
 
@@ -30,7 +30,7 @@ object AWSElasticBeanstalkClientFactory {
 }
 
 class RichAWSElasticBeanstalkClient(val underlying: AWSElasticBeanstalkClient)
-  extends AnyVal with PimpedType[AWSElasticBeanstalkClient] {
+    extends AnyVal with PimpedType[AWSElasticBeanstalkClient] {
 
   def checkDNSAvailabilityAsTry(request: CheckDNSAvailabilityRequest): Try[CheckDNSAvailabilityResult] = Try {
     underlying.checkDNSAvailability(request)
@@ -144,7 +144,7 @@ class RichAWSElasticBeanstalkClient(val underlying: AWSElasticBeanstalkClient)
     underlying.rebuildEnvironment(request)
   }
 
-  def describeEventsAsTry(request:DescribeEventsRequest): Try[DescribeEventsResult] = Try {
+  def describeEventsAsTry(request: DescribeEventsRequest): Try[DescribeEventsResult] = Try {
     underlying.describeEvents(request)
   }
 

@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.s3
 
 import com.amazonaws.ClientConfiguration
-import com.amazonaws.auth.{AWSCredentialsProvider, AWSCredentials}
+import com.amazonaws.auth.{ AWSCredentialsProvider, AWSCredentials }
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.s3.AmazonS3Client
 

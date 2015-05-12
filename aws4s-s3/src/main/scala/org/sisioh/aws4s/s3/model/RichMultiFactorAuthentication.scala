@@ -11,7 +11,7 @@ object MultiFactorAuthenticationFactory {
 }
 
 class RichMultiFactorAuthentication(val underlying: MultiFactorAuthentication)
-  extends AnyVal with PimpedType[MultiFactorAuthentication] {
+    extends AnyVal with PimpedType[MultiFactorAuthentication] {
 
   def deviceSerialNumber = underlying.getDeviceSerialNumber
 

@@ -10,7 +10,7 @@ object OptionSpecificationFactory {
 }
 
 class RichOptionSpecification(val underlying: OptionSpecification)
-  extends AnyVal with PimpedType[OptionSpecification] {
+    extends AnyVal with PimpedType[OptionSpecification] {
 
   def namespaceOpt: Option[String] = Option(underlying.getNamespace)
 

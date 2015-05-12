@@ -10,7 +10,7 @@ object RestartAppServerRequestFactory {
 }
 
 class RichRestartAppServerRequest(val underlying: RestartAppServerRequest)
-  extends AnyVal with PimpedType[RestartAppServerRequest] {
+    extends AnyVal with PimpedType[RestartAppServerRequest] {
 
   def environmentIdOpt: Option[String] = Option(underlying.getEnvironmentId)
 

@@ -10,7 +10,7 @@ object CheckDNSAvailabilityResultFactory {
 }
 
 class RichCheckDNSAvailabilityResult(val underlying: CheckDNSAvailabilityResult)
-  extends AnyVal with PimpedType[CheckDNSAvailabilityResult] {
+    extends AnyVal with PimpedType[CheckDNSAvailabilityResult] {
 
   def availableOpt: Option[Boolean] = Option(underlying.getAvailable)
 

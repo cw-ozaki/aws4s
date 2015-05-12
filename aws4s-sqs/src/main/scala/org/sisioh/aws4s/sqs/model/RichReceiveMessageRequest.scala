@@ -6,7 +6,7 @@ import org.sisioh.aws4s.PimpedType
 import scala.collection.JavaConverters._
 
 class RichReceiveMessageRequest(val underlying: ReceiveMessageRequest)
-  extends AnyVal with PimpedType[ReceiveMessageRequest] {
+    extends AnyVal with PimpedType[ReceiveMessageRequest] {
 
   def queueUrlOpt: Option[String] = Option(underlying.getQueueUrl)
 

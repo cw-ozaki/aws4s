@@ -11,7 +11,7 @@ object AbortMultipartUploadRequestFactory {
 }
 
 class RichAbortMultipartUploadRequest(val underlying: AbortMultipartUploadRequest)
-  extends AnyVal with PimpedType[AbortMultipartUploadRequest] {
+    extends AnyVal with PimpedType[AbortMultipartUploadRequest] {
 
   def bucketName: String = underlying.getBucketName
 

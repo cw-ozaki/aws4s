@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.dynamodb
 
 import com.amazonaws.ClientConfiguration
-import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
+import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.model._
@@ -55,7 +55,7 @@ class RichAmazonDynamoDBClient(val underlying: AmazonDynamoDBClient) extends Any
   def updateTableAsTry(updateTableRequest: UpdateTableRequest): Try[UpdateTableResult] =
     Try(underlying.updateTable(updateTableRequest))
 
-  def updateTableAsTry(tableName:String, provisionedThroughput: ProvisionedThroughput): Try[UpdateTableResult] =
+  def updateTableAsTry(tableName: String, provisionedThroughput: ProvisionedThroughput): Try[UpdateTableResult] =
     Try(underlying.updateTable(tableName, provisionedThroughput))
 
   // ---

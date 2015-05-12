@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.extension
 
-import com.amazonaws.services.{dynamodbv2 => aws}
+import com.amazonaws.services.{ dynamodbv2 => aws }
 import org.sisioh.aws4s.dynamodb.Implicits._
 import org.sisioh.aws4s.dynamodb.model.DescribeTableRequestFactory
 
@@ -26,6 +26,5 @@ case object DynamoDB {
   def deleteTable(tableName: String)(implicit client: aws.AmazonDynamoDBClient): Try[Table] = {
     client.deleteTableAsTry(tableName).map(e => Table(e.getTableDescription))
   }
-
 
 }

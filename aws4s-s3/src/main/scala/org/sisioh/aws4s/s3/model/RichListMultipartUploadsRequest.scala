@@ -11,7 +11,7 @@ object ListMultipartUploadsRequestFactory {
 }
 
 class RichListMultipartUploadsRequest(val underlying: ListMultipartUploadsRequest)
-  extends AnyVal with PimpedType[ListMultipartUploadsRequest] {
+    extends AnyVal with PimpedType[ListMultipartUploadsRequest] {
 
   def bucketName: String = underlying.getBucketName
 

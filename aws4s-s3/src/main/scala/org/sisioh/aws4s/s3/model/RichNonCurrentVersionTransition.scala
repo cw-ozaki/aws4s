@@ -11,7 +11,7 @@ object NoncurrentVersionTransitionFactory {
 }
 
 class RichNonCurrentVersionTransition(val underlying: NoncurrentVersionTransition)
-  extends AnyVal with PimpedType[NoncurrentVersionTransition] {
+    extends AnyVal with PimpedType[NoncurrentVersionTransition] {
 
   def days: Int = underlying.getDays
 

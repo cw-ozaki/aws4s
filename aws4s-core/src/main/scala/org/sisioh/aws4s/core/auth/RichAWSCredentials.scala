@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.core.auth
 
-import java.io.{File, InputStream}
+import java.io.{ File, InputStream }
 
 import com.amazonaws.auth._
 import org.sisioh.aws4s.PimpedType

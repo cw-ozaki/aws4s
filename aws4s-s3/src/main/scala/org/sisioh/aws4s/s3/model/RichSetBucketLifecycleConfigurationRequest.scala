@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketLifecycleConfiguration, SetBucketLifecycleConfigurationRequest}
+import com.amazonaws.services.s3.model.{ BucketLifecycleConfiguration, SetBucketLifecycleConfigurationRequest }
 import org.sisioh.aws4s.PimpedType
 
 object SetBucketLifecycleConfigurationRequestFactory {
@@ -11,7 +11,7 @@ object SetBucketLifecycleConfigurationRequestFactory {
 }
 
 class RichSetBucketLifecycleConfigurationRequest(val underlying: SetBucketLifecycleConfigurationRequest)
-  extends AnyVal with PimpedType[SetBucketLifecycleConfigurationRequest] {
+    extends AnyVal with PimpedType[SetBucketLifecycleConfigurationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

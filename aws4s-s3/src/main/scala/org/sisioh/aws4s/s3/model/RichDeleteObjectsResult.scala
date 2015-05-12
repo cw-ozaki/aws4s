@@ -14,7 +14,7 @@ object DeleteObjectsResultFactory {
 }
 
 class RichDeleteObjectsResult(val underlying: DeleteObjectsResult)
-  extends AnyVal with PimpedType[DeleteObjectsResult] {
+    extends AnyVal with PimpedType[DeleteObjectsResult] {
 
   def deletedObjects: Seq[DeletedObject] = underlying.getDeletedObjects.asScala
 

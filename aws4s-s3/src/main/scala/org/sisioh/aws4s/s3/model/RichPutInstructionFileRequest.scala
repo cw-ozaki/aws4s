@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{S3ObjectId, EncryptionMaterials, PutInstructionFileRequest}
+import com.amazonaws.services.s3.model.{ S3ObjectId, EncryptionMaterials, PutInstructionFileRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -16,7 +16,7 @@ object PutInstructionFileRequestFactory {
 }
 
 class RichPutInstructionFileRequest(val underlying: PutInstructionFileRequest)
-extends AnyVal with PimpedType[PutInstructionFileRequest] {
+    extends AnyVal with PimpedType[PutInstructionFileRequest] {
 
   def s3ObjectId: S3ObjectId = underlying.getS3ObjectId
 

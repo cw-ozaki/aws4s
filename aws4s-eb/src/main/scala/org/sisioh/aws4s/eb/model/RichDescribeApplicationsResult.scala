@@ -1,7 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-
-import com.amazonaws.services.elasticbeanstalk.model.{ApplicationDescription, DescribeApplicationsResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ ApplicationDescription, DescribeApplicationsResult }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -13,7 +12,7 @@ object DescribeApplicationsResultFactory {
 }
 
 class RichDescribeApplicationsResult(val underlying: DescribeApplicationsResult)
-  extends AnyVal with PimpedType[DescribeApplicationsResult] {
+    extends AnyVal with PimpedType[DescribeApplicationsResult] {
 
   def applications: Seq[ApplicationDescription] = underlying.getApplications.asScala.toVector
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketTaggingConfiguration, SetBucketTaggingConfigurationRequest}
+import com.amazonaws.services.s3.model.{ BucketTaggingConfiguration, SetBucketTaggingConfigurationRequest }
 import org.sisioh.aws4s.PimpedType
 
 object SetBucketTaggingConfigurationRequestFactory {
@@ -11,7 +11,7 @@ object SetBucketTaggingConfigurationRequestFactory {
 }
 
 class RichSetBucketTaggingConfigurationRequest(val underlying: SetBucketTaggingConfigurationRequest)
-  extends AnyVal with PimpedType[SetBucketTaggingConfigurationRequest] {
+    extends AnyVal with PimpedType[SetBucketTaggingConfigurationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{Grant, Grantee, Permission}
+import com.amazonaws.services.s3.model.{ Grant, Grantee, Permission }
 import org.sisioh.aws4s.PimpedType
 
 object GrantFactory {
@@ -10,9 +10,8 @@ object GrantFactory {
 
 }
 
-
 class RichGrant(val underlying: Grant)
-  extends AnyVal with PimpedType[Grant] {
+    extends AnyVal with PimpedType[Grant] {
 
   def grantee = underlying.getGrantee
 

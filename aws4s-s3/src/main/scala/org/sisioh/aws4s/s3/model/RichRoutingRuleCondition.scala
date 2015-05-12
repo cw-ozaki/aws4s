@@ -9,9 +9,8 @@ object RichRoutingRuleConditionFactory {
 
 }
 
-
 class RichRoutingRuleCondition(val underlying: RoutingRuleCondition)
-  extends AnyVal with PimpedType[RoutingRuleCondition] {
+    extends AnyVal with PimpedType[RoutingRuleCondition] {
 
   def keyPrefixEqualsOpt: Option[String] = Option(underlying.getKeyPrefixEquals)
 

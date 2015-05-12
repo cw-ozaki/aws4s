@@ -10,7 +10,7 @@ object RoutingRuleFactory {
 }
 
 class RichRoutingRule(val underlying: RoutingRule)
-  extends AnyVal with PimpedType[RoutingRule] {
+    extends AnyVal with PimpedType[RoutingRule] {
 
   def conditionOpt = Option(underlying.getCondition)
 

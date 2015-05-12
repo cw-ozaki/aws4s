@@ -12,7 +12,7 @@ object SSEAwsKeyManagementParamFactory {
 }
 
 class RichSSEAwsKeyManagementParams(val underlying: SSEAwsKeyManagementParams)
-  extends AnyVal with PimpedType[SSEAwsKeyManagementParams] {
+    extends AnyVal with PimpedType[SSEAwsKeyManagementParams] {
 
   def awsKmsKeyIdOpt = Option(underlying.getAwsKmsKeyId)
 

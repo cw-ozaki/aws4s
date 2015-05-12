@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{RoutingRule, WebsiteConfiguration}
+import com.amazonaws.services.s3.model.{ RoutingRule, WebsiteConfiguration }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object WebsiteConfigurationFactory {
 }
 
 class RichWebsiteConfiguration(val underlying: WebsiteConfiguration)
-  extends AnyVal with PimpedType[WebsiteConfiguration] {
+    extends AnyVal with PimpedType[WebsiteConfiguration] {
 
   def indexDocumentSuffixOpt: Option[String] = Option(underlying.getIndexDocumentSuffix)
 

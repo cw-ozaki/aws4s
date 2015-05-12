@@ -12,7 +12,7 @@ object CompleteMultipartUploadResultFactory {
 }
 
 class RichCompleteMultipartUploadResult(val underlying: CompleteMultipartUploadResult)
-  extends AnyVal with PimpedType[CompleteMultipartUploadResult] {
+    extends AnyVal with PimpedType[CompleteMultipartUploadResult] {
 
   def bucketNameOpt: Option[String] = Option(underlying.getBucketName)
 

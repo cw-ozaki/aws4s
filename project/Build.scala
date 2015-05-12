@@ -1,11 +1,13 @@
 import sbt.Keys._
 import sbt._
 
+import com.typesafe.sbt.SbtScalariform._
+
 object ApplicationBuild extends Build {
 
   val awsSdkVersion = "1.9.22"
 
-  lazy val commonSettings = Seq(
+  lazy val commonSettings = scalariformSettings ++ Seq(
     organization := "org.sisioh",
     version := "1.0.3-SNAPSHOT",
     scalaVersion := "2.10.4",

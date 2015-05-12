@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketWebsiteConfiguration, SetBucketWebsiteConfigurationRequest}
+import com.amazonaws.services.s3.model.{ BucketWebsiteConfiguration, SetBucketWebsiteConfigurationRequest }
 import org.sisioh.aws4s.PimpedType
 
 object SetBucketWebsiteConfigurationRequestFactory {
@@ -11,7 +11,7 @@ object SetBucketWebsiteConfigurationRequestFactory {
 }
 
 class RichSetBucketWebsiteConfigurationRequest(val underlying: SetBucketWebsiteConfigurationRequest)
-extends AnyVal with PimpedType[SetBucketWebsiteConfigurationRequest] {
+    extends AnyVal with PimpedType[SetBucketWebsiteConfigurationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

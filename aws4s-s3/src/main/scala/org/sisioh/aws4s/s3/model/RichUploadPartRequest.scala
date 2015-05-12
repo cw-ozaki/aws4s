@@ -1,8 +1,8 @@
 package org.sisioh.aws4s.s3.model
 
-import java.io.{InputStream, File}
+import java.io.{ InputStream, File }
 
-import com.amazonaws.services.s3.model.{ObjectMetadata, SSECustomerKey, UploadPartRequest}
+import com.amazonaws.services.s3.model.{ ObjectMetadata, SSECustomerKey, UploadPartRequest }
 import org.sisioh.aws4s.PimpedType
 
 object UploadPartRequestFactory {
@@ -12,7 +12,7 @@ object UploadPartRequestFactory {
 }
 
 class RichUploadPartRequest(val underlying: UploadPartRequest)
-  extends AnyVal with PimpedType[UploadPartRequest] {
+    extends AnyVal with PimpedType[UploadPartRequest] {
 
   def bucketNameOpt: Option[String] = Option(underlying.getBucketName)
 
@@ -109,7 +109,7 @@ class RichUploadPartRequest(val underlying: UploadPartRequest)
 
   def sseCustomerKeyOpt: Option[SSECustomerKey] = Option(underlying.getSSECustomerKey)
 
-  def sseCustomerKeyOpt_=(value: Option[SSECustomerKey] ): Unit =
+  def sseCustomerKeyOpt_=(value: Option[SSECustomerKey]): Unit =
     underlying.setSSECustomerKey(value.orNull)
 
   def withSSECustomerKeyOpt(value: Option[SSECustomerKey]): UploadPartRequest =

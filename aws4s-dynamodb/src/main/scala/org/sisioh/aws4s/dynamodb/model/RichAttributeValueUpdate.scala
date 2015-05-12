@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{AttributeAction, AttributeValue, AttributeValueUpdate}
+import com.amazonaws.services.dynamodbv2.model.{ AttributeAction, AttributeValue, AttributeValueUpdate }
 import org.sisioh.aws4s.PimpedType
 
 import scala.reflect.ClassTag

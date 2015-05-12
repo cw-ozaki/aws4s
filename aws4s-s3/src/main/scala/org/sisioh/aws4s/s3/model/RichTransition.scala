@@ -13,7 +13,7 @@ object TransitionFactory {
 }
 
 class RichTransition(val underlying: Transition)
-  extends AnyVal with PimpedType[Transition] {
+    extends AnyVal with PimpedType[Transition] {
 
   def days: Int = underlying.getDays
 

@@ -10,7 +10,7 @@ object QueueFactory {
 }
 
 class RichQueue(val underlying: Queue)
-  extends AnyVal with PimpedType[Queue] {
+    extends AnyVal with PimpedType[Queue] {
 
   def nameOpt: Option[String] = Option(underlying.getName)
 

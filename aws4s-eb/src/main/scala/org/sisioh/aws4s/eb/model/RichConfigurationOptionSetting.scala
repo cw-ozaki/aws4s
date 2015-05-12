@@ -10,7 +10,7 @@ object ConfigurationOptionSettingFactory {
 }
 
 class RichConfigurationOptionSetting(val underlying: ConfigurationOptionSetting)
-  extends AnyVal with PimpedType[ConfigurationOptionSetting] {
+    extends AnyVal with PimpedType[ConfigurationOptionSetting] {
 
   def namespaceOpt: Option[String] = Option(underlying.getNamespace)
 
@@ -27,7 +27,7 @@ class RichConfigurationOptionSetting(val underlying: ConfigurationOptionSetting)
   def optionalNameOpt_=(value: Option[String]): Unit =
     underlying.setOptionName(value.orNull)
 
-  def withOptionalNameOpt(value: Option[String]):ConfigurationOptionSetting =
+  def withOptionalNameOpt(value: Option[String]): ConfigurationOptionSetting =
     underlying.withOptionName(value.orNull)
 
   // ---

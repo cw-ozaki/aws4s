@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{OptionRestrictionRegex, ConfigurationOptionDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ OptionRestrictionRegex, ConfigurationOptionDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object ConfigurationOptionDescriptionFactory {
 }
 
 class RichConfigurationOptionDescription(val underlying: ConfigurationOptionDescription)
-  extends AnyVal with PimpedType[ConfigurationOptionDescription] {
+    extends AnyVal with PimpedType[ConfigurationOptionDescription] {
 
   def namespaceOpt: Option[String] = Option(underlying.getNamespace)
 
@@ -74,7 +74,7 @@ class RichConfigurationOptionDescription(val underlying: ConfigurationOptionDesc
 
   // ---
 
-  def valueOptions: Seq[String] =  underlying.getValueOptions.asScala.toVector
+  def valueOptions: Seq[String] = underlying.getValueOptions.asScala.toVector
 
   def valueOptions_=(value: Seq[String]): Unit =
     underlying.setValueOptions(value.asJava)
@@ -89,7 +89,7 @@ class RichConfigurationOptionDescription(val underlying: ConfigurationOptionDesc
   def minValueOpt_=(value: Option[Int]): Unit =
     underlying.setMinValue(value.map(_.asInstanceOf[java.lang.Integer]).orNull)
 
-  def withMinValueOpt(value: Option[Int]):ConfigurationOptionDescription =
+  def withMinValueOpt(value: Option[Int]): ConfigurationOptionDescription =
     underlying.withMinValue(value.map(_.asInstanceOf[java.lang.Integer]).orNull)
 
   // ---

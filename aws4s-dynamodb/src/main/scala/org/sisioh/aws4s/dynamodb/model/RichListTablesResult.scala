@@ -11,7 +11,6 @@ object ListTablesResultFactory {
 
 }
 
-
 class RichListTablesResult(val underlying: ListTablesResult) extends AnyVal with PimpedType[ListTablesResult] {
 
   // ---

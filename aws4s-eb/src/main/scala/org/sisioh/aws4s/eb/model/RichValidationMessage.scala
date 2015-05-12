@@ -10,7 +10,7 @@ object ValidationMessageFactory {
 }
 
 class RichValidationMessage(val underlying: ValidationMessage)
-  extends AnyVal with PimpedType[ValidationMessage] {
+    extends AnyVal with PimpedType[ValidationMessage] {
 
   def messageOpt = Option(underlying.getMessage)
 

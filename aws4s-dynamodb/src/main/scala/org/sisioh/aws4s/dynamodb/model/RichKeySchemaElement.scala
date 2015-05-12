@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{KeySchemaElement, KeyType}
+import com.amazonaws.services.dynamodbv2.model.{ KeySchemaElement, KeyType }
 import org.sisioh.aws4s.PimpedType
 
 object KeySchemaElementFactory {

@@ -12,7 +12,7 @@ object CopyObjectResultFactory {
 }
 
 class RichCopyObjectResult(val underlying: CopyObjectResult)
-  extends AnyVal with PimpedType[CopyObjectResult] {
+    extends AnyVal with PimpedType[CopyObjectResult] {
 
   def eTagOpt: Option[String] = Option(underlying.getETag)
 
@@ -46,6 +46,5 @@ class RichCopyObjectResult(val underlying: CopyObjectResult)
 
   def expirationTimeRuleIdOpt_=(value: Option[String]): Unit =
     underlying.setExpirationTimeRuleId(value.orNull)
-
 
 }

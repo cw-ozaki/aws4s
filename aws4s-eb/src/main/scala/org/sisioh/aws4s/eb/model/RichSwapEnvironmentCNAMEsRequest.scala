@@ -10,7 +10,7 @@ object SwapEnvironmentCNAMEsRequestFactory {
 }
 
 class RichSwapEnvironmentCNAMEsRequest(val underlying: SwapEnvironmentCNAMEsRequest)
-  extends AnyVal with PimpedType[SwapEnvironmentCNAMEsRequest] {
+    extends AnyVal with PimpedType[SwapEnvironmentCNAMEsRequest] {
 
   def sourceEnvironmentIdOpt: Option[String] = Option(underlying.getSourceEnvironmentId)
 

@@ -11,7 +11,7 @@ object GetBucketAclRequestFactory {
 }
 
 class RichGetBucketAclRequest(val underlying: GetBucketAclRequest)
-  extends AnyVal with PimpedType[GetBucketAclRequest] {
+    extends AnyVal with PimpedType[GetBucketAclRequest] {
 
   def bucketName: String = underlying.getBucketName
 

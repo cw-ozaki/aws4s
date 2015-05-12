@@ -1,8 +1,8 @@
 package org.sisioh.aws4s.s3.model
 
-import java.io.{File, InputStream}
+import java.io.{ File, InputStream }
 
-import com.amazonaws.services.s3.model.{EncryptedPutObjectRequest, ObjectMetadata}
+import com.amazonaws.services.s3.model.{ EncryptedPutObjectRequest, ObjectMetadata }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -20,9 +20,8 @@ object EncryptedPutObjectRequestFactory {
 
 }
 
-
 class RichEncryptedPutObjectRequest(val underlying: EncryptedPutObjectRequest)
-  extends AnyVal with PimpedType[EncryptedPutObjectRequest] {
+    extends AnyVal with PimpedType[EncryptedPutObjectRequest] {
 
   def materialsDescriptionOpt: Option[Map[String, String]] = Option(underlying.getMaterialsDescription.asScala.toMap)
 

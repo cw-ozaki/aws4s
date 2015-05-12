@@ -3,7 +3,7 @@ package org.sisioh.aws4s.dynamodb.model
 import com.amazonaws.auth.AWSCredentials
 import com.amazonaws.event.ProgressListener
 import com.amazonaws.metrics.RequestMetricCollector
-import com.amazonaws.{AmazonWebServiceRequest, RequestClientOptions}
+import com.amazonaws.{ AmazonWebServiceRequest, RequestClientOptions }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

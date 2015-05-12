@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketCrossOriginConfiguration, SetBucketCrossOriginConfigurationRequest}
+import com.amazonaws.services.s3.model.{ BucketCrossOriginConfiguration, SetBucketCrossOriginConfigurationRequest }
 import org.sisioh.aws4s.PimpedType
 
 object SetBucketCrossOriginConfigurationRequestFactory {
@@ -11,7 +11,7 @@ object SetBucketCrossOriginConfigurationRequestFactory {
 }
 
 class RichSetBucketCrossOriginConfigurationRequest(val underlying: SetBucketCrossOriginConfigurationRequest)
-  extends AnyVal with PimpedType[SetBucketCrossOriginConfigurationRequest] {
+    extends AnyVal with PimpedType[SetBucketCrossOriginConfigurationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

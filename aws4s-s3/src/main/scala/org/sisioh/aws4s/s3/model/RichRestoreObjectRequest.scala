@@ -13,7 +13,7 @@ object RestoreObjectRequestFactory {
 }
 
 class RichRestoreObjectRequest(val underlying: RestoreObjectRequest)
-  extends AnyVal with PimpedType[RestoreObjectRequest] {
+    extends AnyVal with PimpedType[RestoreObjectRequest] {
 
   def bucketName: String = underlying.getBucketName
 

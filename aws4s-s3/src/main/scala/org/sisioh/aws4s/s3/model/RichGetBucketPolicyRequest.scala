@@ -11,7 +11,7 @@ object GetBucketPolicyRequestFactory {
 }
 
 class RichGetBucketPolicyRequest(val underlying: GetBucketPolicyRequest)
-  extends AnyVal with PimpedType[GetBucketPolicyRequest] {
+    extends AnyVal with PimpedType[GetBucketPolicyRequest] {
 
   def bucketName: String = underlying.getBucketName
 

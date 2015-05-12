@@ -11,9 +11,8 @@ object TerminateEnvironmentResultFactory {
 
 }
 
-
 class RichTerminateEnvironmentResult(val underlying: TerminateEnvironmentResult)
-  extends AnyVal with PimpedType[TerminateEnvironmentResult] {
+    extends AnyVal with PimpedType[TerminateEnvironmentResult] {
 
   def environmentNameOpt: Option[String] = Option(underlying.getEnvironmentName)
 

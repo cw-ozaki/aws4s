@@ -10,7 +10,7 @@ object DeleteEnvironmentConfigurationRequestFactory {
 }
 
 class RichDeleteEnvironmentConfigurationRequest(val underlying: DeleteEnvironmentConfigurationRequest)
-  extends AnyVal with PimpedType[DeleteEnvironmentConfigurationRequest] {
+    extends AnyVal with PimpedType[DeleteEnvironmentConfigurationRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

@@ -18,7 +18,7 @@ object CopyObjectRequestFactory {
 }
 
 class RichCopyObjectRequest(val underlying: CopyObjectRequest)
-  extends AnyVal with PimpedType[CopyObjectRequest] {
+    extends AnyVal with PimpedType[CopyObjectRequest] {
 
   def matchingETagConstraints: Seq[String] =
     underlying.getMatchingETagConstraints.asScala.toVector

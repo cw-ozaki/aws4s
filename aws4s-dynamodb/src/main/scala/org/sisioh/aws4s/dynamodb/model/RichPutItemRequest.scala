@@ -99,7 +99,7 @@ class RichPutItemRequest(val underlying: PutItemRequest) extends AnyVal with Pim
 
   // ---
 
-  def expressionAttributeValuesOpt: Option[Map[String, AttributeValue]]= Option(underlying.getExpressionAttributeValues).map(_.asScala.toMap)
+  def expressionAttributeValuesOpt: Option[Map[String, AttributeValue]] = Option(underlying.getExpressionAttributeValues).map(_.asScala.toMap)
 
   def expressionAttributeValuesOpt_=(value: Option[Map[String, AttributeValue]]): Unit = underlying.setExpressionAttributeValues(value.map(_.asJava).orNull)
 

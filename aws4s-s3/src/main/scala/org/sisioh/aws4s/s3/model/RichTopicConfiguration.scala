@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util
 
-import com.amazonaws.services.s3.model.{S3Event, TopicConfiguration}
+import com.amazonaws.services.s3.model.{ S3Event, TopicConfiguration }
 import org.sisioh.aws4s.PimpedType
 
 object TopicConfigurationFactory {
@@ -16,7 +16,7 @@ object TopicConfigurationFactory {
 }
 
 class RichTopicConfiguration(val underlying: TopicConfiguration)
-extends AnyVal with PimpedType[TopicConfiguration] {
+    extends AnyVal with PimpedType[TopicConfiguration] {
 
   def topicARN = underlying.getTopicARN
 

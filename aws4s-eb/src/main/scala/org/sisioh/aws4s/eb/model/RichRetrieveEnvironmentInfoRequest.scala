@@ -10,7 +10,7 @@ object RetrieveEnvironmentInfoRequestFactory {
 }
 
 class RichRetrieveEnvironmentInfoRequest(val underlying: RetrieveEnvironmentInfoRequest)
-  extends AnyVal with PimpedType[RetrieveEnvironmentInfoRequest] {
+    extends AnyVal with PimpedType[RetrieveEnvironmentInfoRequest] {
 
   def environmentIdOpt: Option[String] = Option(underlying.getEnvironmentId)
 

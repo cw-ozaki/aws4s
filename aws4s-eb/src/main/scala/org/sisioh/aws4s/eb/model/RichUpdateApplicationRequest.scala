@@ -10,7 +10,7 @@ object UpdateApplicationRequestFactory {
 }
 
 class RichUpdateApplicationRequest(val underlying: UpdateApplicationRequest)
-  extends AnyVal with PimpedType[UpdateApplicationRequest] {
+    extends AnyVal with PimpedType[UpdateApplicationRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

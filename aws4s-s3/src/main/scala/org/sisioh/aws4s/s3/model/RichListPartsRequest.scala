@@ -11,7 +11,7 @@ object ListPartsRequestFactory {
 }
 
 class RichListPartsRequest(val underlying: ListPartsRequest)
-  extends AnyVal with PimpedType[ListPartsRequest] {
+    extends AnyVal with PimpedType[ListPartsRequest] {
 
   def bucketName: String = underlying.getBucketName
 

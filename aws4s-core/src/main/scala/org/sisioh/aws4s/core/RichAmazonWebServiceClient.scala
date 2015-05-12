@@ -2,11 +2,11 @@ package org.sisioh.aws4s.core
 
 import com.amazonaws.AmazonWebServiceClient
 import com.amazonaws.metrics.RequestMetricCollector
-import com.amazonaws.regions.{Region, Regions}
+import com.amazonaws.regions.{ Region, Regions }
 import org.sisioh.aws4s.PimpedType
 
 class RichAmazonWebServiceClient(val underlying: AmazonWebServiceClient)
-  extends AnyVal with PimpedType[AmazonWebServiceClient] {
+    extends AnyVal with PimpedType[AmazonWebServiceClient] {
 
   def region_=(value: Region): Unit =
     underlying.setRegion(value)

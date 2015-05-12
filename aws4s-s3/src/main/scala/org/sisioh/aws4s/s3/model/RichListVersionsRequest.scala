@@ -8,13 +8,13 @@ object ListVersionsRequestFactory {
   def create(): ListVersionsRequest = new ListVersionsRequest()
 
   def create(bucketName: String, prefix: String, keyMarker: String,
-             versionIdMarker: String, delimiter: String, maxResults: Int): ListVersionsRequest =
+    versionIdMarker: String, delimiter: String, maxResults: Int): ListVersionsRequest =
     new ListVersionsRequest(bucketName, prefix, keyMarker, versionIdMarker, delimiter, maxResults)
 
 }
 
 class RichListVersionsRequest(val underlying: ListVersionsRequest)
-  extends AnyVal with PimpedType[ListVersionsRequest] {
+    extends AnyVal with PimpedType[ListVersionsRequest] {
 
   def bucketNameOpt = Option(underlying.getBucketName)
 

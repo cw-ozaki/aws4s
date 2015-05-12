@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{AttributeValue, BatchGetItemResult, ConsumedCapacity, KeysAndAttributes}
+import com.amazonaws.services.dynamodbv2.model.{ AttributeValue, BatchGetItemResult, ConsumedCapacity, KeysAndAttributes }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -16,15 +16,17 @@ class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal 
   // ---
 
   def responsesOpt_=(values: Option[Map[String, Seq[Map[String, AttributeValue]]]]): Unit =
-    underlying.setResponses(values.map(_.map { case (k, v) => (k, v.map(_.asJava).asJava)}.asJava).orNull)
+    underlying.setResponses(values.map(_.map { case (k, v) => (k, v.map(_.asJava).asJava) }.asJava).orNull)
 
-  def responsesOpt: Option[Map[String, Seq[Map[String, AttributeValue]]]] = Option(underlying.getResponses).map(_.asScala.map { case (k, v) =>
-    (k, v.asScala.toSeq.map(_.asScala.toMap))
+  def responsesOpt: Option[Map[String, Seq[Map[String, AttributeValue]]]] = Option(underlying.getResponses).map(_.asScala.map {
+    case (k, v) =>
+      (k, v.asScala.toSeq.map(_.asScala.toMap))
   }.toMap)
 
   def withResponsesOpt(responses: Option[Map[String, Seq[Map[String, AttributeValue]]]]): BatchGetItemResult = {
-    underlying.withResponses(responses.map(_.map { case (k, v) =>
-      (k, v.map(_.asJava).asJava)
+    underlying.withResponses(responses.map(_.map {
+      case (k, v) =>
+        (k, v.map(_.asJava).asJava)
     }.asJava).orNull)
   }
 

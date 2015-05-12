@@ -18,7 +18,6 @@ object DeleteItemRequestFactory {
 
 }
 
-
 class RichDeleteItemRequest(val underlying: DeleteItemRequest) extends AnyVal with PimpedType[DeleteItemRequest] {
 
   // ---

@@ -11,9 +11,8 @@ object PartSummaryFactory {
 
 }
 
-
 class RichPartSummary(val underlying: PartSummary)
-  extends AnyVal with PimpedType[PartSummary] {
+    extends AnyVal with PimpedType[PartSummary] {
 
   def partNumberOpt: Option[Int] = Option(underlying.getPartNumber)
 

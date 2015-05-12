@@ -12,7 +12,7 @@ object EnvironmentInfoDescriptionFactory {
 }
 
 class RichEnvironmentInfoDescription(val underlying: EnvironmentInfoDescription)
-  extends AnyVal with PimpedType[EnvironmentInfoDescription] {
+    extends AnyVal with PimpedType[EnvironmentInfoDescription] {
 
   def infoTypeOpt = Option(underlying.getInfoType)
 

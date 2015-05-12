@@ -2,7 +2,7 @@ package org.sisioh.aws4s.dynamodb.extension
 
 import java.util.Date
 
-import com.amazonaws.services.{dynamodbv2 => aws}
+import com.amazonaws.services.{ dynamodbv2 => aws }
 import org.sisioh.aws4s.dynamodb.Implicits._
 import org.sisioh.aws4s.dynamodb.model._
 
@@ -57,7 +57,7 @@ case class Table(underlying: aws.model.TableDescription) {
     val deleteItemRequest = DeleteItemRequestFactory.
       create().
       withTableNameOpt(nameOpt).
-      withKeyOpt(Some(keys.map { case (k, v) => (k, v.underlying)}))
+      withKeyOpt(Some(keys.map { case (k, v) => (k, v.underlying) }))
     client.deleteItemAsTry(deleteItemRequest).map(_ => ())
   }
 
@@ -65,8 +65,8 @@ case class Table(underlying: aws.model.TableDescription) {
     val updateItemRequest = UpdateItemRequestFactory.
       create().
       withTableNameOpt(nameOpt).
-      withKeyOpt(Some(keys.map { case (k, v) => (k, v.underlying)})).
-      withAttributeUpdatesOpt(Some(attributes.map { case (k, v) => (k, v.underlying)}))
+      withKeyOpt(Some(keys.map { case (k, v) => (k, v.underlying) })).
+      withAttributeUpdatesOpt(Some(attributes.map { case (k, v) => (k, v.underlying) }))
     client.updateItemAsTry(updateItemRequest).map(_ => ())
   }
 
@@ -74,35 +74,37 @@ case class Table(underlying: aws.model.TableDescription) {
     val putItemRequest = PutItemRequestFactory.
       create().
       withTableNameOpt(nameOpt).
-      withItemOpt(Some(item.map { case (k, v) => (k, v.underlying)}))
+      withItemOpt(Some(item.map { case (k, v) => (k, v.underlying) }))
     client.putItemAsTry(putItemRequest).map(_ => ())
   }
 
   def getItem(keys: Map[String, AttributeValue])(implicit client: aws.AmazonDynamoDBClient): Try[Map[String, AttributeValue]] =
     client.getItemAsTry(
-      nameOpt.get, keys.map { case (k, v) =>
-        (k, v.underlying)
+      nameOpt.get, keys.map {
+        case (k, v) =>
+          (k, v.underlying)
       }
     ).map { result =>
-      result.itemOpt.map { item =>
-        item.map { case (k, v) =>
-          (k, AttributeValue(v))
-        }
-      }.get
-    }
+        result.itemOpt.map { item =>
+          item.map {
+            case (k, v) =>
+              (k, AttributeValue(v))
+          }
+        }.get
+      }
 
   def batchGetItem(requestItems: Map[String, KeysAndAttributes])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val batchGetItemRequest = BatchGetItemRequestFactory.
       create().
-      withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.underlying)}))
+      withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.underlying) }))
     client.batchGetItemAsTry(batchGetItemRequest).
-      map(_.getResponses.asScala.toMap.map { case (k, v) => (k, v.asScala.toSeq.map(_.asScala))})
+      map(_.getResponses.asScala.toMap.map { case (k, v) => (k, v.asScala.toSeq.map(_.asScala)) })
   }
 
   def batchWriteItem(requestItems: Map[String, Seq[WriteRequest]])(implicit client: aws.AmazonDynamoDBClient): Try[Unit] = {
     val batchWriteItemRequest = BatchWriteItemRequestFactory.
       create().
-      withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.map(_.underlying))}))
+      withRequestItemsOpt(Some(requestItems.map { case (k, v) => (k, v.map(_.underlying)) }))
     client.batchWriteItemAsTry(batchWriteItemRequest).map(_ => ())
   }
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{CannedAccessControlList, AccessControlList, SetObjectAclRequest}
+import com.amazonaws.services.s3.model.{ CannedAccessControlList, AccessControlList, SetObjectAclRequest }
 import org.sisioh.aws4s.PimpedType
 
 object SetObjectAclRequestFactory {
@@ -20,7 +20,7 @@ object SetObjectAclRequestFactory {
 }
 
 class RichSetObjectAclRequest(val underlying: SetObjectAclRequest)
-extends AnyVal with PimpedType[SetObjectAclRequest]{
+    extends AnyVal with PimpedType[SetObjectAclRequest] {
 
   def bucketName: String = underlying.getBucketName
 

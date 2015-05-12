@@ -3,13 +3,13 @@ package org.sisioh.aws4s.core
 import com.amazonaws.auth.AWSCredentials
 import com.amazonaws.event.ProgressListener
 import com.amazonaws.metrics.RequestMetricCollector
-import com.amazonaws.{AmazonWebServiceRequest, RequestClientOptions}
+import com.amazonaws.{ AmazonWebServiceRequest, RequestClientOptions }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
 class RichAmazonWebServiceRequest(val underlying: AmazonWebServiceRequest)
-  extends AnyVal with PimpedType[AmazonWebServiceRequest] {
+    extends AnyVal with PimpedType[AmazonWebServiceRequest] {
 
   def generalProgressListener: ProgressListener = underlying.getGeneralProgressListener
 

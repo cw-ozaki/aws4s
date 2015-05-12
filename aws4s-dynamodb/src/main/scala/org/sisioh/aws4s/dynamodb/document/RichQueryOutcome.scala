@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{Item, QueryOutcome}
+import com.amazonaws.services.dynamodbv2.document.{ Item, QueryOutcome }
 import com.amazonaws.services.dynamodbv2.model.QueryResult
 import org.sisioh.aws4s.PimpedType
 

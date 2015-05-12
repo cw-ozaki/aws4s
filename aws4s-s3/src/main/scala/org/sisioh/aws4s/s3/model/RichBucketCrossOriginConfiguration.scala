@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{CORSRule, BucketCrossOriginConfiguration}
+import com.amazonaws.services.s3.model.{ CORSRule, BucketCrossOriginConfiguration }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object BucketCrossOriginConfigurationFactory {
 }
 
 class RichBucketCrossOriginConfiguration(val underlying: BucketCrossOriginConfiguration)
-  extends AnyVal with PimpedType[BucketCrossOriginConfiguration] {
+    extends AnyVal with PimpedType[BucketCrossOriginConfiguration] {
 
   def rulesOpt: Option[Seq[CORSRule]] = Option(underlying.getRules).map(_.asScala.toVector)
 

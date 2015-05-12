@@ -13,7 +13,7 @@ object CORSRuleFactory {
 }
 
 class RichCORSRule(val underlying: CORSRule)
-  extends AnyVal with PimpedType[CORSRule] {
+    extends AnyVal with PimpedType[CORSRule] {
 
   def idOpt: Option[String] = Option(underlying.getId)
 

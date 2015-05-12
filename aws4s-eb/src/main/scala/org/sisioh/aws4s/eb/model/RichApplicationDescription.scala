@@ -14,7 +14,7 @@ object RichApplicationDescriptionFactory {
 }
 
 class RichApplicationDescription(val underlying: ApplicationDescription)
-  extends AnyVal with PimpedType[ApplicationDescription] {
+    extends AnyVal with PimpedType[ApplicationDescription] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

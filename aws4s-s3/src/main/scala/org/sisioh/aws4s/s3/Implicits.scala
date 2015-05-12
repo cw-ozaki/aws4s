@@ -1,14 +1,14 @@
 package org.sisioh.aws4s.s3
 
-import com.amazonaws.services.s3.model.BucketLifecycleConfiguration.{NoncurrentVersionTransition, Rule, Transition}
+import com.amazonaws.services.s3.model.BucketLifecycleConfiguration.{ NoncurrentVersionTransition, Rule, Transition }
 import com.amazonaws.services.s3.model._
-import com.amazonaws.services.s3.{AmazonS3Client, AmazonS3EncryptionClient, UploadObjectObserver}
+import com.amazonaws.services.s3.{ AmazonS3Client, AmazonS3EncryptionClient, UploadObjectObserver }
 import org.sisioh.aws4s.s3.model._
 
 object Implicits extends Implicits
 
 trait Implicits
-  extends ModelImplicits {
+    extends ModelImplicits {
 
   implicit def richAmazonS3Client(underlying: AmazonS3Client): RichAmazonS3Client = new RichAmazonS3Client(underlying)
 
@@ -17,7 +17,6 @@ trait Implicits
   implicit def richUploadObjectObserver(underlying: UploadObjectObserver): RichUploadObjectObserver = new RichUploadObjectObserver(underlying)
 
 }
-
 
 trait ModelImplicits {
 

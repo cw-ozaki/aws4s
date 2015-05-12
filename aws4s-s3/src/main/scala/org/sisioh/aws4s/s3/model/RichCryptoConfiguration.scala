@@ -3,7 +3,7 @@ package org.sisioh.aws4s.s3.model
 import java.security.Provider
 
 import com.amazonaws.regions.Regions
-import com.amazonaws.services.s3.model.{CryptoConfiguration, CryptoMode, CryptoStorageMode}
+import com.amazonaws.services.s3.model.{ CryptoConfiguration, CryptoMode, CryptoStorageMode }
 import org.sisioh.aws4s.PimpedType
 
 object CryptoConfigurationFactory {
@@ -15,7 +15,7 @@ object CryptoConfigurationFactory {
 }
 
 class RichCryptoConfiguration(val underlying: CryptoConfiguration)
-  extends AnyVal with PimpedType[CryptoConfiguration] {
+    extends AnyVal with PimpedType[CryptoConfiguration] {
 
   def cryptoModeOpt: Option[CryptoMode] = Option(underlying.getCryptoMode)
 

@@ -9,11 +9,10 @@ object AttributeUpdateFactory {
 
   def apply(attributeName: String): AttributeUpdate = new AttributeUpdate(attributeName)
 
-
 }
 
 class RichAttributeUpdate(val underlying: AttributeUpdate)
-  extends AnyVal with PimpedType[AttributeUpdate] {
+    extends AnyVal with PimpedType[AttributeUpdate] {
 
   def attributeValues: Set[AnyRef] =
     Option(underlying.getAttributeValues).map(_.asScala.toSet).getOrElse(Set.empty)

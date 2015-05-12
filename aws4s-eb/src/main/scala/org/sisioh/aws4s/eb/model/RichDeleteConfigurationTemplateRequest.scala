@@ -10,7 +10,7 @@ object DeleteConfigurationTemplateRequestFactory {
 }
 
 class RichDeleteConfigurationTemplateRequest(val underlying: DeleteConfigurationTemplateRequest)
-  extends AnyVal with PimpedType[DeleteConfigurationTemplateRequest] {
+    extends AnyVal with PimpedType[DeleteConfigurationTemplateRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

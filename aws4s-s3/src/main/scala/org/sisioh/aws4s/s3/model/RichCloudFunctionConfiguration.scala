@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util
 
-import com.amazonaws.services.s3.model.{CloudFunctionConfiguration, S3Event}
+import com.amazonaws.services.s3.model.{ CloudFunctionConfiguration, S3Event }
 import org.sisioh.aws4s.PimpedType
 
 object CloudFunctionConfigurationFactory {
@@ -16,7 +16,7 @@ object CloudFunctionConfigurationFactory {
 }
 
 class RichCloudFunctionConfiguration(val underlying: CloudFunctionConfiguration)
-  extends AnyVal with PimpedType[CloudFunctionConfiguration] {
+    extends AnyVal with PimpedType[CloudFunctionConfiguration] {
 
   def invocationRoleARN: String = underlying.getInvocationRoleARN
 

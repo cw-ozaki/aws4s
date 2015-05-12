@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.s3.model
 
 import com.amazonaws.services.s3.model.DeleteObjectsRequest.KeyVersion
-import com.amazonaws.services.s3.model.{MultiFactorAuthentication, DeleteObjectsRequest}
+import com.amazonaws.services.s3.model.{ MultiFactorAuthentication, DeleteObjectsRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -13,7 +13,7 @@ object DeleteObjectsRequestFactory {
 }
 
 class RichDeleteObjectsRequest(val underlying: DeleteObjectsRequest)
-  extends AnyVal with PimpedType[DeleteObjectsRequest] {
+    extends AnyVal with PimpedType[DeleteObjectsRequest] {
 
   def bucketName: String = underlying.getBucketName
 

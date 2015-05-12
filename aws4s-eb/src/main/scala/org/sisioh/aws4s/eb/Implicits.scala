@@ -201,7 +201,6 @@ trait ModelImplicits {
   implicit def richQueue(underlying: Queue): RichQueue =
     new RichQueue(underlying)
 
-
   // ---
 
   implicit def richRebuildEnvironmentRequest(underlying: RebuildEnvironmentRequest): RichRebuildEnvironmentRequest =
@@ -298,5 +297,4 @@ trait ModelImplicits {
   implicit def richValidationMessage(underlying: ValidationMessage): RichValidationMessage =
     new RichValidationMessage(underlying)
 }
-
 

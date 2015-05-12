@@ -10,7 +10,7 @@ object DescribeEnvironmentResourcesRequestFactory {
 }
 
 class RichDescribeEnvironmentResourcesRequest(val underlying: DescribeEnvironmentResourcesRequest)
-  extends AnyVal with PimpedType[DescribeEnvironmentResourcesRequest] {
+    extends AnyVal with PimpedType[DescribeEnvironmentResourcesRequest] {
 
   def environmentIdOpt: Option[String] = Option(underlying.getEnvironmentId)
 

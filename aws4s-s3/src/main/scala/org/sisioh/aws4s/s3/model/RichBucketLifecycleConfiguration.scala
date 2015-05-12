@@ -13,7 +13,7 @@ object BucketLifecycleConfigurationFactory {
 }
 
 class RichBucketLifecycleConfiguration(val underlying: BucketLifecycleConfiguration)
-  extends AnyVal with PimpedType[BucketLifecycleConfiguration] {
+    extends AnyVal with PimpedType[BucketLifecycleConfiguration] {
 
   def rulesOpt: Option[Seq[Rule]] = Option(underlying.getRules).map(_.asScala.toVector)
 
@@ -22,10 +22,4 @@ class RichBucketLifecycleConfiguration(val underlying: BucketLifecycleConfigurat
   }
 
 }
-
-
-
-
-
-
 

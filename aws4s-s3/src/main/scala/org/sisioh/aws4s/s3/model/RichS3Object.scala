@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{S3ObjectIdBuilder, S3ObjectInputStream, ObjectMetadata, S3Object}
+import com.amazonaws.services.s3.model.{ S3ObjectIdBuilder, S3ObjectInputStream, ObjectMetadata, S3Object }
 import org.sisioh.aws4s.PimpedType
 
 object S3ObjectFactory {
@@ -10,7 +10,7 @@ object S3ObjectFactory {
 }
 
 class RichS3Object(val underlying: S3Object)
-  extends AnyVal with PimpedType[S3Object] {
+    extends AnyVal with PimpedType[S3Object] {
 
   def keyOpt: Option[String] = Option(underlying.getKey)
 

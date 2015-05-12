@@ -12,7 +12,7 @@ object DescribeEventsRequestFactory {
 }
 
 class RichDescribeEventsRequest(val underlying: DescribeEventsRequest)
-  extends AnyVal with PimpedType[DescribeEventsRequest] {
+    extends AnyVal with PimpedType[DescribeEventsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

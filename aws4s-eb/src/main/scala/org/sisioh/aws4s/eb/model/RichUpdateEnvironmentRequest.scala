@@ -12,7 +12,7 @@ object UpdateEnvironmentRequestFactory {
 }
 
 class RichUpdateEnvironmentRequest(val underlying: UpdateEnvironmentRequest)
-  extends AnyVal with PimpedType[UpdateEnvironmentRequest] {
+    extends AnyVal with PimpedType[UpdateEnvironmentRequest] {
 
   def environmentIdOpt: Option[String] = Option(underlying.getEnvironmentId)
 

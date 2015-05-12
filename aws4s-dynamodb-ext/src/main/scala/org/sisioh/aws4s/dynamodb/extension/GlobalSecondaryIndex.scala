@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.extension
 
-import com.amazonaws.services.{dynamodbv2 => aws}
+import com.amazonaws.services.{ dynamodbv2 => aws }
 import org.sisioh.aws4s.dynamodb.Implicits._
 import org.sisioh.aws4s.dynamodb.model.GlobalSecondaryIndexFactory
 
@@ -29,6 +29,5 @@ case class GlobalSecondaryIndex(underlying: aws.model.GlobalSecondaryIndexDescri
       withProjection(underlying.getProjection).
       withProvisionedThroughputOpt(provisionedThroughputOpt.map(_.toProvisionedThroughput))
   }
-
 
 }

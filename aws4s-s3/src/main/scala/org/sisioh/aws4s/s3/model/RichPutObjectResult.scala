@@ -12,7 +12,7 @@ object PutObjectResultFactory {
 }
 
 class RichPutObjectResult(val underlying: PutObjectResult)
-  extends AnyVal with PimpedType[PutObjectResult] {
+    extends AnyVal with PimpedType[PutObjectResult] {
 
   def versionIdOpt: Option[String] = Option(underlying.getVersionId)
 

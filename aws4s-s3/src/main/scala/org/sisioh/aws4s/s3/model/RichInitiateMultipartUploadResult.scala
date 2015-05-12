@@ -10,7 +10,7 @@ object InitiateMultipartUploadResultFactory {
 }
 
 class RichInitiateMultipartUploadResult(val underlying: InitiateMultipartUploadResult)
-  extends AnyVal with PimpedType[InitiateMultipartUploadResult] {
+    extends AnyVal with PimpedType[InitiateMultipartUploadResult] {
 
   def bucketNameOpt = Option(underlying.getBucketName)
 

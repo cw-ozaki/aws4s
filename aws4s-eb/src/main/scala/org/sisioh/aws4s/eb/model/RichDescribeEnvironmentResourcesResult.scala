@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{DescribeEnvironmentResourcesResult, EnvironmentResourceDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ DescribeEnvironmentResourcesResult, EnvironmentResourceDescription }
 import org.sisioh.aws4s.PimpedType
 
 object DescribeEnvironmentResourcesResultFactory {
@@ -10,7 +10,7 @@ object DescribeEnvironmentResourcesResultFactory {
 }
 
 class RichDescribeEnvironmentResourcesResult(val underlying: DescribeEnvironmentResourcesResult)
-  extends AnyVal with PimpedType[DescribeEnvironmentResourcesResult] {
+    extends AnyVal with PimpedType[DescribeEnvironmentResourcesResult] {
 
   def environmentResourcesOpt: Option[EnvironmentResourceDescription] = Option(underlying.getEnvironmentResources)
 

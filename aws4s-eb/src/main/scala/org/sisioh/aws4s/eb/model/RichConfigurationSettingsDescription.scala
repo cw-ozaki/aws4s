@@ -2,7 +2,7 @@ package org.sisioh.aws4s.eb.model
 
 import java.util.Date
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionSetting, ConfigurationSettingsDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionSetting, ConfigurationSettingsDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -14,7 +14,7 @@ object ConfigurationSettingsDescriptionFactory {
 }
 
 class RichConfigurationSettingsDescription(val underlying: ConfigurationSettingsDescription)
-  extends AnyVal with PimpedType[ConfigurationSettingsDescription] {
+    extends AnyVal with PimpedType[ConfigurationSettingsDescription] {
 
   def solutionStackNameOpt: Option[String] = Option(underlying.getSolutionStackName)
 

@@ -12,7 +12,7 @@ object SolutionStackDescriptionFactory {
 }
 
 class RichSolutionStackDescription(val underlying: SolutionStackDescription)
-  extends AnyVal with PimpedType[SolutionStackDescription] {
+    extends AnyVal with PimpedType[SolutionStackDescription] {
 
   def solutionStackNameOpt: Option[String] = Option(underlying.getSolutionStackName)
 

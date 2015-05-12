@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import java.io.{File, InputStream}
+import java.io.{ File, InputStream }
 
 import com.amazonaws.services.s3.model._
 import org.sisioh.aws4s.PimpedType
@@ -19,8 +19,7 @@ object PutObjectRequestFactory {
 }
 
 class RichPutObjectRequest(val underlying: PutObjectRequest)
-  extends AnyVal with PimpedType[PutObjectRequest] {
-
+    extends AnyVal with PimpedType[PutObjectRequest] {
 
   def withAccessControlListOpt(value: Option[AccessControlList]): PutObjectRequest =
     underlying.withAccessControlList(value.orNull)
@@ -47,7 +46,6 @@ class RichPutObjectRequest(val underlying: PutObjectRequest)
 
   // ---
 
-
   def withRedirectLocationOpt(value: Option[String]): PutObjectRequest =
     underlying.withRedirectLocation(value.orNull)
 
@@ -62,7 +60,6 @@ class RichPutObjectRequest(val underlying: PutObjectRequest)
     underlying.withSSECustomerKey(value.orNull)
 
   // ---
-
 
   def withStorageClassOpt(value: Option[String]): PutObjectRequest =
     underlying.withStorageClass(value.orNull)

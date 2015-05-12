@@ -11,7 +11,7 @@ object GetRequestPaymentConfigurationRequestFactory {
 }
 
 class RichGetRequestPaymentConfigurationRequest(val underlying: GetRequestPaymentConfigurationRequest)
-  extends AnyVal with PimpedType[GetRequestPaymentConfigurationRequest] {
+    extends AnyVal with PimpedType[GetRequestPaymentConfigurationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

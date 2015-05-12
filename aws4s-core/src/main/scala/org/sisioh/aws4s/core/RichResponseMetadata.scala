@@ -16,7 +16,7 @@ object ResponseMetadataFactory {
 }
 
 class RichResponseMetadata(val underlying: ResponseMetadata)
-  extends AnyVal with PimpedType[ResponseMetadata] {
+    extends AnyVal with PimpedType[ResponseMetadata] {
 
   def requestId: Option[String] = Option(underlying.getRequestId)
 

@@ -10,7 +10,7 @@ object RebuildEnvironmentRequestFactory {
 }
 
 class RichRebuildEnvironmentRequest(val underlying: RebuildEnvironmentRequest)
-  extends AnyVal with PimpedType[RebuildEnvironmentRequest] {
+    extends AnyVal with PimpedType[RebuildEnvironmentRequest] {
 
   def environmentIdOpt: Option[String] = Option(underlying.getEnvironmentId)
 

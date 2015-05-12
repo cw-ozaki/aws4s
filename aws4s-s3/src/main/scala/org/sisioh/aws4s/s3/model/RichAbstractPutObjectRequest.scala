@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import java.io.{File, InputStream}
+import java.io.{ File, InputStream }
 
 import com.amazonaws.services.s3.model._
 import org.sisioh.aws4s.PimpedType

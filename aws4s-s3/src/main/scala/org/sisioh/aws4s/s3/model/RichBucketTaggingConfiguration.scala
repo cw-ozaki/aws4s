@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketTaggingConfiguration, TagSet}
+import com.amazonaws.services.s3.model.{ BucketTaggingConfiguration, TagSet }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -14,7 +14,7 @@ object BucketTaggingConfigurationFactory {
 }
 
 class RichBucketTaggingConfiguration(val underlying: BucketTaggingConfiguration)
-  extends AnyVal with PimpedType[BucketTaggingConfiguration] {
+    extends AnyVal with PimpedType[BucketTaggingConfiguration] {
 
   def tagSet: TagSet = underlying.getTagSet
 

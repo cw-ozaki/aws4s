@@ -1,11 +1,11 @@
 package org.sisioh.aws4s.s3.model
 
-import java.io.{File, InputStream}
+import java.io.{ File, InputStream }
 import java.util.concurrent.ExecutorService
 
 import com.amazonaws.services.s3.UploadObjectObserver
 import com.amazonaws.services.s3.internal.MultiFileOutputStream
-import com.amazonaws.services.s3.model.{ObjectMetadata, UploadObjectRequest}
+import com.amazonaws.services.s3.model.{ ObjectMetadata, UploadObjectRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -21,7 +21,7 @@ object UploadObjectRequestFactory {
 }
 
 class RichUploadObjectRequest(val underlying: UploadObjectRequest)
-  extends AnyVal with PimpedType[UploadObjectRequest] {
+    extends AnyVal with PimpedType[UploadObjectRequest] {
 
   def uploadPartMetadataOpt: Option[ObjectMetadata] = Option(underlying.getUploadPartMetadata)
 

@@ -9,9 +9,8 @@ object CanonicalGranteeFactory {
 
 }
 
-
 class RichCanonicalGrantee(val underlying: CanonicalGrantee)
-  extends AnyVal with PimpedType[CanonicalGrantee] {
+    extends AnyVal with PimpedType[CanonicalGrantee] {
 
   def typeIdentifier = underlying.getTypeIdentifier
 

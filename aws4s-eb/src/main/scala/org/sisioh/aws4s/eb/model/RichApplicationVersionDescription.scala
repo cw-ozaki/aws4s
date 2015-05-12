@@ -2,7 +2,7 @@ package org.sisioh.aws4s.eb.model
 
 import java.util.Date
 
-import com.amazonaws.services.elasticbeanstalk.model.{S3Location, ApplicationVersionDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ S3Location, ApplicationVersionDescription }
 import org.sisioh.aws4s.PimpedType
 
 object ApplicationVersionDescriptionFactory {
@@ -12,7 +12,7 @@ object ApplicationVersionDescriptionFactory {
 }
 
 class RichApplicationVersionDescription(val underlying: ApplicationVersionDescription)
-  extends AnyVal with PimpedType[ApplicationVersionDescription] {
+    extends AnyVal with PimpedType[ApplicationVersionDescription] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 
@@ -49,7 +49,7 @@ class RichApplicationVersionDescription(val underlying: ApplicationVersionDescri
   def sourceBundleOpt_=(value: Option[S3Location]): Unit =
     underlying.setSourceBundle(value.orNull)
 
-  def withSourceBundleOpt(value: Option[S3Location]):ApplicationVersionDescription =
+  def withSourceBundleOpt(value: Option[S3Location]): ApplicationVersionDescription =
     underlying.withSourceBundle(value.orNull)
 
   // ---

@@ -14,7 +14,7 @@ object DescribeEnvironmentsRequestFactory {
 }
 
 class RichDescribeEnvironmentsRequest(val underlying: DescribeEnvironmentsRequest)
-  extends AnyVal with PimpedType[DescribeEnvironmentsRequest] {
+    extends AnyVal with PimpedType[DescribeEnvironmentsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

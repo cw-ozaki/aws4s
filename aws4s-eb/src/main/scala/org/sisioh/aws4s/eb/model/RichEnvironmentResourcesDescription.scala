@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{LoadBalancerDescription, EnvironmentResourcesDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ LoadBalancerDescription, EnvironmentResourcesDescription }
 import org.sisioh.aws4s.PimpedType
 
 object EnvironmentResourcesDescriptionFactory {
@@ -10,7 +10,7 @@ object EnvironmentResourcesDescriptionFactory {
 }
 
 class RichEnvironmentResourcesDescription(val underlying: EnvironmentResourcesDescription)
-  extends AnyVal with PimpedType[EnvironmentResourcesDescription] {
+    extends AnyVal with PimpedType[EnvironmentResourcesDescription] {
 
   def loadBalancerOpt: Option[LoadBalancerDescription] = Option(underlying.getLoadBalancer)
 

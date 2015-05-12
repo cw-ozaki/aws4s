@@ -10,7 +10,7 @@ object DeleteApplicationVersionRequestFactory {
 }
 
 class RichDeleteApplicationVersionRequest(val underlying: DeleteApplicationVersionRequest)
-  extends AnyVal with PimpedType[DeleteApplicationVersionRequest] {
+    extends AnyVal with PimpedType[DeleteApplicationVersionRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.sqs
 
 import com.amazonaws._
-import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
+import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.regions.Region
 import com.amazonaws.services.sqs.AmazonSQSClient
@@ -120,6 +120,5 @@ class RichAmazonSQSClient(val underlying: AmazonSQSClient) extends AnyVal with P
 
   def getCachedResponseMetadataAsTry(amazonWebServiceRequest: AmazonWebServiceRequest): Try[ResponseMetadata] =
     Try(underlying.getCachedResponseMetadata(amazonWebServiceRequest))
-
 
 }

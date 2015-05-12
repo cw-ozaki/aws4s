@@ -17,7 +17,7 @@ object EncryptionMaterialsFactory {
 }
 
 class RichEncryptionMaterials(val underlying: EncryptionMaterials)
-  extends AnyVal with PimpedType[EncryptionMaterials] {
+    extends AnyVal with PimpedType[EncryptionMaterials] {
 
   def materialsDescription: Map[String, String] = underlying.getMaterialsDescription.asScala.toMap
 
@@ -37,5 +37,4 @@ class RichEncryptionMaterials(val underlying: EncryptionMaterials)
   def kmsEnabled = underlying.isKMSEnabled
 
 }
-
 

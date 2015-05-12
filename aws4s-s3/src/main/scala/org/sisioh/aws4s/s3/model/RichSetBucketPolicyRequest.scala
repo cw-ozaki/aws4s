@@ -11,7 +11,7 @@ object SetBucketPolicyRequestFactory {
 }
 
 class RichSetBucketPolicyRequest(val underlying: SetBucketPolicyRequest)
-  extends AnyVal with PimpedType[SetBucketPolicyRequest] {
+    extends AnyVal with PimpedType[SetBucketPolicyRequest] {
 
   def bucketName: String = underlying.getBucketName
 
@@ -20,7 +20,7 @@ class RichSetBucketPolicyRequest(val underlying: SetBucketPolicyRequest)
 
   // ---
 
-  def policyText: String =  underlying.getPolicyText
+  def policyText: String = underlying.getPolicyText
 
   def policyText_=(value: String): Unit =
     underlying.setPolicyText(value)

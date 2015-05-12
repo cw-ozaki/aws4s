@@ -1,9 +1,9 @@
 package org.sisioh.aws4s.s3
 
-import java.io.{InputStream, File}
+import java.io.{ InputStream, File }
 
 import com.amazonaws.regions.Region
-import com.amazonaws.services.s3.{AmazonS3EncryptionClient, AmazonS3Encryption}
+import com.amazonaws.services.s3.{ AmazonS3EncryptionClient, AmazonS3Encryption }
 import com.amazonaws.services.s3.model._
 import org.sisioh.aws4s.PimpedType
 

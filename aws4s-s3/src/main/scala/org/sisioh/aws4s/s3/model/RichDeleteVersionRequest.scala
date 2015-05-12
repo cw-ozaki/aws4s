@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{DeleteVersionRequest, MultiFactorAuthentication}
+import com.amazonaws.services.s3.model.{ DeleteVersionRequest, MultiFactorAuthentication }
 import org.sisioh.aws4s.PimpedType
 
 object DeleteVersionRequestFactory {
@@ -14,7 +14,7 @@ object DeleteVersionRequestFactory {
 }
 
 class RichDeleteVersionRequest(val underlying: DeleteVersionRequest)
-  extends AnyVal with PimpedType[DeleteVersionRequest] {
+    extends AnyVal with PimpedType[DeleteVersionRequest] {
 
   def bucketName = underlying.getBucketName
 

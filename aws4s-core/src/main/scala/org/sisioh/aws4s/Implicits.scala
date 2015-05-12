@@ -1,9 +1,9 @@
 package org.sisioh.aws4s
 
 import com.amazonaws._
-import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
+import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
 import org.sisioh.aws4s.core._
-import org.sisioh.aws4s.core.auth.{RichAWSCredentials, RichAWSCredentialsProvider}
+import org.sisioh.aws4s.core.auth.{ RichAWSCredentials, RichAWSCredentialsProvider }
 
 object Implicits extends Implicits
 

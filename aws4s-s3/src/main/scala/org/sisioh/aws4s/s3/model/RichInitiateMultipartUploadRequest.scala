@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{AccessControlList, CannedAccessControlList, ObjectMetadata, InitiateMultipartUploadRequest}
+import com.amazonaws.services.s3.model.{ AccessControlList, CannedAccessControlList, ObjectMetadata, InitiateMultipartUploadRequest }
 import org.sisioh.aws4s.PimpedType
 
 object InitiateMultipartUploadRequestFactory {
@@ -14,7 +14,7 @@ object InitiateMultipartUploadRequestFactory {
 }
 
 class RichInitiateMultipartUploadRequest(val underlying: InitiateMultipartUploadRequest)
-  extends AnyVal with PimpedType[InitiateMultipartUploadRequest] {
+    extends AnyVal with PimpedType[InitiateMultipartUploadRequest] {
 
   def bucketName = underlying.getBucketName
 

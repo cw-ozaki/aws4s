@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionSetting, ValidateConfigurationSettingsRequest}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionSetting, ValidateConfigurationSettingsRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object ValidateConfigurationSettingsRequestFactory {
 }
 
 class RichValidateConfigurationSettingsRequest(val underlying: ValidateConfigurationSettingsRequest)
-  extends AnyVal with PimpedType[ValidateConfigurationSettingsRequest] {
+    extends AnyVal with PimpedType[ValidateConfigurationSettingsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

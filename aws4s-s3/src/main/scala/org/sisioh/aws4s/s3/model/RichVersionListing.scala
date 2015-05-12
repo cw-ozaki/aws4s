@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{S3VersionSummary, VersionListing}
+import com.amazonaws.services.s3.model.{ S3VersionSummary, VersionListing }
 
 import scala.collection.JavaConverters._
 

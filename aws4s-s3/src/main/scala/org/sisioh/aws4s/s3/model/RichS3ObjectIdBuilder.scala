@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{S3ObjectId, S3ObjectIdBuilder}
+import com.amazonaws.services.s3.model.{ S3ObjectId, S3ObjectIdBuilder }
 import org.sisioh.aws4s.PimpedType
 
 object S3ObjectIdBuilderFactory {
@@ -12,7 +12,7 @@ object S3ObjectIdBuilderFactory {
 }
 
 class RichS3ObjectIdBuilder(val underlying: S3ObjectIdBuilder)
-  extends AnyVal with PimpedType[S3ObjectIdBuilder] {
+    extends AnyVal with PimpedType[S3ObjectIdBuilder] {
 
   def bucketOpt: Option[String] = Option(underlying.getBucket)
 

@@ -10,7 +10,7 @@ object OptionRestrictionRegexFactory {
 }
 
 class RichOptionRestrictionRegex(val underlying: OptionRestrictionRegex)
-  extends AnyVal with PimpedType[OptionRestrictionRegex] {
+    extends AnyVal with PimpedType[OptionRestrictionRegex] {
 
   def patternOpt: Option[String] = Option(underlying.getPattern)
 

@@ -12,9 +12,8 @@ object OwnerFactory {
 
 }
 
-
 class RichOwner(val underlying: Owner)
-  extends AnyVal with PimpedType[Owner] {
+    extends AnyVal with PimpedType[Owner] {
 
   def idOpt: Option[String] = Option(underlying.getId)
 

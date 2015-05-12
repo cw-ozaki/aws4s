@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util.Date
 
-import com.amazonaws.services.s3.model.{MultipartUpload, Owner}
+import com.amazonaws.services.s3.model.{ MultipartUpload, Owner }
 import org.sisioh.aws4s.PimpedType
 
 object RichMultipartUploadFactory {
@@ -12,7 +12,7 @@ object RichMultipartUploadFactory {
 }
 
 class RichMultipartUpload(val underlying: MultipartUpload)
-  extends AnyVal with PimpedType[MultipartUpload] {
+    extends AnyVal with PimpedType[MultipartUpload] {
 
   def keyOpt: Option[String] = Option(underlying.getKey)
 

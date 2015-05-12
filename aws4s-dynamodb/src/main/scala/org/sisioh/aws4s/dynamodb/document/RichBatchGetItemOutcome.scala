@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{Item, BatchGetItemOutcome}
-import com.amazonaws.services.dynamodbv2.model.{BatchGetItemResult, KeysAndAttributes}
+import com.amazonaws.services.dynamodbv2.document.{ Item, BatchGetItemOutcome }
+import com.amazonaws.services.dynamodbv2.model.{ BatchGetItemResult, KeysAndAttributes }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

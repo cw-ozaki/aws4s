@@ -12,7 +12,7 @@ object CopyPartResultFactory {
 }
 
 class RichCopyPartResult(val underlying: CopyPartResult)
-  extends AnyVal with PimpedType[CopyPartResult] {
+    extends AnyVal with PimpedType[CopyPartResult] {
 
   def eTagOpt: Option[String] = Option(underlying.getETag)
 

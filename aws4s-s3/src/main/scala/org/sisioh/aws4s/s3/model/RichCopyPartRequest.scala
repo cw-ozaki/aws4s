@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util.Date
 
-import com.amazonaws.services.s3.model.{SSECustomerKey, CopyObjectRequest, CopyPartRequest}
+import com.amazonaws.services.s3.model.{ SSECustomerKey, CopyObjectRequest, CopyPartRequest }
 import org.sisioh.aws4s.PimpedType
 
 object CopyPartRequestFactory {
@@ -12,7 +12,7 @@ object CopyPartRequestFactory {
 }
 
 class RichCopyPartRequest(val underlying: CopyPartRequest)
-  extends AnyVal with PimpedType[CopyPartRequest] {
+    extends AnyVal with PimpedType[CopyPartRequest] {
 
   def uploadIdOpt = Option(underlying.getUploadId)
 

@@ -10,7 +10,7 @@ object EnvironmentTierFactory {
 }
 
 class RichEnvironmentTier(val underlying: EnvironmentTier)
-  extends AnyVal with PimpedType[EnvironmentTier] {
+    extends AnyVal with PimpedType[EnvironmentTier] {
 
   def nameOpt = Option(underlying.getName)
 

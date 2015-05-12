@@ -10,7 +10,7 @@ object DeleteBucketRequestFactory {
 }
 
 class RichDeleteBucketRequest(val underlying: DeleteBucketRequest)
-  extends AnyVal with PimpedType[DeleteBucketRequest] {
+    extends AnyVal with PimpedType[DeleteBucketRequest] {
 
   def bucketName = underlying.getBucketName
 

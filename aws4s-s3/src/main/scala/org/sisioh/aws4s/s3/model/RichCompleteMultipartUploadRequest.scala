@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{CompleteMultipartUploadRequest, PartETag}
+import com.amazonaws.services.s3.model.{ CompleteMultipartUploadRequest, PartETag }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -13,7 +13,7 @@ object CompleteMultipartUploadRequestFactory {
 }
 
 class RichCompleteMultipartUploadRequest(val underlying: CompleteMultipartUploadRequest)
-  extends AnyVal with PimpedType[CompleteMultipartUploadRequest] {
+    extends AnyVal with PimpedType[CompleteMultipartUploadRequest] {
 
   def bucketName: String = underlying.getBucketName
 

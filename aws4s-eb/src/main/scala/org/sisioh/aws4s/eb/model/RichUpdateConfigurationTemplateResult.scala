@@ -2,7 +2,7 @@ package org.sisioh.aws4s.eb.model
 
 import java.util.Date
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionSetting, UpdateConfigurationTemplateResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionSetting, UpdateConfigurationTemplateResult }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -14,7 +14,7 @@ object UpdateConfigurationTemplateResultFactory {
 }
 
 class RichUpdateConfigurationTemplateResult(val underlying: UpdateConfigurationTemplateResult)
-  extends AnyVal with PimpedType[UpdateConfigurationTemplateResult] {
+    extends AnyVal with PimpedType[UpdateConfigurationTemplateResult] {
 
   def solutionStackNameOpt: Option[String] = Option(underlying.getSolutionStackName)
 

@@ -10,7 +10,7 @@ object TriggerFactory {
 }
 
 class RichTrigger(val underlying: Trigger)
-  extends AnyVal with PimpedType[Trigger] {
+    extends AnyVal with PimpedType[Trigger] {
 
   def nameOpt: Option[String] = Option(underlying.getName)
 

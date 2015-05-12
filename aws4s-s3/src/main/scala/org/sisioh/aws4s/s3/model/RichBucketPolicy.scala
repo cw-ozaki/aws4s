@@ -10,7 +10,7 @@ object BucketPolicyFactory {
 }
 
 class RichBucketPolicy(val underlying: BucketPolicy)
-  extends AnyVal with PimpedType[BucketPolicy] {
+    extends AnyVal with PimpedType[BucketPolicy] {
 
   def policyTextOpt: Option[String] = Option(underlying.getPolicyText)
 

@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util.Date
 
-import com.amazonaws.services.s3.model.{GetObjectRequest, ResponseHeaderOverrides, S3ObjectId}
+import com.amazonaws.services.s3.model.{ GetObjectRequest, ResponseHeaderOverrides, S3ObjectId }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -24,7 +24,7 @@ object GetObjectRequestFactory {
 }
 
 class RichGetObjectRequest(val underlying: GetObjectRequest)
-  extends AnyVal with PimpedType[GetObjectRequest] {
+    extends AnyVal with PimpedType[GetObjectRequest] {
 
   def bucketName = underlying.getBucketName
 

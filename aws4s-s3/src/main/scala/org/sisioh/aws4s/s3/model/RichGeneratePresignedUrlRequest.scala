@@ -3,7 +3,7 @@ package org.sisioh.aws4s.s3.model
 import java.util.Date
 
 import com.amazonaws.HttpMethod
-import com.amazonaws.services.s3.model.{GeneratePresignedUrlRequest, ResponseHeaderOverrides, SSECustomerKey}
+import com.amazonaws.services.s3.model.{ GeneratePresignedUrlRequest, ResponseHeaderOverrides, SSECustomerKey }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -19,7 +19,7 @@ object GeneratePresignedUrlRequestFactory {
 }
 
 class RichGeneratePresignedUrlRequest(val underlying: GeneratePresignedUrlRequest)
-  extends AnyVal with PimpedType[GeneratePresignedUrlRequest] {
+    extends AnyVal with PimpedType[GeneratePresignedUrlRequest] {
 
   def method = underlying.getMethod
 

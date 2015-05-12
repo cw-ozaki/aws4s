@@ -10,7 +10,7 @@ object ResponseHeaderOverridesFactory {
 }
 
 class RichResponseHeaderOverrides(val underlying: ResponseHeaderOverrides)
-  extends AnyVal with PimpedType[ResponseHeaderOverrides] {
+    extends AnyVal with PimpedType[ResponseHeaderOverrides] {
 
   def contentTypeOpt = Option(underlying.getContentType)
 
