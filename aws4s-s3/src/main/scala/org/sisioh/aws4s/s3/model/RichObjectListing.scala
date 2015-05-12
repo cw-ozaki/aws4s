@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{ObjectListing, S3ObjectSummary}
+import com.amazonaws.services.s3.model.{ ObjectListing, S3ObjectSummary }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -11,9 +11,8 @@ object ObjectListingFactroy {
 
 }
 
-
 class RichObjectListing(val underlying: ObjectListing)
-  extends AnyVal with PimpedType[ObjectListing] {
+    extends AnyVal with PimpedType[ObjectListing] {
 
   def objectSummaries: Seq[S3ObjectSummary] = underlying.getObjectSummaries.asScala
 
@@ -62,9 +61,9 @@ class RichObjectListing(val underlying: ObjectListing)
   // ---
 
   /**
-  private int maxKeys;
-    private String delimiter;
-    private String encodingType;
-    */
+   * private int maxKeys;
+   * private String delimiter;
+   * private String encodingType;
+   */
 
 }

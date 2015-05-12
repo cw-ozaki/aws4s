@@ -12,7 +12,7 @@ object EventDescriptionFactory {
 }
 
 class RichEventDescription(val underlying: EventDescription)
-  extends AnyVal with PimpedType[EventDescription] {
+    extends AnyVal with PimpedType[EventDescription] {
 
   def eventDateOpt: Option[Date] = Option(underlying.getEventDate)
 

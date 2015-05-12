@@ -12,7 +12,7 @@ object EnvironmentResourceDescriptionFactory {
 }
 
 class RichEnvironmentResourceDescription(val underlying: EnvironmentResourceDescription)
-  extends AnyVal with PimpedType[EnvironmentResourceDescription] {
+    extends AnyVal with PimpedType[EnvironmentResourceDescription] {
 
   def environmentNameOpt: Option[String] = Option(underlying.getEnvironmentName)
 

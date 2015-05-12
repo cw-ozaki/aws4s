@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ApplicationDescription, UpdateApplicationResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ ApplicationDescription, UpdateApplicationResult }
 import org.sisioh.aws4s.PimpedType
 
 object UpdateApplicationResultFactory {
@@ -10,7 +10,7 @@ object UpdateApplicationResultFactory {
 }
 
 class RichUpdateApplicationResult(val underlying: UpdateApplicationResult)
-  extends AnyVal with PimpedType[UpdateApplicationResult] {
+    extends AnyVal with PimpedType[UpdateApplicationResult] {
 
   def applicationOpt: Option[ApplicationDescription] = Option(underlying.getApplication)
 

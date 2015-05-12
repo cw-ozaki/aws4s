@@ -10,7 +10,7 @@ object S3LocationFactory {
 }
 
 class RichS3Location(val underlying: S3Location)
-  extends AnyVal with PimpedType[S3Location] {
+    extends AnyVal with PimpedType[S3Location] {
 
   def s3BucketOpt: Option[String] = Option(underlying.getS3Bucket)
 

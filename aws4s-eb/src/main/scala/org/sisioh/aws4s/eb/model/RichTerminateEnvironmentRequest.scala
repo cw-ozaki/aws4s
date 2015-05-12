@@ -10,7 +10,7 @@ object TerminateEnvironmentRequestFactory {
 }
 
 class RichTerminateEnvironmentRequest(val underlying: TerminateEnvironmentRequest)
-  extends AnyVal with PimpedType[TerminateEnvironmentRequest] {
+    extends AnyVal with PimpedType[TerminateEnvironmentRequest] {
 
   def environmentIdOpt: Option[String] = Option(underlying.getEnvironmentId)
 

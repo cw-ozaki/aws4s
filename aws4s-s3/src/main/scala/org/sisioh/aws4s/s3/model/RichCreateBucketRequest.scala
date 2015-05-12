@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{AccessControlList, CannedAccessControlList, CreateBucketRequest, Region}
+import com.amazonaws.services.s3.model.{ AccessControlList, CannedAccessControlList, CreateBucketRequest, Region }
 import org.sisioh.aws4s.PimpedType
 
 object CreateBucketRequestFactory {
@@ -13,9 +13,8 @@ object CreateBucketRequestFactory {
 
 }
 
-
 class RichCreateBucketRequest(val underlying: CreateBucketRequest)
-  extends AnyVal with PimpedType[CreateBucketRequest] {
+    extends AnyVal with PimpedType[CreateBucketRequest] {
 
   def bucketName: String = underlying.getBucketName
 

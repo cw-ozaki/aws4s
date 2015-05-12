@@ -16,7 +16,7 @@ object SSECustomerKeyFactory {
 }
 
 class RichSSECustomerKey(val underlying: SSECustomerKey)
-  extends AnyVal with PimpedType[SSECustomerKey] {
+    extends AnyVal with PimpedType[SSECustomerKey] {
 
   def key = underlying.getKey
 

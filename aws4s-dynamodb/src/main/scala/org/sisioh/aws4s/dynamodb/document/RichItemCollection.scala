@@ -10,7 +10,7 @@ class RichItemCollection[R](val underlying: ItemCollection[R]) extends AnyVal wi
     underlying.getTotalCount
 
   def totalScannedCount: Int =
-  underlying.getTotalScannedCount
+    underlying.getTotalScannedCount
 
   def totalConsumedCapacity: ConsumedCapacity =
     underlying.getTotalConsumedCapacity

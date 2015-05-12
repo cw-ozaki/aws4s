@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{EncryptionMaterials, StaticEncryptionMaterialsProvider}
+import com.amazonaws.services.s3.model.{ EncryptionMaterials, StaticEncryptionMaterialsProvider }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -13,7 +13,7 @@ object StaticEncryptionMaterialsProviderFactory {
 }
 
 class RichStaticEncryptionMaterialsProvider(val underlying: StaticEncryptionMaterialsProvider)
-  extends AnyVal with PimpedType[StaticEncryptionMaterialsProvider] {
+    extends AnyVal with PimpedType[StaticEncryptionMaterialsProvider] {
 
   def encryptionMaterials = underlying.getEncryptionMaterials
 

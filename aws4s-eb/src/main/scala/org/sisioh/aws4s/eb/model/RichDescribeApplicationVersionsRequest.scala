@@ -12,7 +12,7 @@ object DescribeApplicationVersionsRequestFactory {
 }
 
 class RichDescribeApplicationVersionsRequest(val underlying: DescribeApplicationVersionsRequest)
-  extends AnyVal with PimpedType[DescribeApplicationVersionsRequest] {
+    extends AnyVal with PimpedType[DescribeApplicationVersionsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

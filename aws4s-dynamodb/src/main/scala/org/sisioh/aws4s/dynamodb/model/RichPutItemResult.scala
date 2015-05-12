@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ItemCollectionMetrics, AttributeValue, ConsumedCapacity, PutItemResult}
+import com.amazonaws.services.dynamodbv2.model.{ ItemCollectionMetrics, AttributeValue, ConsumedCapacity, PutItemResult }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

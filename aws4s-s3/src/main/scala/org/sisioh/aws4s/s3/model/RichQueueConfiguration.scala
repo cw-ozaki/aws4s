@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util
 
-import com.amazonaws.services.s3.model.{S3Event, QueueConfiguration}
+import com.amazonaws.services.s3.model.{ S3Event, QueueConfiguration }
 import org.sisioh.aws4s.PimpedType
 
 object QueueConfigurationFactory {
@@ -16,7 +16,7 @@ object QueueConfigurationFactory {
 }
 
 class RichQueueConfiguration(val underlying: QueueConfiguration)
-  extends AnyVal with PimpedType[QueueConfiguration] {
+    extends AnyVal with PimpedType[QueueConfiguration] {
 
   def queueARN: String = underlying.getQueueARN
 

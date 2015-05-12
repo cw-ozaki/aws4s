@@ -13,7 +13,7 @@ object BucketLoggingConfigurationFactory {
 }
 
 class RichBucketLoggingConfiguration(val underlying: BucketLoggingConfiguration)
-  extends AnyVal with PimpedType[BucketLoggingConfiguration] {
+    extends AnyVal with PimpedType[BucketLoggingConfiguration] {
 
   def logFilePrefixOpt: Option[String] = Option(underlying.getLogFilePrefix)
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketNotificationConfiguration, NotificationConfiguration}
+import com.amazonaws.services.s3.model.{ BucketNotificationConfiguration, NotificationConfiguration }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -15,7 +15,7 @@ object BucketNotificationConfigurationFactory {
 }
 
 class RichBucketNotificationConfiguration(val underlying: BucketNotificationConfiguration)
-  extends AnyVal with PimpedType[BucketNotificationConfiguration] {
+    extends AnyVal with PimpedType[BucketNotificationConfiguration] {
 
   def configurationsOpt: Option[Map[String, NotificationConfiguration]] =
     Option(underlying.getConfigurations).map(_.asScala.toMap)

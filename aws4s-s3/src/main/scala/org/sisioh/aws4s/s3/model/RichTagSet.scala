@@ -14,7 +14,7 @@ object TagSetFactory {
 }
 
 class RichTagSet(val underlying: TagSet)
-  extends AnyVal with PimpedType[TagSet] {
+    extends AnyVal with PimpedType[TagSet] {
 
   def allTags: Map[String, String] = underlying.getAllTags.asScala.toMap
 

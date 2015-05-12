@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketWebsiteConfiguration, RoutingRule}
+import com.amazonaws.services.s3.model.{ BucketWebsiteConfiguration, RoutingRule }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -15,7 +15,7 @@ object BucketWebsiteConfigurationFactory {
 }
 
 class RichBucketWebsiteConfiguration(val underlying: BucketWebsiteConfiguration)
-  extends AnyVal with PimpedType[BucketWebsiteConfiguration] {
+    extends AnyVal with PimpedType[BucketWebsiteConfiguration] {
 
   def indexDocumentSuffixOpt = Option(underlying.getIndexDocumentSuffix)
 

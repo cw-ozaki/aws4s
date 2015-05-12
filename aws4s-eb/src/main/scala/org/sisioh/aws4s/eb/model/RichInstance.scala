@@ -10,7 +10,7 @@ object InstanceFactory {
 }
 
 class RichInstance(val underlying: Instance)
-  extends AnyVal with PimpedType[Instance] {
+    extends AnyVal with PimpedType[Instance] {
 
   def idOpt: Option[String] = Option(underlying.getId)
 

@@ -12,7 +12,7 @@ object BucketVersioningConfigurationFactory {
 }
 
 class RichBucketVersioningConfiguration(val underlying: BucketVersioningConfiguration)
-  extends AnyVal with PimpedType[BucketVersioningConfiguration] {
+    extends AnyVal with PimpedType[BucketVersioningConfiguration] {
 
   def status: String = underlying.getStatus
 

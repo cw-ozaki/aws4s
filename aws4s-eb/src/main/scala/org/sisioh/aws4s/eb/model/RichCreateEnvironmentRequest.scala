@@ -12,7 +12,7 @@ object CreateEnvironmentRequestFactory {
 }
 
 class RichCreateEnvironmentRequest(val underlying: CreateEnvironmentRequest)
-  extends AnyVal with PimpedType[CreateEnvironmentRequest] {
+    extends AnyVal with PimpedType[CreateEnvironmentRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

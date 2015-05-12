@@ -10,7 +10,7 @@ object UploadPartResultFactory {
 }
 
 class RichUploadPartResult(val underlying: UploadPartResult)
-  extends AnyVal with PimpedType[UploadPartResult] {
+    extends AnyVal with PimpedType[UploadPartResult] {
 
   def partNumber: Int = underlying.getPartNumber
 

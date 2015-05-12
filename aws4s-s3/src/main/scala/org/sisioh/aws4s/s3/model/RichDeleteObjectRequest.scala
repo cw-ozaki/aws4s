@@ -11,7 +11,7 @@ object DeleteObjectRequestFactory {
 }
 
 class RichDeleteObjectRequest(val underlying: DeleteObjectRequest)
-  extends AnyVal with PimpedType[DeleteObjectRequest] {
+    extends AnyVal with PimpedType[DeleteObjectRequest] {
 
   def bucketName = underlying.getBucketName
 
@@ -22,6 +22,5 @@ class RichDeleteObjectRequest(val underlying: DeleteObjectRequest)
 
   def key_=(value: String): Unit =
     underlying.setKey(value)
-
 
 }

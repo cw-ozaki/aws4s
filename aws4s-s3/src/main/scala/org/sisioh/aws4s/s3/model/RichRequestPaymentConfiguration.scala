@@ -12,7 +12,7 @@ object RequestPaymentConfigurationFactory {
 }
 
 class RichRequestPaymentConfiguration(val underlying: RequestPaymentConfiguration)
-  extends AnyVal with PimpedType[RequestPaymentConfiguration] {
+    extends AnyVal with PimpedType[RequestPaymentConfiguration] {
 
   def payer = underlying.getPayer
 

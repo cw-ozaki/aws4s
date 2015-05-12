@@ -11,7 +11,7 @@ object GetBucketLocationRequestFactory {
 }
 
 class RichGetBucketLocationRequest(val underlying: GetBucketLocationRequest)
-  extends AnyVal with PimpedType[GetBucketLocationRequest] {
+    extends AnyVal with PimpedType[GetBucketLocationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{DescribeTableResult, TableDescription}
+import com.amazonaws.services.dynamodbv2.model.{ DescribeTableResult, TableDescription }
 import org.sisioh.aws4s.PimpedType
 
 object DescribeTableResultFactory {
@@ -19,6 +19,6 @@ class RichDescribeTableResult(val underlying: DescribeTableResult) extends AnyVa
 
   def withTableOpt(value: Option[TableDescription]): DescribeTableResult = underlying.withTable(value.orNull)
 
- // ---
+  // ---
 
 }

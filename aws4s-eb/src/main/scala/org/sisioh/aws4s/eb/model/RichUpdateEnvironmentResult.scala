@@ -12,7 +12,7 @@ object UpdateEnvironmentResultFactory {
 }
 
 class RichUpdateEnvironmentResult(val underlying: UpdateEnvironmentResult)
-  extends AnyVal with PimpedType[UpdateEnvironmentResult] {
+    extends AnyVal with PimpedType[UpdateEnvironmentResult] {
 
   def environmentNameOpt: Option[String] = Option(underlying.getEnvironmentName)
 

@@ -9,9 +9,8 @@ object EmailAddressGranteeFactory {
 
 }
 
-
 class RichEmailAddressGrantee(val underlying: EmailAddressGrantee)
-  extends AnyVal with PimpedType[EmailAddressGrantee] {
+    extends AnyVal with PimpedType[EmailAddressGrantee] {
 
   def typeIdentifier = underlying.getTypeIdentifier
 

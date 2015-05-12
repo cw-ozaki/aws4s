@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{EncryptedGetObjectRequest, ExtraMaterialsDescription, S3ObjectId}
+import com.amazonaws.services.s3.model.{ EncryptedGetObjectRequest, ExtraMaterialsDescription, S3ObjectId }
 import org.sisioh.aws4s.PimpedType
 
 object EncryptedGetObjectRequestFactory {
@@ -19,9 +19,8 @@ object EncryptedGetObjectRequestFactory {
 
 }
 
-
 class RichEncryptedGetObjectRequest(val underlying: EncryptedGetObjectRequest)
-  extends AnyVal with PimpedType[EncryptedGetObjectRequest] {
+    extends AnyVal with PimpedType[EncryptedGetObjectRequest] {
 
   def extraMaterialDescription = underlying.getExtraMaterialDescription
 

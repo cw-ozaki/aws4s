@@ -10,11 +10,11 @@ object DeleteBucketPolicyRequestFactory {
 }
 
 class RichDeleteBucketPolicyRequest(val underlying: DeleteBucketPolicyRequest)
-  extends AnyVal with PimpedType[DeleteBucketPolicyRequest] {
+    extends AnyVal with PimpedType[DeleteBucketPolicyRequest] {
 
   def bucketName = underlying.getBucketName
 
   def bucketName_=(value: String): Unit =
     underlying.setBucketName(value)
-  
+
 }

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{MultipartUpload, MultipartUploadListing}
+import com.amazonaws.services.s3.model.{ MultipartUpload, MultipartUploadListing }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object MultipartUploadListingFactory {
 }
 
 class RichMultipartUploadListing(val underlying: MultipartUploadListing)
-  extends AnyVal with PimpedType[MultipartUploadListing] {
+    extends AnyVal with PimpedType[MultipartUploadListing] {
 
   def bucketNameOpt = Option(underlying.getBucketName)
 

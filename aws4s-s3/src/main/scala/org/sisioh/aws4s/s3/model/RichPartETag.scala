@@ -10,7 +10,7 @@ object PartETagFactroy {
 }
 
 class RichPartETag(val underlying: PartETag)
-  extends AnyVal with PimpedType[PartETag] {
+    extends AnyVal with PimpedType[PartETag] {
 
   def partNumber: Int = underlying.getPartNumber
 

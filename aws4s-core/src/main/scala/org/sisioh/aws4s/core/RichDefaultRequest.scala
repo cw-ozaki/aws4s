@@ -11,7 +11,7 @@ import org.sisioh.aws4s.PimpedType
 import scala.collection.JavaConverters._
 
 class RichDefaultRequest[A](val underlying: DefaultRequest[A])
-  extends AnyVal with PimpedType[DefaultRequest[A]] {
+    extends AnyVal with PimpedType[DefaultRequest[A]] {
 
   def parameters: Map[String, String] = underlying.getParameters.asScala.toMap
 

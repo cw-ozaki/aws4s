@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{BatchWriteItemRequest, ReturnConsumedCapacity, ReturnItemCollectionMetrics, WriteRequest}
+import com.amazonaws.services.dynamodbv2.model.{ BatchWriteItemRequest, ReturnConsumedCapacity, ReturnItemCollectionMetrics, WriteRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -9,7 +9,7 @@ object BatchWriteItemRequestFactory {
 
   def create(): BatchWriteItemRequest = new BatchWriteItemRequest()
 
-  def create(requestItems: Map[String, Seq[WriteRequest]]): BatchWriteItemRequest = new BatchWriteItemRequest(requestItems.map { case (k, v) => (k, v.asJava)}.asJava)
+  def create(requestItems: Map[String, Seq[WriteRequest]]): BatchWriteItemRequest = new BatchWriteItemRequest(requestItems.map { case (k, v) => (k, v.asJava) }.asJava)
 
 }
 
@@ -18,13 +18,13 @@ class RichBatchWriteItemRequest(val underlying: BatchWriteItemRequest) extends A
   // ---
 
   def requestItemsOpt: Option[Map[String, Seq[WriteRequest]]] =
-    Option(underlying.getRequestItems).map(_.asScala.map { case (k, v) => (k, v.asScala)}.toMap)
+    Option(underlying.getRequestItems).map(_.asScala.map { case (k, v) => (k, v.asScala) }.toMap)
 
   def requestItemsOpt_=(values: Option[Map[String, Seq[WriteRequest]]]): Unit =
-    underlying.setRequestItems(values.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
+    underlying.setRequestItems(values.map(_.map { case (k, v) => (k, v.asJava) }.asJava).orNull)
 
   def withRequestItemsOpt(requestItems: Option[Map[String, Seq[WriteRequest]]]): BatchWriteItemRequest =
-    underlying.withRequestItems(requestItems.map(_.map { case (k, v) => (k, v.asJava)}.asJava).orNull)
+    underlying.withRequestItems(requestItems.map(_.map { case (k, v) => (k, v.asJava) }.asJava).orNull)
 
   // ---
 

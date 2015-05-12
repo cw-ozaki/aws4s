@@ -1,10 +1,10 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{GetObjectMetadataRequest, SSECustomerKey}
+import com.amazonaws.services.s3.model.{ GetObjectMetadataRequest, SSECustomerKey }
 import org.sisioh.aws4s.PimpedType
 
 class RichGetObjectMetadataRequest(val underlying: GetObjectMetadataRequest)
-  extends AnyVal with PimpedType[GetObjectMetadataRequest] {
+    extends AnyVal with PimpedType[GetObjectMetadataRequest] {
 
   def bucketName: String = underlying.getBucketName
 

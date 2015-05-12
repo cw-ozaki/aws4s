@@ -5,7 +5,6 @@ import java.util.Date
 import com.amazonaws.services.elasticbeanstalk.model._
 import org.sisioh.aws4s.PimpedType
 
-
 object EnvironmentDescriptionFactory {
 
   def create(): EnvironmentDescription = new EnvironmentDescription()
@@ -13,7 +12,7 @@ object EnvironmentDescriptionFactory {
 }
 
 class RichEnvironmentDescription(val underlying: EnvironmentDescription)
-  extends AnyVal with PimpedType[EnvironmentDescription] {
+    extends AnyVal with PimpedType[EnvironmentDescription] {
   def environmentNameOpt: Option[String] = Option(underlying.getEnvironmentName)
 
   def environmentNameOpt_=(value: Option[String]): Unit =

@@ -11,11 +11,10 @@ object ObjectMetadataFactory {
 
   def create(): ObjectMetadata = new ObjectMetadata()
 
-
 }
 
 class RichObjectMetadata(val underlying: ObjectMetadata)
-  extends AnyVal with PimpedType[ObjectMetadata] {
+    extends AnyVal with PimpedType[ObjectMetadata] {
 
   def userMetadata: Map[String, String] = underlying.getUserMetadata.asScala.toMap
 
@@ -24,7 +23,7 @@ class RichObjectMetadata(val underlying: ObjectMetadata)
 
   // ---
 
-  def rawMetadata: Map[String, AnyRef] =  underlying.getRawMetadata.asScala.toMap
+  def rawMetadata: Map[String, AnyRef] = underlying.getRawMetadata.asScala.toMap
 
   // ---
 

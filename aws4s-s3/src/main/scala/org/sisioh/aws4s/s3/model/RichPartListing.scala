@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{PartSummary, Owner, PartListing}
+import com.amazonaws.services.s3.model.{ PartSummary, Owner, PartListing }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object PartListingFactory {
 }
 
 class RichPartListing(val underlying: PartListing)
-  extends AnyVal with PimpedType[PartListing] {
+    extends AnyVal with PimpedType[PartListing] {
 
   def bucketNameOpt = Option(underlying.getBucketName)
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{DescribeEventsResult, EventDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ DescribeEventsResult, EventDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object DescribeEventsResultFactory {
 }
 
 class RichDescribeEventsResult(val underlying: DescribeEventsResult)
-  extends AnyVal with PimpedType[DescribeEventsResult] {
+    extends AnyVal with PimpedType[DescribeEventsResult] {
 
   def events: Seq[EventDescription] = underlying.getEvents.asScala.toVector
 

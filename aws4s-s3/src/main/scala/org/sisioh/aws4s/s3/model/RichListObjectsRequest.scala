@@ -13,7 +13,7 @@ object ListObjectsRequestFactory {
 }
 
 class RichListObjectsRequest(val underlying: ListObjectsRequest)
-  extends AnyVal with PimpedType[ListObjectsRequest] {
+    extends AnyVal with PimpedType[ListObjectsRequest] {
 
   def bucketNameOpt = Option(underlying.getBucketName)
 

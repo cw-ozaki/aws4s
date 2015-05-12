@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{Listener, LoadBalancerDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ Listener, LoadBalancerDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object LoadBalancerDescriptionFactory {
 }
 
 class RichLoadBalancerDescription(val underlying: LoadBalancerDescription)
-  extends AnyVal with PimpedType[LoadBalancerDescription] {
+    extends AnyVal with PimpedType[LoadBalancerDescription] {
 
   def loadBalancerNameOpt: Option[String] = Option(underlying.getLoadBalancerName)
 

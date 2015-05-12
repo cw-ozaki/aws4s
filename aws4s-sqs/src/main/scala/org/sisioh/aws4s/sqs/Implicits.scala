@@ -1,8 +1,8 @@
 package org.sisioh.aws4s.sqs
 
 import com.amazonaws.services.sqs.AmazonSQSClient
-import com.amazonaws.services.sqs.model.{ReceiveMessageRequest, ReceiveMessageResult}
-import org.sisioh.aws4s.sqs.model.{RichReceiveMessageRequest, RichReceiveMessageResult}
+import com.amazonaws.services.sqs.model.{ ReceiveMessageRequest, ReceiveMessageResult }
+import org.sisioh.aws4s.sqs.model.{ RichReceiveMessageRequest, RichReceiveMessageResult }
 
 object Implicits extends Implicits
 
@@ -21,5 +21,4 @@ trait ModelImplicits {
     new RichReceiveMessageResult(underlying)
 
 }
-
 

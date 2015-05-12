@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{EncryptedInitiateMultipartUploadRequest, ObjectMetadata}
+import com.amazonaws.services.s3.model.{ EncryptedInitiateMultipartUploadRequest, ObjectMetadata }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -16,7 +16,7 @@ object RichEncryptedInitiateMultipartUploadRequestFactory {
 }
 
 class RichEncryptedInitiateMultipartUploadRequest(val underlying: EncryptedInitiateMultipartUploadRequest)
-  extends AnyVal with PimpedType[EncryptedInitiateMultipartUploadRequest] {
+    extends AnyVal with PimpedType[EncryptedInitiateMultipartUploadRequest] {
 
   def materialsDescriptionOpt: Option[Map[String, String]] = Option(underlying.getMaterialsDescription.asScala.toMap)
 

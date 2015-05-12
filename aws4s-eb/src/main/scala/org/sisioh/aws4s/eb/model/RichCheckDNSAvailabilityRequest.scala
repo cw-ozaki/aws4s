@@ -10,7 +10,7 @@ object CheckDNSAvailabilityRequestFactory {
 }
 
 class RichCheckDNSAvailabilityRequest(val underlying: CheckDNSAvailabilityRequest)
-  extends AnyVal with PimpedType[CheckDNSAvailabilityRequest] {
+    extends AnyVal with PimpedType[CheckDNSAvailabilityRequest] {
 
   def cNAMEPrefixOpt: Option[String] = Option(underlying.getCNAMEPrefix)
 

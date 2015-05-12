@@ -10,7 +10,7 @@ object RichSourceConfigurationFactory {
 }
 
 class RichSourceConfiguration(val underlying: SourceConfiguration)
-  extends AnyVal with PimpedType[SourceConfiguration] {
+    extends AnyVal with PimpedType[SourceConfiguration] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{BucketVersioningConfiguration, MultiFactorAuthentication, SetBucketVersioningConfigurationRequest}
+import com.amazonaws.services.s3.model.{ BucketVersioningConfiguration, MultiFactorAuthentication, SetBucketVersioningConfigurationRequest }
 import org.sisioh.aws4s.PimpedType
 
 object SetBucketVersioningConfigurationRequestFactory {
@@ -14,7 +14,7 @@ object SetBucketVersioningConfigurationRequestFactory {
 }
 
 class RichSetBucketVersioningConfigurationRequest(val underlying: SetBucketVersioningConfigurationRequest)
-  extends AnyVal with PimpedType[SetBucketVersioningConfigurationRequest] {
+    extends AnyVal with PimpedType[SetBucketVersioningConfigurationRequest] {
 
   def bucketName: String = underlying.getBucketName
 

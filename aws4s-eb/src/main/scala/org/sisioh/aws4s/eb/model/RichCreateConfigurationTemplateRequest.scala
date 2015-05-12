@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionSetting, SourceConfiguration, CreateConfigurationTemplateRequest}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionSetting, SourceConfiguration, CreateConfigurationTemplateRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object CreateConfigurationTemplateRequestFactory {
 }
 
 class RichCreateConfigurationTemplateRequest(val underlying: CreateConfigurationTemplateRequest)
-  extends AnyVal with PimpedType[CreateConfigurationTemplateRequest] {
+    extends AnyVal with PimpedType[CreateConfigurationTemplateRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

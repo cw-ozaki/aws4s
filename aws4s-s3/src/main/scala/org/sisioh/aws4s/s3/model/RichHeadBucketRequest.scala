@@ -10,7 +10,7 @@ object HeadBucketRequestFactory {
 }
 
 class RichHeadBucketRequest(val underlying: HeadBucketRequest)
-  extends AnyVal with PimpedType[HeadBucketRequest] {
+    extends AnyVal with PimpedType[HeadBucketRequest] {
 
   def bucketName = underlying.getBucketName
 

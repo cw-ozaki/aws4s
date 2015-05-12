@@ -1,12 +1,12 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{EnvironmentInfoDescription, RetrieveEnvironmentInfoResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ EnvironmentInfoDescription, RetrieveEnvironmentInfoResult }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
 class RichRetrieveEnvironmentInfoResult(val underlying: RetrieveEnvironmentInfoResult)
-  extends AnyVal with PimpedType[RetrieveEnvironmentInfoResult] {
+    extends AnyVal with PimpedType[RetrieveEnvironmentInfoResult] {
 
   def environmentInfoOpt: Seq[EnvironmentInfoDescription] = underlying.getEnvironmentInfo.asScala
 

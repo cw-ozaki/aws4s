@@ -2,7 +2,7 @@ package org.sisioh.aws4s.s3.model
 
 import java.util.Date
 
-import com.amazonaws.services.s3.model.{Owner, S3VersionSummary}
+import com.amazonaws.services.s3.model.{ Owner, S3VersionSummary }
 import org.sisioh.aws4s.PimpedType
 
 object S3VersionSummaryFactory {
@@ -12,7 +12,7 @@ object S3VersionSummaryFactory {
 }
 
 class RichS3VersionSummary(val underlying: S3VersionSummary)
-  extends AnyVal with PimpedType[S3VersionSummary] {
+    extends AnyVal with PimpedType[S3VersionSummary] {
 
   def bucketNameOpt = Option(underlying.getBucketName)
 

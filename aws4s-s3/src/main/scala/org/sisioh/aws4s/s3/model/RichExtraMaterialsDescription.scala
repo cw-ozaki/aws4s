@@ -17,7 +17,7 @@ object ExtraMaterialsDescriptionFactory {
 }
 
 class RichExtraMaterialsDescription(val underlying: ExtraMaterialsDescription)
-  extends AnyVal with PimpedType[ExtraMaterialsDescription] {
+    extends AnyVal with PimpedType[ExtraMaterialsDescription] {
 
   def materialDescription: Map[String, String] = underlying.getMaterialDescription.asScala.toMap
 

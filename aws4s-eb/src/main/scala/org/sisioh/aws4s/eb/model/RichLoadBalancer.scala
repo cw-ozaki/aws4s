@@ -10,7 +10,7 @@ object LoadBalancerFactory {
 }
 
 class RichLoadBalancer(val underlying: LoadBalancer)
-  extends AnyVal with PimpedType[LoadBalancer] {
+    extends AnyVal with PimpedType[LoadBalancer] {
 
   def nameOpt: Option[String] = Option(underlying.getName)
 
