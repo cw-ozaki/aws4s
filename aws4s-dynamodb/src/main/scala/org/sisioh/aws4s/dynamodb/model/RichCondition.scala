@@ -68,7 +68,7 @@ class RichCondition(val underlying: Condition) extends AnyVal with PimpedType[Co
   // ---
 
   def attributeValueListOpt: Option[Seq[AttributeValue]] =
-    Option(underlying.getAttributeValueList).map(_.asScala)
+    Option(underlying.getAttributeValueList).map(_.asScala.toVector)
 
   def attributeValueListOpt_=(value: Option[Seq[AttributeValue]]): Unit =
     underlying.setAttributeValueList(value.map(_.asJava).orNull)

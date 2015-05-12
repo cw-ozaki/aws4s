@@ -19,7 +19,7 @@ class RichGlobalSecondaryIndex(val underlying: GlobalSecondaryIndex) extends Any
 
   def withIndexNameOpt(value: Option[String]): GlobalSecondaryIndex = underlying.withIndexName(value.orNull)
 
-  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
+  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala.toVector)
 
   def keySchemaOpt_=(value: Option[Seq[KeySchemaElement]]): Unit = underlying.setKeySchema(value.map(_.asJava).orNull)
 

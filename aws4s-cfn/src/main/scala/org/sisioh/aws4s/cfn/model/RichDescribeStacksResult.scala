@@ -8,7 +8,7 @@ import scala.collection.JavaConverters._
 class RichDescribeStacksResult(val underlying: DescribeStacksResult)
   extends AnyVal with PimpedType[DescribeStacksResult] {
 
-  def stacks: Seq[Stack] = underlying.getStacks.asScala
+  def stacks: Seq[Stack] = underlying.getStacks.asScala.toVector
 
   def stacks_=(value: Seq[Stack]): Unit =
     underlying.setStacks(value.asJava)

@@ -23,7 +23,7 @@ class RichScanRequest(val underlying: ScanRequest) extends AnyVal with PimpedTyp
 
   // ---
 
-  def attributesToGet: Seq[String] = underlying.getAttributesToGet.asScala
+  def attributesToGet: Seq[String] = underlying.getAttributesToGet.asScala.toVector
 
   def attributesToGet_=(value: Iterable[String]): Unit = underlying.setAttributesToGet(value.toSeq.asJava)
 

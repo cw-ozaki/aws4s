@@ -27,7 +27,7 @@ class RichEstimateTemplateCostRequest(val underlying: EstimateTemplateCostReques
 
   // ---
 
-  def parameters: Seq[Parameter] = underlying.getParameters.asScala
+  def parameters: Seq[Parameter] = underlying.getParameters.asScala.toVector
 
   def parameters_=(value: Seq[Parameter]): Unit =
     underlying.setParameters(value.asJava)

@@ -8,7 +8,7 @@ import scala.collection.JavaConverters._
 class RichGetTemplateSummaryResult(val underlying: GetTemplateSummaryResult)
   extends AnyVal with PimpedType[GetTemplateSummaryResult] {
 
-  def parameters: Seq[ParameterDeclaration] = underlying.getParameters.asScala
+  def parameters: Seq[ParameterDeclaration] = underlying.getParameters.asScala.toVector
 
   def parameters_=(value: Seq[ParameterDeclaration]): Unit =
     underlying.setParameters(value.asJava)
@@ -28,7 +28,7 @@ class RichGetTemplateSummaryResult(val underlying: GetTemplateSummaryResult)
 
   // ---
 
-  def capabilities: Seq[String] = underlying.getCapabilities.asScala
+  def capabilities: Seq[String] = underlying.getCapabilities.asScala.toVector
 
   def capabilities_=(value: Seq[String]): Unit =
     underlying.setCapabilities(value.asJava)

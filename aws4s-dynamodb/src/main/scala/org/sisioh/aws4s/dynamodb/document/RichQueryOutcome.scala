@@ -14,7 +14,7 @@ object QueryOutcomeFactory {
 
 class RichQueryOutcome(val underlying: QueryOutcome) extends AnyVal with PimpedType[QueryOutcome] {
 
-  def items: Seq[Item] = underlying.getItems.asScala
+  def items: Seq[Item] = underlying.getItems.asScala.toVector
 
   def queryResult: QueryResult = underlying.getQueryResult
 

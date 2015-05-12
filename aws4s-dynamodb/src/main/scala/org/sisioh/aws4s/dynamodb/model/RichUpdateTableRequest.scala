@@ -30,7 +30,7 @@ class RichUpdateTableRequest(val underlying: UpdateTableRequest) extends AnyVal 
 
   def withProvisionedThroughputOpt(value: Option[ProvisionedThroughput]): UpdateTableRequest = underlying.withProvisionedThroughput(value.orNull)
 
-  def globalSecondaryIndexUpdatesOpt = Option(underlying.getGlobalSecondaryIndexUpdates).map(_.asScala)
+  def globalSecondaryIndexUpdatesOpt = Option(underlying.getGlobalSecondaryIndexUpdates).map(_.asScala.toVector)
 
   def globalSecondaryIndexUpdatesOpt_=(value: Option[Seq[GlobalSecondaryIndexUpdate]]): Unit = underlying.setGlobalSecondaryIndexUpdates(value.map(_.asJava).orNull)
 

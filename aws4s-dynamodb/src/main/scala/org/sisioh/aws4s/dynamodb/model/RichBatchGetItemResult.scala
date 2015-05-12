@@ -50,7 +50,7 @@ class RichBatchGetItemResult(val underlying: BatchGetItemResult) extends AnyVal 
     underlying.setConsumedCapacity(values.map(_.asJava).orNull)
 
   def consumedCapacityOpt: Option[Seq[ConsumedCapacity]] =
-    Option(underlying.getConsumedCapacity).map(_.asScala)
+    Option(underlying.getConsumedCapacity).map(_.asScala.toVector)
 
   def withConsumedCapacityOpt(consumedCapacity: Option[Iterable[ConsumedCapacity]]): BatchGetItemResult =
     underlying.withConsumedCapacity(consumedCapacity.map(_.toSeq.asJava).orNull)

@@ -29,7 +29,7 @@ class RichCreateTableRequest(val underlying: CreateTableRequest) extends AnyVal 
 
   // ---
 
-  def attributeDefinitionsOpt: Option[Seq[AttributeDefinition]] = Option(underlying.getAttributeDefinitions).map(_.asScala)
+  def attributeDefinitionsOpt: Option[Seq[AttributeDefinition]] = Option(underlying.getAttributeDefinitions).map(_.asScala.toVector)
 
   def attributeDefinitionOpt_=(value: Option[Seq[AttributeDefinition]]): Unit =
     underlying.setAttributeDefinitions(value.map(_.asJava).orNull)
@@ -39,7 +39,7 @@ class RichCreateTableRequest(val underlying: CreateTableRequest) extends AnyVal 
 
   // ---
 
-  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
+  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala.toVector)
 
   def keySchemeOpt_=(value: Option[Seq[KeySchemaElement]]): Unit =
     underlying.setKeySchema(value.map(_.asJava).orNull)
@@ -50,7 +50,7 @@ class RichCreateTableRequest(val underlying: CreateTableRequest) extends AnyVal 
   // ---
 
   def localSecondaryIndexesOpt: Option[Seq[LocalSecondaryIndex]] =
-    Option(underlying.getLocalSecondaryIndexes).map(_.asScala)
+    Option(underlying.getLocalSecondaryIndexes).map(_.asScala.toVector)
 
   def localSecondaryIndexesOpt_=(value: Option[Seq[LocalSecondaryIndex]]): Unit =
     underlying.setLocalSecondaryIndexes(value.map(_.asJava).orNull)
@@ -61,7 +61,7 @@ class RichCreateTableRequest(val underlying: CreateTableRequest) extends AnyVal 
   // ---
 
   def globalSecondaryIndexesOpt: Option[Seq[GlobalSecondaryIndex]] =
-    Option(underlying.getGlobalSecondaryIndexes).map(_.asScala)
+    Option(underlying.getGlobalSecondaryIndexes).map(_.asScala.toVector)
 
   def globalSecondaryIndexesOpt_=(value: Option[Seq[GlobalSecondaryIndex]]): Unit =
     underlying.setGlobalSecondaryIndexes(value.map(_.asJava).orNull)

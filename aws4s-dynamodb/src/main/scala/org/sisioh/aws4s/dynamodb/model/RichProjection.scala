@@ -23,7 +23,7 @@ class RichProjection(val underlying: Projection) extends AnyVal with PimpedType[
 
   // ---
 
-  def nonKeyAttributesOpt: Option[Seq[String]] = Option(underlying.getNonKeyAttributes).map(_.asScala)
+  def nonKeyAttributesOpt: Option[Seq[String]] = Option(underlying.getNonKeyAttributes).map(_.asScala.toVector)
 
   def nonKeyAttributesOpt_=(value: Option[Seq[String]]): Unit = underlying.setNonKeyAttributes(value.map(_.asJava).orNull)
 

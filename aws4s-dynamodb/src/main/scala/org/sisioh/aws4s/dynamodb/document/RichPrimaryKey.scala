@@ -20,7 +20,7 @@ object PrimaryKeyFactory {
 
 class RichPrimaryKey(val underlying: PrimaryKey) extends AnyVal with PimpedType[PrimaryKey] {
 
-  def components: Iterable[KeyAttribute] = underlying.getComponents.asScala
+  def components: Iterable[KeyAttribute] = underlying.getComponents.asScala.toVector
 
   def componentNameSet: Set[String] = underlying.getComponentNameSet.asScala.toSet
 

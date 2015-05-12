@@ -38,7 +38,7 @@ class RichBatchWriteItemResult(val underlying: BatchWriteItemResult) extends Any
   // ---
 
   def consumedCapacityOpt: Option[Seq[ConsumedCapacity]] =
-    Option(underlying.getConsumedCapacity).map(_.asScala)
+    Option(underlying.getConsumedCapacity).map(_.asScala.toVector)
 
   def consumedCapacityOpt_=(value: Option[Seq[ConsumedCapacity]]): Unit =
     underlying.setConsumedCapacity(value.map(_.asJava).orNull)

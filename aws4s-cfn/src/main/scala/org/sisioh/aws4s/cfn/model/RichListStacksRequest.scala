@@ -18,7 +18,7 @@ class RichListStacksRequest(val underlying: ListStacksRequest)
 
   // ---
 
-  def stackStatusFilters: Seq[String] = underlying.getStackStatusFilters.asScala
+  def stackStatusFilters: Seq[String] = underlying.getStackStatusFilters.asScala.toVector
 
   def stackStatusFilters_=(value: Seq[String]): Unit =
     underlying.setStackStatusFilters(value.asJava)

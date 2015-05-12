@@ -16,7 +16,7 @@ class RichListTablesResult(val underlying: ListTablesResult) extends AnyVal with
 
   // ---
 
-  def tableNamesOpt: Option[Seq[String]] = Option(underlying.getTableNames).map(_.asScala)
+  def tableNamesOpt: Option[Seq[String]] = Option(underlying.getTableNames).map(_.asScala.toVector)
 
   def tableNamesOpt_=(value: Option[Seq[String]]): Unit = underlying.setTableNames(value.map(_.asJava).orNull)
 

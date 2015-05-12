@@ -8,7 +8,7 @@ import scala.collection.JavaConverters._
 class RichValidateTemplateResult(val underlying: ValidateTemplateResult)
   extends AnyVal with PimpedType[ValidateTemplateResult] {
 
-  def parameters: Seq[TemplateParameter] = underlying.getParameters.asScala
+  def parameters: Seq[TemplateParameter] = underlying.getParameters.asScala.toVector
 
   def parameters_=(value: Seq[TemplateParameter]): Unit =
     underlying.setParameters(value.asJava)
@@ -28,7 +28,7 @@ class RichValidateTemplateResult(val underlying: ValidateTemplateResult)
 
   // ---
 
-  def capabilities: Seq[String] = underlying.getCapabilities.asScala
+  def capabilities: Seq[String] = underlying.getCapabilities.asScala.toVector
 
   def capabilities_=(value: Seq[String]): Unit =
     underlying.setCapabilities(value.asJava)

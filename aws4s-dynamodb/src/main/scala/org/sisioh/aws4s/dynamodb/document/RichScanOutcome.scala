@@ -14,7 +14,7 @@ object ScanOutcomeFactory {
 
 class RichScanOutcome(val underlying: ScanOutcome) extends AnyVal with PimpedType[ScanOutcome] {
 
-  def items: Seq[Item] = underlying.getItems.asScala
+  def items: Seq[Item] = underlying.getItems.asScala.toVector
 
   def scanResult: ScanResult = underlying.getScanResult
 

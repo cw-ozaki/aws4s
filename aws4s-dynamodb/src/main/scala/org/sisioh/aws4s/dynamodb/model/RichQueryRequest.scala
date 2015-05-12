@@ -41,7 +41,7 @@ class RichQueryRequest(val underlying: QueryRequest) extends AnyVal with PimpedT
 
   // ---
 
-  def attributesToGetOpt: Option[Seq[String]] = Option(underlying.getAttributesToGet).map(_.asScala)
+  def attributesToGetOpt: Option[Seq[String]] = Option(underlying.getAttributesToGet).map(_.asScala.toVector)
 
   def attributesToGetOpt_=(value: Option[Iterable[String]]): Unit = underlying.setAttributesToGet(value.map(_.toSeq.asJava).orNull)
 

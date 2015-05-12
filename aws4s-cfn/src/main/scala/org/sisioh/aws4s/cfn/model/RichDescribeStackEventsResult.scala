@@ -6,7 +6,7 @@ import scala.collection.JavaConverters._
 
 class RichDescribeStackEventsResult(val underlying: DescribeStackEventsResult) {
 
-  def stackEvents: Seq[StackEvent] = underlying.getStackEvents.asScala
+  def stackEvents: Seq[StackEvent] = underlying.getStackEvents.asScala.toVector
 
   def stackEvents_=(value: Seq[StackEvent]): Unit =
     underlying.setStackEvents(value.asJava)

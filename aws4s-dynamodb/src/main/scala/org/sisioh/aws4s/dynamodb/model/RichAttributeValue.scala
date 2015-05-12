@@ -113,7 +113,7 @@ class RichAttributeValue(val underlying: AttributeValue) extends AnyVal with Pim
 
   def nsOpt_=(value: Option[Seq[String]]): Unit = underlying.setNS(value.map(_.asJava).orNull)
 
-  def nsOpt: Option[Seq[String]] = Option(underlying.getNS).map(_.asScala)
+  def nsOpt: Option[Seq[String]] = Option(underlying.getNS).map(_.asScala.toVector)
 
   def numbersOpt_=(value: Option[Iterable[String]]): Unit = nsOpt = value.map(_.toSeq)
 
@@ -127,7 +127,7 @@ class RichAttributeValue(val underlying: AttributeValue) extends AnyVal with Pim
 
   def ssOpt_=(value: Option[Seq[String]]): Unit = underlying.setSS(value.map(_.asJava).orNull)
 
-  def ssOpt: Option[Seq[String]] = Option(underlying.getSS).map(_.asScala)
+  def ssOpt: Option[Seq[String]] = Option(underlying.getSS).map(_.asScala.toVector)
 
   def stringsOpt_=(value: Option[Seq[String]]): Unit = ssOpt = value
 
@@ -141,7 +141,7 @@ class RichAttributeValue(val underlying: AttributeValue) extends AnyVal with Pim
 
   def bsOpt_=(values: Option[Seq[ByteBuffer]]): Unit = underlying.setBS(values.map(_.asJava).orNull)
 
-  def bsOpt: Option[Seq[ByteBuffer]] = Option(underlying.getBS).map(_.asScala)
+  def bsOpt: Option[Seq[ByteBuffer]] = Option(underlying.getBS).map(_.asScala.toVector)
 
   def byteBuffersOpt_=(value: Option[Seq[ByteBuffer]]): Unit = bsOpt = value
 
@@ -155,7 +155,7 @@ class RichAttributeValue(val underlying: AttributeValue) extends AnyVal with Pim
 
   def lOpt_=(values: Option[Seq[AttributeValue]]): Unit = underlying.setL(values.map(_.asJava).orNull)
 
-  def lOpt: Option[Seq[AttributeValue]] = Option(underlying.getL).map(_.asScala)
+  def lOpt: Option[Seq[AttributeValue]] = Option(underlying.getL).map(_.asScala.toVector)
 
   def listOpt_=(value: Option[Seq[AttributeValue]]): Unit = lOpt = value
 

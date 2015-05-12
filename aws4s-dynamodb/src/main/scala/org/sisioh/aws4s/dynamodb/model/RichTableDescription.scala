@@ -16,7 +16,7 @@ class RichTableDescription(val underlying: TableDescription) extends AnyVal with
 
   // ---
 
-  def attributeDefinitionsOpt: Option[Seq[AttributeDefinition]] = Option(underlying.getAttributeDefinitions).map(_.asScala)
+  def attributeDefinitionsOpt: Option[Seq[AttributeDefinition]] = Option(underlying.getAttributeDefinitions).map(_.asScala.toVector)
 
   def attributeDefinitionsOpt_=(value: Option[Seq[AttributeDefinition]]): Unit = underlying.setAttributeDefinitions(value.map(_.asJava).orNull)
 
@@ -32,7 +32,7 @@ class RichTableDescription(val underlying: TableDescription) extends AnyVal with
 
   // ---
 
-  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala)
+  def keySchemaOpt: Option[Seq[KeySchemaElement]] = Option(underlying.getKeySchema).map(_.asScala.toVector)
 
   def keySchemaOpt_=(value: Option[Seq[KeySchemaElement]]): Unit = underlying.setKeySchema(value.map(_.asJava).orNull)
 
@@ -80,7 +80,7 @@ class RichTableDescription(val underlying: TableDescription) extends AnyVal with
 
   // ---
 
-  def localSecondaryIndexesOpt: Option[Seq[LocalSecondaryIndexDescription]] = Option(underlying.getLocalSecondaryIndexes).map(_.asScala)
+  def localSecondaryIndexesOpt: Option[Seq[LocalSecondaryIndexDescription]] = Option(underlying.getLocalSecondaryIndexes).map(_.asScala.toVector)
 
   def localSecondaryIndexesOpt_=(value: Option[Seq[LocalSecondaryIndexDescription]]): Unit = underlying.setLocalSecondaryIndexes(value.map(_.asJava).orNull)
 
@@ -88,7 +88,7 @@ class RichTableDescription(val underlying: TableDescription) extends AnyVal with
 
   // ---
 
-  def globalSecondaryIndexesOpt: Option[Seq[GlobalSecondaryIndexDescription]] = Option(underlying.getGlobalSecondaryIndexes).map(_.asScala)
+  def globalSecondaryIndexesOpt: Option[Seq[GlobalSecondaryIndexDescription]] = Option(underlying.getGlobalSecondaryIndexes).map(_.asScala.toVector)
 
   def globalSecondaryIndexesOpt_=(value: Option[Seq[GlobalSecondaryIndexDescription]]): Unit = underlying.withGlobalSecondaryIndexes(value.map(_.asJava).orNull)
 

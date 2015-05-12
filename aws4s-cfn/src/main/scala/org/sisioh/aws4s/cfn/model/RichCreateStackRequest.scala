@@ -38,7 +38,7 @@ class RichCreateStackRequest(val underlying: CreateStackRequest)
 
   // ---
 
-  def parameters: Seq[Parameter] = underlying.getParameters.asScala
+  def parameters: Seq[Parameter] = underlying.getParameters.asScala.toVector
 
   def parameters_=(value: Seq[Parameter]): Unit =
     underlying.setParameters(value.asJava)
@@ -68,7 +68,7 @@ class RichCreateStackRequest(val underlying: CreateStackRequest)
 
   // ---
 
-  def notificationARNs: Seq[String] = underlying.getNotificationARNs.asScala
+  def notificationARNs: Seq[String] = underlying.getNotificationARNs.asScala.toVector
 
   def notificationARNs_=(value: Seq[String]): Unit =
     underlying.setNotificationARNs(value.asJava)
@@ -78,7 +78,7 @@ class RichCreateStackRequest(val underlying: CreateStackRequest)
 
   // ---
 
-  def capabilities: Seq[String] = underlying.getCapabilities.asScala
+  def capabilities: Seq[String] = underlying.getCapabilities.asScala.toVector
 
   def capabilities_=(value: Seq[String]): Unit =
     underlying.setCapabilities(value.asJava)
@@ -118,7 +118,7 @@ class RichCreateStackRequest(val underlying: CreateStackRequest)
 
   // ---
 
-  def tags: Seq[Tag] = underlying.getTags.asScala
+  def tags: Seq[Tag] = underlying.getTags.asScala.toVector
 
   def tags_=(value: Seq[Tag]): Unit =
     underlying.setTags(tags.asJava)

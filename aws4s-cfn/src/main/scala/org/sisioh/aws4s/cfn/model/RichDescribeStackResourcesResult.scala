@@ -8,7 +8,7 @@ import scala.collection.JavaConverters._
 class RichDescribeStackResourcesResult(val underlying: DescribeStackResourcesResult)
   extends AnyVal with PimpedType[DescribeStackResourcesResult] {
 
-  def stackResources: Seq[StackResource] = underlying.getStackResources.asScala
+  def stackResources: Seq[StackResource] = underlying.getStackResources.asScala.toVector
 
   def stackResources_=(value: Seq[StackResource]): Unit =
     underlying.setStackResources(value.asJava)

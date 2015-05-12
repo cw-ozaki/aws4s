@@ -13,7 +13,7 @@ object TableKeysAndAttributeFactory {
 
 class RichTableKeysAndAttributes(val underlying: TableKeysAndAttributes) extends AnyVal with PimpedType[TableKeysAndAttributes] {
 
-  def primaryKeys: Seq[PrimaryKey] = underlying.getPrimaryKeys.asScala
+  def primaryKeys: Seq[PrimaryKey] = underlying.getPrimaryKeys.asScala.toVector
 
   def withAttributeNames(attributeNames: Seq[String]): TableKeysAndAttributes = underlying.withAttributeNames(attributeNames.asJava)
 

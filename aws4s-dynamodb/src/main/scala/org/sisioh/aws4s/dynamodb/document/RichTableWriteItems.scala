@@ -13,11 +13,11 @@ object TableWriteItemFactory {
 
 class RichTableWriteItems(val underlying: TableWriteItems) extends AnyVal with PimpedType[TableWriteItems] {
 
-  def primaryKeysToDelete: Seq[PrimaryKey] = underlying.getPrimaryKeysToDelete.asScala
+  def primaryKeysToDelete: Seq[PrimaryKey] = underlying.getPrimaryKeysToDelete.asScala.toVector
 
   def withItemsToPut(itemsToPut: Iterable[Item]): TableWriteItems = underlying.withItemsToPut(itemsToPut.toSeq.asJava)
 
-  def itemsToPut: Iterable[Item] = underlying.getItemsToPut.asScala
+  def itemsToPut: Iterable[Item] = underlying.getItemsToPut.asScala.toVector
 
   def tableName: String = underlying.getTableName
 
