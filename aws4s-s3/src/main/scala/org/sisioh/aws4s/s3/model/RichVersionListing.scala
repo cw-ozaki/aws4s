@@ -4,6 +4,12 @@ import com.amazonaws.services.s3.model.{S3VersionSummary, VersionListing}
 
 import scala.collection.JavaConverters._
 
+object VersionListingFactory {
+
+  def create(): VersionListing = new VersionListing()
+
+}
+
 class RichVersionListing(val underlying: VersionListing) {
 
   def versionSummaries: Seq[S3VersionSummary] = underlying.getVersionSummaries.asScala.toVector

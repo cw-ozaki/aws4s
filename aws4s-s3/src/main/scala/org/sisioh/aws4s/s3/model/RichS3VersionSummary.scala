@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.s3.model.{Owner, S3VersionSummary}
 import org.sisioh.aws4s.PimpedType
 
+object S3VersionSummaryFactory {
+
+  def create(): S3VersionSummary = new S3VersionSummary()
+
+}
+
 class RichS3VersionSummary(val underlying: S3VersionSummary)
   extends AnyVal with PimpedType[S3VersionSummary] {
 

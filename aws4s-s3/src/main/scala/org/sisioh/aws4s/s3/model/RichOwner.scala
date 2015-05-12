@@ -3,6 +3,16 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.Owner
 import org.sisioh.aws4s.PimpedType
 
+object OwnerFactory {
+
+  def create(): Owner = new Owner()
+
+  def create(id: String, displayName: String): Owner =
+    new Owner(id, displayName)
+
+}
+
+
 class RichOwner(val underlying: Owner)
   extends AnyVal with PimpedType[Owner] {
 

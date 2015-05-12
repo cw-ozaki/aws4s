@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object SimpleMaterialProviderFactory {
+
+  def create(): SimpleMaterialProvider = new SimpleMaterialProvider()
+
+}
+
 class RichSimpleMaterialProvider(val underlying: SimpleMaterialProvider)
   extends AnyVal with PimpedType[SimpleMaterialProvider] {
 

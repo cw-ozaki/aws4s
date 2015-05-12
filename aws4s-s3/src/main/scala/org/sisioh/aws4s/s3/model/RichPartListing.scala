@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object PartListingFactory {
+
+  def create(): PartListing = new PartListing()
+
+}
+
 class RichPartListing(val underlying: PartListing)
   extends AnyVal with PimpedType[PartListing] {
 

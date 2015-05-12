@@ -4,6 +4,12 @@ import com.amazonaws.services.s3.model.BucketLifecycleConfiguration.NoncurrentVe
 import com.amazonaws.services.s3.model.StorageClass
 import org.sisioh.aws4s.PimpedType
 
+object NoncurrentVersionTransitionFactory {
+
+  def create(): NoncurrentVersionTransition = new NoncurrentVersionTransition()
+
+}
+
 class RichNonCurrentVersionTransition(val underlying: NoncurrentVersionTransition)
   extends AnyVal with PimpedType[NoncurrentVersionTransition] {
 

@@ -1,5 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
+import java.io.{File, InputStream}
 import java.util.concurrent.ExecutorService
 
 import com.amazonaws.services.s3.UploadObjectObserver
@@ -8,6 +9,16 @@ import com.amazonaws.services.s3.model.{ObjectMetadata, UploadObjectRequest}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
+
+object UploadObjectRequestFactory {
+
+  def create(bucketName: String, key: String, file: File): UploadObjectRequest =
+    new UploadObjectRequest(bucketName, key, file)
+
+  def create(bucketName: String, key: String, input: InputStream, metadata: ObjectMetadata): UploadObjectRequest =
+    new UploadObjectRequest(bucketName, key, input, metadata)
+
+}
 
 class RichUploadObjectRequest(val underlying: UploadObjectRequest)
   extends AnyVal with PimpedType[UploadObjectRequest] {

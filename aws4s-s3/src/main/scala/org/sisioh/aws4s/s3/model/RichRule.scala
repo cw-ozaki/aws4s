@@ -5,6 +5,13 @@ import java.util.Date
 import com.amazonaws.services.s3.model.BucketLifecycleConfiguration.{NoncurrentVersionTransition, Transition, Rule}
 import org.sisioh.aws4s.PimpedType
 
+object RuleFactory {
+
+  def create(): Rule = new Rule()
+
+}
+
+
 class RichRule(val underlying: Rule) extends AnyVal with PimpedType[Rule] {
 
   def idOpt: Option[String] = Option(underlying.getId)

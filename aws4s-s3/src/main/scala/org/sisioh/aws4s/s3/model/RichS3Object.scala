@@ -1,7 +1,13 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{S3ObjectInputStream, ObjectMetadata, S3Object}
+import com.amazonaws.services.s3.model.{S3ObjectIdBuilder, S3ObjectInputStream, ObjectMetadata, S3Object}
 import org.sisioh.aws4s.PimpedType
+
+object S3ObjectFactory {
+
+  def create(): S3Object = new S3Object()
+
+}
 
 class RichS3Object(val underlying: S3Object)
   extends AnyVal with PimpedType[S3Object] {

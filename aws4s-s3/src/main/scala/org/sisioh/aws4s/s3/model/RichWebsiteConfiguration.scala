@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object WebsiteConfigurationFactory {
+
+  def create(): WebsiteConfiguration = new WebsiteConfiguration()
+
+}
+
 class RichWebsiteConfiguration(val underlying: WebsiteConfiguration)
   extends AnyVal with PimpedType[WebsiteConfiguration] {
 

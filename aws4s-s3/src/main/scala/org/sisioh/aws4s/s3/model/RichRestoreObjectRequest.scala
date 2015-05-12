@@ -3,6 +3,15 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.RestoreObjectRequest
 import org.sisioh.aws4s.PimpedType
 
+object RestoreObjectRequestFactory {
+
+  def create(bucketName: String, key: String): RestoreObjectRequest = new RestoreObjectRequest(bucketName, key)
+
+  def create(bucketName: String, key: String, expirationInDays: Int): RestoreObjectRequest =
+    new RestoreObjectRequest(bucketName, key, expirationInDays)
+
+}
+
 class RichRestoreObjectRequest(val underlying: RestoreObjectRequest)
   extends AnyVal with PimpedType[RestoreObjectRequest] {
 

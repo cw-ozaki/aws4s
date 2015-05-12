@@ -7,6 +7,13 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ObjectMetadataFactory {
+
+  def create(): ObjectMetadata = new ObjectMetadata()
+
+
+}
+
 class RichObjectMetadata(val underlying: ObjectMetadata)
   extends AnyVal with PimpedType[ObjectMetadata] {
 

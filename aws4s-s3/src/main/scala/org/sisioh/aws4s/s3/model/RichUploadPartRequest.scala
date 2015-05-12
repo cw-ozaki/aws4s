@@ -5,6 +5,12 @@ import java.io.{InputStream, File}
 import com.amazonaws.services.s3.model.{ObjectMetadata, SSECustomerKey, UploadPartRequest}
 import org.sisioh.aws4s.PimpedType
 
+object UploadPartRequestFactory {
+
+  def create(): UploadPartRequest = new UploadPartRequest()
+
+}
+
 class RichUploadPartRequest(val underlying: UploadPartRequest)
   extends AnyVal with PimpedType[UploadPartRequest] {
 

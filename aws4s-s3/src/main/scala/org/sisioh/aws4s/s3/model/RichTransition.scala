@@ -6,7 +6,14 @@ import com.amazonaws.services.s3.model.BucketLifecycleConfiguration.Transition
 import com.amazonaws.services.s3.model.StorageClass
 import org.sisioh.aws4s.PimpedType
 
-class RichTransition(val underlying: Transition) extends AnyVal with PimpedType[Transition] {
+object TransitionFactory {
+
+  def create(): Transition = new Transition()
+
+}
+
+class RichTransition(val underlying: Transition)
+  extends AnyVal with PimpedType[Transition] {
 
   def days: Int = underlying.getDays
 

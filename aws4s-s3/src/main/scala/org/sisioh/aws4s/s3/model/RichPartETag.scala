@@ -3,6 +3,12 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.PartETag
 import org.sisioh.aws4s.PimpedType
 
+object PartETagFactroy {
+
+  def create(partNumber: Int, eTag: String): PartETag = new PartETag(partNumber, eTag)
+
+}
+
 class RichPartETag(val underlying: PartETag)
   extends AnyVal with PimpedType[PartETag] {
 

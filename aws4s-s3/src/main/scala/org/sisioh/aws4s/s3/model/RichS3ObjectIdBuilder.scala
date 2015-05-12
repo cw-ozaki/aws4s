@@ -1,7 +1,15 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.S3ObjectIdBuilder
+import com.amazonaws.services.s3.model.{S3ObjectId, S3ObjectIdBuilder}
 import org.sisioh.aws4s.PimpedType
+
+object S3ObjectIdBuilderFactory {
+
+  def create(): S3ObjectIdBuilder = new S3ObjectIdBuilder()
+
+  def create(id: S3ObjectId): S3ObjectIdBuilder = new S3ObjectIdBuilder(id)
+
+}
 
 class RichS3ObjectIdBuilder(val underlying: S3ObjectIdBuilder)
   extends AnyVal with PimpedType[S3ObjectIdBuilder] {

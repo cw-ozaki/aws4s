@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.s3.model.PutObjectResult
 import org.sisioh.aws4s.PimpedType
 
+object PutObjectResultFactory {
+
+  def create(): PutObjectResult = new PutObjectResult()
+
+}
+
 class RichPutObjectResult(val underlying: PutObjectResult)
   extends AnyVal with PimpedType[PutObjectResult] {
 

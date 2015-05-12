@@ -1,7 +1,19 @@
 package org.sisioh.aws4s.s3.model
 
+import javax.crypto.SecretKey
+
 import com.amazonaws.services.s3.model.SSECustomerKey
 import org.sisioh.aws4s.PimpedType
+
+object SSECustomerKeyFactory {
+
+  def create(base64EncodedKey: String): SSECustomerKey = new SSECustomerKey(base64EncodedKey)
+
+  def create(rawKeyMaterial: Array[Byte]): SSECustomerKey = new SSECustomerKey(rawKeyMaterial)
+
+  def create(key: SecretKey): SSECustomerKey = new SSECustomerKey(key)
+
+}
 
 class RichSSECustomerKey(val underlying: SSECustomerKey)
   extends AnyVal with PimpedType[SSECustomerKey] {

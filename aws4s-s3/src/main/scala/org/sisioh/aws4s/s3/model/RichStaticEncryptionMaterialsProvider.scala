@@ -5,6 +5,13 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object StaticEncryptionMaterialsProviderFactory {
+
+  def create(materials: EncryptionMaterials): StaticEncryptionMaterialsProvider =
+    new StaticEncryptionMaterialsProvider(materials)
+
+}
+
 class RichStaticEncryptionMaterialsProvider(val underlying: StaticEncryptionMaterialsProvider)
   extends AnyVal with PimpedType[StaticEncryptionMaterialsProvider] {
 

@@ -5,6 +5,19 @@ import java.io.{File, InputStream}
 import com.amazonaws.services.s3.model._
 import org.sisioh.aws4s.PimpedType
 
+object PutObjectRequestFactory {
+
+  def create(bucketName: String, key: String, file: File): PutObjectRequest =
+    new PutObjectRequest(bucketName, key, file)
+
+  def create(bucketName: String, key: String, redirectLocation: String): PutObjectRequest =
+    new PutObjectRequest(bucketName, key, redirectLocation)
+
+  def create(bucketName: String, key: String, input: InputStream, metadata: ObjectMetadata): PutObjectRequest =
+    new PutObjectRequest(bucketName, key, input, metadata)
+
+}
+
 class RichPutObjectRequest(val underlying: PutObjectRequest)
   extends AnyVal with PimpedType[PutObjectRequest] {
 

@@ -3,6 +3,12 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.ResponseHeaderOverrides
 import org.sisioh.aws4s.PimpedType
 
+object ResponseHeaderOverridesFactory {
+
+  def create(): ResponseHeaderOverrides = new ResponseHeaderOverrides()
+
+}
+
 class RichResponseHeaderOverrides(val underlying: ResponseHeaderOverrides)
   extends AnyVal with PimpedType[ResponseHeaderOverrides] {
 

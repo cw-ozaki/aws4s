@@ -3,6 +3,13 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.{RequestPaymentConfiguration, SetRequestPaymentConfigurationRequest}
 import org.sisioh.aws4s.PimpedType
 
+object SetRequestPaymentConfigurationRequestFactory {
+
+  def create(bucketName: String, configuration: RequestPaymentConfiguration): SetRequestPaymentConfigurationRequest =
+    new SetRequestPaymentConfigurationRequest(bucketName, configuration)
+
+}
+
 class RichSetRequestPaymentConfigurationRequest(val underlying: SetRequestPaymentConfigurationRequest)
   extends AnyVal with PimpedType[SetRequestPaymentConfigurationRequest] {
 

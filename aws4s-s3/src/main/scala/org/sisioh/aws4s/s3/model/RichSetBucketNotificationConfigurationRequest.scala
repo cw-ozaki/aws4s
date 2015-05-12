@@ -3,6 +3,13 @@ package org.sisioh.aws4s.s3.model
 import com.amazonaws.services.s3.model.{BucketNotificationConfiguration, SetBucketNotificationConfigurationRequest}
 import org.sisioh.aws4s.PimpedType
 
+object SetBucketNotificationConfigurationRequestFactory {
+
+  def create(bucketName: String, notificationConfiguration:BucketNotificationConfiguration ):SetBucketNotificationConfigurationRequest =
+    new SetBucketNotificationConfigurationRequest(bucketName, notificationConfiguration)
+
+}
+
 class RichSetBucketNotificationConfigurationRequest(val underlying: SetBucketNotificationConfigurationRequest)
   extends AnyVal with PimpedType[SetBucketNotificationConfigurationRequest] {
 

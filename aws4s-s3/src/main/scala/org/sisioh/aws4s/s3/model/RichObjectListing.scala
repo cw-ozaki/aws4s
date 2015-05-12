@@ -5,6 +5,13 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ObjectListingFactroy {
+
+  def create(): ObjectListing = new ObjectListing()
+
+}
+
+
 class RichObjectListing(val underlying: ObjectListing)
   extends AnyVal with PimpedType[ObjectListing] {
 

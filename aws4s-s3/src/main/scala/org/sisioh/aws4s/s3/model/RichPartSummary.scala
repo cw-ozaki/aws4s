@@ -5,6 +5,13 @@ import java.util.Date
 import com.amazonaws.services.s3.model.PartSummary
 import org.sisioh.aws4s.PimpedType
 
+object PartSummaryFactory {
+
+  def create(): PartSummary = new PartSummary()
+
+}
+
+
 class RichPartSummary(val underlying: PartSummary)
   extends AnyVal with PimpedType[PartSummary] {
 
