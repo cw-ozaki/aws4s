@@ -7,6 +7,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object MessageAttributeValueFactory {
+
+  def create(): MessageAttributeValue = new MessageAttributeValue()
+
+}
+
 class RichMessageAttributeValue(val underlying: MessageAttributeValue)
     extends AnyVal with PimpedType[MessageAttributeValue] {
 

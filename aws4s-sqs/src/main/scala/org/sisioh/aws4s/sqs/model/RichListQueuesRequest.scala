@@ -3,6 +3,14 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.ListQueuesRequest
 import org.sisioh.aws4s.PimpedType
 
+object ListQueuesRequestFactory {
+
+  def create(): ListQueuesRequest = new ListQueuesRequest()
+
+  def create(queueNamePrefix: String): ListQueuesRequest = new ListQueuesRequest(queueNamePrefix)
+
+}
+
 class RichListQueuesRequest(val underlying: ListQueuesRequest)
     extends AnyVal with PimpedType[ListQueuesRequest] {
 
@@ -13,4 +21,5 @@ class RichListQueuesRequest(val underlying: ListQueuesRequest)
 
   def withQueueNamePrefixOpt(value: Option[String]): ListQueuesRequest =
     underlying.withQueueNamePrefix(value.orNull)
+
 }

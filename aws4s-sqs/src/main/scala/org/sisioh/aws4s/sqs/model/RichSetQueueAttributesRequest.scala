@@ -5,6 +5,15 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object SetQueueAttributesRequestFactory {
+
+  def create(): SetQueueAttributesRequest = new SetQueueAttributesRequest()
+
+  def create(queueUrl: String, attributes: Map[String, String]): SetQueueAttributesRequest =
+    new SetQueueAttributesRequest(queueUrl, attributes.asJava)
+
+}
+
 class RichSetQueueAttributesRequest(val underlying: SetQueueAttributesRequest)
     extends AnyVal with PimpedType[SetQueueAttributesRequest] {
 

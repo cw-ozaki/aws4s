@@ -3,6 +3,14 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.PurgeQueueRequest
 import org.sisioh.aws4s.PimpedType
 
+object PurgeQueueRequestFactory {
+
+  def create(): PurgeQueueRequest = new PurgeQueueRequest()
+
+  def create(queueUrl: String): PurgeQueueRequest = new PurgeQueueRequest(queueUrl)
+
+}
+
 class RichPurgeQueueRequest(val underlying: PurgeQueueRequest)
     extends AnyVal with PimpedType[PurgeQueueRequest] {
 

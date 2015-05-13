@@ -3,6 +3,14 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.{ DeleteMessageRequest, DeleteQueueRequest }
 import org.sisioh.aws4s.PimpedType
 
+object DeleteQueueRequestFactory {
+
+  def create(): DeleteQueueRequest = new DeleteQueueRequest()
+
+  def create(queueUrl: String): DeleteQueueRequest = new DeleteQueueRequest(queueUrl)
+
+}
+
 class RichDeleteQueueRequest(val underlying: DeleteQueueRequest)
     extends AnyVal with PimpedType[DeleteQueueRequest] {
 

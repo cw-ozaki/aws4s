@@ -5,6 +5,14 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object CreateQueueRequestFactory {
+
+  def create(): CreateQueueRequest = new CreateQueueRequest()
+
+  def create(queueName: String): CreateQueueRequest = new CreateQueueRequest(queueName)
+
+}
+
 class RichCreateQueueRequest(val underlying: CreateQueueRequest)
     extends AnyVal with PimpedType[CreateQueueRequest] {
 

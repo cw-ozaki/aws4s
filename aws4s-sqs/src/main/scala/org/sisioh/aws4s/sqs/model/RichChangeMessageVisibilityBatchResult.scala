@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ChangeMessageVisibilityBatchResultFactory {
+
+  def create(): ChangeMessageVisibilityBatchResult = new ChangeMessageVisibilityBatchResult()
+
+}
+
 class RichChangeMessageVisibilityBatchResult(val underlying: ChangeMessageVisibilityBatchResult)
     extends AnyVal with PimpedType[ChangeMessageVisibilityBatchResult] {
 

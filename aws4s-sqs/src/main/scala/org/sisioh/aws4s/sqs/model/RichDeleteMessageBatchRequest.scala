@@ -5,6 +5,14 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object DeleteMessageBatchRequestFactory {
+
+  def create(): DeleteMessageBatchRequest = new DeleteMessageBatchRequest()
+
+  def create(queueUrl: String): DeleteMessageBatchRequest = new DeleteMessageBatchRequest(queueUrl)
+
+}
+
 class RichDeleteMessageBatchRequest(val underlying: DeleteMessageBatchRequest)
     extends AnyVal with PimpedType[DeleteMessageBatchRequest] {
   def queueUrlOpt: Option[String] = Option(underlying.getQueueUrl)

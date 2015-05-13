@@ -5,6 +5,15 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object AddPermissionRequestFactory {
+
+  def create(): AddPermissionRequest = new AddPermissionRequest()
+
+  def create(queueUrl: String, label: String, awsAccountIds: Seq[String], actions: Seq[String]): AddPermissionRequest =
+    new AddPermissionRequest(queueUrl, label, awsAccountIds.asJava, actions.asJava)
+
+}
+
 class RichAddPermissionRequest(val underlying: AddPermissionRequest)
     extends AnyVal with PimpedType[AddPermissionRequest] {
 

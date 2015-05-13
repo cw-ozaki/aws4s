@@ -3,6 +3,12 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.BatchResultErrorEntry
 import org.sisioh.aws4s.PimpedType
 
+object BatchResultErrorEntryFactory {
+
+  def create(): BatchResultErrorEntry = new BatchResultErrorEntry()
+
+}
+
 class RichBatchResultErrorEntry(val underlying: BatchResultErrorEntry)
     extends AnyVal with PimpedType[BatchResultErrorEntry] {
 

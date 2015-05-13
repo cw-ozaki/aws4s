@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object SendMessageBatchResultFactory {
+
+  def create(): SendMessageBatchResult = new SendMessageBatchResult()
+
+}
+
 class RichSendMessageBatchResult(val underlying: SendMessageBatchResult)
     extends AnyVal with PimpedType[SendMessageBatchResult] {
 

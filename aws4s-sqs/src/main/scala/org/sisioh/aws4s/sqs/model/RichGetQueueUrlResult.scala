@@ -3,6 +3,12 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.{ ListDeadLetterSourceQueuesRequest, GetQueueUrlResult }
 import org.sisioh.aws4s.PimpedType
 
+object GetQueueUrlResultFactory {
+
+  def create(): GetQueueUrlResult = new GetQueueUrlResult()
+
+}
+
 class RichGetQueueUrlResult(val underlying: GetQueueUrlResult)
     extends AnyVal with PimpedType[GetQueueUrlResult] {
 

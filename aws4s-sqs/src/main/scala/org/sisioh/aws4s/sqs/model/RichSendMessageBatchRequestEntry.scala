@@ -5,6 +5,15 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object SendMessageBatchRequestEntryFactory {
+
+  def create(): SendMessageBatchRequestEntry = new SendMessageBatchRequestEntry()
+
+  def create(id: String, messageBody: String): SendMessageBatchRequestEntry =
+    new SendMessageBatchRequestEntry(id, messageBody)
+
+}
+
 class RichSendMessageBatchRequestEntry(val underlying: SendMessageBatchRequestEntry)
     extends AnyVal with PimpedType[SendMessageBatchRequestEntry] {
 

@@ -1,7 +1,16 @@
 package org.sisioh.aws4s.sqs.model
 
 import com.amazonaws.services.sqs.model.ListDeadLetterSourceQueuesRequest
+
 import org.sisioh.aws4s.PimpedType
+
+object ListDeadLetterSourceQueuesRequestFactory {
+
+  def create(): ListDeadLetterSourceQueuesRequest = new ListDeadLetterSourceQueuesRequest()
+
+  def create(queueUrl: String): ListDeadLetterSourceQueuesRequest = new ListDeadLetterSourceQueuesRequest(queueUrl)
+
+}
 
 class RichListDeadLetterSourceQueuesRequest(val underlying: ListDeadLetterSourceQueuesRequest)
     extends AnyVal with PimpedType[ListDeadLetterSourceQueuesRequest] {

@@ -5,6 +5,15 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object SendMessageRequestFacgtory {
+
+  def create(): SendMessageRequest = new SendMessageRequest()
+
+  def create(queueUrl: String, messageBody: String): SendMessageRequest =
+    new SendMessageRequest(queueUrl, messageBody)
+
+}
+
 class RichSendMessageRequest(val underlying: SendMessageRequest)
     extends AnyVal with PimpedType[SendMessageRequest] {
 

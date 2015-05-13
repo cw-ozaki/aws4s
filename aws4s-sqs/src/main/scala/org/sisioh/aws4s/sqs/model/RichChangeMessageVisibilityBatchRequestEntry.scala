@@ -1,7 +1,16 @@
 package org.sisioh.aws4s.sqs.model
 
-import com.amazonaws.services.sqs.model.{ Message, BatchResultErrorEntry, ChangeMessageVisibilityBatchRequestEntry }
+import com.amazonaws.services.sqs.model.ChangeMessageVisibilityBatchRequestEntry
 import org.sisioh.aws4s.PimpedType
+
+object ChangeMessageVisibilityBatchRequestEntryFactory {
+
+  def create(): ChangeMessageVisibilityBatchRequestEntry = new ChangeMessageVisibilityBatchRequestEntry()
+
+  def create(id: String, receiptHandle: String): ChangeMessageVisibilityBatchRequestEntry =
+    new ChangeMessageVisibilityBatchRequestEntry(id, receiptHandle)
+
+}
 
 class RichChangeMessageVisibilityBatchRequestEntry(val underlying: ChangeMessageVisibilityBatchRequestEntry)
     extends AnyVal with PimpedType[ChangeMessageVisibilityBatchRequestEntry] {

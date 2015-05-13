@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object GetQueueAttributesResultFactory {
+
+  def create(): GetQueueAttributesResult = new GetQueueAttributesResult()
+
+}
+
 class RichGetQueueAttributesResult(val underlying: GetQueueAttributesResult)
     extends AnyVal with PimpedType[GetQueueAttributesResult] {
 
@@ -15,4 +21,5 @@ class RichGetQueueAttributesResult(val underlying: GetQueueAttributesResult)
 
   def withAttributes(value: Map[String, String]): GetQueueAttributesResult =
     underlying.withAttributes(value.asJava)
+
 }

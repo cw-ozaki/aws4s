@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ReceiveMessageResultFactory {
+
+  def create(): ReceiveMessageResult = new ReceiveMessageResult()
+
+}
+
 class RichReceiveMessageResult(val underlying: ReceiveMessageResult)
     extends AnyVal with PimpedType[ReceiveMessageResult] {
 

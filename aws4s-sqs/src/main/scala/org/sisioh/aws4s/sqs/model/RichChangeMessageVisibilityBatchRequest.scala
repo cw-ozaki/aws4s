@@ -5,6 +5,15 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ChangeMessageVisibilityBatchRequestFactory {
+
+  def create(): ChangeMessageVisibilityBatchRequest = new ChangeMessageVisibilityBatchRequest()
+
+  def create(queueUrl: String, entries: Seq[ChangeMessageVisibilityBatchRequestEntry]): ChangeMessageVisibilityBatchRequest =
+    new ChangeMessageVisibilityBatchRequest(queueUrl, entries.asJava)
+
+}
+
 class RichChangeMessageVisibilityBatchRequest(val underlying: ChangeMessageVisibilityBatchRequest)
     extends AnyVal with PimpedType[ChangeMessageVisibilityBatchRequest] {
 

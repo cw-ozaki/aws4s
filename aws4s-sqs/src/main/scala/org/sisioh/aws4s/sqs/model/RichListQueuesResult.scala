@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ListQueuesResultFactory {
+
+  def create(): ListQueuesResult = new ListQueuesResult()
+
+}
+
 class RichListQueuesResult(val underlying: ListQueuesResult)
     extends AnyVal with PimpedType[ListQueuesResult] {
 

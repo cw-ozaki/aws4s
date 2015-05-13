@@ -1,7 +1,16 @@
 package org.sisioh.aws4s.sqs.model
 
-import com.amazonaws.services.sqs.model.{ ChangeMessageVisibilityBatchRequestEntry, DeleteMessageRequest }
+import com.amazonaws.services.sqs.model.DeleteMessageRequest
 import org.sisioh.aws4s.PimpedType
+
+object DeleteMessageRequestFactory {
+
+  def create(): DeleteMessageRequest = new DeleteMessageRequest()
+
+  def create(queueUrl: String, receiptHandle: String): DeleteMessageRequest =
+    new DeleteMessageRequest(queueUrl, receiptHandle)
+
+}
 
 class RichDeleteMessageRequest(val underlying: DeleteMessageRequest)
     extends AnyVal with PimpedType[DeleteMessageRequest] {

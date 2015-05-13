@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object DeleteMessageBatchResultFactory {
+
+  def create(): DeleteMessageBatchResult = new DeleteMessageBatchResult()
+
+}
+
 class RichDeleteMessageBatchResult(val underlying: DeleteMessageBatchResult)
     extends AnyVal with PimpedType[DeleteMessageBatchResult] {
 

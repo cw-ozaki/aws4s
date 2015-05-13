@@ -3,6 +3,12 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.SendMessageResult
 import org.sisioh.aws4s.PimpedType
 
+object SendMessageResultFactory {
+
+  def create(): SendMessageResult = new SendMessageResult()
+
+}
+
 class RichSendMessageResult(val underlying: SendMessageResult)
     extends AnyVal with PimpedType[SendMessageResult] {
 

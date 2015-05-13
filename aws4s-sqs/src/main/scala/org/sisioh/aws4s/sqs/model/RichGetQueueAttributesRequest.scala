@@ -1,7 +1,15 @@
 package org.sisioh.aws4s.sqs.model
 
-import com.amazonaws.services.sqs.model.{ GetQueueUrlResult, GetQueueAttributesRequest }
+import com.amazonaws.services.sqs.model.GetQueueAttributesRequest
 import org.sisioh.aws4s.PimpedType
+
+object GetQueueAttributesRequestFactory {
+
+  def create(): GetQueueAttributesRequest = new GetQueueAttributesRequest()
+
+  def create(queueUrl: String): GetQueueAttributesRequest = new GetQueueAttributesRequest(queueUrl)
+
+}
 
 class RichGetQueueAttributesRequest(val underlying: GetQueueAttributesRequest)
     extends AnyVal with PimpedType[GetQueueAttributesRequest] {

@@ -3,6 +3,12 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.SendMessageBatchResultEntry
 import org.sisioh.aws4s.PimpedType
 
+object SendMessageBatchResultEntryFactory {
+
+  def create(): SendMessageBatchResultEntry = new SendMessageBatchResultEntry()
+
+}
+
 class RichSendMessageBatchResultEntry(val underlying: SendMessageBatchResultEntry)
     extends AnyVal with PimpedType[SendMessageBatchResultEntry] {
 

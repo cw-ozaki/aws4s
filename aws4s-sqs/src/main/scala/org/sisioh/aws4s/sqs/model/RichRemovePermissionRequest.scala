@@ -3,6 +3,12 @@ package org.sisioh.aws4s.sqs.model
 import com.amazonaws.services.sqs.model.RemovePermissionRequest
 import org.sisioh.aws4s.PimpedType
 
+object RemovePermissionRequestFactory {
+
+  def create(): RemovePermissionRequest = new RemovePermissionRequest()
+
+}
+
 class RichRemovePermissionRequest(val underlying: RemovePermissionRequest)
     extends AnyVal with PimpedType[RemovePermissionRequest] {
 
