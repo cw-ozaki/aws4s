@@ -19,6 +19,6 @@ object S3ObjectInputStreamFactory {
 class RichS3ObjectInputStream(val underlying: S3ObjectInputStream)
     extends AnyVal with PimpedType[S3ObjectInputStream] {
 
-  def httpRequest = underlying.getHttpRequest
+  def httpRequest: HttpRequestBase = underlying.getHttpRequest
 
 }
