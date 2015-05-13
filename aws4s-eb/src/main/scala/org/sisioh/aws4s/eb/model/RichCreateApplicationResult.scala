@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ApplicationDescription, CreateApplicationResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ ApplicationDescription, CreateApplicationResult }
 import org.sisioh.aws4s.PimpedType
 
 object CreateApplicationResultFactory {

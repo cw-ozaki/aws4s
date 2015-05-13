@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{CreateApplicationVersionRequest, S3Location}
+import com.amazonaws.services.elasticbeanstalk.model.{ CreateApplicationVersionRequest, S3Location }
 import org.sisioh.aws4s.PimpedType
 
 object CreateApplicationVersionRequestFactory {

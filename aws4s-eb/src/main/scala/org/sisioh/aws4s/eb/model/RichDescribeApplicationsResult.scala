@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ApplicationDescription, DescribeApplicationsResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ ApplicationDescription, DescribeApplicationsResult }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

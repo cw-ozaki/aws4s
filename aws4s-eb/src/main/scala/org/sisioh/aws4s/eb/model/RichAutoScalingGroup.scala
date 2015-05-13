@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionDescription, AutoScalingGroup}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionDescription, AutoScalingGroup }
 import org.sisioh.aws4s.PimpedType
 
 object AutoScalingGroupFactory {
@@ -10,7 +10,7 @@ object AutoScalingGroupFactory {
 }
 
 class RichAutoScalingGroup(val underlying: AutoScalingGroup)
-  extends AnyVal with PimpedType[AutoScalingGroup] {
+    extends AnyVal with PimpedType[AutoScalingGroup] {
 
   def nameOpt: Option[String] = Option(underlying.getName)
 

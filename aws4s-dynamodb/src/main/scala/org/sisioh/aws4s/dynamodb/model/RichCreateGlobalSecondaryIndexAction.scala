@@ -5,7 +5,6 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
-
 object CreateGlobalSecondaryIndexActionFactory {
 
   def create(): CreateGlobalSecondaryIndexAction = new CreateGlobalSecondaryIndexAction()
@@ -13,7 +12,7 @@ object CreateGlobalSecondaryIndexActionFactory {
 }
 
 class RichCreateGlobalSecondaryIndexAction(val underlying: CreateGlobalSecondaryIndexAction)
-  extends AnyVal with PimpedType[CreateGlobalSecondaryIndexAction] {
+    extends AnyVal with PimpedType[CreateGlobalSecondaryIndexAction] {
 
   def indexNameOpt: Option[String] = Option(underlying.getIndexName)
 

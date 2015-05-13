@@ -12,7 +12,7 @@ object DescribeConfigurationSettingsRequestFactory {
 }
 
 class RichDescribeConfigurationSettingsRequest(val underlying: DescribeConfigurationSettingsRequest)
-  extends AnyVal with PimpedType[DescribeConfigurationSettingsRequest] {
+    extends AnyVal with PimpedType[DescribeConfigurationSettingsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

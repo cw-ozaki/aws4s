@@ -14,7 +14,7 @@ object ListTablesRequestFactory {
 }
 
 class RichListTablesRequest(val underlying: ListTablesRequest)
-  extends AnyVal with PimpedType[ListTablesRequest] {
+    extends AnyVal with PimpedType[ListTablesRequest] {
 
   def exclusiveStartTableNameOpt: Option[String] = Option(underlying.getExclusiveStartTableName)
 

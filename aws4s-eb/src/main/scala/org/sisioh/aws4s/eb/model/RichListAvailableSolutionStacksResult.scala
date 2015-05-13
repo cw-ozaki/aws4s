@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ListAvailableSolutionStacksResult, SolutionStackDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ ListAvailableSolutionStacksResult, SolutionStackDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object ListAvailableSolutionStacksResultFactory {
 }
 
 class RichListAvailableSolutionStacksResult(val underlying: ListAvailableSolutionStacksResult)
-  extends AnyVal with PimpedType[ListAvailableSolutionStacksResult] {
+    extends AnyVal with PimpedType[ListAvailableSolutionStacksResult] {
 
   def solutionStacks: Seq[String] = underlying.getSolutionStacks.asScala.toVector
 

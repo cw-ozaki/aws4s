@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationSettingsDescription, DescribeConfigurationSettingsResult}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationSettingsDescription, DescribeConfigurationSettingsResult }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object DescribeConfigurationSettingsResultFactory {
 }
 
 class RichDescribeConfigurationSettingsResult(val underlying: DescribeConfigurationSettingsResult)
-  extends AnyVal with PimpedType[DescribeConfigurationSettingsResult] {
+    extends AnyVal with PimpedType[DescribeConfigurationSettingsResult] {
 
   def configurationSettings: Seq[ConfigurationSettingsDescription] = underlying.getConfigurationSettings.asScala.toVector
 

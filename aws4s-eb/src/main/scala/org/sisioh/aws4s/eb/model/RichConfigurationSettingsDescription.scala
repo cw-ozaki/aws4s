@@ -2,7 +2,7 @@ package org.sisioh.aws4s.eb.model
 
 import java.util.Date
 
-import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionSetting, ConfigurationSettingsDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionSetting, ConfigurationSettingsDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

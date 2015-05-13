@@ -1,10 +1,9 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{OptionSpecification, DescribeConfigurationOptionsRequest}
+import com.amazonaws.services.elasticbeanstalk.model.{ OptionSpecification, DescribeConfigurationOptionsRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
-
 
 object DescribeConfigurationOptionsRequestFactory {
 
@@ -13,7 +12,7 @@ object DescribeConfigurationOptionsRequestFactory {
 }
 
 class RichDescribeConfigurationOptionsRequest(val underlying: DescribeConfigurationOptionsRequest)
-  extends AnyVal with PimpedType[DescribeConfigurationOptionsRequest] {
+    extends AnyVal with PimpedType[DescribeConfigurationOptionsRequest] {
 
   def applicationNameOpt: Option[String] = Option(underlying.getApplicationName)
 

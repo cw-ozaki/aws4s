@@ -10,7 +10,7 @@ object CreateStorageLocationResultFactory {
 }
 
 class RichCreateStorageLocationResult(val underlying: CreateStorageLocationResult)
-  extends AnyVal with PimpedType[CreateStorageLocationResult] {
+    extends AnyVal with PimpedType[CreateStorageLocationResult] {
 
   def s3BucketOpt: Option[String] = Option(underlying.getS3Bucket)
 

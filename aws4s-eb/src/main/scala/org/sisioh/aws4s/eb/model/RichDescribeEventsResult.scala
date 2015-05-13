@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{DescribeEventsResult, EventDescription}
+import com.amazonaws.services.elasticbeanstalk.model.{ DescribeEventsResult, EventDescription }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

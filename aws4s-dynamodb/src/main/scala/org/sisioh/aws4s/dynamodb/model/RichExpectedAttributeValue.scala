@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{AttributeValue, ExpectedAttributeValue}
+import com.amazonaws.services.dynamodbv2.model.{ AttributeValue, ExpectedAttributeValue }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -16,7 +16,7 @@ object ExpectedAttributeValueFactory {
 }
 
 class RichExpectedAttributeValue(val underlying: ExpectedAttributeValue)
-  extends AnyVal with PimpedType[ExpectedAttributeValue] {
+    extends AnyVal with PimpedType[ExpectedAttributeValue] {
 
   def valueOpt: Option[AttributeValue] = Option(underlying.getValue)
 

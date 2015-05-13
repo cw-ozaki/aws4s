@@ -12,7 +12,7 @@ object DescribeConfigurationOptionsResultFactory {
 }
 
 class RichDescribeConfigurationOptionsResult(val underlying: DescribeConfigurationOptionsResult)
-  extends AnyVal with PimpedType[DescribeConfigurationOptionsResult] {
+    extends AnyVal with PimpedType[DescribeConfigurationOptionsResult] {
 
   def solutionStackNameOpt: Option[String] = Option(underlying.getSolutionStackName)
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{AttributeDefinition, ScalarAttributeType}
+import com.amazonaws.services.dynamodbv2.model.{ AttributeDefinition, ScalarAttributeType }
 import org.sisioh.aws4s.PimpedType
 
 object AttributeDefinitionFactory {
@@ -14,7 +14,7 @@ object AttributeDefinitionFactory {
 }
 
 class RichAttributeDefinition(val underlying: AttributeDefinition)
-  extends AnyVal with PimpedType[AttributeDefinition] {
+    extends AnyVal with PimpedType[AttributeDefinition] {
 
   // ---
 

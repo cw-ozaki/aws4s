@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{CreateGlobalSecondaryIndexAction, DeleteGlobalSecondaryIndexAction}
+import com.amazonaws.services.dynamodbv2.model.{ CreateGlobalSecondaryIndexAction, DeleteGlobalSecondaryIndexAction }
 import org.sisioh.aws4s.PimpedType
 
 object DeleteGlobalSecondaryIndexActionFactory {
@@ -10,7 +10,7 @@ object DeleteGlobalSecondaryIndexActionFactory {
 }
 
 class RichDeleteGlobalSecondaryIndexAction(val underlying: DeleteGlobalSecondaryIndexAction)
-  extends AnyVal with PimpedType[DeleteGlobalSecondaryIndexAction] {
+    extends AnyVal with PimpedType[DeleteGlobalSecondaryIndexAction] {
 
   def indexNameOpt: Option[String] = Option(underlying.getIndexName)
 

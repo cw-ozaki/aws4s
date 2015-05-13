@@ -10,7 +10,7 @@ object ListenerFactory {
 }
 
 class RichListener(val underlying: Listener)
-  extends AnyVal with PimpedType[Listener] {
+    extends AnyVal with PimpedType[Listener] {
 
   def protocol: Option[String] = Option(underlying.getProtocol)
 

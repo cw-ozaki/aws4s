@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{KeySchemaElement, LocalSecondaryIndex, Projection}
+import com.amazonaws.services.dynamodbv2.model.{ KeySchemaElement, LocalSecondaryIndex, Projection }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
