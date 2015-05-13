@@ -1,11 +1,23 @@
+import com.typesafe.sbt.SbtScalariform
+import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import sbt.Keys._
 import sbt._
 
-import com.typesafe.sbt.SbtScalariform._
+import scalariform.formatter.preferences._
 
 object ApplicationBuild extends Build {
 
   val awsSdkVersion = "1.9.22"
+
+  lazy val scalariformSettings = SbtScalariform.scalariformSettings ++ Seq(
+    ScalariformKeys.preferences :=
+      ScalariformKeys.preferences.value
+        .setPreference(AlignParameters, true)
+        .setPreference(AlignSingleLineCaseStatements, true)
+        .setPreference(DoubleIndentClassDeclaration, true)
+        .setPreference(PreserveDanglingCloseParenthesis, true)
+        .setPreference(MultilineScaladocCommentsStartOnFirstLine, false)
+  )
 
   lazy val commonSettings = scalariformSettings ++ Seq(
     organization := "org.sisioh",
