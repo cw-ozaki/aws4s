@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.GetTemplateSummaryRequest
 import org.sisioh.aws4s.PimpedType
 
+object GetTemplateSummaryRequestFactory {
+
+  def create(): GetTemplateSummaryRequest = new GetTemplateSummaryRequest()
+
+}
+
 class RichGetTemplateSummaryRequest(val underlying: GetTemplateSummaryRequest)
   extends AnyVal with PimpedType[GetTemplateSummaryRequest] {
 

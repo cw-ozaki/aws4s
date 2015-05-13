@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.GetStackPolicyResult
 import org.sisioh.aws4s.PimpedType
 
+object GetStackPolicyResultFactory {
+
+  def create(): GetStackPolicyResult = new GetStackPolicyResult()
+
+}
+
 class RichGetStackPolicyResult(val underlying: GetStackPolicyResult)
   extends AnyVal with PimpedType[GetStackPolicyResult] {
 

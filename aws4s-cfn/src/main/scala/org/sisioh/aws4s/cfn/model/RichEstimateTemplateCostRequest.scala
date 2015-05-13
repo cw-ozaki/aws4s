@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object EstimateTemplateCostRequestFactory {
+
+  def create(): EstimateTemplateCostRequest = new EstimateTemplateCostRequest()
+
+}
+
 class RichEstimateTemplateCostRequest(val underlying: EstimateTemplateCostRequest)
   extends AnyVal with PimpedType[EstimateTemplateCostRequest] {
   def templateBodyOpt: Option[String] = Option(underlying.getTemplateBody)

@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.GetTemplateResult
 import org.sisioh.aws4s.PimpedType
 
+object GetTemplateResultFactory {
+
+  def create(): GetTemplateResult = new GetTemplateResult()
+
+}
+
 class RichGetTemplateResult(val underlying: GetTemplateResult)
   extends AnyVal with PimpedType[GetTemplateResult] {
 

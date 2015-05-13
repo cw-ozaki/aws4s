@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.Parameter
 import org.sisioh.aws4s.PimpedType
 
+object ParameterFactory {
+
+  def create(): Parameter = new Parameter()
+
+}
+
 class RichParameter(val underlying: Parameter)
   extends AnyVal with PimpedType[Parameter] {
 

@@ -5,6 +5,13 @@ import java.util.Date
 import com.amazonaws.services.cloudformation.model.StackResourceDetail
 import org.sisioh.aws4s.PimpedType
 
+object StackResourceDetailFactory {
+
+  def create(): StackResourceDetail = new StackResourceDetail
+
+}
+
+
 class RichStackResourceDetail(val underlying: StackResourceDetail)
   extends AnyVal with PimpedType[StackResourceDetail] {
 

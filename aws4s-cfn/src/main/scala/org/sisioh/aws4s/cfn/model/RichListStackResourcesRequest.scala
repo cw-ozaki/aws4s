@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.ListStackResourcesRequest
 import org.sisioh.aws4s.PimpedType
 
+object ListStackResourcesRequestFactory {
+
+  def create(): ListStackResourcesRequest = new ListStackResourcesRequest()
+
+}
+
 class RichListStackResourcesRequest(val underlying: ListStackResourcesRequest)
   extends AnyVal with PimpedType[ListStackResourcesRequest] {
 

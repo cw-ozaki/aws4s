@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object GetTemplateSummaryResultFactory {
+
+  def create(): GetTemplateSummaryResult = new GetTemplateSummaryResult()
+
+}
+
 class RichGetTemplateSummaryResult(val underlying: GetTemplateSummaryResult)
   extends AnyVal with PimpedType[GetTemplateSummaryResult] {
 

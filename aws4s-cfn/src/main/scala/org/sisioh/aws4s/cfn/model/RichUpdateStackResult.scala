@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.UpdateStackResult
 import org.sisioh.aws4s.PimpedType
 
+object UpdateStackResultFactory {
+
+  def create(): UpdateStackResult = new UpdateStackResult()
+
+}
+
 class RichUpdateStackResult(val underlying: UpdateStackResult)
   extends AnyVal with PimpedType[UpdateStackResult] {
 

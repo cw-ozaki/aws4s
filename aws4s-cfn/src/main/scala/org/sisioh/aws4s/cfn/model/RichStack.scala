@@ -7,6 +7,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object StackFactory {
+
+  def create(): Stack = new Stack()
+  
+}
+
 class RichStack(val underlying: Stack)
   extends AnyVal with PimpedType[Stack] {
 

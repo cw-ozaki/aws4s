@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ListStacksResultFactory {
+
+  def create(): ListStacksResult = new ListStacksResult()
+
+}
+
 class RichListStacksResult(val underlying: ListStacksResult)
   extends AnyVal with PimpedType[ListStacksResult] {
 

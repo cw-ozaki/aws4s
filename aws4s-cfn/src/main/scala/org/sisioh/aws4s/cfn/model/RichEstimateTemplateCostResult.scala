@@ -3,6 +3,13 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.EstimateTemplateCostResult
 import org.sisioh.aws4s.PimpedType
 
+object EstimateTemplateCostResultFactory {
+
+  def create(): EstimateTemplateCostResult = new EstimateTemplateCostResult()
+
+}
+
+
 class RichEstimateTemplateCostResult(val underlying: EstimateTemplateCostResult)
   extends AnyVal with PimpedType[EstimateTemplateCostResult] {
 

@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.TemplateParameter
 import org.sisioh.aws4s.PimpedType
 
+object TemplateParameterFactory {
+
+  def create(): TemplateParameter = new TemplateParameter()
+
+}
+
 class RichTemplateParameter(val underlying: TemplateParameter)
   extends AnyVal with PimpedType[TemplateParameter] {
 

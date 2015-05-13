@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.Output
 import org.sisioh.aws4s.PimpedType
 
+object OutputFactory {
+
+  def create(): Output = new Output()
+
+}
+
 class RichOutput(val underlying: Output)
   extends AnyVal with PimpedType[Output] {
 

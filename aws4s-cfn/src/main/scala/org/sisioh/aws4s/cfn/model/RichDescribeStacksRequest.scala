@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.DescribeStacksRequest
 import org.sisioh.aws4s.PimpedType
 
+object DescribeStacksRequestFactory {
+
+  def create(): DescribeStacksRequest = new DescribeStacksRequest()
+
+}
+
 class RichDescribeStacksRequest(val underlying: DescribeStacksRequest)
   extends AnyVal with PimpedType[DescribeStacksRequest] {
 

@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object DescribeStackResourcesResultFactory {
+
+  def create(): DescribeStackResourcesResult = new DescribeStackResourcesResult()
+
+}
+
 class RichDescribeStackResourcesResult(val underlying: DescribeStackResourcesResult)
   extends AnyVal with PimpedType[DescribeStackResourcesResult] {
 

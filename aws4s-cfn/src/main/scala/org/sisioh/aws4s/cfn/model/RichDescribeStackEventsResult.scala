@@ -4,6 +4,12 @@ import com.amazonaws.services.cloudformation.model.{DescribeStackEventsResult, S
 
 import scala.collection.JavaConverters._
 
+object DescribeStackEventsResultFactory {
+
+  def create(): DescribeStackEventsResult = new DescribeStackEventsResult()
+
+}
+
 class RichDescribeStackEventsResult(val underlying: DescribeStackEventsResult) {
 
   def stackEvents: Seq[StackEvent] = underlying.getStackEvents.asScala.toVector

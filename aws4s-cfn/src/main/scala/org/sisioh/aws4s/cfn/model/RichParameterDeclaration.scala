@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.ParameterDeclaration
 import org.sisioh.aws4s.PimpedType
 
+object ParameterDeclarationFactory {
+
+  def create(): ParameterDeclaration = new ParameterDeclaration()
+  
+}
+
 class RichParameterDeclaration(val underlying: ParameterDeclaration)
   extends AnyVal with PimpedType[ParameterDeclaration] {
 

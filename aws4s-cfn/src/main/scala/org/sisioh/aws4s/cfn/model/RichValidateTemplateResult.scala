@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object ValidateTemplateResult {
+
+  def create(): ValidateTemplateResult = new ValidateTemplateResult()
+
+}
+
 class RichValidateTemplateResult(val underlying: ValidateTemplateResult)
   extends AnyVal with PimpedType[ValidateTemplateResult] {
 

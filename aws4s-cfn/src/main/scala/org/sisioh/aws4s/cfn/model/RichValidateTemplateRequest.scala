@@ -1,7 +1,13 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{CreateStackRequest, ValidateTemplateRequest}
+import com.amazonaws.services.cloudformation.model.ValidateTemplateRequest
 import org.sisioh.aws4s.PimpedType
+
+object ValidateTemplateRequestFactory {
+
+  def create(): ValidateTemplateRequest = new ValidateTemplateRequest()
+
+}
 
 class RichValidateTemplateRequest(val underlying: ValidateTemplateRequest)
   extends AnyVal with PimpedType[ValidateTemplateRequest] {

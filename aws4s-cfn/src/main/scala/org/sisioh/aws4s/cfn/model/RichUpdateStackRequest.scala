@@ -5,6 +5,12 @@ import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
+object UpdateStackRequestFactory {
+  
+  def create(): UpdateStackRequest = new UpdateStackRequest()
+
+}
+
 class RichUpdateStackRequest(val underlying: UpdateStackRequest)
   extends AnyVal with PimpedType[UpdateStackRequest] {
 

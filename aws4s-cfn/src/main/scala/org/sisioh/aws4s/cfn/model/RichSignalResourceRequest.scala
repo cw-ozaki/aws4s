@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.SignalResourceRequest
 import org.sisioh.aws4s.PimpedType
 
+object SignalResourceRequestFactory {
+
+  def create(): SignalResourceRequest = new SignalResourceRequest()
+
+}
+
 class RichSignalResourceRequest(val underlying: SignalResourceRequest)
   extends AnyVal with PimpedType[SignalResourceRequest] {
 

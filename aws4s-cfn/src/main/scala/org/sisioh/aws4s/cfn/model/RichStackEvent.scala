@@ -5,6 +5,12 @@ import java.util.Date
 import com.amazonaws.services.cloudformation.model.StackEvent
 import org.sisioh.aws4s.PimpedType
 
+object StackEventFactory {
+
+  def create(): StackEvent = new StackEvent()
+
+}
+
 class RichStackEvent(val underlying: StackEvent)
   extends AnyVal with PimpedType[StackEvent] {
   def stackIdOpt: Option[String] = Option(underlying.getStackId)

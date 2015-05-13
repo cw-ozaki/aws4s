@@ -1,7 +1,13 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{StackResourceDetail, DescribeStackResourceResult}
+import com.amazonaws.services.cloudformation.model.{DescribeStackResourceResult, StackResourceDetail}
 import org.sisioh.aws4s.PimpedType
+
+object DescribeStackResourceResultFactory {
+
+  def create(): DescribeStackResourceResult = new DescribeStackResourceResult()
+
+}
 
 class RichDescribeStackResourceResult(val underlying: DescribeStackResourceResult)
   extends AnyVal with PimpedType[DescribeStackResourceResult] {

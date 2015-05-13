@@ -3,6 +3,13 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.DeleteStackRequest
 import org.sisioh.aws4s.PimpedType
 
+object DeleteStackRequestFactory {
+
+  def create(): DeleteStackRequest = new DeleteStackRequest()
+
+
+}
+
 class RichDeleteStackRequest(val underlying: DeleteStackRequest)
   extends AnyVal with PimpedType[DeleteStackRequest] {
 

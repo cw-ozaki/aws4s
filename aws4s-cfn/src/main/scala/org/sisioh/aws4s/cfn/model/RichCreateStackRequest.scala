@@ -1,9 +1,15 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{Tag, Parameter, CreateStackRequest}
+import com.amazonaws.services.cloudformation.model.{CreateStackRequest, Parameter, Tag}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
+
+object CreateStackRequestFactory {
+
+  def create(): CreateStackRequest = new CreateStackRequest
+
+}
 
 class RichCreateStackRequest(val underlying: CreateStackRequest)
   extends AnyVal with PimpedType[CreateStackRequest] {

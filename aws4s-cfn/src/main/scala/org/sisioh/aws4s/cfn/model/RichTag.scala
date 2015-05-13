@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.Tag
 import org.sisioh.aws4s.PimpedType
 
+object TagFactory {
+
+  def create(): Tag = new Tag()
+
+}
+
 class RichTag(val underlying: Tag)
   extends AnyVal with PimpedType[Tag] {
 

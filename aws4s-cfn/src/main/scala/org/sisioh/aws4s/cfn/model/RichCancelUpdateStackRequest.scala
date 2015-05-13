@@ -3,6 +3,12 @@ package org.sisioh.aws4s.cfn.model
 import com.amazonaws.services.cloudformation.model.CancelUpdateStackRequest
 import org.sisioh.aws4s.PimpedType
 
+object CancelUpdateStackRequestFactory {
+
+  def create(): CancelUpdateStackRequest = new CancelUpdateStackRequest()
+
+}
+
 class RichCancelUpdateStackRequest(val underlying: CancelUpdateStackRequest)
   extends AnyVal with PimpedType[CancelUpdateStackRequest] {
 
