@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ ConfigurationOptionSetting, SourceConfiguration, CreateConfigurationTemplateRequest }
+import com.amazonaws.services.elasticbeanstalk.model.{ConfigurationOptionSetting, CreateConfigurationTemplateRequest, SourceConfiguration}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

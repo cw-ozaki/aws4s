@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.{ LoadBalancerDescription, EnvironmentResourcesDescription }
+import com.amazonaws.services.elasticbeanstalk.model.{EnvironmentResourcesDescription, LoadBalancerDescription}
 import org.sisioh.aws4s.PimpedType
 
 object EnvironmentResourcesDescriptionFactory {

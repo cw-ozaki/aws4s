@@ -2,7 +2,7 @@ package org.sisioh.aws4s.eb.model
 
 import java.util.Date
 
-import com.amazonaws.services.elasticbeanstalk.model.{ S3Location, ApplicationVersionDescription }
+import com.amazonaws.services.elasticbeanstalk.model.{ApplicationVersionDescription, S3Location}
 import org.sisioh.aws4s.PimpedType
 
 object ApplicationVersionDescriptionFactory {
