@@ -10,7 +10,7 @@ object RedirectRuleFactory {
 }
 
 class RichRedirectRule(val underlying: RedirectRule)
-  extends AnyVal with PimpedType[RedirectRule] {
+    extends AnyVal with PimpedType[RedirectRule] {
 
   def protocolOpt: Option[String] = Option(underlying.getprotocol())
 

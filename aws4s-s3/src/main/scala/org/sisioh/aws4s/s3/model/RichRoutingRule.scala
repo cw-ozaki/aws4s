@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.s3.model
 
-import com.amazonaws.services.s3.model.{RedirectRule, RoutingRule, RoutingRuleCondition}
+import com.amazonaws.services.s3.model.{ RedirectRule, RoutingRule, RoutingRuleCondition }
 import org.sisioh.aws4s.PimpedType
 
 object RoutingRuleFactory {
@@ -10,7 +10,7 @@ object RoutingRuleFactory {
 }
 
 class RichRoutingRule(val underlying: RoutingRule)
-  extends AnyVal with PimpedType[RoutingRule] {
+    extends AnyVal with PimpedType[RoutingRule] {
 
   def conditionOpt: Option[RoutingRuleCondition] = Option(underlying.getCondition)
 

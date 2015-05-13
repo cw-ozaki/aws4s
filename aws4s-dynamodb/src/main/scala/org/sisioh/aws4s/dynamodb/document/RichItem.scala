@@ -50,17 +50,17 @@ class RichItem(val underlying: Item) extends AnyVal with PimpedType[Item] {
   def toAttributes: Iterable[(String, Any)] = {
     underlying.attributes().asScala.map { e =>
       (e.getKey, e.getValue match {
-        case v: java.lang.Integer => v.toInt
-        case v: java.lang.Long => v.toLong
-        case v: java.lang.Short => v.toShort
-        case v: java.lang.Float => v.toFloat
-        case v: java.lang.Double => v.toDouble
-        case v: java.lang.Boolean => v
+        case v: java.lang.Integer    => v.toInt
+        case v: java.lang.Long       => v.toLong
+        case v: java.lang.Short      => v.toShort
+        case v: java.lang.Float      => v.toFloat
+        case v: java.lang.Double     => v.toDouble
+        case v: java.lang.Boolean    => v
         case v: java.math.BigDecimal => BigDecimal(v)
         case v: java.math.BigInteger => BigInt(v)
-        case v: util.Collection[_] => v.asScala
-        case v: util.Map[_, _] => v.asScala
-        case v => v
+        case v: util.Collection[_]   => v.asScala
+        case v: util.Map[_, _]       => v.asScala
+        case v                       => v
       })
     }.toIterable
   }
