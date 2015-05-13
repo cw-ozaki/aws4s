@@ -7,6 +7,8 @@ object DeleteTableRequestFactory {
 
   def create(): DeleteTableRequest = new DeleteTableRequest()
 
+  def create(tableName: String): DeleteTableRequest = new DeleteTableRequest(tableName)
+
 }
 
 class RichDeleteTableRequest(val underlying: DeleteTableRequest) extends AnyVal with PimpedType[DeleteTableRequest] {

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ ExpectedAttributeValue, AttributeValueUpdate, AttributeValue, UpdateItemRequest }
+import com.amazonaws.services.dynamodbv2.model._
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -8,6 +8,12 @@ import scala.collection.JavaConverters._
 object UpdateItemRequestFactory {
 
   def create(): UpdateItemRequest = new UpdateItemRequest()
+
+  def create(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate]): UpdateItemRequest = new UpdateItemRequest(tableName, key.asJava, attributeUpdates.asJava)
+
+  def create(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate], returnValues: String): UpdateItemRequest = new UpdateItemRequest(tableName, key.asJava, attributeUpdates.asJava, returnValues)
+
+  def create(tableName: String, key: Map[String, AttributeValue], attributeUpdates: Map[String, AttributeValueUpdate], returnValues: ReturnValue): UpdateItemRequest = new UpdateItemRequest(tableName, key.asJava, attributeUpdates.asJava, returnValues)
 
 }
 

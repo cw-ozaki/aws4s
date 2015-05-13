@@ -1,15 +1,15 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ AttributeAction, AttributeValue, AttributeValueUpdate }
+import com.amazonaws.services.dynamodbv2.model.{AttributeAction, AttributeValue, AttributeValueUpdate}
 import org.sisioh.aws4s.PimpedType
-
-import scala.reflect.ClassTag
 
 object AttributeValueUpdateFactory {
 
   def create: AttributeValueUpdate = new AttributeValueUpdate()
 
-  def create(value: AttributeValue, action: String): AttributeValueUpdate = new AttributeValueUpdate()
+  def create(value: AttributeValue, action: String): AttributeValueUpdate = new AttributeValueUpdate(value, action)
+
+  def create(value: AttributeValue, action: AttributeAction): AttributeValueUpdate = new AttributeValueUpdate(value, action)
 
 }
 

@@ -11,6 +11,8 @@ object PutItemRequestFactory {
 
   def create(tableName: String, item: Map[String, AttributeValue]): PutItemRequest = new PutItemRequest(tableName, item.asJava)
 
+  def create(tableName: String, item: Map[String, AttributeValue], returnValues: String): PutItemRequest = new PutItemRequest(tableName, item.asJava, returnValues)
+
   def create(tableName: String, item: Map[String, AttributeValue], returnValues: ReturnValue): PutItemRequest = new PutItemRequest(tableName, item.asJava, returnValues)
 
 }

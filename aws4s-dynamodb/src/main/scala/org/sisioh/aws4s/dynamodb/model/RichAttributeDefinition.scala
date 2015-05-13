@@ -1,10 +1,20 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.AttributeDefinition
+import com.amazonaws.services.dynamodbv2.model.{AttributeDefinition, ScalarAttributeType}
 import org.sisioh.aws4s.PimpedType
 
+object AttributeDefinitionFactory {
+
+  def create(): AttributeDefinition = new AttributeDefinition()
+
+  def create(attributeName: String, attributeType: String): AttributeDefinition = new AttributeDefinition(attributeName, attributeType)
+
+  def create(attributeName: String, attributeType: ScalarAttributeType): AttributeDefinition = new AttributeDefinition(attributeName, attributeType)
+
+}
+
 class RichAttributeDefinition(val underlying: AttributeDefinition)
-    extends AnyVal with PimpedType[AttributeDefinition] {
+  extends AnyVal with PimpedType[AttributeDefinition] {
 
   // ---
 

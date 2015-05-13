@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ BatchGetItemRequest, KeysAndAttributes, ReturnConsumedCapacity }
+import com.amazonaws.services.dynamodbv2.model.{BatchGetItemRequest, KeysAndAttributes, ReturnConsumedCapacity}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -21,8 +21,6 @@ object BatchGetItemRequestFactory {
 }
 
 class RichBatchGetItemRequest(val underlying: BatchGetItemRequest) extends AnyVal with PimpedType[BatchGetItemRequest] {
-
-  // ---
 
   def requestItemsOpt_=(values: Option[Map[String, KeysAndAttributes]]): Unit =
     underlying.setRequestItems(values.map(_.asJava).orNull)

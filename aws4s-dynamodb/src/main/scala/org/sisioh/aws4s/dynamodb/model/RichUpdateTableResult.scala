@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ TableDescription, UpdateTableResult }
+import com.amazonaws.services.dynamodbv2.model.{TableDescription, UpdateTableResult}
 import org.sisioh.aws4s.PimpedType
 
 object RichUpdateTableResultFactroy {

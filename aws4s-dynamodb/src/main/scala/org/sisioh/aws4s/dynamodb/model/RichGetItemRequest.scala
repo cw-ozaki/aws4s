@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ DeleteTableRequest, AttributeValue, GetItemRequest, ReturnConsumedCapacity }
+import com.amazonaws.services.dynamodbv2.model.{AttributeValue, GetItemRequest, ReturnConsumedCapacity}
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -10,6 +10,8 @@ object GetItemRequestFactory {
   def create(): GetItemRequest = new GetItemRequest()
 
   def create(tableName: String, key: Map[String, AttributeValue]): GetItemRequest = new GetItemRequest(tableName, key.asJava)
+
+  def create(tableName: String, key: Map[String, AttributeValue], consistentRead: Boolean): GetItemRequest = new GetItemRequest(tableName, key.asJava, consistentRead)
 
 }
 

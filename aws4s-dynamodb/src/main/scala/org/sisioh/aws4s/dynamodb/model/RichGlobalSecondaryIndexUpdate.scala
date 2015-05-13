@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.model
 
-import com.amazonaws.services.dynamodbv2.model.{ UpdateGlobalSecondaryIndexAction, GlobalSecondaryIndexUpdate }
+import com.amazonaws.services.dynamodbv2.model.{GlobalSecondaryIndexUpdate, UpdateGlobalSecondaryIndexAction}
 import org.sisioh.aws4s.PimpedType
 
 object GlobalSecondaryIndexUpdateFactory {
