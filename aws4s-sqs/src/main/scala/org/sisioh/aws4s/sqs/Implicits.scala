@@ -66,8 +66,6 @@ trait ModelImplicits {
 
   implicit def richPurgeQueueRequest(underlying: PurgeQueueRequest): RichPurgeQueueRequest = new RichPurgeQueueRequest(underlying)
 
-  implicit def richQueueAttributeName(underlying: QueueAttributeName): RichQueueAttributeName = new RichQueueAttributeName(underlying)
-
   implicit def richReceiveMessageRequest(underlying: ReceiveMessageRequest): RichReceiveMessageRequest = new RichReceiveMessageRequest(underlying)
 
   implicit def richReceiveMessageResult(underlying: ReceiveMessageResult): RichReceiveMessageResult = new RichReceiveMessageResult(underlying)

@@ -6,4 +6,22 @@ import org.sisioh.aws4s.PimpedType
 class RichGetQueueUrlRequest(val underlying: GetQueueUrlRequest)
     extends AnyVal with PimpedType[GetQueueUrlRequest] {
 
+  def queueNameOpt: Option[String] = Option(underlying.getQueueName)
+
+  def queueNameOpt_=(value: Option[String]): Unit =
+    underlying.setQueueName(value.orNull)
+
+  def withQueueNameOpt(value: Option[String]): GetQueueUrlRequest =
+    underlying.withQueueName(value.orNull)
+
+  // ---
+
+  def queueOwnerAWSAccountIdOpt: Option[String] = Option(underlying.getQueueOwnerAWSAccountId)
+
+  def queueOwnerAWSAccountIdOpt_=(value: Option[String]): Unit =
+    underlying.setQueueOwnerAWSAccountId(value.orNull)
+
+  def withQueueOwnerAWSAccountIdOpt(value: Option[String]): GetQueueUrlRequest =
+    underlying.withQueueOwnerAWSAccountId(value.orNull)
+
 }
