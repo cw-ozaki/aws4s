@@ -1,12 +1,12 @@
 package org.sisioh.aws4s.sqs.model
 
-import com.amazonaws.services.sqs.model.{MessageAttributeValue, SendMessageBatchRequestEntry}
+import com.amazonaws.services.sqs.model.{ MessageAttributeValue, SendMessageBatchRequestEntry }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
 class RichSendMessageBatchRequestEntry(val underlying: SendMessageBatchRequestEntry)
-  extends AnyVal with PimpedType[SendMessageBatchRequestEntry] {
+    extends AnyVal with PimpedType[SendMessageBatchRequestEntry] {
 
   def idOpt: Option[String] = Option(underlying.getId)
 

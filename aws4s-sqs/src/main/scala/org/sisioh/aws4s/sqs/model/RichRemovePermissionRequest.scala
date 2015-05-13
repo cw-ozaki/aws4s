@@ -4,7 +4,7 @@ import com.amazonaws.services.sqs.model.RemovePermissionRequest
 import org.sisioh.aws4s.PimpedType
 
 class RichRemovePermissionRequest(val underlying: RemovePermissionRequest)
-  extends AnyVal with PimpedType[RemovePermissionRequest] {
+    extends AnyVal with PimpedType[RemovePermissionRequest] {
 
   def queueUrlOpt: Option[String] = Option(underlying.getQueueUrl)
 

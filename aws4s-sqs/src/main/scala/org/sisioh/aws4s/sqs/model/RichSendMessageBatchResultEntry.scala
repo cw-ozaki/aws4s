@@ -4,7 +4,7 @@ import com.amazonaws.services.sqs.model.SendMessageBatchResultEntry
 import org.sisioh.aws4s.PimpedType
 
 class RichSendMessageBatchResultEntry(val underlying: SendMessageBatchResultEntry)
-  extends AnyVal with PimpedType[SendMessageBatchResultEntry] {
+    extends AnyVal with PimpedType[SendMessageBatchResultEntry] {
 
   def idOpt: Option[String] = Option(underlying.getId)
 

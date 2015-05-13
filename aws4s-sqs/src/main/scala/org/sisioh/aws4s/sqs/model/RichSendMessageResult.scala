@@ -4,7 +4,7 @@ import com.amazonaws.services.sqs.model.SendMessageResult
 import org.sisioh.aws4s.PimpedType
 
 class RichSendMessageResult(val underlying: SendMessageResult)
-  extends AnyVal with PimpedType[SendMessageResult] {
+    extends AnyVal with PimpedType[SendMessageResult] {
 
   def md5OfMessageBodyOpt: Option[String] = Option(underlying.getMD5OfMessageBody)
 

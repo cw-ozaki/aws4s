@@ -6,7 +6,7 @@ import org.sisioh.aws4s.PimpedType
 import scala.collection.JavaConverters._
 
 class RichAddPermissionRequest(val underlying: AddPermissionRequest)
-  extends AnyVal with PimpedType[AddPermissionRequest] {
+    extends AnyVal with PimpedType[AddPermissionRequest] {
 
   def queueUrlOpt: Option[String] = Option(underlying.getQueueUrl)
 

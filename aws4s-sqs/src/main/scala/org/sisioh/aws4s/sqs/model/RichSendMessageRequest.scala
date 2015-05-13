@@ -1,12 +1,12 @@
 package org.sisioh.aws4s.sqs.model
 
-import com.amazonaws.services.sqs.model.{MessageAttributeValue, SendMessageRequest}
+import com.amazonaws.services.sqs.model.{ MessageAttributeValue, SendMessageRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
 class RichSendMessageRequest(val underlying: SendMessageRequest)
-  extends AnyVal with PimpedType[SendMessageRequest] {
+    extends AnyVal with PimpedType[SendMessageRequest] {
 
   def queueUrlOpt: Option[String] = Option(underlying.getQueueUrl)
 

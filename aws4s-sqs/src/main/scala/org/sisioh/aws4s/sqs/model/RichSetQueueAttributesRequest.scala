@@ -6,7 +6,7 @@ import org.sisioh.aws4s.PimpedType
 import scala.collection.JavaConverters._
 
 class RichSetQueueAttributesRequest(val underlying: SetQueueAttributesRequest)
-  extends AnyVal with PimpedType[SetQueueAttributesRequest] {
+    extends AnyVal with PimpedType[SetQueueAttributesRequest] {
 
   def queueUrlOpt: Option[String] = Option(underlying.getQueueUrl)
 
