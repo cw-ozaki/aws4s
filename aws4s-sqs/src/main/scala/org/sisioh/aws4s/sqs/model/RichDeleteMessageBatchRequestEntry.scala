@@ -5,6 +5,11 @@ import org.sisioh.aws4s.PimpedType
 
 object DeleteMessageBatchRequestEntryFactory {
 
+  def create(): DeleteMessageBatchRequestEntry = new DeleteMessageBatchRequestEntry()
+
+  def create(id: String, receiptHandle: String): DeleteMessageBatchRequestEntry =
+    new DeleteMessageBatchRequestEntry(id, receiptHandle)
+
 }
 
 class RichDeleteMessageBatchRequestEntry(val underlying: DeleteMessageBatchRequestEntry)
