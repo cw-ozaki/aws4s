@@ -7,6 +7,8 @@ object CreateApplicationRequestFactory {
 
   def create(): CreateApplicationRequest = new CreateApplicationRequest()
 
+  def create(applicationName: String): CreateApplicationRequest = new CreateApplicationRequest(applicationName)
+
 }
 
 class RichCreateApplicationRequest(val underlying: CreateApplicationRequest)
