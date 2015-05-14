@@ -60,7 +60,7 @@ class RichTable(val underlying: Table) extends AnyVal with PimpedType[Table] {
   def scan(filterExpression: String, projectionExpression: String, nameMap: Map[String, String], valueMap: Map[String, AnyRef]): ItemCollection[ScanOutcome] =
     underlying.scan(filterExpression, projectionExpression, nameMap.asJava, valueMap.asJava)
 
-  //  def updateItem(primaryKey: PrimaryKey, expected: Iterable[Expected], attributeUpdates: RichAttributeUpdate*): UpdateItemOutcome =
+  //  def updateItem(primaryKey: PrimaryKey, expected: Iterable[Expected], attributeUpdates: org.sisioh.aws4s.dynamodb.hoge.model.RichAttributeUpdate*): UpdateItemOutcome =
   //    underlying.updateItem(primaryKey, expected.toSeq.asJava, attributeUpdates: _*)
 
   def updateItem(primaryKey: PrimaryKey, updateExpression: String, nameMap: Map[String, String], valueMap: Map[String, AnyRef]): UpdateItemOutcome =
@@ -69,13 +69,13 @@ class RichTable(val underlying: Table) extends AnyVal with PimpedType[Table] {
   def updateItem(primaryKey: PrimaryKey, updateExpression: String, conditionExpression: String, nameMap: Map[String, String], valueMap: Map[String, AnyRef]): UpdateItemOutcome =
     underlying.updateItem(primaryKey, updateExpression, conditionExpression, nameMap.asJava, valueMap.asJava)
 
-  //  def  updateItem(hashKeyName: String, hashKeyValue: AnyRef, expected: Iterable[Expected], attributeUpdates: RichAttributeUpdate*): UpdateItemOutcome =
+  //  def  updateItem(hashKeyName: String, hashKeyValue: AnyRef, expected: Iterable[Expected], attributeUpdates: org.sisioh.aws4s.dynamodb.hoge.model.RichAttributeUpdate*): UpdateItemOutcome =
   //    underlying.updateItem(hashKeyName, hashKeyValue, expected.toSeq.asJava, attributeUpdates: _*)
 
   def updateItem(hashKeyName: String, hashKeyValue: AnyRef, updateExpression: String, nameMap: Map[String, String], valueMap: Map[String, AnyRef]): UpdateItemOutcome =
     underlying.updateItem(hashKeyName, hashKeyValue, updateExpression, nameMap.asJava, valueMap.asJava)
 
-  //  def  updateItem(hashKeyName: String, hashKeyValue: AnyRef, rangeKeyName: String, rangeKeyValue: AnyRef, expected: Iterable[Expected], attributeUpdates: RichAttributeUpdate *): UpdateItemOutcome =
+  //  def  updateItem(hashKeyName: String, hashKeyValue: AnyRef, rangeKeyName: String, rangeKeyValue: AnyRef, expected: Iterable[Expected], attributeUpdates: org.sisioh.aws4s.dynamodb.hoge.model.RichAttributeUpdate *): UpdateItemOutcome =
   //    underlying.updateItem(hashKeyName, hashKeyValue, rangeKeyName, rangeKeyValue, expected.toSeq.asJava, attributeUpdates: _*)
 
   def updateItem(hashKeyName: String, hashKeyValue: AnyRef, rangeKeyName: String, rangeKeyValue: AnyRef, updateExpression: String, nameMap: Map[String, String], valueMap: Map[String, AnyRef]): UpdateItemOutcome =

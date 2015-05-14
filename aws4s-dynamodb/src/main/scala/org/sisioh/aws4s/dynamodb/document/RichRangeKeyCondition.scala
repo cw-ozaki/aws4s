@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{ KeyConditions, RangeKeyCondition }
+import com.amazonaws.services.dynamodbv2.document.{KeyConditions, RangeKeyCondition}
 import org.sisioh.aws4s.PimpedType
 
 object RangeKeyConditionFactory {

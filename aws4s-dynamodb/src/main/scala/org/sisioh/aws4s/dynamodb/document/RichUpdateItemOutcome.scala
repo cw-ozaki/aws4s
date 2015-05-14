@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{ Item, UpdateItemOutcome }
+import com.amazonaws.services.dynamodbv2.document.{Item, UpdateItemOutcome}
 import com.amazonaws.services.dynamodbv2.model.UpdateItemResult
 import org.sisioh.aws4s.PimpedType
 

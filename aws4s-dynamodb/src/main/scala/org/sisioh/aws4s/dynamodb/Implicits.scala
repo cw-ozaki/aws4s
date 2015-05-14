@@ -2,7 +2,7 @@ package org.sisioh.aws4s.dynamodb
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.document._
-import com.amazonaws.services.dynamodbv2.document.internal.{ Filter, PageBasedCollection }
+import com.amazonaws.services.dynamodbv2.document.internal.{Filter, PageBasedCollection}
 import com.amazonaws.services.dynamodbv2.model._
 import org.sisioh.aws4s.dynamodb.document._
 import org.sisioh.aws4s.dynamodb.model._
@@ -17,55 +17,51 @@ trait Implicits extends DocumentImplicits with ModelImplicits {
 
 trait DocumentImplicits {
 
-  // -- Query/Scan
-  implicit def richQueryOutcome(underlying: QueryOutcome): RichQueryOutcome = new RichQueryOutcome(underlying)
+  implicit def richAttribute(underlying: Attribute): RichAttribute = new RichAttribute(underlying)
 
-  implicit def richScanOutcome(underlying: ScanOutcome): RichScanOutcome = new RichScanOutcome(underlying)
-
-  // -- Table
-
-  implicit def richTableWriteItems(underlying: TableWriteItems): RichTableWriteItems = new RichTableWriteItems(underlying)
-
-  // -- Item
-
-  implicit def richItem(underlying: Item): RichItem = new RichItem(underlying)
-
-  implicit def richGetItemOutcome(underlying: GetItemOutcome): RichGetItemOutcome = new RichGetItemOutcome(underlying)
-
-  implicit def richUpdateItemOutcome(underlying: UpdateItemOutcome): RichUpdateItemOutcome = new RichUpdateItemOutcome(underlying)
-
-  // -- Batch Item
+  implicit def richAttributeUpdate(underlying: AttributeUpdate): RichAttributeUpdate = new RichAttributeUpdate(underlying)
 
   implicit def richBatchGetItemOutcome(underlying: BatchGetItemOutcome): RichBatchGetItemOutcome = new RichBatchGetItemOutcome(underlying)
 
   implicit def richBatchWriteItemOutcome(underlying: BatchWriteItemOutcome): RichBatchWriteItemOutcome = new RichBatchWriteItemOutcome(underlying)
 
-  // -- Condition
+  implicit def richDeleteItemOutcome(underlying: DeleteItemOutcome): RichDeleteItemOutcome = new RichDeleteItemOutcome(underlying)
+
+  implicit def richDynamoDB(underlying: DynamoDB): RichDynamoDB = new RichDynamoDB(underlying)
+
+  implicit def richExpected(underlying: Expected): RichExpected = new RichExpected(underlying)
+
+  implicit def richFilter[A <: Filter[A]](underlying: Filter[A]): RichFilter[A] = new RichFilter[A](underlying)
+
+  implicit def richGetItemOutcome(underlying: GetItemOutcome): RichGetItemOutcome = new RichGetItemOutcome(underlying)
+
+  implicit def richIndex(underlying: Index): RichIndex = new RichIndex(underlying)
+
+  implicit def richItem(underlying: Item): RichItem = new RichItem(underlying)
+
+  implicit def richItemCollection[A](underlying: ItemCollection[A]): RichItemCollection[A] = new RichItemCollection(underlying)
+
+  implicit def richPage[A,B](underlying: Page[A,B]): RichPage[A, B] = new RichPage(underlying)
+
+  implicit def richPageBasedCollection[A, B](underlying: PageBasedCollection[A, B]): RichPageBasedCollection[A, B] = new RichPageBasedCollection(underlying)
+
+  implicit def richPrimaryKey(underlying: PrimaryKey): RichPrimaryKey = new RichPrimaryKey(underlying)
+
+  implicit def richPutItemOutcome(underlying: PutItemOutcome): RichPutItemOutcome = new RichPutItemOutcome(underlying)
+
+  implicit def richQueryOutcome(underlying: QueryOutcome): RichQueryOutcome = new RichQueryOutcome(underlying)
 
   implicit def richRangeKeyCondition(underlying: RangeKeyCondition): RichRangeKeyCondition = new RichRangeKeyCondition(underlying)
 
-  // -- DynamoDB
-
-  implicit def richDynamoDB(underlying: DynamoDB): RichDynamoDB = new RichDynamoDB(underlying)
+  implicit def richScanOutcome(underlying: ScanOutcome): RichScanOutcome = new RichScanOutcome(underlying)
 
   implicit def richTable(underlying: Table): RichTable = new RichTable(underlying)
 
   implicit def richTableKeysAndAttributes(underlying: TableKeysAndAttributes): RichTableKeysAndAttributes = new RichTableKeysAndAttributes(underlying)
 
-  implicit def richRichItemCollection[R](underlying: ItemCollection[R]): RichItemCollection[R] = new RichItemCollection[R](underlying)
+  implicit def richTableWriteItems(underlying: TableWriteItems): RichTableWriteItems = new RichTableWriteItems(underlying)
 
-  implicit def richPrimaryKey(underlying: PrimaryKey): RichPrimaryKey = new RichPrimaryKey(underlying)
-
-  implicit def richIndex(underlying: Index): RichIndex = new RichIndex(underlying)
-
-  implicit def richAttributeUpdate(underlying: AttributeUpdate): RichAttributeUpdate = new RichAttributeUpdate(underlying)
-
-  // -- Other
-
-  implicit def richFilter[T <: Filter[T]](filter: Filter[T]): RichFilter[T] = new RichFilter[T](filter)
-
-  implicit def richPageBasedCollection[T, R](underlying: PageBasedCollection[T, R]): RichPageBasedCollection[T, R] = new RichPageBasedCollection[T, R](underlying)
-
+  implicit def richUpdateItemOutcome(underlying: UpdateItemOutcome): RichUpdateItemOutcome = new RichUpdateItemOutcome(underlying)
 }
 
 trait ModelImplicits {
