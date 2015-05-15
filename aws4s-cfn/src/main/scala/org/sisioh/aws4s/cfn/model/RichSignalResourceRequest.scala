@@ -10,7 +10,7 @@ object SignalResourceRequestFactory {
 }
 
 class RichSignalResourceRequest(val underlying: SignalResourceRequest)
-  extends AnyVal with PimpedType[SignalResourceRequest] {
+    extends AnyVal with PimpedType[SignalResourceRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

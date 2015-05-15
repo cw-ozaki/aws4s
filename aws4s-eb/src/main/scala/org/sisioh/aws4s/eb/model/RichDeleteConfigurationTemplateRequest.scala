@@ -7,6 +7,9 @@ object DeleteConfigurationTemplateRequestFactory {
 
   def create(): DeleteConfigurationTemplateRequest = new DeleteConfigurationTemplateRequest()
 
+  def create(applicationName: String, templateName: String): DeleteConfigurationTemplateRequest =
+    new DeleteConfigurationTemplateRequest(applicationName, templateName)
+
 }
 
 class RichDeleteConfigurationTemplateRequest(val underlying: DeleteConfigurationTemplateRequest)

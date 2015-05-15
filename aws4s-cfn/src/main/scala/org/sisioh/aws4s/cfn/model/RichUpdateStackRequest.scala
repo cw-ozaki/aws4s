@@ -1,18 +1,18 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{Parameter, UpdateStackRequest}
+import com.amazonaws.services.cloudformation.model.{ Parameter, UpdateStackRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
 object UpdateStackRequestFactory {
-  
+
   def create(): UpdateStackRequest = new UpdateStackRequest()
 
 }
 
 class RichUpdateStackRequest(val underlying: UpdateStackRequest)
-  extends AnyVal with PimpedType[UpdateStackRequest] {
+    extends AnyVal with PimpedType[UpdateStackRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 
@@ -71,7 +71,6 @@ class RichUpdateStackRequest(val underlying: UpdateStackRequest)
 
   def withStackPolicyDuringUpdateURLOpt_=(value: Option[String]): UpdateStackRequest =
     underlying.withStackPolicyDuringUpdateURL(value.orNull)
-
 
   // ---
 

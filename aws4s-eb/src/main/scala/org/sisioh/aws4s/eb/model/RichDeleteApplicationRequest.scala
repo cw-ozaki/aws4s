@@ -7,6 +7,8 @@ object DeleteApplicationRequestFactory {
 
   def create(): DeleteApplicationRequest = new DeleteApplicationRequest()
 
+  def create(applicationName: String): DeleteApplicationRequest = new DeleteApplicationRequest(applicationName)
+
 }
 
 class RichDeleteApplicationRequest(val underlying: DeleteApplicationRequest)

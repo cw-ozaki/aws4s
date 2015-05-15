@@ -12,7 +12,7 @@ object StackResourceFactory {
 }
 
 class RichStackResource(val underlying: StackResource)
-  extends AnyVal with PimpedType[StackResource] {
+    extends AnyVal with PimpedType[StackResource] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

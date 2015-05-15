@@ -7,6 +7,9 @@ object DeleteEnvironmentConfigurationRequestFactory {
 
   def create(): DeleteEnvironmentConfigurationRequest = new DeleteEnvironmentConfigurationRequest()
 
+  def create(applicationName: String, environmentName: String): DeleteEnvironmentConfigurationRequest =
+    new DeleteEnvironmentConfigurationRequest(applicationName, environmentName)
+
 }
 
 class RichDeleteEnvironmentConfigurationRequest(val underlying: DeleteEnvironmentConfigurationRequest)

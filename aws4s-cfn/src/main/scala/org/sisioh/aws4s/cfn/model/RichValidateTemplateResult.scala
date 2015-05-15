@@ -12,7 +12,7 @@ object ValidateTemplateResult {
 }
 
 class RichValidateTemplateResult(val underlying: ValidateTemplateResult)
-  extends AnyVal with PimpedType[ValidateTemplateResult] {
+    extends AnyVal with PimpedType[ValidateTemplateResult] {
 
   def parameters: Seq[TemplateParameter] = underlying.getParameters.asScala.toVector
 

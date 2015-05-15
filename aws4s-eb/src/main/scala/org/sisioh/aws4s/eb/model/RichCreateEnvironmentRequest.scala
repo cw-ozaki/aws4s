@@ -9,6 +9,9 @@ object CreateEnvironmentRequestFactory {
 
   def create(): CreateEnvironmentRequest = new CreateEnvironmentRequest()
 
+  def create(applicationName: String, environmentName: String): CreateEnvironmentRequest =
+    new CreateEnvironmentRequest(applicationName, environmentName)
+
 }
 
 class RichCreateEnvironmentRequest(val underlying: CreateEnvironmentRequest)

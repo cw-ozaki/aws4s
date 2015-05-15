@@ -7,11 +7,10 @@ object DeleteStackRequestFactory {
 
   def create(): DeleteStackRequest = new DeleteStackRequest()
 
-
 }
 
 class RichDeleteStackRequest(val underlying: DeleteStackRequest)
-  extends AnyVal with PimpedType[DeleteStackRequest] {
+    extends AnyVal with PimpedType[DeleteStackRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

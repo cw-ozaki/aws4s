@@ -10,7 +10,7 @@ object DescribeStackResourcesRequestFactory {
 }
 
 class RichDescribeStackResourcesRequest(val underlying: DescribeStackResourcesRequest)
-  extends AnyVal with PimpedType[DescribeStackResourcesRequest] {
+    extends AnyVal with PimpedType[DescribeStackResourcesRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 
@@ -39,6 +39,5 @@ class RichDescribeStackResourcesRequest(val underlying: DescribeStackResourcesRe
 
   def withPhysicalResourceIdOpt(value: Option[String]): DescribeStackResourcesRequest =
     underlying.withPhysicalResourceId(value.orNull)
-
 
 }

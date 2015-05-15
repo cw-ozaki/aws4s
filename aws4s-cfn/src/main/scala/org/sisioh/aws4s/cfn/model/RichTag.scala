@@ -10,7 +10,7 @@ object TagFactory {
 }
 
 class RichTag(val underlying: Tag)
-  extends AnyVal with PimpedType[Tag] {
+    extends AnyVal with PimpedType[Tag] {
 
   def keyOpt: Option[String] = Option(underlying.getKey)
 

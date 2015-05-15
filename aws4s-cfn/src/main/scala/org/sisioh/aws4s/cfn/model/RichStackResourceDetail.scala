@@ -11,9 +11,8 @@ object StackResourceDetailFactory {
 
 }
 
-
 class RichStackResourceDetail(val underlying: StackResourceDetail)
-  extends AnyVal with PimpedType[StackResourceDetail] {
+    extends AnyVal with PimpedType[StackResourceDetail] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

@@ -10,7 +10,7 @@ object UpdateStackResultFactory {
 }
 
 class RichUpdateStackResult(val underlying: UpdateStackResult)
-  extends AnyVal with PimpedType[UpdateStackResult] {
+    extends AnyVal with PimpedType[UpdateStackResult] {
 
   def stackIdOpt: Option[String] = Option(underlying.getStackId)
 

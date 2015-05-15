@@ -12,7 +12,7 @@ object StackSummaryFactory {
 }
 
 class RichStackSummary(val underlying: StackSummary)
-  extends AnyVal with PimpedType[StackSummary] {
+    extends AnyVal with PimpedType[StackSummary] {
 
   def stackIdOpt: Option[String] = Option(underlying.getStackId)
 

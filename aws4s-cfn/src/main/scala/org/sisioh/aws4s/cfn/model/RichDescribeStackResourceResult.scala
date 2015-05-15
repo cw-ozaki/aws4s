@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{DescribeStackResourceResult, StackResourceDetail}
+import com.amazonaws.services.cloudformation.model.{ DescribeStackResourceResult, StackResourceDetail }
 import org.sisioh.aws4s.PimpedType
 
 object DescribeStackResourceResultFactory {
@@ -10,7 +10,7 @@ object DescribeStackResourceResultFactory {
 }
 
 class RichDescribeStackResourceResult(val underlying: DescribeStackResourceResult)
-  extends AnyVal with PimpedType[DescribeStackResourceResult] {
+    extends AnyVal with PimpedType[DescribeStackResourceResult] {
 
   def stackResourceDetailOpt: Option[StackResourceDetail] = Option(underlying.getStackResourceDetail)
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{ListStacksResult, StackSummary}
+import com.amazonaws.services.cloudformation.model.{ ListStacksResult, StackSummary }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object ListStacksResultFactory {
 }
 
 class RichListStacksResult(val underlying: ListStacksResult)
-  extends AnyVal with PimpedType[ListStacksResult] {
+    extends AnyVal with PimpedType[ListStacksResult] {
 
   def stackSummaries: Seq[StackSummary] = underlying.getStackSummaries.asScala.toVector
 

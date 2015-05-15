@@ -7,6 +7,8 @@ object UpdateApplicationRequestFactory {
 
   def create(): UpdateApplicationRequest = new UpdateApplicationRequest()
 
+  def create(applicationName: String): UpdateApplicationRequest = new UpdateApplicationRequest(applicationName)
+
 }
 
 class RichUpdateApplicationRequest(val underlying: UpdateApplicationRequest)

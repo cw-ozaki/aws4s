@@ -9,6 +9,9 @@ object ValidateConfigurationSettingsRequestFactory {
 
   def create(): ValidateConfigurationSettingsRequest = new ValidateConfigurationSettingsRequest()
 
+  def create(applicationName: String, optionSettings: Seq[ConfigurationOptionSetting]): ValidateConfigurationSettingsRequest =
+    new ValidateConfigurationSettingsRequest(applicationName, optionSettings.asJava)
+
 }
 
 class RichValidateConfigurationSettingsRequest(val underlying: ValidateConfigurationSettingsRequest)

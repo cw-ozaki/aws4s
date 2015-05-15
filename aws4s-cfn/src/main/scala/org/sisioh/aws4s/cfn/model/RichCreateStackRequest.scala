@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{CreateStackRequest, Parameter, Tag}
+import com.amazonaws.services.cloudformation.model.{ CreateStackRequest, Parameter, Tag }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object CreateStackRequestFactory {
 }
 
 class RichCreateStackRequest(val underlying: CreateStackRequest)
-  extends AnyVal with PimpedType[CreateStackRequest] {
+    extends AnyVal with PimpedType[CreateStackRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

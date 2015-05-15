@@ -7,6 +7,9 @@ object ConfigurationOptionSettingFactory {
 
   def create: ConfigurationOptionSetting = new ConfigurationOptionSetting()
 
+  def create(namespace: String, optionName: String, value: String): ConfigurationOptionSetting =
+    new ConfigurationOptionSetting(namespace, optionName, value)
+
 }
 
 class RichConfigurationOptionSetting(val underlying: ConfigurationOptionSetting)

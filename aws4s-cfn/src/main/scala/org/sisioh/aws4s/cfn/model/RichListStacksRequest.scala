@@ -12,7 +12,7 @@ object ListStacksRequestFactory {
 }
 
 class RichListStacksRequest(val underlying: ListStacksRequest)
-  extends AnyVal with PimpedType[ListStacksRequest] {
+    extends AnyVal with PimpedType[ListStacksRequest] {
 
   def nextTokenOpt: Option[String] = Option(underlying.getNextToken)
 

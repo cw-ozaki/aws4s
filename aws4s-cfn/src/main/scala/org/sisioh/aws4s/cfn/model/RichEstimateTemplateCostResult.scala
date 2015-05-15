@@ -9,9 +9,8 @@ object EstimateTemplateCostResultFactory {
 
 }
 
-
 class RichEstimateTemplateCostResult(val underlying: EstimateTemplateCostResult)
-  extends AnyVal with PimpedType[EstimateTemplateCostResult] {
+    extends AnyVal with PimpedType[EstimateTemplateCostResult] {
 
   def urlOpt: Option[String] = Option(underlying.getUrl)
 

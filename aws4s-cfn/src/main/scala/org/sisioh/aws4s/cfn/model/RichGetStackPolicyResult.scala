@@ -10,7 +10,7 @@ object GetStackPolicyResultFactory {
 }
 
 class RichGetStackPolicyResult(val underlying: GetStackPolicyResult)
-  extends AnyVal with PimpedType[GetStackPolicyResult] {
+    extends AnyVal with PimpedType[GetStackPolicyResult] {
 
   def stackPolicyBodyOpt: Option[String] = Option(underlying.getStackPolicyBody)
 
@@ -19,6 +19,5 @@ class RichGetStackPolicyResult(val underlying: GetStackPolicyResult)
 
   def withStackPolicyBodyOpt(value: Option[String]): GetStackPolicyResult =
     underlying.withStackPolicyBody(value.orNull)
-
 
 }

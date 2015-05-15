@@ -10,7 +10,7 @@ object CancelUpdateStackRequestFactory {
 }
 
 class RichCancelUpdateStackRequest(val underlying: CancelUpdateStackRequest)
-  extends AnyVal with PimpedType[CancelUpdateStackRequest] {
+    extends AnyVal with PimpedType[CancelUpdateStackRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{DescribeStacksResult, Stack}
+import com.amazonaws.services.cloudformation.model.{ DescribeStacksResult, Stack }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object DescribeStacksResultFactory {
 }
 
 class RichDescribeStacksResult(val underlying: DescribeStacksResult)
-  extends AnyVal with PimpedType[DescribeStacksResult] {
+    extends AnyVal with PimpedType[DescribeStacksResult] {
 
   def stacks: Seq[Stack] = underlying.getStacks.asScala.toVector
 

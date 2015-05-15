@@ -10,7 +10,7 @@ object ParameterFactory {
 }
 
 class RichParameter(val underlying: Parameter)
-  extends AnyVal with PimpedType[Parameter] {
+    extends AnyVal with PimpedType[Parameter] {
 
   def parameterKeyOpt: Option[String] = Option(underlying.getParameterKey)
 

@@ -9,6 +9,9 @@ object CreateConfigurationTemplateRequestFactory {
 
   def create(): CreateConfigurationTemplateRequest = new CreateConfigurationTemplateRequest()
 
+  def create(applicationName: String, templateName: String): CreateConfigurationTemplateRequest =
+    new CreateConfigurationTemplateRequest(applicationName, templateName)
+
 }
 
 class RichCreateConfigurationTemplateRequest(val underlying: CreateConfigurationTemplateRequest)

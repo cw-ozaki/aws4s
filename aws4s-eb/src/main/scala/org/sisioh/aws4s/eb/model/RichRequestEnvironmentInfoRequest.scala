@@ -1,11 +1,15 @@
 package org.sisioh.aws4s.eb.model
 
-import com.amazonaws.services.elasticbeanstalk.model.RequestEnvironmentInfoRequest
+import com.amazonaws.services.elasticbeanstalk.model.{ EnvironmentInfoType, RequestEnvironmentInfoRequest }
 import org.sisioh.aws4s.PimpedType
 
 object RequestEnvironmentInfoRequestFactory {
 
   def create(): RequestEnvironmentInfoRequest = new RequestEnvironmentInfoRequest()
+
+  def create(infoType: String): RequestEnvironmentInfoRequest = new RequestEnvironmentInfoRequest(infoType)
+
+  def create(infoType: EnvironmentInfoType): RequestEnvironmentInfoRequest = new RequestEnvironmentInfoRequest(infoType)
 
 }
 

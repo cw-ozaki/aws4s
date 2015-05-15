@@ -12,7 +12,7 @@ object StackEventFactory {
 }
 
 class RichStackEvent(val underlying: StackEvent)
-  extends AnyVal with PimpedType[StackEvent] {
+    extends AnyVal with PimpedType[StackEvent] {
   def stackIdOpt: Option[String] = Option(underlying.getStackId)
 
   def stackIdOpt_=(value: Option[String]): Unit =

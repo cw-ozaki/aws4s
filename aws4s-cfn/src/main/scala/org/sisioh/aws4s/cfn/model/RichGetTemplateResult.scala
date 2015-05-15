@@ -10,7 +10,7 @@ object GetTemplateResultFactory {
 }
 
 class RichGetTemplateResult(val underlying: GetTemplateResult)
-  extends AnyVal with PimpedType[GetTemplateResult] {
+    extends AnyVal with PimpedType[GetTemplateResult] {
 
   def templateBodyOpt: Option[String] = Option(underlying.getTemplateBody)
 

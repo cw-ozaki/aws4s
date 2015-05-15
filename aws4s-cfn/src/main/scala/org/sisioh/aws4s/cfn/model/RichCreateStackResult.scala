@@ -10,7 +10,7 @@ object CreateStackResultFactroy {
 }
 
 class RichCreateStackResult(val underlying: CreateStackResult)
-  extends AnyVal with PimpedType[CreateStackResult] {
+    extends AnyVal with PimpedType[CreateStackResult] {
 
   def stackIdOpt: Option[String] = Option(underlying.getStackId)
 

@@ -12,7 +12,7 @@ object StackResourceSummaryFactory {
 }
 
 class RichStackResourceSummary(val underlying: StackResourceSummary)
-  extends AnyVal with PimpedType[StackResourceSummary] {
+    extends AnyVal with PimpedType[StackResourceSummary] {
 
   def logicalResourceIdOpt = Option(underlying.getLogicalResourceId)
 

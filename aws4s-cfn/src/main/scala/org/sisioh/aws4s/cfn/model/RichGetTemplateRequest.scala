@@ -10,7 +10,7 @@ object GetTemplateRequestFactory {
 }
 
 class RichGetTemplateRequest(val underlying: GetTemplateRequest)
-  extends AnyVal with PimpedType[GetTemplateRequest] {
+    extends AnyVal with PimpedType[GetTemplateRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

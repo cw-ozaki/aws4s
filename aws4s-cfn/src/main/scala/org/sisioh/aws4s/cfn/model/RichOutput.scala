@@ -10,7 +10,7 @@ object OutputFactory {
 }
 
 class RichOutput(val underlying: Output)
-  extends AnyVal with PimpedType[Output] {
+    extends AnyVal with PimpedType[Output] {
 
   def outputKeyOpt: Option[String] = Option(underlying.getOutputKey)
 

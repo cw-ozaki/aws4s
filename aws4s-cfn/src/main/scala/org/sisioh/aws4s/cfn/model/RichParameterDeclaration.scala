@@ -6,11 +6,11 @@ import org.sisioh.aws4s.PimpedType
 object ParameterDeclarationFactory {
 
   def create(): ParameterDeclaration = new ParameterDeclaration()
-  
+
 }
 
 class RichParameterDeclaration(val underlying: ParameterDeclaration)
-  extends AnyVal with PimpedType[ParameterDeclaration] {
+    extends AnyVal with PimpedType[ParameterDeclaration] {
 
   def parameterKeyOpt: Option[String] = Option(underlying.getParameterKey)
 

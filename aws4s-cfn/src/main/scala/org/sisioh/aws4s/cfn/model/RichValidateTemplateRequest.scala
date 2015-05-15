@@ -10,7 +10,7 @@ object ValidateTemplateRequestFactory {
 }
 
 class RichValidateTemplateRequest(val underlying: ValidateTemplateRequest)
-  extends AnyVal with PimpedType[ValidateTemplateRequest] {
+    extends AnyVal with PimpedType[ValidateTemplateRequest] {
 
   def templateBodyOpt: Option[String] = Option(underlying.getTemplateBody)
 

@@ -10,7 +10,7 @@ object TemplateParameterFactory {
 }
 
 class RichTemplateParameter(val underlying: TemplateParameter)
-  extends AnyVal with PimpedType[TemplateParameter] {
+    extends AnyVal with PimpedType[TemplateParameter] {
 
   def parameterKeyOpt: Option[String] = Option(underlying.getParameterKey)
 

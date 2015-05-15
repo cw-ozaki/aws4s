@@ -10,7 +10,7 @@ object DescribeStackResourceRequestFactory {
 }
 
 class RichDescribeStackResourceRequest(val underlying: DescribeStackResourceRequest)
-  extends AnyVal with PimpedType[DescribeStackResourceRequest] {
+    extends AnyVal with PimpedType[DescribeStackResourceRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

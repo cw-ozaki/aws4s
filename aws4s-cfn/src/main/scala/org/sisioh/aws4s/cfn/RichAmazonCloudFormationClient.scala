@@ -1,10 +1,10 @@
 package org.sisioh.aws4s.cfn
 
-import com.amazonaws.{ResponseMetadata, AmazonWebServiceRequest, ClientConfiguration}
-import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
+import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.cloudformation.AmazonCloudFormationClient
 import com.amazonaws.services.cloudformation.model._
+import com.amazonaws.{AmazonWebServiceRequest, ClientConfiguration, ResponseMetadata}
 import org.sisioh.aws4s.PimpedType
 
 import scala.util.Try

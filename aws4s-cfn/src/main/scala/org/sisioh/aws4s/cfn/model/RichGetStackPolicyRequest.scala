@@ -10,7 +10,7 @@ object GetStackPolicyRequestFactory {
 }
 
 class RichGetStackPolicyRequest(val underlying: GetStackPolicyRequest)
-  extends AnyVal with PimpedType[GetStackPolicyRequest] {
+    extends AnyVal with PimpedType[GetStackPolicyRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 

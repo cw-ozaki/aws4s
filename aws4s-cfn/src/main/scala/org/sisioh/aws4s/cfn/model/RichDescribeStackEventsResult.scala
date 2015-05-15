@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{DescribeStackEventsResult, StackEvent}
+import com.amazonaws.services.cloudformation.model.{ DescribeStackEventsResult, StackEvent }
 
 import scala.collection.JavaConverters._
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{GetTemplateSummaryResult, ParameterDeclaration}
+import com.amazonaws.services.cloudformation.model.{ GetTemplateSummaryResult, ParameterDeclaration }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object GetTemplateSummaryResultFactory {
 }
 
 class RichGetTemplateSummaryResult(val underlying: GetTemplateSummaryResult)
-  extends AnyVal with PimpedType[GetTemplateSummaryResult] {
+    extends AnyVal with PimpedType[GetTemplateSummaryResult] {
 
   def parameters: Seq[ParameterDeclaration] = underlying.getParameters.asScala.toVector
 

@@ -7,6 +7,8 @@ object CheckDNSAvailabilityRequestFactory {
 
   def create() = new CheckDNSAvailabilityRequest()
 
+  def create(cNAMEPrefix: String) = new CheckDNSAvailabilityRequest(cNAMEPrefix)
+
 }
 
 class RichCheckDNSAvailabilityRequest(val underlying: CheckDNSAvailabilityRequest)

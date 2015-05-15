@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.cfn.model
 
-import com.amazonaws.services.cloudformation.model.{EstimateTemplateCostRequest, Parameter}
+import com.amazonaws.services.cloudformation.model.{ EstimateTemplateCostRequest, Parameter }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
@@ -12,7 +12,7 @@ object EstimateTemplateCostRequestFactory {
 }
 
 class RichEstimateTemplateCostRequest(val underlying: EstimateTemplateCostRequest)
-  extends AnyVal with PimpedType[EstimateTemplateCostRequest] {
+    extends AnyVal with PimpedType[EstimateTemplateCostRequest] {
   def templateBodyOpt: Option[String] = Option(underlying.getTemplateBody)
 
   def templateBodyOpt_=(value: Option[String]): Unit =

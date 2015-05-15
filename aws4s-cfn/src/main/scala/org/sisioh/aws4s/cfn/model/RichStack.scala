@@ -10,11 +10,11 @@ import scala.collection.JavaConverters._
 object StackFactory {
 
   def create(): Stack = new Stack()
-  
+
 }
 
 class RichStack(val underlying: Stack)
-  extends AnyVal with PimpedType[Stack] {
+    extends AnyVal with PimpedType[Stack] {
 
   def stackIdOpt: Option[String] = Option(underlying.getStackId)
 

@@ -10,7 +10,7 @@ object GetTemplateSummaryRequestFactory {
 }
 
 class RichGetTemplateSummaryRequest(val underlying: GetTemplateSummaryRequest)
-  extends AnyVal with PimpedType[GetTemplateSummaryRequest] {
+    extends AnyVal with PimpedType[GetTemplateSummaryRequest] {
 
   def stackNameOpt: Option[String] = Option(underlying.getStackName)
 
