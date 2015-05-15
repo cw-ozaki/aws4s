@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{DeleteItemOutcome, Item}
+import com.amazonaws.services.dynamodbv2.document.{ DeleteItemOutcome, Item }
 import com.amazonaws.services.dynamodbv2.model.DeleteItemResult
 import org.sisioh.aws4s.PimpedType
 

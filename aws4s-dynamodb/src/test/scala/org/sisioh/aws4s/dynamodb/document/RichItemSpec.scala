@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{AttributeUpdate, Item}
+import com.amazonaws.services.dynamodbv2.document.{ AttributeUpdate, Item }
 import org.sisioh.aws4s.dynamodb.Implicits._
 import org.scalatest.FunSpec
 

@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.dynamodb.document
 
-import com.amazonaws.services.dynamodbv2.document.{PrimaryKey, TableKeysAndAttributes}
+import com.amazonaws.services.dynamodbv2.document.{ PrimaryKey, TableKeysAndAttributes }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
