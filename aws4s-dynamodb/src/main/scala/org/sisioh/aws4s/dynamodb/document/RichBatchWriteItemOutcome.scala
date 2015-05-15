@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.dynamodb.document
 
 import com.amazonaws.services.dynamodbv2.document.BatchWriteItemOutcome
-import com.amazonaws.services.dynamodbv2.model.{BatchWriteItemResult, WriteRequest}
+import com.amazonaws.services.dynamodbv2.model.{ BatchWriteItemResult, WriteRequest }
 import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._

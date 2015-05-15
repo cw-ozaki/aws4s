@@ -2,7 +2,7 @@ package org.sisioh.aws4s.dynamodb
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
 import com.amazonaws.services.dynamodbv2.document._
-import com.amazonaws.services.dynamodbv2.document.internal.{Filter, PageBasedCollection}
+import com.amazonaws.services.dynamodbv2.document.internal.{ Filter, PageBasedCollection }
 import com.amazonaws.services.dynamodbv2.model._
 import org.sisioh.aws4s.dynamodb.document._
 import org.sisioh.aws4s.dynamodb.model._
@@ -41,7 +41,7 @@ trait DocumentImplicits {
 
   implicit def richItemCollection[A](underlying: ItemCollection[A]): RichItemCollection[A] = new RichItemCollection(underlying)
 
-  implicit def richPage[A,B](underlying: Page[A,B]): RichPage[A, B] = new RichPage(underlying)
+  implicit def richPage[A, B](underlying: Page[A, B]): RichPage[A, B] = new RichPage(underlying)
 
   implicit def richPageBasedCollection[A, B](underlying: PageBasedCollection[A, B]): RichPageBasedCollection[A, B] = new RichPageBasedCollection(underlying)
 

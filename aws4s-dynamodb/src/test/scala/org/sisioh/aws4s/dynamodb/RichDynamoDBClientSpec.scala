@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.dynamodb
 
 import com.amazonaws.auth.BasicAWSCredentials
-import com.amazonaws.services.dynamodbv2.local.server.{DynamoDBProxyServer, LocalDynamoDBRequestHandler, LocalDynamoDBServerHandler}
+import com.amazonaws.services.dynamodbv2.local.server.{ DynamoDBProxyServer, LocalDynamoDBRequestHandler, LocalDynamoDBServerHandler }
 import com.amazonaws.services.dynamodbv2.model._
 import org.scalatest.FunSpec
 import org.sisioh.aws4s.dynamodb.Implicits._

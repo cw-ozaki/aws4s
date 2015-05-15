@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.dynamodb.document
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
-import com.amazonaws.services.dynamodbv2.document.{BatchGetItemOutcome, BatchWriteItemOutcome, DynamoDB, Table}
+import com.amazonaws.services.dynamodbv2.document.{ BatchGetItemOutcome, BatchWriteItemOutcome, DynamoDB, Table }
 import com.amazonaws.services.dynamodbv2.model._
 import org.sisioh.aws4s.PimpedType
 
