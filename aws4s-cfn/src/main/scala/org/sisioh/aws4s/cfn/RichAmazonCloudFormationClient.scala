@@ -1,11 +1,37 @@
 package org.sisioh.aws4s.cfn
 
+import com.amazonaws.{ResponseMetadata, AmazonWebServiceRequest, ClientConfiguration}
+import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
+import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.cloudformation.AmazonCloudFormationClient
 import com.amazonaws.services.cloudformation.model._
-import com.amazonaws.{AmazonWebServiceRequest, ResponseMetadata}
 import org.sisioh.aws4s.PimpedType
 
 import scala.util.Try
+
+object AmazonCfnClientFactory {
+
+  def create(): AmazonCloudFormationClient = new AmazonCloudFormationClient()
+
+  def create(clientConfiguration: ClientConfiguration): AmazonCloudFormationClient =
+    new AmazonCloudFormationClient(clientConfiguration)
+
+  def create(awsCredentials: AWSCredentials): AmazonCloudFormationClient =
+    new AmazonCloudFormationClient(awsCredentials)
+
+  def create(awsCredentials: AWSCredentials, clientConfiguration: ClientConfiguration): AmazonCloudFormationClient =
+    new AmazonCloudFormationClient(awsCredentials, clientConfiguration)
+
+  def create(awsCredentialsProvider: AWSCredentialsProvider): AmazonCloudFormationClient =
+    new AmazonCloudFormationClient(awsCredentialsProvider)
+
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration): AmazonCloudFormationClient =
+    new AmazonCloudFormationClient(awsCredentialsProvider, clientConfiguration)
+
+  def create(awsCredentialsProvider: AWSCredentialsProvider, clientConfiguration: ClientConfiguration, requestMetricCollector: RequestMetricCollector): AmazonCloudFormationClient =
+    new AmazonCloudFormationClient(awsCredentialsProvider, clientConfiguration, requestMetricCollector)
+
+}
 
 class RichAmazonCloudFormationClient(val underlying: AmazonCloudFormationClient)
   extends AnyVal with PimpedType[AmazonCloudFormationClient] {
