@@ -6,7 +6,7 @@ import org.sisioh.aws4s.cfn.model._
 
 object Implicits extends Implicits
 
-trait Implicits {
+trait Implicits extends ModelImplicits {
 
   implicit def richAmazonCloudFormationClient(underlying: AmazonCloudFormationClient): RichAmazonCloudFormationClient =
     new RichAmazonCloudFormationClient(underlying)
