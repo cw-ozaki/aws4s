@@ -1,10 +1,10 @@
 package org.sisioh.aws4s.cfn
 
-import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
+import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.cloudformation.AmazonCloudFormationClient
 import com.amazonaws.services.cloudformation.model._
-import com.amazonaws.{AmazonWebServiceRequest, ClientConfiguration, ResponseMetadata}
+import com.amazonaws.{ AmazonWebServiceRequest, ClientConfiguration, ResponseMetadata }
 import org.sisioh.aws4s.PimpedType
 
 import scala.util.Try
@@ -34,7 +34,7 @@ object AmazonCfnClientFactory {
 }
 
 class RichAmazonCloudFormationClient(val underlying: AmazonCloudFormationClient)
-  extends AnyVal with PimpedType[AmazonCloudFormationClient] {
+    extends AnyVal with PimpedType[AmazonCloudFormationClient] {
 
   def templateSummaryAsTry(): Try[GetTemplateSummaryResult] = Try {
     underlying.getTemplateSummary
