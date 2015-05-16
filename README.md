@@ -25,7 +25,7 @@ libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.5"
 ### Snapshot Version
 
 ```scala
-libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.5-SNAPSHOT"
+libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.6-SNAPSHOT"
 ```
 
 ## Usage
