@@ -20,10 +20,10 @@ object ApplicationBuild extends Build {
   )
 
   lazy val commonSettings = scalariformSettings ++ Seq(
+    sonatypeProfileName := "org.sisioh",
     organization := "org.sisioh",
-    version := "1.0.3-SNAPSHOT",
-    scalaVersion := "2.10.4",
-    crossScalaVersions := Seq("2.10.4", "2.11.6"),
+    scalaVersion := "2.10.5",
+    crossScalaVersions := Seq("2.10.5", "2.11.6"),
     scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-language:implicitConversions"),
     shellPrompt := {
       "sbt (%s)> " format projectId(_)
@@ -35,13 +35,6 @@ object ApplicationBuild extends Build {
     publishArtifact in Test := false,
     pomIncludeRepository := {
       _ => false
-    },
-    publishTo := {
-      val nexus = "https://oss.sonatype.org/"
-      if (version.value.trim.endsWith("SNAPSHOT"))
-        Some("snapshots" at nexus + "content/repositories/snapshots")
-      else
-        Some("releases" at nexus + "service/local/staging/deploy/maven2")
     },
     pomExtra := {
       <url>https://github.com/sisioh/aws4s</url>
