@@ -16,6 +16,14 @@ AWS4S is the AWS SDK wrapper for Scala.
 
 Add the following to your sbt build (Scala 2.10.x, and Scala 2.11.x):
 
+### Release Version
+
+```scala
+libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.4"
+```
+
+### Snapshot Version
+
 ```scala
 libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.5-SNAPSHOT"
 ```
