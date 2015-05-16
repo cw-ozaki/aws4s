@@ -2,6 +2,7 @@ import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import sbt.Keys._
 import sbt._
+import xerial.sbt.Sonatype.SonatypeKeys._
 
 import scalariform.formatter.preferences._
 
