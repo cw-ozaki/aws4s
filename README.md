@@ -11,3 +11,24 @@ AWS4S is the AWS SDK wrapper for Scala.
 - aws4s-sqs
 - aws4s-s3
 - aws4s-cfn
+
+## Installation
+
+Add the following to your sbt build (Scala 2.9.3, Scala 2.10.x, and Scala 2.11.x):
+
+```scala
+libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.3"
+```
+
+## Usage
+
+```scala
+val client = AmazonS3ClientFactory.create()
+
+val request = GetObjectRequestFactory.create("bucket", "key")
+
+client.getObjectAsTry(getObjectRequest).map{ result =>
+  result.objectMetadata.rawMetadata // as scala.collection.Map[String, AnyRef]
+}.foreach(println)
+
+```
