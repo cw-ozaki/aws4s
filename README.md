@@ -1,11 +1,12 @@
 aws4s
 =====
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sisioh/aws4s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/sisioh/aws4s.svg)](https://travis-ci.org/sisioh/aws4s)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.sisioh/aws4s_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.sisioh/aws4s_2.11)
 [![Scaladoc](http://javadoc-badge.appspot.com/org.sisioh/aws4s.svg?label=scaladoc)](http://javadoc-badge.appspot.com/org.sisioh/aws4s_2.11)
 [![Reference Status](https://www.versioneye.com/java/org.sisioh:aws4s_2.11/reference_badge.svg?style=flat)](https://www.versioneye.com/java/org.sisioh:aws4s_2.11/references)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sisioh/aws4s?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 AWS4S is the AWS SDK wrapper for Scala.
 
