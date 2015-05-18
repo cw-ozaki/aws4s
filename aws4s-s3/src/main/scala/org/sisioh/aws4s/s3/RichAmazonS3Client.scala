@@ -14,8 +14,6 @@ import scala.util.Try
 
 class RichAmazonS3Client(val underlying: AmazonS3Client) extends AnyVal with PimpedType[AmazonS3Client] {
 
-  def region: com.amazonaws.services.s3.model.Region = underlying.getRegion
-
   def listObjectsAsTry(bucketName: String): Try[ObjectListing] = Try {
     underlying.listObjects(bucketName)
   }
@@ -402,6 +400,18 @@ class RichAmazonS3Client(val underlying: AmazonS3Client) extends AnyVal with Pim
 
   def isRequesterPaysEnabledAsTry(bucketName: String): Try[Boolean] = Try {
     underlying.isRequesterPaysEnabled(bucketName)
+  }
+
+  def getResourceUrlAsTry(bucketName: String, key: String) = Try {
+    underlying.getResourceUrl(bucketName, key)
+  }
+
+  def getUrlAsTry(bucketName: String, key: String) = Try {
+    underlying.getUrl(bucketName, key)
+  }
+
+  def getRegionAsTry(): Try[com.amazonaws.services.s3.model.Region] = Try {
+    underlying.getRegion
   }
 
 }
