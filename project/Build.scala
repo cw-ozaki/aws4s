@@ -62,6 +62,10 @@ object ApplicationBuild extends Build {
             <url>http://ada-u.com/</url>
           </developer>
         </developers>
+    },
+    credentials := {
+      val ivyCredentials = (baseDirectory in LocalRootProject).value / ".credentials"
+      Credentials(ivyCredentials) :: Nil
     }
   )
 
