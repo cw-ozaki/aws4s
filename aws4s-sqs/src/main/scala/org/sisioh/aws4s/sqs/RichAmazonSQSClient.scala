@@ -71,6 +71,9 @@ class RichAmazonSQSClient(val underlying: AmazonSQSClient) extends AnyVal with P
   def deleteMessageBatchAsTry(queueUrl: String, entries: Seq[DeleteMessageBatchRequestEntry]): Try[DeleteMessageBatchResult] =
     Try(underlying.deleteMessageBatch(queueUrl, entries.asJava))
 
+  def deleteMessageBatchAsTry(deleteMessageBatchRequest : DeleteMessageBatchRequest): Try[DeleteMessageBatchResult] =
+    Try(underlying.deleteMessageBatch(deleteMessageBatchRequest))
+
   def createQueueAsTry(createQueueRequest: CreateQueueRequest): Try[CreateQueueResult] = Try(underlying.createQueue(createQueueRequest))
 
   def addPermissionAsTry(queueUrl: String, label: String, aWSAccountIds: Seq[String], actions: Seq[String]): Try[Unit] =
