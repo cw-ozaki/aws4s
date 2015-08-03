@@ -70,7 +70,7 @@ object ApplicationBuild extends Build {
   )
 
   lazy val root = Project(id = "aws4s", base = file(".")).settings(commonSettings: _*)
-    .aggregate(awsCore, awsDynamoDB, awsDynamoDBExt, awsS3, awsSQS, awsElasticBeanstalk, awsCloudFormation)
+    .aggregate(awsCore, awsDynamoDB, awsDynamoDBExt, awsS3, awsSQS, awsElasticBeanstalk, awsCloudFormation, awsSecurityTokenService)
 
   lazy val awsCore = Project(id = "aws4s-core", base = file("aws4s-core"))
     .settings(commonSettings: _*)
@@ -126,6 +126,13 @@ object ApplicationBuild extends Build {
     .settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
         "com.amazonaws" % "aws-java-sdk-cloudformation" % awsSdkVersion
+      )
+    )
+
+  lazy val awsSecurityTokenService = Project(id = "aws4s-sts", base = file("aws4s-sts"))
+    .settings(commonSettings: _*).dependsOn(awsCore).settings(
+      libraryDependencies ++= Seq(
+        "com.amazonaws" % "aws-java-sdk-sts" % awsSdkVersion
       )
     )
 
