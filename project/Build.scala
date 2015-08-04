@@ -8,7 +8,7 @@ import scalariform.formatter.preferences._
 
 object ApplicationBuild extends Build {
 
-  val awsSdkVersion = "1.9.22"
+  val awsSdkVersion = "1.9.40"
 
   lazy val scalariformSettings = SbtScalariform.scalariformSettings ++ Seq(
     ScalariformKeys.preferences :=
