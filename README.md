@@ -15,6 +15,7 @@ AWS4S is the AWS SDK wrapper for Scala.
 - aws4s-sqs
 - aws4s-s3
 - aws4s-cfn
+- aws4s-sts
 
 ## Installation
 
