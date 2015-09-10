@@ -70,7 +70,7 @@ object ApplicationBuild extends Build {
   )
 
   lazy val root = Project(id = "aws4s", base = file(".")).settings(commonSettings: _*)
-    .aggregate(awsCore, awsDynamoDB, awsDynamoDBExt, awsS3, awsSQS, awsElasticBeanstalk, awsCloudFormation, awsSecurityTokenService)
+    .aggregate(awsCore, awsDynamoDB, awsDynamoDBExt, awsS3, awsSQS, awsElasticBeanstalk, awsCloudFormation, awsSecurityTokenService, awsSimpleNotificationService)
 
   lazy val awsCore = Project(id = "aws4s-core", base = file("aws4s-core"))
     .settings(commonSettings: _*)
@@ -133,6 +133,13 @@ object ApplicationBuild extends Build {
     .settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(
         "com.amazonaws" % "aws-java-sdk-sts" % awsSdkVersion
+      )
+    )
+
+  lazy val awsSimpleNotificationService = Project(id = "aws4s-sns", base = file("aws4s-sns"))
+    .settings(commonSettings: _*).dependsOn(awsCore).settings(
+      libraryDependencies ++= Seq(
+        "com.amazonaws" % "aws-java-sdk-sns" % awsSdkVersion
       )
     )
 
