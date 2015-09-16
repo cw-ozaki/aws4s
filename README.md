@@ -34,7 +34,7 @@ libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.10"
 ```scala
 resolvers += "Sonatype OSS Snapshot Repository" at "https://oss.sonatype.org/content/repositories/snapshots/"
 
-libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.10-SNAPSHOT"
+libraryDependencies += "org.sisioh" %% "aws4s" % "1.0.11-SNAPSHOT"
 ```
 
 ## Usage
