@@ -120,6 +120,13 @@ object ApplicationBuild extends Build {
       ) ++ jettyDependencies
     )
 
+  lazy val awsEc2 = Project(id = "aws4s-ec2", base = file("aws4s-ec2"))
+    .settings(commonSettings: _*).dependsOn(awsCore).settings(
+      libraryDependencies ++= Seq(
+        "com.amazonaws" % "aws-java-sdk-ec2" % awsSdkVersion
+      )
+    )
+
   lazy val awsElasticBeanstalk = Project(id = "aws4s-eb", base = file("aws4s-eb"))
     .settings(commonSettings: _*).dependsOn(awsCore).settings(
       libraryDependencies ++= Seq(

@@ -42,5 +42,4 @@ class RichAssumeRoleWithSAMLRequest(val underlying: AssumeRoleWithSAMLRequest)
   def withDurationSeconds(durationSeconds: Option[Int]): AssumeRoleWithSAMLRequest =
     underlying.withDurationSeconds(durationSeconds.map(_.asInstanceOf[java.lang.Integer]).orNull)
 
-
 }

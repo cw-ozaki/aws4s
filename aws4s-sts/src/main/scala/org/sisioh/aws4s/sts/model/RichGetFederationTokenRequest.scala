@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.sts.model
 
-import com.amazonaws.services.securitytoken.model.{GetFederationTokenRequest, GetFederationTokenResult}
+import com.amazonaws.services.securitytoken.model.{ GetFederationTokenRequest, GetFederationTokenResult }
 import org.sisioh.aws4s.PimpedType
 
 object GetFederationTokenRequestFactory {
