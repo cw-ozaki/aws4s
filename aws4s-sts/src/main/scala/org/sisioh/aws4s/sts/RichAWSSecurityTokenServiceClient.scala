@@ -1,7 +1,7 @@
 package org.sisioh.aws4s.sts
 
 import com.amazonaws._
-import com.amazonaws.auth.{AWSCredentialsProvider, AWSCredentials}
+import com.amazonaws.auth.{ AWSCredentialsProvider, AWSCredentials }
 
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClient
@@ -65,6 +65,5 @@ class RichAWSSecurityTokenServiceClient(val underlying: AWSSecurityTokenServiceC
   def getCachedResponseMetadataAsTry(request: AmazonWebServiceRequest): Try[ResponseMetadata] = Try {
     underlying.getCachedResponseMetadata(request)
   }
-
 
 }

@@ -30,7 +30,7 @@ trait ModelImplicits {
 
   implicit def richRichFederatedUser(underlying: FederatedUser): RichFederatedUser = new RichFederatedUser(underlying)
 
-  implicit def richGetFederationTokenRequest(underlying: GetFederationTokenRequest): RichGetFederationTokenRequest= new RichGetFederationTokenRequest(underlying)
+  implicit def richGetFederationTokenRequest(underlying: GetFederationTokenRequest): RichGetFederationTokenRequest = new RichGetFederationTokenRequest(underlying)
 
   implicit def richGetFederationTokenResult(underlying: GetFederationTokenResult): RichGetFederationTokenResult = new RichGetFederationTokenResult(underlying)
 
