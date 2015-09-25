@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.sts.model
 
-import com.amazonaws.services.securitytoken.model.{FederatedUser, Credentials, GetFederationTokenResult, AssumeRoleWithSAMLResult}
+import com.amazonaws.services.securitytoken.model.{ FederatedUser, Credentials, GetFederationTokenResult, AssumeRoleWithSAMLResult }
 import org.sisioh.aws4s.PimpedType
 
 class RichGetFederationTokenResult(val underlying: GetFederationTokenResult)

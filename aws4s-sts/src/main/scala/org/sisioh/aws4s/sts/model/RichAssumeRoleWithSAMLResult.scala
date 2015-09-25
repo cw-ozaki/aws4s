@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.sts.model
 
-import com.amazonaws.services.securitytoken.model.{AssumedRoleUser, Credentials, AssumeRoleWithSAMLResult}
+import com.amazonaws.services.securitytoken.model.{ AssumedRoleUser, Credentials, AssumeRoleWithSAMLResult }
 import org.sisioh.aws4s.PimpedType
 
 class RichAssumeRoleWithSAMLResult(val underlying: AssumeRoleWithSAMLResult)
