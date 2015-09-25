@@ -1,10 +1,10 @@
 package org.sisioh.aws4s.ec2
 
-import com.amazonaws.auth.{AWSCredentials, AWSCredentialsProvider}
+import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
 import com.amazonaws.metrics.RequestMetricCollector
 import com.amazonaws.services.ec2.AmazonEC2Client
 import com.amazonaws.services.ec2.model._
-import com.amazonaws.{AmazonWebServiceRequest, ClientConfiguration}
+import com.amazonaws.{ AmazonWebServiceRequest, ClientConfiguration }
 import org.sisioh.aws4s.PimpedType
 
 import scala.util.Try
@@ -32,7 +32,7 @@ object AmazonEC2ClientFactory {
 }
 
 class RichAmazonEC2Client(val underlying: AmazonEC2Client)
-  extends AnyVal with PimpedType[AmazonEC2Client] {
+    extends AnyVal with PimpedType[AmazonEC2Client] {
 
   def rebootInstancesAsTry(rebootInstancesRequest: RebootInstancesRequest): Try[Unit] = Try {
     underlying.rebootInstances(rebootInstancesRequest)

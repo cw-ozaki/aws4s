@@ -1,6 +1,6 @@
 package org.sisioh.aws4s.ec2.model
 
-import com.amazonaws.services.ec2.model.{AvailabilityZone, DescribeAvailabilityZonesResult}
+import com.amazonaws.services.ec2.model.{ AvailabilityZone, DescribeAvailabilityZonesResult }
 
 import scala.collection.JavaConverters._
 

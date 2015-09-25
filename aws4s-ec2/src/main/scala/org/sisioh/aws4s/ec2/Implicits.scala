@@ -1,8 +1,8 @@
 package org.sisioh.aws4s.ec2
 
 import com.amazonaws.services.ec2.AmazonEC2Client
-import com.amazonaws.services.ec2.model.{DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult}
-import org.sisioh.aws4s.ec2.model.{RichDescribeAvailabilityZonesRequest, RichDescribeAvailabilityZonesResult}
+import com.amazonaws.services.ec2.model.{ DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult }
+import org.sisioh.aws4s.ec2.model.{ RichDescribeAvailabilityZonesRequest, RichDescribeAvailabilityZonesResult }
 
 object Implicits extends Implicits
 
