@@ -13,7 +13,7 @@ import scala.collection.JavaConverters._
 class RichDefaultRequest[A](val underlying: DefaultRequest[A])
     extends AnyVal with PimpedType[DefaultRequest[A]] {
 
-  def parameters: Map[String, String] = underlying.getParameters.asScala.toMap
+  def parameters: Map[String, Seq[String]] = underlying.getParameters.asScala.map { case (k, v) => (k, v.asScala) }.toMap
 
   def headers: Map[String, String] = underlying.getHeaders.asScala.toMap
 

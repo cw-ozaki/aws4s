@@ -54,17 +54,4 @@ class RichRule(val underlying: Rule) extends AnyVal with PimpedType[Rule] {
     underlying.setExpirationDate(value.orNull)
   }
 
-  def transitionOpt: Option[Transition] = Option(underlying.getTransition)
-
-  def transitionOpt_=(value: Option[Transition]): Unit = {
-    underlying.setTransition(value.orNull)
-  }
-
-  def nonCurrentVersionTransitionOpt: Option[NoncurrentVersionTransition] =
-    Option(underlying.getNoncurrentVersionTransition)
-
-  def nonCurrentVersionTransitionOpt_=(value: Option[NoncurrentVersionTransition]): Unit = {
-    underlying.setNoncurrentVersionTransition(value.orNull)
-  }
-
 }

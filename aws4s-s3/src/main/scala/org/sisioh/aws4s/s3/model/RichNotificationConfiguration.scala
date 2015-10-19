@@ -16,14 +16,4 @@ class RichNotificationConfiguration(val underlying: NotificationConfiguration)
   def withEvents(value: Set[String]): NotificationConfiguration =
     underlying.withEvents(value.asJava)
 
-  // ---
-
-  def objectPrefixes: Seq[String] = underlying.getObjectPrefixes.asScala.toVector
-
-  def objectPrefixes_=(value: Seq[String]): Unit =
-    underlying.setObjectPrefixes(value.asJava)
-
-  def withObjectPrefixes(value: Seq[String]): NotificationConfiguration =
-    underlying.withObjectPrefixes(value: _*)
-
 }

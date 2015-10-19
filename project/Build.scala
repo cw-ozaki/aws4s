@@ -8,7 +8,7 @@ import scalariform.formatter.preferences._
 
 object ApplicationBuild extends Build {
 
-  val awsSdkVersion = "1.9.40"
+  val awsSdkVersion = "1.10.27"
 
   lazy val scalariformSettings = SbtScalariform.scalariformSettings ++ Seq(
     ScalariformKeys.preferences :=
@@ -101,16 +101,41 @@ object ApplicationBuild extends Build {
     "org.scalatest" %% "scalatest" % "2.2.1" % "test",
     "org.antlr" % "antlr4-runtime" % "4.1" % "test",
     "commons-cli" % "commons-cli" % "1.2" % "test",
-    "com.fasterxml.jackson.core" % "jackson-core" % "2.1.1" % "test",
-    "com.fasterxml.jackson.core" % "jackson-annotations" % "2.1.1" % "test",
-    "com.fasterxml.jackson.core" % "jackson-databind" % "2.1.1" % "test",
-    "joda-time" % "joda-time" % "2.2" % "test",
-    "log4j" % "log4j" % "1.2.17" % "test",
+    "com.fasterxml.jackson.core" % "jackson-core" % "2.5.4" % "test",
+    "com.fasterxml.jackson.core" % "jackson-annotations" % "2.5.4" % "test",
+    "com.fasterxml.jackson.core" % "jackson-databind" % "2.5.4" % "test",
+    "joda-time" % "joda-time" % "2.3" % "test",
+    "org.apache.logging.log4j" % "log4j-api" % "2.1" % "test",
+    "org.apache.logging.log4j" % "log4j-core" % "2.1" % "test",
     "javax.servlet" % "javax.servlet-api" % "3.0.1" % "test",
     "org.eclipse.jetty.spdy" % "spdy-core" % "8.1.12.v20130726" % "test",
     "org.eclipse.jetty.spdy" % "spdy-jetty" % "8.1.12.v20130726" % "test",
     "org.eclipse.jetty.spdy" % "spdy-jetty-http" % "8.1.12.v20130726" % "test",
-    "org.eclipse.jetty" % "jetty-server" % "8.1.12.v20130726" % "test"
+    "org.eclipse.jetty" % "jetty-ajp" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-annotations" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-client" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-continuation" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-deploy" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-http" % "8.1.13.v20130916" % "test",
+    "org.eclipse.jetty" % "jetty-io" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-jmx" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-jndi" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-overlay-deployer" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-plus" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-policy" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-rewrite" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-security" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-server" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-servlet" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-servlets" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-start" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-util" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-webapp" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-websocket" % "8.1.12.v20130726" % "test",
+    "org.eclipse.jetty" % "jetty-xml" % "8.1.12.v20130726" % "test",
+    "commons-cli" % "commons-cli" % "1.2" % "test",
+    "org.apache.commons" % "commons-lang3" % "3.0" % "test"
+
   )
 
   lazy val awsDynamoDB = Project(id = "aws4s-dynamodb", base = file("aws4s-dynamodb"))
@@ -154,6 +179,13 @@ object ApplicationBuild extends Build {
         "com.amazonaws" % "aws-java-sdk-sns" % awsSdkVersion
       )
     )
+
+  lazy val awsElaticache = Project(id = "aws4s-elasticache", base = file("aws4s-elasticache"))
+    .settings(commonSettings: _*).dependsOn(awsCore).settings(
+    libraryDependencies ++= Seq(
+      "com.amazonaws" % "aws-java-sdk-elasticache" % awsSdkVersion
+    )
+  )
 
   def projectId(state: State) = extracted(state).currentProject.id
 

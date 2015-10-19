@@ -15,7 +15,8 @@ class RichDynamoDBClientSpec extends FunSpec {
     val dbPath = null
     val sharedDb = false
     val corsParams = null
-    new DynamoDBProxyServer(port, new LocalDynamoDBServerHandler(new LocalDynamoDBRequestHandler(0, inMemory, dbPath, sharedDb), corsParams))
+    val delayTransientStatuses = false
+    new DynamoDBProxyServer(port, new LocalDynamoDBServerHandler(new LocalDynamoDBRequestHandler(0, inMemory, dbPath, sharedDb, delayTransientStatuses), corsParams))
   }
 
   describe("RichDynamoDBClient") {

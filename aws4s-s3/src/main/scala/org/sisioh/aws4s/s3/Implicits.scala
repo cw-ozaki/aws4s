@@ -46,8 +46,6 @@ trait ModelImplicits {
 
   implicit def richCanonicalGrantee(underlying: CanonicalGrantee): RichCanonicalGrantee = new RichCanonicalGrantee(underlying)
 
-  implicit def richCloudFunctionConfiguration(underlying: CloudFunctionConfiguration): RichCloudFunctionConfiguration = new RichCloudFunctionConfiguration(underlying)
-
   implicit def richCompleteMultipartUploadRequest(underlying: CompleteMultipartUploadRequest): RichCompleteMultipartUploadRequest = new RichCompleteMultipartUploadRequest(underlying)
 
   implicit def richCompleteMultipartUploadResult(underlying: CompleteMultipartUploadResult): RichCompleteMultipartUploadResult = new RichCompleteMultipartUploadResult(underlying)
