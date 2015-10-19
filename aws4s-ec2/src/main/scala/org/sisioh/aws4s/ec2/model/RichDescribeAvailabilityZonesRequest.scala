@@ -1,6 +1,7 @@
 package org.sisioh.aws4s.ec2.model
 
-import com.amazonaws.services.ec2.model.{ Filter, DescribeAvailabilityZonesRequest }
+import com.amazonaws.services.ec2.model.{ DescribeAvailabilityZonesRequest, Filter }
+import org.sisioh.aws4s.PimpedType
 
 import scala.collection.JavaConverters._
 
@@ -10,7 +11,8 @@ object DescribeAvailabilityZonesRequestFactory {
 
 }
 
-class RichDescribeAvailabilityZonesRequest(val underlying: DescribeAvailabilityZonesRequest) {
+class RichDescribeAvailabilityZonesRequest(val underlying: DescribeAvailabilityZonesRequest)
+    extends AnyVal with PimpedType[DescribeAvailabilityZonesRequest] {
 
   def zoneNames: Seq[String] = underlying.getZoneNames.asScala.toVector
 

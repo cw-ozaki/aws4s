@@ -11,9 +11,6 @@ class RichAmazonWebServiceClient(val underlying: AmazonWebServiceClient)
   def region_=(value: Region): Unit =
     underlying.setRegion(value)
 
-  def region_=(value: Regions): Unit =
-    underlying.setRegion(value)
-
   def endpoint_=(value: String): Unit =
     underlying.setEndpoint(value)
 

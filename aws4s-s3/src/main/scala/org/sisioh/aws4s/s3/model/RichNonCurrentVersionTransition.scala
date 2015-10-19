@@ -20,7 +20,7 @@ class RichNonCurrentVersionTransition(val underlying: NoncurrentVersionTransitio
 
   // ---
 
-  def storageClassOpt: Option[StorageClass] = Option(underlying.getStorageClass)
+  def storageClassAsStringOpt: Option[String] = Option(underlying.getStorageClassAsString)
 
   def storageClassOpt_=(value: Option[StorageClass]): Unit =
     underlying.setStorageClass(value.orNull)

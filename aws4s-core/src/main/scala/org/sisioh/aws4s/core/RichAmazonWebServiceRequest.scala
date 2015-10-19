@@ -30,8 +30,9 @@ class RichAmazonWebServiceRequest(val underlying: AmazonWebServiceRequest)
 
   def customRequestHeadersOpt: Option[Map[String, String]] = Option(underlying.getCustomRequestHeaders).map(_.asScala.toMap)
 
-  def readLimit = underlying.getReadLimit
+  def customQueryParameters: Option[Map[String, Seq[String]]] = Option(underlying.getCustomQueryParameters)
+    .map(_.asScala.map { case (k, v) => (k, v.asScala) }.toMap)
 
-  def copyPrivateRequestParameters: Map[String, String] = underlying.copyPrivateRequestParameters().asScala.toMap
+  def readLimit = underlying.getReadLimit
 
 }
