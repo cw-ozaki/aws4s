@@ -1,10 +1,18 @@
 package org.sisioh.aws4s.sts
 
+import com.amazonaws.auth.STSAssumeRoleSessionCredentialsProvider
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClient
 import com.amazonaws.services.securitytoken.model._
+import org.sisioh.aws4s.sts.auth.RichSTSAssumeRoleSessionCredentialsProvider
 import org.sisioh.aws4s.sts.model._
 
 object Implicits extends Implicits
+
+trait AuthImplicits {
+
+  implicit def richSTSAssumeRoleSessionCredentialsProvider(underlying: STSAssumeRoleSessionCredentialsProvider): RichSTSAssumeRoleSessionCredentialsProvider = new RichSTSAssumeRoleSessionCredentialsProvider(underlying)
+
+}
 
 trait Implicits extends ModelImplicits {
 

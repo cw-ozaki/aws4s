@@ -1,9 +1,9 @@
 package org.sisioh.aws4s
 
 import com.amazonaws._
-import com.amazonaws.auth.{ AWSCredentials, AWSCredentialsProvider }
+import com.amazonaws.auth.{ AWSCredentialsProviderChain, AWSCredentials, AWSCredentialsProvider }
 import org.sisioh.aws4s.core._
-import org.sisioh.aws4s.core.auth.{ RichAWSCredentials, RichAWSCredentialsProvider }
+import org.sisioh.aws4s.core.auth.{ RichAWSCredentialsProviderChain, RichAWSCredentials, RichAWSCredentialsProvider }
 
 object Implicits extends Implicits
 
@@ -15,6 +15,7 @@ trait AuthImplicits {
 
   implicit def richAWSCredentialsProvider(underlying: AWSCredentialsProvider): RichAWSCredentialsProvider = new RichAWSCredentialsProvider(underlying)
 
+  implicit def richAWSCredentialsProviderChain(underlying: AWSCredentialsProviderChain): RichAWSCredentialsProviderChain = new RichAWSCredentialsProviderChain(underlying)
 }
 
 trait CoreImplicits {
